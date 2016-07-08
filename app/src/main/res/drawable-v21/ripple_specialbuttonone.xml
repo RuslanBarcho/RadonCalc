@@ -1,0 +1,13 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#CECECE">
+    <item android:id="@android:id/mask">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" >
+            <corners android:bottomRightRadius="10dp"
+                android:bottomLeftRadius="55dp"
+                android:topRightRadius="55dp"
+                android:topLeftRadius="55dp"/>
+            <solid android:color="#CECECE" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/my_round_button"/>
+</ripple>

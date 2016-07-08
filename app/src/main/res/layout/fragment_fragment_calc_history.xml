@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:background="#019587" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/tabLayout"
+        android:background="#e5e5e5" />
+
+    <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="DEL"
+        android:id="@+id/button22"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/my_round_button3"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:backgroundTint="#019587"
+        android:elevation="10dp"
+        android:textColor="#ffffff"
+        android:visibility="gone" />
+
+</RelativeLayout>
