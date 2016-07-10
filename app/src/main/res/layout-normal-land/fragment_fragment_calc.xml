@@ -35,13 +35,14 @@
                 android:textSize="40sp"
                 android:gravity="top|left|center"
                 android:textColor="#ffffff"
-                android:paddingStart="9dp"
+                android:paddingStart="16dp"
                 android:paddingEnd="9dp"
                 android:nestedScrollingEnabled="true"
                 android:maxLines="1"
                 android:layout_above="@+id/button16"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:text="2" />
         </HorizontalScrollView>
 
         <TextView
@@ -50,10 +51,10 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="RAD"
             android:id="@+id/textView4"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:onClick="OnClick"
             android:textStyle="bold"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginBottom="3dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
@@ -405,7 +406,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_below="@+id/linearLayout"
         android:layout_toRightOf="@+id/button17"
         android:layout_toEndOf="@+id/button17" />
@@ -426,7 +427,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_below="@+id/button24"
         android:layout_toRightOf="@+id/button17"
         android:layout_toEndOf="@+id/button17" />
@@ -447,7 +448,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_below="@+id/button25"
         android:layout_toRightOf="@+id/button18"
         android:layout_toEndOf="@+id/button18" />
@@ -467,7 +468,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="27dp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_alignTop="@+id/button26"
         android:layout_toRightOf="@+id/button26"
         android:layout_toEndOf="@+id/button26" />
@@ -487,7 +488,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="18sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_toRightOf="@+id/button23"
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentBottom="true"
@@ -509,7 +510,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_above="@+id/button26"
         android:layout_toRightOf="@+id/button26"
         android:layout_toEndOf="@+id/button26" />
@@ -530,7 +531,7 @@
         android:textAllCaps="false"
         android:text="π"
         android:textStyle="normal"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_above="@+id/button27"
         android:layout_alignLeft="@+id/button27"
         android:layout_alignStart="@+id/button27" />

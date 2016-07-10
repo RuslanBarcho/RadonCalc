@@ -416,7 +416,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textSize="20sp"
-        android:background="#636363" />
+        android:background="@drawable/ripple" />
 
     <Button
         android:layout_width="80dp"
@@ -434,7 +434,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_below="@+id/button24"
         android:layout_toRightOf="@+id/button3"
         android:layout_alignParentRight="true"
@@ -456,7 +456,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_below="@+id/button25"
         android:layout_toRightOf="@+id/button6"
         android:layout_alignParentRight="true"
@@ -481,7 +481,7 @@
         android:layout_alignRight="@+id/button11"
         android:layout_alignEnd="@+id/button11"
         android:textSize="27dp"
-        android:background="#636363" />
+        android:background="@drawable/ripple" />
 
     <Button
         android:layout_width="80dp"
@@ -502,7 +502,7 @@
         android:layout_alignParentEnd="true"
         android:textColor="#ffffff"
         android:textSize="18sp"
-        android:background="#636363" />
+        android:background="@drawable/ripple" />
 
     <Button
         android:layout_width="80dp"
@@ -519,7 +519,7 @@
         android:stateListAnimator="@null"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_below="@+id/button26"
         android:layout_toRightOf="@+id/button9"
         android:layout_alignParentRight="true"
@@ -541,7 +541,7 @@
         android:textAllCaps="false"
         android:text="π"
         android:textStyle="normal"
-        android:background="#636363"
+        android:background="@drawable/ripple"
         android:layout_below="@+id/button27"
         android:layout_alignLeft="@+id/button27"
         android:layout_alignStart="@+id/button27"

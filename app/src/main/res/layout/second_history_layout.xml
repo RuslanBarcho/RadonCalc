@@ -22,369 +22,431 @@
             android:textSize="25dp"
             android:visibility="visible" />
 
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView29"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/linearlayoutbkg"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/rounded_bkg_top_darker"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="3dp"
-            android:textColor="#ffffff"
-            android:visibility="gone" />
+            android:elevation="5dp"
+            android:id="@+id/cellone"
+            android:visibility="gone">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView29"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:textColor="#ce2b2b2b"
+                android:visibility="visible"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView30"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView31"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView32"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView33"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView30"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/linearlayoutbkg"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:visibility="gone" />
+            android:elevation="5dp"
+            android:id="@+id/celltwo"
+            android:visibility="gone">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView2"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:textColor="#ce2b2b2b"
+                android:visibility="visible"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView34"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView35"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView36"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView37"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/linearlayoutbkg"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView31"
-            android:visibility="gone" />
+            android:elevation="5dp"
+            android:id="@+id/cellthree"
+            android:visibility="gone">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView38"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:textColor="#ce2b2b2b"
+                android:visibility="visible"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView39"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView40"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView41"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView42"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/linearlayoutbkg"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView32"
-            android:visibility="gone" />
+            android:elevation="5dp"
+            android:id="@+id/cellfour"
+            android:visibility="gone">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView43"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:textColor="#ce2b2b2b"
+                android:visibility="visible"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView44"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView45"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView46"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView47"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/linearlayoutbkg"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/rounded_bkg_bot_gray"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView33"
-            android:visibility="gone" />
+            android:elevation="5dp"
+            android:id="@+id/cellfive"
+            android:visibility="gone">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView2"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_top_darker"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="3dp"
-            android:textColor="#ffffff"
-            android:visibility="gone" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView48"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:textColor="#ce2b2b2b"
+                android:visibility="visible"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView34"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:visibility="gone" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView49"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView35"
-            android:visibility="gone" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView50"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView36"
-            android:visibility="gone" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView51"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_bot_gray"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView37"
-            android:visibility="gone" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:paddingBottom="2dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:id="@+id/textView52"
+                android:visibility="visible"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:textSize="22dp" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView38"
-            android:layout_marginTop="14dp"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_top_darker"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="3dp"
-            android:textColor="#ffffff"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView39"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView40"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView41"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:layout_marginBottom="14dp"
-            android:background="@drawable/rounded_bkg_bot_gray"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView42"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView43"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_top_darker"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="3dp"
-            android:textColor="#ffffff"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView44"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView45"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView46"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginBottom="14dp"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_bot_gray"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView47"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView48"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_top_darker"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="3dp"
-            android:textColor="#ffffff"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView49"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView50"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_middle_lightblue"
-            android:paddingBottom="2dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView51"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:layout_marginLeft="9dp"
-            android:layout_marginRight="9dp"
-            android:background="@drawable/rounded_bkg_bot_gray"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:paddingTop="2dp"
-            android:id="@+id/textView52"
-            android:visibility="gone" />
     </LinearLayout>
 </ScrollView>

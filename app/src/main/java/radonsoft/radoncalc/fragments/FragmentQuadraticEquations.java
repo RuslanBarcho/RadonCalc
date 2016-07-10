@@ -1,12 +1,17 @@
 package radonsoft.radoncalc.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
@@ -147,26 +152,22 @@ public class FragmentQuadraticEquations extends Fragment{
             @Override
             public void onClick(View v) {
                 textviewone.setText("Discr");
-                textviewtwo.setText("Sqrt discr");
+                textviewtwo.setText("√Discr");
                 textviewthree.setText("X1");
                 textviewfour.setText("X2");
                 Testone = fieldone.getText().toString();
                 String Testtwo = fieldtwo.getText().toString();
                 String Testthree = fieldthree.getText().toString();
-                if (Testone.equals(""))
-                {
+                if (Testone.equals("")) {
                     toogle = 1;
                 }
-                if (Testone.equals("0"))
-                {
+                if (Testone.equals("0")) {
                     toogle = 1;
                 }
-                if (Testtwo.equals(""))
-                {
+                if (Testtwo.equals("")) {
                     toogle = 1;
                 }
-                if (Testthree.equals(""))
-                {
+                if (Testthree.equals("")) {
                     toogle = 1;
                 }
                 switch (toogle) {
@@ -181,36 +182,29 @@ public class FragmentQuadraticEquations extends Fragment{
                         four = new BigDecimal(4);
                         d = (b.multiply(b)).subtract((a.multiply(c)).multiply(four));
                         textviewone.setText("Discr = " + String.valueOf(d));
-                        if (d.signum() == -1)
-                        {
+                        if (d.signum() == -1) {
                             toogleDiscr = 1;
                         }
-                        if (d.signum() == 0)
-                        {
+                        if (d.signum() == 0) {
                             toogleDiscr = 2;
                         }
                         BigDecimal divTwo = new BigDecimal(2);
-                        switch (toogleDiscr)
-                        {
+                        switch (toogleDiscr) {
                             case 0:
                                 double discr = d.doubleValue();
                                 sqrtdouble = Math.sqrt(discr);
                                 sqrtd = new BigDecimal(sqrtdouble);
-                                if (sqrtd.floatValue() % 1 == 0)
-                                {
+                                if (sqrtd.floatValue() % 1 == 0) {
                                     int sqrtdint = sqrtd.intValue();
-                                    textviewtwo.setText("Sqrt discr = " + sqrtdint);
-                                }
-                                else
-                                {
+                                    textviewtwo.setText("√Discr = " + sqrtdint);
+                                } else {
                                     sqrtdfloat = sqrtd.setScale(5, BigDecimal.ROUND_HALF_EVEN);
-                                    textviewtwo.setText("Sqrt discr = " + sqrtdfloat);
+                                    textviewtwo.setText("√Discr = " + sqrtdfloat);
                                 }
                                 xOne = (((b.subtract(b)).subtract(b)).add(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_EVEN);
                                 xTwo = (((b.subtract(b)).subtract(b)).subtract(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_EVEN);
                                 textviewthree.setText("X1 = " + String.valueOf(xOne));
                                 textviewfour.setText("X2 = " + String.valueOf(xTwo));
-                                resultWindow.setVisibility(View.VISIBLE);
                                 textviewone.setVisibility(View.VISIBLE);
                                 textviewtwo.setVisibility(View.VISIBLE);
                                 textviewthree.setVisibility(View.VISIBLE);
@@ -221,7 +215,6 @@ public class FragmentQuadraticEquations extends Fragment{
                             case 1:
                                 ma.historyWriteToogle = 1;
                                 textviewtwo.setText("No solution");
-                                resultWindow.setVisibility(View.VISIBLE);
                                 textviewone.setVisibility(View.VISIBLE);
                                 textviewtwo.setVisibility(View.VISIBLE);
                                 textviewthree.setVisibility(View.GONE);
@@ -232,20 +225,16 @@ public class FragmentQuadraticEquations extends Fragment{
                                 discr = d.doubleValue();
                                 sqrtdouble = Math.sqrt(discr);
                                 sqrtd = new BigDecimal(sqrtdouble);
-                                if (sqrtd.floatValue() % 1 == 0)
-                                {
+                                if (sqrtd.floatValue() % 1 == 0) {
                                     int sqrtdint = sqrtd.intValue();
-                                    textviewtwo.setText("Sqrt discr = " + sqrtdint);
-                                }
-                                else
-                                {
+                                    textviewtwo.setText("√Discr = " + sqrtdint);
+                                } else {
                                     sqrtdfloat = sqrtd.setScale(5, BigDecimal.ROUND_HALF_EVEN);
-                                    textviewtwo.setText("Sqrt discr = " + sqrtdfloat);
+                                    textviewtwo.setText("√Discr = " + sqrtdfloat);
                                 }
                                 xOne = (((b.subtract(b)).subtract(b)).add(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_UP);
                                 textviewthree.setText("X = " + String.valueOf(xOne));
                                 textviewfour.setText("No second solution");
-                                resultWindow.setVisibility(View.VISIBLE);
                                 textviewone.setVisibility(View.VISIBLE);
                                 textviewtwo.setVisibility(View.VISIBLE);
                                 textviewthree.setVisibility(View.VISIBLE);
@@ -254,30 +243,41 @@ public class FragmentQuadraticEquations extends Fragment{
                                 ma.historyWriteToogle = 0;
                                 break;
                         }
+                        if (Build.VERSION.SDK_INT >= 21) {
+                            // get the center for the clipping circle
+                            int cx = 0;
+                            int cy = 0;
+
+                            // get the final radius for the clipping circle
+                            int finalRadius = Math.max(resultWindow.getWidth(), resultWindow.getHeight());
+
+                            // create the animator for this view (the start radius is zero)
+                            Animator anim =
+                                    ViewAnimationUtils.createCircularReveal(resultWindow, cx, cy, 0, finalRadius);
+
+                            // make the view visible and start the animation
+                            resultWindow.setVisibility(View.VISIBLE);
+                            anim.start();
+                        } else {
+                            resultWindow.setVisibility(View.VISIBLE);
+                        }
                         break;
                 }
                 toogle = 0;
                 toogleDiscr = 0;
-                switch (historyWriteLocal)
-                {
+                switch (historyWriteLocal) {
                     case 1:
                         // for history
                         ma.pageTwoCounter = ma.pageTwoCounter + 1;
                         historyA = a.toString();
-                        if (b.signum() == -1)
-                        {
+                        if (b.signum() == -1) {
                             historyB = "-" + b.toString();
-                        }
-                        else
-                        {
+                        } else {
                             historyB = "+" + b.toString();
                         }
-                        if (c.signum() == -1)
-                        {
+                        if (c.signum() == -1) {
                             historyC = "-" + c.toString();
-                        }
-                        else
-                        {
+                        } else {
                             historyC = "+" + c.toString();
                         }
                         historyDiscr = textviewone.getText().toString();
@@ -285,12 +285,10 @@ public class FragmentQuadraticEquations extends Fragment{
                         historyXone = textviewthree.getText().toString();
                         historyXtwo = textviewfour.getText().toString();
                         historyTitle = historyA + "X^2" + historyB + "X" + historyC;
-                        if (ma.historyWriteToogle == 1)
-                        {
+                        if (ma.historyWriteToogle == 1) {
                             historyXtwo = "No Solution";
                         }
-                        switch (ma.pageTwoCounter)
-                        {
+                        switch (ma.pageTwoCounter) {
                             case 0:
 
                                 break;
@@ -348,20 +346,46 @@ public class FragmentQuadraticEquations extends Fragment{
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textviewone.setText("Discr");
-                textviewtwo.setText("Sqrt discr");
-                textviewthree.setText("X1");
-                textviewfour.setText("X2");
+                Snackbar.make(mRootView, getString(R.string.snackbar_text_deleted), Snackbar.LENGTH_SHORT).show();
                 fieldone.setText("");
                 fieldtwo.setText("");
                 fieldthree.setText("");
                 historyWriteLocal = 0;
-                resultWindow.setVisibility(View.GONE);
+                ma.show = 0;
+                if (Build.VERSION.SDK_INT >= 21) {
+                    // get the center for the clipping circle
+                    int cx = 0;
+                    int cy = 0;
+
+                    // get the initial radius for the clipping circle
+                    int initialRadius = resultWindow.getWidth();
+
+                    // create the animation (the final radius is zero)
+                    Animator animone =
+                            ViewAnimationUtils.createCircularReveal(resultWindow, cx, cy, initialRadius, 0);
+
+                    // make the view invisible when the animation is done
+                    animone.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            resultWindow.setVisibility(View.GONE);
+                        }
+                    });
+                    // start the animation
+                    animone.start();
+                }
+                else {
+                    resultWindow.setVisibility(View.GONE);
+                }
                 textviewone.setVisibility(View.GONE);
                 textviewtwo.setVisibility(View.GONE);
                 textviewthree.setVisibility(View.GONE);
                 textviewfour.setVisibility(View.GONE);
-                ma.show = 0;
+                textviewone.setText("Discr");
+                textviewtwo.setText("Sqrt discr");
+                textviewthree.setText("X1");
+                textviewfour.setText("X2");
             }
         });
         return mRootView;

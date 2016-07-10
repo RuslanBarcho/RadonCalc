@@ -5,7 +5,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_clear_history">Clear</string>
+
+    <string name="snackbar_text_deleted">Deleted</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Calculator fragment</string>
+
 </resources>

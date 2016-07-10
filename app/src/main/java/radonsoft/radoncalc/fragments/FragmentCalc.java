@@ -45,15 +45,15 @@ public class FragmentCalc extends Fragment {
     String Proverka;
     String historyBody;
     String historyname;
-    double signchanged;
     String saveTextViewValue = "";
     String saveAddictionTextViewValue = "";
     String Equalone;
     String EqualTwo;
     String historyResult;
-    BigDecimal specialGap;
-    int gapUsage;
+    String texxx;
 
+    TextView textView;
+    TextView texxtView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,8 +84,8 @@ public class FragmentCalc extends Fragment {
         tanButton = (Button) mRootView.findViewById(R.id.button26);
         percentButton = (Button) mRootView.findViewById(R.id.button27);
         piButton = (Button) mRootView.findViewById(R.id.button28);
-        final TextView textView = (TextView) mRootView.findViewById(R.id.textView);
-        final TextView texxtView = (TextView) mRootView.findViewById(R.id.textView3);
+        textView = (TextView) mRootView.findViewById(R.id.textView);
+        texxtView = (TextView) mRootView.findViewById(R.id.textView3);
         final TextView radDeg = (TextView) mRootView.findViewById(R.id.textView4);
         mButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
         vButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
@@ -318,15 +318,7 @@ public class FragmentCalc extends Fragment {
                         signchangeallow = 1;
                             break;
                         case 1:
-                        texxx = String.valueOf(texxtView.getText());
-                        OperateB =  new BigDecimal(String.valueOf(texxx));
-                        texxtView.setText("");
-                        Result =  OperateA.add(OperateB);
-                        textView.setText(String.valueOf(Result));
-                        texxtView.setText(String.valueOf(Result));
-                        Tumbler = 0;
-                        TumblerTochka = 0;
-                            signchangeallow = 0;
+                        addiction();
                             break;
                     }
                 }
@@ -356,15 +348,7 @@ public class FragmentCalc extends Fragment {
                             signchangeallow = 1;
                             break;
                         case 2:
-                        texxx = String.valueOf(texxtView.getText());
-                        OperateB =  new BigDecimal(String.valueOf(texxx));
-                        texxtView.setText("");
-                            Result = OperateA.subtract(OperateB);
-                        textView.setText(String.valueOf(Result));
-                        texxtView.setText(String.valueOf(Result));
-                        Tumbler = 0;
-                        TumblerTochka = 0;
-                            signchangeallow = 0;
+                            subtraction();
                             break;
                     }
                 }
@@ -394,15 +378,7 @@ public class FragmentCalc extends Fragment {
                             signchangeallow = 1;
                             break;
                         case 3:
-                        texxx = String.valueOf(texxtView.getText());
-                        OperateB =  new BigDecimal(String.valueOf(texxx));
-                        texxtView.setText("");
-                            Result = OperateA.multiply(OperateB);
-                        textView.setText(String.valueOf(Result));
-                        texxtView.setText(String.valueOf(Result));
-                        Tumbler = 0;
-                        TumblerTochka = 0;
-                            signchangeallow = 0;
+                        multiplication();
                             break;
                     }
                 }
@@ -522,81 +498,13 @@ public class FragmentCalc extends Fragment {
 
                             break;
                         case 1:
-                            String texxx = String.valueOf(texxtView.getText());
-                            OperateB = new BigDecimal(String.valueOf(texxx));
-                            // For History
-                            historyBody = textView.getText().toString();
-                            historyname = "Addition";
-                            ma.pageOneCounter = ma.pageOneCounter + 1;
-                            //For History End
-                            texxtView.setText("");
-                            Result = OperateA.add(OperateB);
-                            Equal = Result;
-                            Equal.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-                            if (Result.equals(Equal)) {
-                                //целое
-                                TumblerTochka = 0;
-                            } else {
-                                TumblerTochka = 1;
-                            }
-                            historyResult = Result.toString();
-                            textView.setText(Result.toString());
-                            texxtView.setText(Result.toString());
-                            Tumbler = 0;
-                            signchangeallow = 0;
+                            addiction();
                             break;
                         case 2:
-                            texxx = String.valueOf(texxtView.getText());
-                            OperateB = new BigDecimal(String.valueOf(texxx));
-                            // For History
-                            historyBody = textView.getText().toString();
-                            historyname = "Subtraction";
-                            ma.pageOneCounter = ma.pageOneCounter + 1;
-                            //For History End
-                            texxtView.setText("");
-                            Result = OperateA.subtract(OperateB);
-                            Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-                            Equalone = Result.toString();
-                            EqualTwo = Equal.toString();
-                            if (Equalone.equals(EqualTwo)) {
-                                //целое
-                                TumblerTochka = 0;
-                            } else {
-                                TumblerTochka = 1;
-                            }
-                            historyResult = Result.toString();
-                            textView.setText(Result.toString());
-                            texxtView.setText(Result.toString());
-                            Tumbler = 0;
-                            signchangeallow = 0;
+                            subtraction();
                             break;
                         case 3:
-                            texxx = String.valueOf(texxtView.getText());
-                            OperateB = new BigDecimal(String.valueOf(texxx));
-                            // For History
-                            historyBody = textView.getText().toString();
-                            historyname = "Multiplication";
-                            ma.pageOneCounter = ma.pageOneCounter + 1;
-                            //For History End
-                            texxtView.setText("");
-                            Result = OperateA.multiply(OperateB);
-                            Equal = Result;
-                            Equal.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-                            if (Result.equals(Equal)) {
-                                //целое
-                                textView.setText(String.valueOf(Ressult));
-                                texxtView.setText(String.valueOf(Ressult));
-                                TumblerTochka = 0;
-                            } else {
-                                textView.setText(String.valueOf(Result));
-                                texxtView.setText(String.valueOf(Result));
-                                TumblerTochka = 1;
-                            }
-                            historyResult = Result.toString();
-                            textView.setText(Result.toString());
-                            texxtView.setText(Result.toString());
-                            Tumbler = 0;
-                            signchangeallow = 0;
+                            multiplication();
                             break;
                         case 4:
                             texxx = String.valueOf(texxtView.getText());
@@ -774,7 +682,86 @@ public class FragmentCalc extends Fragment {
                 saveAddictionTextViewValue = saveTextViewValue;
             }
         });
-
         return mRootView;
+    }
+
+    public void addiction(){
+        String texxx = String.valueOf(texxtView.getText());
+        OperateB = new BigDecimal(String.valueOf(texxx));
+        // For History
+        historyBody = textView.getText().toString();
+        historyname = "Addition";
+        ma.pageOneCounter = ma.pageOneCounter + 1;
+        //For History End
+        texxtView.setText("");
+        Result = OperateA.add(OperateB);
+        Equal = Result;
+        Equal.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        if (Result.equals(Equal)) {
+            //целое
+            TumblerTochka = 0;
+        } else {
+            TumblerTochka = 1;
+        }
+        historyResult = Result.toString();
+        textView.setText(Result.toString());
+        texxtView.setText(Result.toString());
+        Tumbler = 0;
+        signchangeallow = 0;
+    }
+
+    public void subtraction(){
+        texxx = String.valueOf(texxtView.getText());
+        OperateB = new BigDecimal(String.valueOf(texxx));
+        // For History
+        historyBody = textView.getText().toString();
+        historyname = "Subtraction";
+        ma.pageOneCounter = ma.pageOneCounter + 1;
+        //For History End
+        texxtView.setText("");
+        Result = OperateA.subtract(OperateB);
+        Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        Equalone = Result.toString();
+        EqualTwo = Equal.toString();
+        if (Equalone.equals(EqualTwo)) {
+            //целое
+            TumblerTochka = 0;
+        } else {
+            TumblerTochka = 1;
+        }
+        historyResult = Result.toString();
+        textView.setText(Result.toString());
+        texxtView.setText(Result.toString());
+        Tumbler = 0;
+        signchangeallow = 0;
+    }
+
+    public void multiplication(){
+        texxx = String.valueOf(texxtView.getText());
+        OperateB = new BigDecimal(String.valueOf(texxx));
+        // For History
+        historyBody = textView.getText().toString();
+        historyname = "Multiplication";
+        ma.pageOneCounter = ma.pageOneCounter + 1;
+        //For History End
+        texxtView.setText("");
+        Result = OperateA.multiply(OperateB);
+        Equal = Result;
+        Equal.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        if (Result.equals(Equal)) {
+            //целое
+            textView.setText(String.valueOf(Ressult));
+            texxtView.setText(String.valueOf(Ressult));
+            TumblerTochka = 0;
+        } else {
+            textView.setText(String.valueOf(Result));
+            texxtView.setText(String.valueOf(Result));
+            TumblerTochka = 1;
+        }
+        historyResult = Result.toString();
+        textView.setText(Result.toString());
+        texxtView.setText(Result.toString());
+        Tumbler = 0;
+        signchangeallow = 0;
     }
 }

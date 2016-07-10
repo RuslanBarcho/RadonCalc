@@ -2,13 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_remove"
-        android:icon="@drawable/rubbish"
-        android:title="test"
+        android:id="@+id/action_clear_history"
+        android:icon="@drawable/ic_delete_white_24dp"
+        android:title="@string/action_clear_history"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="About"
-        app:showAsAction="never" />
+
 </menu>
