@@ -358,7 +358,7 @@ public class FragmentQuadraticEquations extends Fragment{
                     int cy = 0;
 
                     // get the initial radius for the clipping circle
-                    int initialRadius = resultWindow.getWidth();
+                    int initialRadius = Math.max(resultWindow.getWidth(), resultWindow.getHeight());
 
                     // create the animation (the final radius is zero)
                     Animator animone =
@@ -378,10 +378,7 @@ public class FragmentQuadraticEquations extends Fragment{
                 else {
                     resultWindow.setVisibility(View.GONE);
                 }
-                textviewone.setVisibility(View.GONE);
-                textviewtwo.setVisibility(View.GONE);
-                textviewthree.setVisibility(View.GONE);
-                textviewfour.setVisibility(View.GONE);
+
                 textviewone.setText("Discr");
                 textviewtwo.setText("Sqrt discr");
                 textviewthree.setText("X1");
