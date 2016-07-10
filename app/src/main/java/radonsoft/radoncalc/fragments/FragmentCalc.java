@@ -38,6 +38,7 @@ public class FragmentCalc extends Fragment {
     Integer Tumbler = 0;
     Integer TumblerTochka = 0;
     Integer signchangeallow = 0;
+    Integer signpower = 0;
     BigDecimal OperateA;
     BigDecimal OperateB;
     BigDecimal Result, signchange, Equal;
@@ -70,6 +71,7 @@ public class FragmentCalc extends Fragment {
         gButton = (Button) mRootView.findViewById(R.id.button8);
         jButton = (Button) mRootView.findViewById(R.id.button9);
         hButton = (Button) mRootView.findViewById(R.id.button12);
+
         powButton = (Button) mRootView.findViewById(R.id.button19);
         TochkaButton = (Button) mRootView.findViewById(R.id.button10);
         MinusButton = (Button) mRootView.findViewById(R.id.button15);
@@ -87,25 +89,27 @@ public class FragmentCalc extends Fragment {
         textView = (TextView) mRootView.findViewById(R.id.textView);
         texxtView = (TextView) mRootView.findViewById(R.id.textView3);
         final TextView radDeg = (TextView) mRootView.findViewById(R.id.textView4);
-        mButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        vButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        bButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        cButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        dButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        eButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        fButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        gButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        jButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        hButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        TochkaButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        RavnoButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        signButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        sbrosButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        sinusButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        cosButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        tanButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        percentButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
-        piButton.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
+
+        setFont(mButton, "robotolight.ttf");
+        setFont(vButton, "robotolight.ttf");
+        setFont(bButton, "robotolight.ttf");
+        setFont(cButton, "robotolight.ttf");
+        setFont(dButton, "robotolight.ttf");
+        setFont(eButton, "robotolight.ttf");
+        setFont(fButton, "robotolight.ttf");
+        setFont(gButton, "robotolight.ttf");
+        setFont(jButton, "robotolight.ttf");
+        setFont(hButton, "robotolight.ttf");
+        setFont(TochkaButton, "robotolight.ttf");
+        setFont(RavnoButton, "robotolight.ttf");
+        setFont(signButton, "robotolight.ttf");
+        setFont(sbrosButton, "robotolight.ttf");
+        setFont(sinusButton, "robotolight.ttf");
+        setFont(cosButton, "robotolight.ttf");
+        setFont(tanButton, "robotolight.ttf");
+        setFont(percentButton, "robotolight.ttf");
+        setFont(piButton, "robotolight.ttf");
+
         textView.setText(saveTextViewValue);
         texxtView.setText(saveAddictionTextViewValue);
         ma.pages = 0;
@@ -127,8 +131,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "1");
                 texxtView.setText(texxx + "1");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         vButton.setOnClickListener(new View.OnClickListener() {
@@ -138,8 +141,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "2");
                 texxtView.setText(texxx + "2");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         bButton.setOnClickListener(new View.OnClickListener() {
@@ -149,8 +151,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "3");
                 texxtView.setText(texxx + "3");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         cButton.setOnClickListener(new View.OnClickListener() {
@@ -160,8 +161,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "4");
                 texxtView.setText(texxx + "4");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         dButton.setOnClickListener(new View.OnClickListener() {
@@ -171,8 +171,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "5");
                 texxtView.setText(texxx + "5");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         fButton.setOnClickListener(new View.OnClickListener() {
@@ -182,8 +181,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "6");
                 texxtView.setText(texxx + "6");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         eButton.setOnClickListener(new View.OnClickListener() {
@@ -193,8 +191,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "7");
                 texxtView.setText(texxx + "7");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         gButton.setOnClickListener(new View.OnClickListener() {
@@ -204,8 +201,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "8");
                 texxtView.setText(texxx + "8");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         jButton.setOnClickListener(new View.OnClickListener() {
@@ -215,8 +211,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "9");
                 texxtView.setText(texxx + "9");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         hButton.setOnClickListener(new View.OnClickListener() {
@@ -226,8 +221,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "0");
                 texxtView.setText(texxx + "0");
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         TochkaButton.setOnClickListener(new View.OnClickListener() {
@@ -256,8 +250,7 @@ public class FragmentCalc extends Fragment {
 
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         sbrosButton.setOnClickListener(new View.OnClickListener() {
@@ -292,8 +285,7 @@ public class FragmentCalc extends Fragment {
                             textView.setText(String.valueOf(signchange));
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         PlusButton.setOnClickListener(new View.OnClickListener() {
@@ -322,8 +314,7 @@ public class FragmentCalc extends Fragment {
                             break;
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         MinusButton.setOnClickListener(new View.OnClickListener() {
@@ -352,8 +343,7 @@ public class FragmentCalc extends Fragment {
                             break;
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         MultiplyButton.setOnClickListener(new View.OnClickListener() {
@@ -382,8 +372,7 @@ public class FragmentCalc extends Fragment {
                             break;
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         DivButton.setOnClickListener(new View.OnClickListener() {
@@ -408,37 +397,11 @@ public class FragmentCalc extends Fragment {
                             signchangeallow = 1;
                             break;
                         case 4:
-                            texxx = String.valueOf(texxtView.getText());
-                        OperateB = new BigDecimal(String.valueOf(texxx));
-                        texxtView.setText("");
-                        Result = OperateA.divide(OperateB, 30, BigDecimal.ROUND_HALF_EVEN);
-                        if (Result.floatValue() % 1 == 0) {
-                            //целое
-                            Ressult = Result.intValue();
-                            textView.setText(String.valueOf(Ressult));
-                            texxtView.setText(String.valueOf(Ressult));
-                            TumblerTochka = 0;
-                        } else {
-                            textView.setText(String.valueOf(Result));
-                            texxtView.setText(String.valueOf(Result));
-                            String text = String.valueOf(texxtView.getText());
-                            if (text.charAt(text.length() - 1) == '0') {
-                                do {
-                                    texxtView.setText(text.substring(0, text.length() - 1));
-                                    text = String.valueOf(texxtView.getText());
-                                }
-                                while (text.charAt(text.length()-1) == '0');
-                                textView.setText(text);
-                            }
-                            TumblerTochka = 1;
-                        }
-                        Tumbler = 0;
-                            signchangeallow = 0;
+                        division();
                             break;
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
 
@@ -464,21 +427,11 @@ public class FragmentCalc extends Fragment {
                             signchangeallow = 1;
                             break;
                         case 5:
-                            texxx = String.valueOf(texxtView.getText());
-                            OperateB =  new BigDecimal(String.valueOf(texxx));
-                            Integer OperateBPow = OperateB.intValue();
-                            texxtView.setText("");
-                            Result =  OperateA.pow(OperateBPow);
-                            textView.setText(String.valueOf(Result));
-                            texxtView.setText(String.valueOf(Result));
-                            Tumbler = 0;
-                            TumblerTochka = 0;
-                            signchangeallow = 0;
+                            exponentiate();
                             break;
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = texxtView.getText().toString();
+                saveFragmentValues();
             }
         });
         RavnoButton.setOnClickListener(new View.OnClickListener() {
@@ -507,99 +460,10 @@ public class FragmentCalc extends Fragment {
                             multiplication();
                             break;
                         case 4:
-                            texxx = String.valueOf(texxtView.getText());
-                            OperateB = new BigDecimal(String.valueOf(texxx));
-                            // For History
-                            historyBody = textView.getText().toString();
-                            historyname = "Division";
-                            ma.pageOneCounter = ma.pageOneCounter + 1;
-                            //For History End
-                            texxtView.setText("");
-                            Result = OperateA.divide(OperateB, 25, BigDecimal.ROUND_CEILING);
-                            Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-                            if (Result.equals(Equal)) {
-                                //целое
-                                textView.setText(Result.toString());
-                                texxtView.setText(Result.toString());
-                                TumblerTochka = 0;
-                            } else {
-                                textView.setText(Result.toString());
-                                texxtView.setText(Result.toString());
-                                String text = String.valueOf(texxtView.getText());
-                                if (text.charAt(text.length() - 1) == '0') {
-                                    do {
-                                        texxtView.setText(text.substring(0, text.length() - 1));
-                                        text = String.valueOf(texxtView.getText());
-                                    }
-                                    while (text.charAt(text.length() - 1) == '0');
-                                    if (text.charAt(text.length() - 1) == '.') {
-                                            texxtView.setText(text.substring(0, text.length() - 1));
-                                            text = String.valueOf(texxtView.getText());
-                                        }
-                                    textView.setText(text);
-                                }
-                                TumblerTochka = 1;
-                            }
-                            String forDivisionHistory = textView.getText().toString();
-                            Result = new BigDecimal(String.valueOf(forDivisionHistory));
-                            historyResult = Result.toString();
-                            Tumbler = 0;
-                            signchangeallow = 0;
+                            division();
                             break;
                         case 5:
-                            texxx = String.valueOf(texxtView.getText());
-                            Integer signpower = 0;
-                            OperateB = new BigDecimal(String.valueOf(texxx));
-                            Equal = OperateB.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-                            // For History
-                            historyBody = textView.getText().toString();
-                            historyname = "Exponentiation";
-                            ma.pageOneCounter = ma.pageOneCounter + 1;
-                            //For History End
-                            // Test operate B on parity
-                            BigDecimal OperateBParityTwo = new BigDecimal(2);
-                            BigDecimal OperateBParityOne = OperateB.divide(OperateBParityTwo);
-                            BigDecimal OperateBParityThree = OperateBParityOne.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-                            // End testing
-                            //Test OperateA on sign
-                            if (OperateA.signum() == -1)
-                            {
-                                BigDecimal minusone = new BigDecimal(-1);
-                                OperateA = OperateA.multiply(minusone);
-                                if (OperateBParityOne.equals(OperateBParityThree))
-                                {
-                                    signpower = 0;
-                                }
-                                else
-                                {
-                                    signpower = 1;
-                                }
-                            }
-                            if (OperateB.equals(Equal))
-                            {
-                                Integer OperateBPow = OperateB.intValue();
-                                texxtView.setText("");
-                                Result = OperateA.pow(OperateBPow);
-                            }
-                            else
-                            {
-                                double OperateApow = OperateA.doubleValue();
-                                double OperateBpow = OperateB.doubleValue();
-                                double resultPow = Math.pow(OperateApow, OperateBpow);
-                                Result = new BigDecimal(resultPow);
-                            }
-                            if (signpower == 1)
-                            {
-                                BigDecimal minusone = new BigDecimal(-1);
-                                Result = Result.multiply(minusone);
-                            }
-                            textView.setText(String.valueOf(Result));
-                            texxtView.setText(String.valueOf(Result));
-                            historyResult = Result.toString();
-                            Tumbler = 0;
-                            TumblerTochka = 0;
-                            signchangeallow = 0;
-                            signpower = 0;
+                            exponentiate();
                             break;
                     }
                     textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -678,11 +542,18 @@ public class FragmentCalc extends Fragment {
                             break;
                     }
                 }
-                saveTextViewValue = textView.getText().toString();
-                saveAddictionTextViewValue = saveTextViewValue;
+                saveFragmentValues();
             }
         });
         return mRootView;
+    }
+    public void setFont(Button toChange, String style){
+        toChange.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,style));
+    }
+
+    public void saveFragmentValues(){
+        saveTextViewValue = textView.getText().toString();
+        saveAddictionTextViewValue = texxtView.getText().toString();
     }
 
     public void addiction(){
@@ -763,5 +634,102 @@ public class FragmentCalc extends Fragment {
         texxtView.setText(Result.toString());
         Tumbler = 0;
         signchangeallow = 0;
+    }
+
+    public void division(){
+        texxx = String.valueOf(texxtView.getText());
+        OperateB = new BigDecimal(String.valueOf(texxx));
+        // For History
+        historyBody = textView.getText().toString();
+        historyname = "Division";
+        ma.pageOneCounter = ma.pageOneCounter + 1;
+        //For History End
+        texxtView.setText("");
+        Result = OperateA.divide(OperateB, 25, BigDecimal.ROUND_CEILING);
+        Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        if (Result.equals(Equal)) {
+            //целое
+            textView.setText(Result.toString());
+            texxtView.setText(Result.toString());
+            TumblerTochka = 0;
+        } else {
+            textView.setText(Result.toString());
+            texxtView.setText(Result.toString());
+            String text = String.valueOf(texxtView.getText());
+            if (text.charAt(text.length() - 1) == '0') {
+                do {
+                    texxtView.setText(text.substring(0, text.length() - 1));
+                    text = String.valueOf(texxtView.getText());
+                }
+                while (text.charAt(text.length() - 1) == '0');
+                if (text.charAt(text.length() - 1) == '.') {
+                    texxtView.setText(text.substring(0, text.length() - 1));
+                    text = String.valueOf(texxtView.getText());
+                }
+                textView.setText(text);
+            }
+            TumblerTochka = 1;
+        }
+        String forDivisionHistory = textView.getText().toString();
+        Result = new BigDecimal(String.valueOf(forDivisionHistory));
+        historyResult = Result.toString();
+        Tumbler = 0;
+        signchangeallow = 0;
+    }
+
+    public void exponentiate(){
+        texxx = String.valueOf(texxtView.getText());
+
+        OperateB = new BigDecimal(String.valueOf(texxx));
+        Equal = OperateB.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        // For History
+        historyBody = textView.getText().toString();
+        historyname = "Exponentiation";
+        ma.pageOneCounter = ma.pageOneCounter + 1;
+        //For History End
+        // Test operate B on parity
+        BigDecimal OperateBParityTwo = new BigDecimal(2);
+        BigDecimal OperateBParityOne = OperateB.divide(OperateBParityTwo);
+        BigDecimal OperateBParityThree = OperateBParityOne.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        // End testing
+        //Test OperateA on sign
+        if (OperateA.signum() == -1)
+        {
+            BigDecimal minusone = new BigDecimal(-1);
+            OperateA = OperateA.multiply(minusone);
+            if (OperateBParityOne.equals(OperateBParityThree))
+            {
+                signpower = 0;
+            }
+            else
+            {
+                signpower = 1;
+            }
+        }
+        if (OperateB.equals(Equal))
+        {
+            Integer OperateBPow = OperateB.intValue();
+            texxtView.setText("");
+            Result = OperateA.pow(OperateBPow);
+        }
+        else
+        {
+            double OperateApow = OperateA.doubleValue();
+            double OperateBpow = OperateB.doubleValue();
+            double resultPow = Math.pow(OperateApow, OperateBpow);
+            Result = new BigDecimal(resultPow);
+        }
+        if (signpower == 1)
+        {
+            BigDecimal minusone = new BigDecimal(-1);
+            Result = Result.multiply(minusone);
+        }
+        textView.setText(String.valueOf(Result));
+        texxtView.setText(String.valueOf(Result));
+        historyResult = Result.toString();
+        Tumbler = 0;
+        TumblerTochka = 0;
+        signchangeallow = 0;
+        signpower = 0;
     }
 }

@@ -1,5 +1,7 @@
 package radonsoft.radoncalc.fragments;
 
+import android.animation.Animator;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -11,8 +13,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -45,6 +52,8 @@ public class FragmentCalcHistory extends Fragment {
     LinearLayout pagetwothirdCell;
     LinearLayout pagetwofourthCell;
     LinearLayout pagetwofifthCell;
+
+    FrameLayout clearBackground;
 
     public FragmentCalcHistory() {
     }
@@ -80,6 +89,8 @@ public class FragmentCalcHistory extends Fragment {
         tabLayout.getTabAt(1).setIcon(ICONS[1]);
         tabLayout.getTabAt(2).setIcon(ICONS[2]);
         tabLayout.getTabAt(3).setIcon(ICONS[2]);
+
+        clearBackground = (FrameLayout) mRootView.findViewById(R.id.circularAnimationBackground);
 
         defaultTextview = (TextView) pageone.findViewById(R.id.textView28);
         // First Page
@@ -307,8 +318,53 @@ public class FragmentCalcHistory extends Fragment {
     private void clearHistory() {
         Snackbar.make(mRootView, getString(R.string.snackbar_text_deleted), Snackbar.LENGTH_SHORT).show();
         // TODO: Delete items here
-        clearFirstPage();
-        clearSecondPage();
+        clearAnimation();
+    }
+
+    public void clearAnimation() {
+        if (Build.VERSION.SDK_INT >= 21) {
+
+            // get the center for the clipping circle
+            int cx = 0;
+            int cy = 0;
+
+            // get the final radius for the clipping circle
+            int finalRadius = clearBackground.getHeight() + 2000;
+
+            // create the animator for this view (the start radius is zero)
+            Animator firstClearAnim;
+
+            firstClearAnim = ViewAnimationUtils.createCircularReveal(clearBackground, cx, cy, 0, finalRadius);
+
+            // make the view visible and start the animation
+            firstClearAnim.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animator) {
+                    clearBackground.setVisibility(View.VISIBLE);
+                    clearBackground.startAnimation(ma.fadein);
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animator) {
+                    clearBackground.startAnimation(ma.fadeout);
+                    clearBackground.setVisibility(View.GONE);
+                    clearFirstPage();
+                    clearSecondPage();
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animator) {
+
+                }
+            });
+            firstClearAnim.setDuration(500);
+            firstClearAnim.start();
+        }
     }
     public void clearFirstPage() {
         // Variables Clear

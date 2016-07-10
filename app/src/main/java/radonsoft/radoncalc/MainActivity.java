@@ -9,6 +9,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import radonsoft.radoncalc.fragments.FragmentCalc;
 import radonsoft.radoncalc.fragments.FragmentCalcHistory;
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity
     FragmentCalcHistory fragmentCalcHistory;
     FragmentQuadraticEquations fragmentQuadraticEquations;
 
+    public static Animation fadein;
+    public static Animation fadeout;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -98,6 +103,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        fadein = AnimationUtils.loadAnimation(this, R.anim.fadein);
+        fadeout = AnimationUtils.loadAnimation(this, R.anim.fadeout);
 
         fragmentcalc = new FragmentCalc();
         fragmenthistory = new HistoryFragment();

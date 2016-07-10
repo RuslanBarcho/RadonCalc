@@ -39,4 +39,13 @@
         android:textColor="#ffffff"
         android:visibility="gone" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tabLayout"
+        android:background="#01796f"
+        android:visibility="gone"
+        android:id="@+id/circularAnimationBackground"></FrameLayout>
+
 </RelativeLayout>

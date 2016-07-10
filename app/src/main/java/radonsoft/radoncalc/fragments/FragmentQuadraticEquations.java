@@ -190,7 +190,7 @@ public class FragmentQuadraticEquations extends Fragment {
                             int cy = 0;
 
                             // get the final radius for the clipping circle
-                            int finalRadius = Math.max(resultLayout.getWidth(), resultLayout.getHeight());
+                            int finalRadius = Math.max(resultLayout.getWidth(), resultLayout.getHeight())+ 1500;
 
                             // create the animator for this view (the start radius is zero)
                             Animator animShow = ViewAnimationUtils.createCircularReveal(resultLayout, cx, cy, 0, finalRadius);
@@ -200,6 +200,7 @@ public class FragmentQuadraticEquations extends Fragment {
                                 @Override
                                 public void onAnimationStart(Animator animator) {
                                     calculate(a, b, c);
+                                    resultLayout.setVisibility(View.VISIBLE);
                                 }
 
                                 @Override
@@ -219,6 +220,7 @@ public class FragmentQuadraticEquations extends Fragment {
                             });
                             animShow.start();
                         } else {
+                            resultLayout.setVisibility(View.VISIBLE);
                             calculate(a, b, c);
                         }
                         break;
@@ -334,6 +336,10 @@ public class FragmentQuadraticEquations extends Fragment {
                         @Override
                         public void onAnimationEnd(Animator animator) {
                             resultLayout.setVisibility(View.GONE);
+                            tvDiscr.setText("Discr");
+                            tvDiscrRoot.setText("Sqrt discr");
+                            tvX1.setText("X1");
+                            txX2.setText("X2");
                         }
 
                         @Override
@@ -350,19 +356,18 @@ public class FragmentQuadraticEquations extends Fragment {
                     animHide.start();
                 } else {
                     resultLayout.setVisibility(View.GONE);
+                    tvDiscr.setText("Discr");
+                    tvDiscrRoot.setText("Sqrt discr");
+                    tvX1.setText("X1");
+                    txX2.setText("X2");
                 }
-
-                tvDiscr.setText("Discr");
-                tvDiscrRoot.setText("Sqrt discr");
-                tvX1.setText("X1");
-                txX2.setText("X2");
             }
         });
         return mRootView;
     }
 
     private void calculate(BigDecimal a, BigDecimal b, BigDecimal c) {
-        resultLayout.setVisibility(View.VISIBLE);
+
 
         historyWriteLocal = 1;
         d = (b.multiply(b)).subtract((a.multiply(c)).multiply(new BigDecimal(4)));
