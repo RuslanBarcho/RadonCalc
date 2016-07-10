@@ -1,8 +1,6 @@
 package radonsoft.radoncalc.fragments;
 
 import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -24,11 +22,9 @@ import java.math.RoundingMode;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 
-public class FragmentQuadraticEquations extends Fragment{
+public class FragmentQuadraticEquations extends Fragment {
     MainActivity ma = new MainActivity();
-    private View mRootView;
-    private Button equalButton;
-    private Button deleteButton;
+
     BigDecimal a;
     BigDecimal b;
     BigDecimal c;
@@ -39,7 +35,6 @@ public class FragmentQuadraticEquations extends Fragment{
     BigDecimal xOne;
     BigDecimal xTwo;
     double sqrtdouble;
-    String Testone;
     int toogle = 0;
     int toogleDiscr = 0;
     int historyWriteLocal = 0;
@@ -52,61 +47,78 @@ public class FragmentQuadraticEquations extends Fragment{
     String historyB;
     String historyC;
 
+    // Views
+    private View mRootView;
+
+    private Button btnCalculate;
+    private Button btnClear;
+
+    private TextView tvDiscr;
+    private TextView tvDiscrRoot;
+    private TextView tvX1;
+    private TextView txX2;
+
+    private EditText editTextA;
+    private EditText editTextB;
+    private EditText editTextC;
+
+    private RelativeLayout resultLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ((MainActivity) getActivity()).setActionBarTitle("Quadratic Equations");
         mRootView = inflater.inflate(R.layout.fragment_quadratic_equations, container, false);
-        equalButton = (Button) mRootView.findViewById(R.id.button20);
-        deleteButton = (Button) mRootView.findViewById(R.id.button21);
-        final EditText fieldone = (EditText) mRootView.findViewById(R.id.editText);
-        final EditText fieldtwo = (EditText) mRootView.findViewById(R.id.editText2);
-        final EditText fieldthree = (EditText) mRootView.findViewById(R.id.editText3);
-        final TextView textviewone = (TextView) mRootView.findViewById(R.id.textView8);
-        final TextView textviewtwo = (TextView) mRootView.findViewById(R.id.textView9);
-        final TextView textviewthree = (TextView) mRootView.findViewById(R.id.textView10);
-        final TextView textviewfour = (TextView) mRootView.findViewById(R.id.textView11);
-        final RelativeLayout resultWindow = (RelativeLayout) mRootView.findViewById(R.id.relativeLayout2);
-        textviewone.setText(ma.saveDValue);
-        textviewtwo.setText(ma.saveSqrtDValue);
-        textviewthree.setText(ma.savexOneValue);
-        textviewfour.setText(ma.savexTwoValue);
-        fieldone.setText(ma.saveTextviewA);
-        fieldtwo.setText(ma.saveTextviewB);
-        fieldthree.setText(ma.saveTextviewC);
+        btnCalculate = (Button) mRootView.findViewById(R.id.btnCalculate);
+        btnClear = (Button) mRootView.findViewById(R.id.btnClear);
+        editTextA = (EditText) mRootView.findViewById(R.id.editTextA);
+        editTextB = (EditText) mRootView.findViewById(R.id.editTextB);
+        editTextC = (EditText) mRootView.findViewById(R.id.editTextC);
+        tvDiscr = (TextView) mRootView.findViewById(R.id.textViewDiscr);
+        tvDiscrRoot = (TextView) mRootView.findViewById(R.id.textViewDiscrRoot);
+        tvX1 = (TextView) mRootView.findViewById(R.id.textViewX1);
+        txX2 = (TextView) mRootView.findViewById(R.id.textViewX2);
+        resultLayout = (RelativeLayout) mRootView.findViewById(R.id.relativeLayout2);
+        tvDiscr.setText(ma.saveDValue);
+        tvDiscrRoot.setText(ma.saveSqrtDValue);
+        tvX1.setText(ma.savexOneValue);
+        txX2.setText(ma.savexTwoValue);
+        editTextA.setText(ma.saveTextviewA);
+        editTextB.setText(ma.saveTextviewB);
+        editTextC.setText(ma.saveTextviewC);
+
         ma.pages = 1;
-        switch (ma.show)
-        {
+        switch (ma.show) {
             case 0:
-                resultWindow.setVisibility(View.GONE);
-                textviewone.setVisibility(View.GONE);
-                textviewtwo.setVisibility(View.GONE);
-                textviewthree.setVisibility(View.GONE);
-                textviewfour.setVisibility(View.GONE);
+                resultLayout.setVisibility(View.GONE);
+                tvDiscr.setVisibility(View.GONE);
+                tvDiscrRoot.setVisibility(View.GONE);
+                tvX1.setVisibility(View.GONE);
+                txX2.setVisibility(View.GONE);
                 break;
             case 1:
-                resultWindow.setVisibility(View.VISIBLE);
-                textviewone.setVisibility(View.VISIBLE);
-                textviewtwo.setVisibility(View.VISIBLE);
-                textviewthree.setVisibility(View.VISIBLE);
-                textviewfour.setVisibility(View.VISIBLE);
+                resultLayout.setVisibility(View.VISIBLE);
+                tvDiscr.setVisibility(View.VISIBLE);
+                tvDiscrRoot.setVisibility(View.VISIBLE);
+                tvX1.setVisibility(View.VISIBLE);
+                txX2.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                resultWindow.setVisibility(View.VISIBLE);
-                textviewone.setVisibility(View.VISIBLE);
-                textviewtwo.setVisibility(View.VISIBLE);
-                textviewthree.setVisibility(View.GONE);
-                textviewfour.setVisibility(View.GONE);
+                resultLayout.setVisibility(View.VISIBLE);
+                tvDiscr.setVisibility(View.VISIBLE);
+                tvDiscrRoot.setVisibility(View.VISIBLE);
+                tvX1.setVisibility(View.GONE);
+                txX2.setVisibility(View.GONE);
                 break;
             case 3:
-                resultWindow.setVisibility(View.VISIBLE);
-                textviewone.setVisibility(View.VISIBLE);
-                textviewtwo.setVisibility(View.VISIBLE);
-                textviewthree.setVisibility(View.VISIBLE);
-                textviewfour.setVisibility(View.GONE);
+                resultLayout.setVisibility(View.VISIBLE);
+                tvDiscr.setVisibility(View.VISIBLE);
+                tvDiscrRoot.setVisibility(View.VISIBLE);
+                tvX1.setVisibility(View.VISIBLE);
+                txX2.setVisibility(View.GONE);
                 break;
         }
-        fieldone.addTextChangedListener(new TextWatcher() {
+        editTextA.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -117,10 +129,10 @@ public class FragmentQuadraticEquations extends Fragment{
 
             @Override
             public void afterTextChanged(Editable s) {
-                ma.saveTextviewA = fieldone.getText().toString();
+                ma.saveTextviewA = editTextA.getText().toString();
             }
         });
-        fieldtwo.addTextChangedListener(new TextWatcher() {
+        editTextB.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -131,10 +143,10 @@ public class FragmentQuadraticEquations extends Fragment{
 
             @Override
             public void afterTextChanged(Editable s) {
-                ma.saveTextviewB = fieldtwo.getText().toString();
+                ma.saveTextviewB = editTextB.getText().toString();
             }
         });
-        fieldthree.addTextChangedListener(new TextWatcher() {
+        editTextC.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -145,121 +157,69 @@ public class FragmentQuadraticEquations extends Fragment{
 
             @Override
             public void afterTextChanged(Editable s) {
-                ma.saveTextviewC = fieldthree.getText().toString();
+                ma.saveTextviewC = editTextC.getText().toString();
             }
         });
-        equalButton.setOnClickListener(new View.OnClickListener() {
+        btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textviewone.setText("Discr");
-                textviewtwo.setText("√Discr");
-                textviewthree.setText("X1");
-                textviewfour.setText("X2");
-                Testone = fieldone.getText().toString();
-                String Testtwo = fieldtwo.getText().toString();
-                String Testthree = fieldthree.getText().toString();
-                if (Testone.equals("")) {
+                tvDiscr.setText("Discr");
+                tvDiscrRoot.setText("√Discr");
+                tvX1.setText("X1");
+                txX2.setText("X2");
+                String strA = editTextA.getText().toString();
+                String strB = editTextB.getText().toString();
+                String strC = editTextC.getText().toString();
+
+                if (strA.equals("") || strA.equals("0") || strB.equals("") || strC.equals("")) {
                     toogle = 1;
+                } else {
+                    a = new BigDecimal(String.valueOf(strA));
+                    b = new BigDecimal(String.valueOf(strB));
+                    c = new BigDecimal(String.valueOf(strC));
                 }
-                if (Testone.equals("0")) {
-                    toogle = 1;
-                }
-                if (Testtwo.equals("")) {
-                    toogle = 1;
-                }
-                if (Testthree.equals("")) {
-                    toogle = 1;
-                }
+
                 switch (toogle) {
                     case 1:
                         historyWriteLocal = 0;
                         break;
                     case 0:
-                        historyWriteLocal = 1;
-                        a = new BigDecimal(String.valueOf(Testone));
-                        b = new BigDecimal(String.valueOf(Testtwo));
-                        c = new BigDecimal(String.valueOf(Testthree));
-                        four = new BigDecimal(4);
-                        d = (b.multiply(b)).subtract((a.multiply(c)).multiply(four));
-                        textviewone.setText("Discr = " + String.valueOf(d));
-                        if (d.signum() == -1) {
-                            toogleDiscr = 1;
-                        }
-                        if (d.signum() == 0) {
-                            toogleDiscr = 2;
-                        }
-                        BigDecimal divTwo = new BigDecimal(2);
-                        switch (toogleDiscr) {
-                            case 0:
-                                double discr = d.doubleValue();
-                                sqrtdouble = Math.sqrt(discr);
-                                sqrtd = new BigDecimal(sqrtdouble);
-                                if (sqrtd.floatValue() % 1 == 0) {
-                                    int sqrtdint = sqrtd.intValue();
-                                    textviewtwo.setText("√Discr = " + sqrtdint);
-                                } else {
-                                    sqrtdfloat = sqrtd.setScale(5, BigDecimal.ROUND_HALF_EVEN);
-                                    textviewtwo.setText("√Discr = " + sqrtdfloat);
-                                }
-                                xOne = (((b.subtract(b)).subtract(b)).add(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_EVEN);
-                                xTwo = (((b.subtract(b)).subtract(b)).subtract(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_EVEN);
-                                textviewthree.setText("X1 = " + String.valueOf(xOne));
-                                textviewfour.setText("X2 = " + String.valueOf(xTwo));
-                                textviewone.setVisibility(View.VISIBLE);
-                                textviewtwo.setVisibility(View.VISIBLE);
-                                textviewthree.setVisibility(View.VISIBLE);
-                                textviewfour.setVisibility(View.VISIBLE);
-                                ma.show = 1;
-                                ma.historyWriteToogle = 0;
-                                break;
-                            case 1:
-                                ma.historyWriteToogle = 1;
-                                textviewtwo.setText("No solution");
-                                textviewone.setVisibility(View.VISIBLE);
-                                textviewtwo.setVisibility(View.VISIBLE);
-                                textviewthree.setVisibility(View.GONE);
-                                textviewfour.setVisibility(View.GONE);
-                                ma.show = 2;
-                                break;
-                            case 2:
-                                discr = d.doubleValue();
-                                sqrtdouble = Math.sqrt(discr);
-                                sqrtd = new BigDecimal(sqrtdouble);
-                                if (sqrtd.floatValue() % 1 == 0) {
-                                    int sqrtdint = sqrtd.intValue();
-                                    textviewtwo.setText("√Discr = " + sqrtdint);
-                                } else {
-                                    sqrtdfloat = sqrtd.setScale(5, BigDecimal.ROUND_HALF_EVEN);
-                                    textviewtwo.setText("√Discr = " + sqrtdfloat);
-                                }
-                                xOne = (((b.subtract(b)).subtract(b)).add(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_UP);
-                                textviewthree.setText("X = " + String.valueOf(xOne));
-                                textviewfour.setText("No second solution");
-                                textviewone.setVisibility(View.VISIBLE);
-                                textviewtwo.setVisibility(View.VISIBLE);
-                                textviewthree.setVisibility(View.VISIBLE);
-                                textviewfour.setVisibility(View.GONE);
-                                ma.show = 3;
-                                ma.historyWriteToogle = 0;
-                                break;
-                        }
                         if (Build.VERSION.SDK_INT >= 21) {
                             // get the center for the clipping circle
                             int cx = 0;
                             int cy = 0;
 
                             // get the final radius for the clipping circle
-                            int finalRadius = Math.max(resultWindow.getWidth(), resultWindow.getHeight());
+                            int finalRadius = Math.max(resultLayout.getWidth(), resultLayout.getHeight());
 
                             // create the animator for this view (the start radius is zero)
-                            Animator anim =
-                                    ViewAnimationUtils.createCircularReveal(resultWindow, cx, cy, 0, finalRadius);
+                            Animator animShow = ViewAnimationUtils.createCircularReveal(resultLayout, cx, cy, 0, finalRadius);
 
                             // make the view visible and start the animation
-                            resultWindow.setVisibility(View.VISIBLE);
-                            anim.start();
+                            animShow.addListener(new Animator.AnimatorListener() {
+                                @Override
+                                public void onAnimationStart(Animator animator) {
+                                    calculate(a, b, c);
+                                }
+
+                                @Override
+                                public void onAnimationEnd(Animator animator) {
+
+                                }
+
+                                @Override
+                                public void onAnimationCancel(Animator animator) {
+
+                                }
+
+                                @Override
+                                public void onAnimationRepeat(Animator animator) {
+
+                                }
+                            });
+                            animShow.start();
                         } else {
-                            resultWindow.setVisibility(View.VISIBLE);
+                            calculate(a, b, c);
                         }
                         break;
                 }
@@ -270,20 +230,20 @@ public class FragmentQuadraticEquations extends Fragment{
                         // for history
                         ma.pageTwoCounter = ma.pageTwoCounter + 1;
                         historyA = a.toString();
-                        if (b.signum() == -1) {
-                            historyB = "-" + b.toString();
+                        if (FragmentQuadraticEquations.this.b.signum() == -1) {
+                            historyB = "-" + FragmentQuadraticEquations.this.b.toString();
                         } else {
-                            historyB = "+" + b.toString();
+                            historyB = "+" + FragmentQuadraticEquations.this.b.toString();
                         }
-                        if (c.signum() == -1) {
-                            historyC = "-" + c.toString();
+                        if (FragmentQuadraticEquations.this.c.signum() == -1) {
+                            historyC = "-" + FragmentQuadraticEquations.this.c.toString();
                         } else {
-                            historyC = "+" + c.toString();
+                            historyC = "+" + FragmentQuadraticEquations.this.c.toString();
                         }
-                        historyDiscr = textviewone.getText().toString();
-                        historySqrtDiscr = textviewtwo.getText().toString();
-                        historyXone = textviewthree.getText().toString();
-                        historyXtwo = textviewfour.getText().toString();
+                        historyDiscr = tvDiscr.getText().toString();
+                        historySqrtDiscr = tvDiscrRoot.getText().toString();
+                        historyXone = tvX1.getText().toString();
+                        historyXtwo = txX2.getText().toString();
                         historyTitle = historyA + "X^2" + historyB + "X" + historyC;
                         if (ma.historyWriteToogle == 1) {
                             historyXtwo = "No Solution";
@@ -336,20 +296,20 @@ public class FragmentQuadraticEquations extends Fragment{
                     case 0:
                         break;
                 }
-                ma.saveDValue = textviewone.getText().toString();
-                ma.saveSqrtDValue = textviewtwo.getText().toString();
-                ma.savexOneValue = textviewthree.getText().toString();
-                ma.savexTwoValue = textviewfour.getText().toString();
+                ma.saveDValue = tvDiscr.getText().toString();
+                ma.saveSqrtDValue = tvDiscrRoot.getText().toString();
+                ma.savexOneValue = tvX1.getText().toString();
+                ma.savexTwoValue = txX2.getText().toString();
             }
 
         });
-        deleteButton.setOnClickListener(new View.OnClickListener() {
+        btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(mRootView, getString(R.string.snackbar_text_deleted), Snackbar.LENGTH_SHORT).show();
-                fieldone.setText("");
-                fieldtwo.setText("");
-                fieldthree.setText("");
+                editTextA.setText("");
+                editTextB.setText("");
+                editTextC.setText("");
                 historyWriteLocal = 0;
                 ma.show = 0;
                 if (Build.VERSION.SDK_INT >= 21) {
@@ -358,34 +318,116 @@ public class FragmentQuadraticEquations extends Fragment{
                     int cy = 0;
 
                     // get the initial radius for the clipping circle
-                    int initialRadius = Math.max(resultWindow.getWidth(), resultWindow.getHeight());
+                    int initialRadius = Math.max(resultLayout.getWidth(), resultLayout.getHeight());
 
                     // create the animation (the final radius is zero)
-                    Animator animone =
-                            ViewAnimationUtils.createCircularReveal(resultWindow, cx, cy, initialRadius, 0);
+                    Animator animHide =
+                            ViewAnimationUtils.createCircularReveal(resultLayout, cx, cy, initialRadius, 0);
 
                     // make the view invisible when the animation is done
-                    animone.addListener(new AnimatorListenerAdapter() {
+                    animHide.addListener(new Animator.AnimatorListener() {
                         @Override
-                        public void onAnimationEnd(Animator animation) {
-                            super.onAnimationEnd(animation);
-                            resultWindow.setVisibility(View.GONE);
+                        public void onAnimationStart(Animator animator) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animator) {
+                            resultLayout.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animator) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animator) {
+
                         }
                     });
                     // start the animation
-                    animone.start();
-                }
-                else {
-                    resultWindow.setVisibility(View.GONE);
+                    animHide.start();
+                } else {
+                    resultLayout.setVisibility(View.GONE);
                 }
 
-                textviewone.setText("Discr");
-                textviewtwo.setText("Sqrt discr");
-                textviewthree.setText("X1");
-                textviewfour.setText("X2");
+                tvDiscr.setText("Discr");
+                tvDiscrRoot.setText("Sqrt discr");
+                tvX1.setText("X1");
+                txX2.setText("X2");
             }
         });
         return mRootView;
+    }
+
+    private void calculate(BigDecimal a, BigDecimal b, BigDecimal c) {
+        resultLayout.setVisibility(View.VISIBLE);
+
+        historyWriteLocal = 1;
+        d = (b.multiply(b)).subtract((a.multiply(c)).multiply(new BigDecimal(4)));
+        tvDiscr.setText("Discr = " + String.valueOf(d));
+        if (d.signum() == -1) {
+            toogleDiscr = 1;
+        }
+        if (d.signum() == 0) {
+            toogleDiscr = 2;
+        }
+        BigDecimal divTwo = new BigDecimal(2);
+        switch (toogleDiscr) {
+            case 0:
+                double discr = d.doubleValue();
+                sqrtdouble = Math.sqrt(discr);
+                sqrtd = new BigDecimal(sqrtdouble);
+                if (sqrtd.floatValue() % 1 == 0) {
+                    int sqrtdint = sqrtd.intValue();
+                    tvDiscrRoot.setText("√Discr = " + sqrtdint);
+                } else {
+                    sqrtdfloat = sqrtd.setScale(5, BigDecimal.ROUND_HALF_EVEN);
+                    tvDiscrRoot.setText("√Discr = " + sqrtdfloat);
+                }
+                xOne = (((b.subtract(b)).subtract(b)).add(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_EVEN);
+                xTwo = (((b.subtract(b)).subtract(b)).subtract(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_EVEN);
+                tvX1.setText("X1 = " + String.valueOf(xOne));
+                txX2.setText("X2 = " + String.valueOf(xTwo));
+                tvDiscr.setVisibility(View.VISIBLE);
+                tvDiscrRoot.setVisibility(View.VISIBLE);
+                tvX1.setVisibility(View.VISIBLE);
+                txX2.setVisibility(View.VISIBLE);
+                ma.show = 1;
+                ma.historyWriteToogle = 0;
+                break;
+            case 1:
+                ma.historyWriteToogle = 1;
+                tvDiscrRoot.setText("No solution");
+                tvDiscr.setVisibility(View.VISIBLE);
+                tvDiscrRoot.setVisibility(View.VISIBLE);
+                tvX1.setVisibility(View.GONE);
+                txX2.setVisibility(View.GONE);
+                ma.show = 2;
+                break;
+            case 2:
+                discr = d.doubleValue();
+                sqrtdouble = Math.sqrt(discr);
+                sqrtd = new BigDecimal(sqrtdouble);
+                if (sqrtd.floatValue() % 1 == 0) {
+                    int sqrtdint = sqrtd.intValue();
+                    tvDiscrRoot.setText("√Discr = " + sqrtdint);
+                } else {
+                    sqrtdfloat = sqrtd.setScale(5, BigDecimal.ROUND_HALF_EVEN);
+                    tvDiscrRoot.setText("√Discr = " + sqrtdfloat);
+                }
+                xOne = (((b.subtract(b)).subtract(b)).add(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_UP);
+                tvX1.setText("X = " + String.valueOf(xOne));
+                txX2.setText("No second solution");
+                tvDiscr.setVisibility(View.VISIBLE);
+                tvDiscrRoot.setVisibility(View.VISIBLE);
+                tvX1.setVisibility(View.VISIBLE);
+                txX2.setVisibility(View.GONE);
+                ma.show = 3;
+                ma.historyWriteToogle = 0;
+                break;
+        }
     }
 }
 
