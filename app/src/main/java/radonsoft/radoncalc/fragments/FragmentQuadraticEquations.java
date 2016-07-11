@@ -13,6 +13,7 @@ import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -46,6 +47,10 @@ public class FragmentQuadraticEquations extends Fragment {
     String historyA;
     String historyB;
     String historyC;
+
+    Animator equationsClearAnimName;
+
+    FrameLayout backgroundAnim;
 
     // Views
     private View mRootView;
@@ -86,6 +91,8 @@ public class FragmentQuadraticEquations extends Fragment {
         editTextA.setText(ma.saveTextviewA);
         editTextB.setText(ma.saveTextviewB);
         editTextC.setText(ma.saveTextviewC);
+
+        backgroundAnim = (FrameLayout) mRootView.findViewById(R.id.clrAnimBkg);
 
         ma.pages = 1;
         switch (ma.show) {
@@ -354,6 +361,8 @@ public class FragmentQuadraticEquations extends Fragment {
                     });
                     // start the animation
                     animHide.start();
+                    equationsClrAnim();
+
                 } else {
                     resultLayout.setVisibility(View.GONE);
                     tvDiscr.setText("Discr");
@@ -433,6 +442,12 @@ public class FragmentQuadraticEquations extends Fragment {
                 ma.historyWriteToogle = 0;
                 break;
         }
+    }
+    public void equationsClrAnim() {
+        ClearAnimation equationsClearAnimation = new ClearAnimation();
+        equationsClearAnimation.clrAnimName = equationsClearAnimName;
+        equationsClearAnimation.clrAnimBackground = backgroundAnim;
+        equationsClearAnimation.createClrAnim(2000,500);
     }
 }
 

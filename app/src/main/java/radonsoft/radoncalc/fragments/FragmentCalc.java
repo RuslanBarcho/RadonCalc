@@ -42,6 +42,7 @@ public class FragmentCalc extends Fragment {
     BigDecimal OperateA;
     BigDecimal OperateB;
     BigDecimal Result, signchange, Equal;
+    BigDecimal newResult;
     Integer Ressult;
     String Proverka;
     String historyBody;
@@ -52,9 +53,14 @@ public class FragmentCalc extends Fragment {
     String EqualTwo;
     String historyResult;
     String texxx;
+    String fractionString;
+    String fractionStringIfYes;
+    int charTest;
 
     TextView textView;
     TextView texxtView;
+    TextView radDeg;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -88,7 +94,7 @@ public class FragmentCalc extends Fragment {
         piButton = (Button) mRootView.findViewById(R.id.button28);
         textView = (TextView) mRootView.findViewById(R.id.textView);
         texxtView = (TextView) mRootView.findViewById(R.id.textView3);
-        final TextView radDeg = (TextView) mRootView.findViewById(R.id.textView4);
+        radDeg = (TextView) mRootView.findViewById(R.id.textView4);
 
         setFont(mButton, "robotolight.ttf");
         setFont(vButton, "robotolight.ttf");
@@ -310,7 +316,8 @@ public class FragmentCalc extends Fragment {
                         signchangeallow = 1;
                             break;
                         case 1:
-                        addiction();
+                            addiction();
+                            writeOperationToHistory();
                             break;
                     }
                 }
@@ -340,6 +347,7 @@ public class FragmentCalc extends Fragment {
                             break;
                         case 2:
                             subtraction();
+                            writeOperationToHistory();
                             break;
                     }
                 }
@@ -368,7 +376,8 @@ public class FragmentCalc extends Fragment {
                             signchangeallow = 1;
                             break;
                         case 3:
-                        multiplication();
+                            multiplication();
+                            writeOperationToHistory();
                             break;
                     }
                 }
@@ -397,7 +406,8 @@ public class FragmentCalc extends Fragment {
                             signchangeallow = 1;
                             break;
                         case 4:
-                        division();
+                            division();
+                            writeOperationToHistory();
                             break;
                     }
                 }
@@ -428,6 +438,7 @@ public class FragmentCalc extends Fragment {
                             break;
                         case 5:
                             exponentiate();
+                            writeOperationToHistory();
                             break;
                     }
                 }
@@ -467,86 +478,90 @@ public class FragmentCalc extends Fragment {
                             break;
                     }
                     textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
-                    switch (ma.pageOneCounter) {
-                        case 0:
-
-                            break;
-                        case 1:
-                            ma.pageOnefirstCellhistoryBody = historyBody;
-                            ma.pageOnefirstCellhistoryName = historyname;
-                            ma.pageOnefirstCellhistoryResult = historyResult;
-                            break;
-                        case 2:
-                            //Transfer to next cell
-                            ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                            ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                            ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
-                            //Make the first cell full
-                            ma.pageOnefirstCellhistoryBody = historyBody;
-                            ma.pageOnefirstCellhistoryName = historyname;
-                            ma.pageOnefirstCellhistoryResult = historyResult;
-                            break;
-                        case 3:
-                            //Transfer to next cell
-                            ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
-                            ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
-                            ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
-
-                            ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                            ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                            ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
-                            //Make the first cell full
-                            ma.pageOnefirstCellhistoryBody = historyBody;
-                            ma.pageOnefirstCellhistoryName = historyname;
-                            ma.pageOnefirstCellhistoryResult = historyResult;
-                            break;
-                        case 4:
-                            //Transfer to next cell
-                            ma.pageOneFourthCellhistoryBody = ma.pageOneThirdCellhistoryBody;
-                            ma.pageOneFourthCellhistoryName = ma.pageOneThirdCellhistoryName;
-                            ma.pageOneFourthCellhistoryResult = ma.pageOneThirdCellhistoryResult;
-
-                            ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
-                            ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
-                            ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
-
-                            ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                            ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                            ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
-                            //Make the first cell full
-                            ma.pageOnefirstCellhistoryBody = historyBody;
-                            ma.pageOnefirstCellhistoryName = historyname;
-                            ma.pageOnefirstCellhistoryResult = historyResult;
-                            break;
-                        default:
-                            //Transfer to next cell
-                            ma.pageOneFifthCellhistoryBody = ma.pageOneFourthCellhistoryBody;
-                            ma.pageOneFifthCellhistoryName = ma.pageOneFourthCellhistoryName;
-                            ma.pageOneFifthCellhistoryResult = ma.pageOneFourthCellhistoryResult;
-
-                            ma.pageOneFourthCellhistoryBody = ma.pageOneThirdCellhistoryBody;
-                            ma.pageOneFourthCellhistoryName = ma.pageOneThirdCellhistoryName;
-                            ma.pageOneFourthCellhistoryResult = ma.pageOneThirdCellhistoryResult;
-
-                            ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
-                            ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
-                            ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
-
-                            ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                            ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                            ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
-                            //Make the first cell full
-                            ma.pageOnefirstCellhistoryBody = historyBody;
-                            ma.pageOnefirstCellhistoryName = historyname;
-                            ma.pageOnefirstCellhistoryResult = historyResult;
-                            break;
-                    }
+                    writeOperationToHistory();
                 }
                 saveFragmentValues();
             }
         });
         return mRootView;
     }
+    public void writeOperationToHistory(){
+        switch (ma.pageOneCounter) {
+            case 0:
+
+                break;
+            case 1:
+                ma.pageOnefirstCellhistoryBody = historyBody;
+                ma.pageOnefirstCellhistoryName = historyname;
+                ma.pageOnefirstCellhistoryResult = historyResult;
+                break;
+            case 2:
+                //Transfer to next cell
+                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
+                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
+                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                //Make the first cell full
+                ma.pageOnefirstCellhistoryBody = historyBody;
+                ma.pageOnefirstCellhistoryName = historyname;
+                ma.pageOnefirstCellhistoryResult = historyResult;
+                break;
+            case 3:
+                //Transfer to next cell
+                ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
+                ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
+                ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
+
+                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
+                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
+                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                //Make the first cell full
+                ma.pageOnefirstCellhistoryBody = historyBody;
+                ma.pageOnefirstCellhistoryName = historyname;
+                ma.pageOnefirstCellhistoryResult = historyResult;
+                break;
+            case 4:
+                //Transfer to next cell
+                ma.pageOneFourthCellhistoryBody = ma.pageOneThirdCellhistoryBody;
+                ma.pageOneFourthCellhistoryName = ma.pageOneThirdCellhistoryName;
+                ma.pageOneFourthCellhistoryResult = ma.pageOneThirdCellhistoryResult;
+
+                ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
+                ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
+                ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
+
+                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
+                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
+                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                //Make the first cell full
+                ma.pageOnefirstCellhistoryBody = historyBody;
+                ma.pageOnefirstCellhistoryName = historyname;
+                ma.pageOnefirstCellhistoryResult = historyResult;
+                break;
+            default:
+                //Transfer to next cell
+                ma.pageOneFifthCellhistoryBody = ma.pageOneFourthCellhistoryBody;
+                ma.pageOneFifthCellhistoryName = ma.pageOneFourthCellhistoryName;
+                ma.pageOneFifthCellhistoryResult = ma.pageOneFourthCellhistoryResult;
+
+                ma.pageOneFourthCellhistoryBody = ma.pageOneThirdCellhistoryBody;
+                ma.pageOneFourthCellhistoryName = ma.pageOneThirdCellhistoryName;
+                ma.pageOneFourthCellhistoryResult = ma.pageOneThirdCellhistoryResult;
+
+                ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
+                ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
+                ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
+
+                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
+                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
+                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                //Make the first cell full
+                ma.pageOnefirstCellhistoryBody = historyBody;
+                ma.pageOnefirstCellhistoryName = historyname;
+                ma.pageOnefirstCellhistoryResult = historyResult;
+                break;
+        }
+    }
+
     public void setFont(Button toChange, String style){
         toChange.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,style));
     }
@@ -554,6 +569,29 @@ public class FragmentCalc extends Fragment {
     public void saveFragmentValues(){
         saveTextViewValue = textView.getText().toString();
         saveAddictionTextViewValue = texxtView.getText().toString();
+    }
+
+    public void endlessFractionsProcess(BigDecimal fraction){
+        fractionString = String.valueOf(fraction);
+        int fractionStringCounter = 1;
+        charTest = 1;
+        do {
+            fractionString = fractionString.substring(1, fractionString.length());
+        }
+        while (fractionString.charAt(0) != '.');
+        fractionString = fractionString.substring(1, fractionString.length());
+        if (fractionString.charAt(0) == '0') {
+            do {
+                fractionStringCounter = fractionStringCounter +1;
+                fractionString = fractionString.substring(1, fractionString.length());
+            }
+            while (fractionString.charAt(0) == '0');
+
+            if (fractionStringCounter >=45)
+            {
+                Result = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+            }
+        }
     }
 
     public void addiction(){
@@ -617,15 +655,15 @@ public class FragmentCalc extends Fragment {
         //For History End
         texxtView.setText("");
         Result = OperateA.multiply(OperateB);
-        Equal = Result;
-        Equal.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
         if (Result.equals(Equal)) {
             //целое
-            textView.setText(String.valueOf(Ressult));
-            texxtView.setText(String.valueOf(Ressult));
+            textView.setText(String.valueOf(Result));
+            texxtView.setText(String.valueOf(Result));
             TumblerTochka = 0;
         } else {
-            textView.setText(String.valueOf(Result));
+            endlessFractionsProcess(Result);
+            textView.setText(fractionString);
             texxtView.setText(String.valueOf(Result));
             TumblerTochka = 1;
         }
@@ -645,7 +683,7 @@ public class FragmentCalc extends Fragment {
         ma.pageOneCounter = ma.pageOneCounter + 1;
         //For History End
         texxtView.setText("");
-        Result = OperateA.divide(OperateB, 25, BigDecimal.ROUND_CEILING);
+        Result = OperateA.divide(OperateB, 50, BigDecimal.ROUND_CEILING);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
         if (Result.equals(Equal)) {
             //целое

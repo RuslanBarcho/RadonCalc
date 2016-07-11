@@ -23,22 +23,6 @@
         android:layout_below="@+id/tabLayout"
         android:background="#e5e5e5" />
 
-    <Button
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:text="DEL"
-        android:id="@+id/button22"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/my_round_button3"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="7dp"
-        android:backgroundTint="#019587"
-        android:elevation="10dp"
-        android:textColor="#ffffff"
-        android:visibility="gone" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

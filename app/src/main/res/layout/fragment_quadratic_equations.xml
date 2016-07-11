@@ -257,4 +257,14 @@
             android:layout_alignStart="@+id/editTextC" />
     </RelativeLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/relativeLayout"
+        android:id="@+id/clrAnimBkg"
+        android:background="#01796f"
+        android:visibility="gone"></FrameLayout>
+
 </RelativeLayout>

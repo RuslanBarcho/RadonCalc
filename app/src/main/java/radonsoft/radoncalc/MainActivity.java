@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 
 import radonsoft.radoncalc.fragments.FragmentCalc;
 import radonsoft.radoncalc.fragments.FragmentCalcHistory;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity
     public static int pages = 0;
     // Operation History
     // Page One
+    public static LinearLayout firstCell;
     public static int pageOneCounter = 0;
     // First Cell
     public static String pageOnefirstCellhistoryName = "A";
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity
     public static int show;
     //Fragments
     FragmentCalc fragmentcalc;
-    HistoryFragment fragmenthistory;
+    public static HistoryFragment fragmenthistory;
     FragmentCalcHistory fragmentCalcHistory;
     FragmentQuadraticEquations fragmentQuadraticEquations;
 

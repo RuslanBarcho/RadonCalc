@@ -38,20 +38,22 @@ public class FragmentCalcHistory extends Fragment {
     TextView pageOneFirstCellName;
     TextView pageOneFirstCellBody;
     TextView pageOneFirstCellResult;
-    TextView defaultTextview;
 
-    LinearLayout firstCell;
-    LinearLayout secondCell;
-    LinearLayout thirdCell;
-    LinearLayout fourthCell;
-    LinearLayout fifthCell;
+    Animator hFragClearAnim;
 
-    TextView defaultTextViewOne;
-    LinearLayout pagetwofirstCell;
-    LinearLayout pagetwosecondCell;
-    LinearLayout pagetwothirdCell;
-    LinearLayout pagetwofourthCell;
-    LinearLayout pagetwofifthCell;
+    public static TextView defaultTextview;
+    public static LinearLayout firstCell;
+    public static LinearLayout secondCell;
+    public static LinearLayout thirdCell;
+    public static LinearLayout fourthCell;
+    public static LinearLayout fifthCell;
+
+    public static TextView defaultTextViewOne;
+    public static LinearLayout pagetwofirstCell;
+    public static LinearLayout pagetwosecondCell;
+    public static LinearLayout pagetwothirdCell;
+    public static LinearLayout pagetwofourthCell;
+    public static LinearLayout pagetwofifthCell;
 
     FrameLayout clearBackground;
 
@@ -65,7 +67,6 @@ public class FragmentCalcHistory extends Fragment {
         ma.pages = 2;
         ((MainActivity) getActivity()).setActionBarTitle("History");
         mRootView = inflater.inflate(R.layout.fragment_fragment_calc_history, container, false);
-        Button delButton = (Button) mRootView.findViewById(R.id.button22);
         ViewPager viewPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
         final int[] ICONS = new int[]{
@@ -273,28 +274,6 @@ public class FragmentCalcHistory extends Fragment {
         final TextView textviewtestone = (TextView) pagefour.findViewById(R.id.textView12);
         textviewtestone.setText("Тест2");
 
-        //del button
-        delButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //First Page
-
-                //Second Page
-                //Removing Cells
-
-                //Variables Clear
-                ma.pageTwoFirstCellHistoryName = "";
-                ma.pageTwoFirstCellHistoryBodyone = "";
-                ma.pageTwoFirstCellHistoryBodytwo = "";
-                ma.pageTwoFirstCellHistoryBodythree = "";
-                ma.pageTwoFirstCellHistoryBodyend = "";
-                // Counters Reset
-                ma.pageTwoCounter = 0;
-                ma.historyWriteToogle = 0;
-                //Return default text
-                defaultTextViewOne.setVisibility(View.VISIBLE);
-            }
-        });
         return mRootView;
     }
 
@@ -323,73 +302,21 @@ public class FragmentCalcHistory extends Fragment {
 
     public void clearAnimation() {
         if (Build.VERSION.SDK_INT >= 21) {
+            ClearAnimation historyFragmentClrAnim = new ClearAnimation();
+            historyFragmentClrAnim.clrAnimBackground = clearBackground;
+            historyFragmentClrAnim.clrAnimName = hFragClearAnim;
+            historyFragmentClrAnim.createClrAnim(2000, 500);
 
-            // get the center for the clipping circle
-            int cx = 0;
-            int cy = 0;
-
-            // get the final radius for the clipping circle
-            int finalRadius = clearBackground.getHeight() + 2000;
-
-            // create the animator for this view (the start radius is zero)
-            Animator firstClearAnim;
-
-            firstClearAnim = ViewAnimationUtils.createCircularReveal(clearBackground, cx, cy, 0, finalRadius);
-
-            // make the view visible and start the animation
-            firstClearAnim.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animator) {
-                    clearBackground.setVisibility(View.VISIBLE);
-                    clearBackground.startAnimation(ma.fadein);
-                }
-
-                @Override
-                public void onAnimationEnd(Animator animator) {
-                    clearBackground.startAnimation(ma.fadeout);
-                    clearBackground.setVisibility(View.GONE);
-                    clearFirstPage();
-                    clearSecondPage();
-                }
-
-                @Override
-                public void onAnimationCancel(Animator animator) {
-
-                }
-
-                @Override
-                public void onAnimationRepeat(Animator animator) {
-
-                }
-            });
-            firstClearAnim.setDuration(500);
-            firstClearAnim.start();
+        }
+        else {
+            clearBackground.startAnimation(ma.fadein);
+            clearBackground.startAnimation(ma.fadeout);
+            clearFirstPage();
+            clearSecondPage();
         }
     }
-    public void clearFirstPage() {
-        // Variables Clear
-        ma.pageOneFifthCellhistoryBody = "";
-        ma.pageOneFifthCellhistoryName = "";
-        ma.pageOneFifthCellhistoryResult = "";
 
-        ma.pageOneFourthCellhistoryBody = "";
-        ma.pageOneFourthCellhistoryName = "";
-        ma.pageOneFourthCellhistoryResult = "";
-
-        ma.pageOneThirdCellhistoryBody = "";
-        ma.pageOneThirdCellhistoryName = "";
-        ma.pageOneThirdCellhistoryResult = "";
-
-        ma.pageOneSecondCellhistoryBody = "";
-        ma.pageOneSecondCellhistoryName = "";
-        ma.pageOneSecondCellhistoryResult = "";
-
-        ma.pageOnefirstCellhistoryBody = "";
-        ma.pageOnefirstCellhistoryName = "";
-        ma.pageOnefirstCellhistoryResult = "";
-        //Counter Reset
-        ma.pageOneCounter = 0;
-        //Return default text
+    public static void clearFirstPage() {
         defaultTextview.setVisibility(View.VISIBLE);
         firstCell.setVisibility(View.GONE);
         secondCell.setVisibility(View.GONE);
@@ -397,31 +324,8 @@ public class FragmentCalcHistory extends Fragment {
         fourthCell.setVisibility(View.GONE);
         fifthCell.setVisibility(View.GONE);
     }
-    public void clearSecondPage() {
-        //Variables Clear
-        ma.pageTwoFirstCellHistoryName = "";
-        ma.pageTwoFirstCellHistoryBodyone = "";
-        ma.pageTwoFirstCellHistoryBodytwo = "";
-        ma.pageTwoFirstCellHistoryBodythree = "";
-        ma.pageTwoFirstCellHistoryBodyend = "";
-
-        ma.pageTwoSecondCellHistoryName = "";
-        ma.pageTwoSecondCellHistoryBodyone = "";
-        ma.pageTwoSecondCellHistoryBodytwo = "";
-        ma.pageTwoSecondCellHistoryBodythree = "";
-        ma.pageTwoSecondCellHistoryBodyend = "";
-
-        ma.pageTwoThirdCellHistoryName = "";
-        ma.pageTwoThirdCellHistoryBodyone = "";
-        ma.pageTwoThirdCellHistoryBodytwo = "";
-        ma.pageTwoThirdCellHistoryBodythree = "";
-        ma.pageTwoThirdCellHistoryBodyend = "";
-        // Counters Reset
-        ma.pageTwoCounter = 0;
-        ma.historyWriteToogle = 0;
-        //Return default text
+    public static void clearSecondPage() {
         defaultTextViewOne.setVisibility(View.VISIBLE);
-        //remove cells
         pagetwofirstCell.setVisibility(View.GONE);
         pagetwosecondCell.setVisibility(View.GONE);
         pagetwothirdCell.setVisibility(View.GONE);
