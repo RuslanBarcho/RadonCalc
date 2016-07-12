@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
@@ -35,6 +36,7 @@ public class FragmentCalc extends Fragment {
     private Button tanButton;
     private Button percentButton;
     private Button piButton;
+    private Button rootButton;
     Integer Tumbler = 0;
     Integer TumblerTochka = 0;
     Integer signchangeallow = 0;
@@ -42,8 +44,7 @@ public class FragmentCalc extends Fragment {
     BigDecimal OperateA;
     BigDecimal OperateB;
     BigDecimal Result, signchange, Equal;
-    BigDecimal newResult;
-    Integer Ressult;
+    BigDecimal toRemove;
     String Proverka;
     String historyBody;
     String historyname;
@@ -54,7 +55,6 @@ public class FragmentCalc extends Fragment {
     String historyResult;
     String texxx;
     String fractionString;
-    String fractionStringIfYes;
     int charTest;
 
     TextView textView;
@@ -95,6 +95,7 @@ public class FragmentCalc extends Fragment {
         textView = (TextView) mRootView.findViewById(R.id.textView);
         texxtView = (TextView) mRootView.findViewById(R.id.textView3);
         radDeg = (TextView) mRootView.findViewById(R.id.textView4);
+        rootButton = (Button) mRootView.findViewById(R.id.button18);
 
         setFont(mButton, "robotolight.ttf");
         setFont(vButton, "robotolight.ttf");
@@ -116,8 +117,8 @@ public class FragmentCalc extends Fragment {
         setFont(percentButton, "robotolight.ttf");
         setFont(piButton, "robotolight.ttf");
 
-        textView.setText(saveTextViewValue);
-        texxtView.setText(saveAddictionTextViewValue);
+        textView.setText(ma.saveTextViewValue);
+        texxtView.setText(ma.saveAddictionTextViewValue);
         ma.pages = 0;
         radDeg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -267,8 +268,8 @@ public class FragmentCalc extends Fragment {
                 Tumbler = 0;
                 TumblerTochka = 0;
                 signchangeallow = 0;
-                saveTextViewValue = "";
-                saveAddictionTextViewValue = "";
+                ma.saveTextViewValue = "";
+                ma.saveAddictionTextViewValue = "";
                 textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
             }
         });
@@ -445,6 +446,25 @@ public class FragmentCalc extends Fragment {
                 saveFragmentValues();
             }
         });
+
+        rootButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OperateA =  new BigDecimal(String.valueOf(textView.getText()));
+                Result = sqrt(OperateA, 25);
+                removeZerosFromFraction(Result);
+                // For History
+                historyBody = textView.getText().toString();
+                historyname = "Evolution";
+                ma.pageOneCounter = ma.pageOneCounter + 1;
+                //For History End
+                textView.setText(String.valueOf(Result));
+                texxtView.setText(String.valueOf(Result));
+                historyResult = String.valueOf(Result);
+                writeOperationToHistory();
+            }
+        });
+
         RavnoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -485,6 +505,19 @@ public class FragmentCalc extends Fragment {
         });
         return mRootView;
     }
+    private static final BigDecimal TWO = BigDecimal.valueOf(2);
+    public static BigDecimal sqrt(BigDecimal A, final int SCALE) {
+        BigDecimal x0 = new BigDecimal("0");
+        BigDecimal x1 = new BigDecimal(Math.sqrt(A.doubleValue()));
+        while (!x0.equals(x1)) {
+            x0 = x1;
+            x1 = A.divide(x0, SCALE, BigDecimal.ROUND_HALF_UP);
+            x1 = x1.add(x0);
+            x1 = x1.divide(TWO, SCALE, BigDecimal.ROUND_HALF_UP);
+        }
+        return x1;
+    }
+
     public void writeOperationToHistory(){
         switch (ma.pageOneCounter) {
             case 0:
@@ -567,8 +600,22 @@ public class FragmentCalc extends Fragment {
     }
 
     public void saveFragmentValues(){
-        saveTextViewValue = textView.getText().toString();
-        saveAddictionTextViewValue = texxtView.getText().toString();
+        ma.saveTextViewValue = textView.getText().toString();
+        ma.saveAddictionTextViewValue = texxtView.getText().toString();
+    }
+
+    public void removeZerosFromFraction(BigDecimal ToRemove){
+        String ZeroRemoval = String.valueOf(ToRemove);
+        if (ZeroRemoval.charAt(ZeroRemoval.length() - 1) == '0') {
+            do {
+                ZeroRemoval = (ZeroRemoval.substring(0, ZeroRemoval.length() - 1));
+            }
+            while (ZeroRemoval.charAt(ZeroRemoval.length() - 1) == '0');
+            if (ZeroRemoval.charAt(ZeroRemoval.length() - 1) == '.') {
+                ZeroRemoval = (ZeroRemoval.substring(0, ZeroRemoval.length() - 1));
+            }
+            Result = new BigDecimal(String.valueOf(ZeroRemoval));
+        }
     }
 
     public void endlessFractionsProcess(BigDecimal fraction){
@@ -656,6 +703,12 @@ public class FragmentCalc extends Fragment {
         texxtView.setText("");
         Result = OperateA.multiply(OperateB);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        if (Result.equals(Equal)){
+
+        }
+        else {
+            removeZerosFromFraction(Result);
+        }
         if (Result.equals(Equal)) {
             //целое
             textView.setText(String.valueOf(Result));
@@ -685,6 +738,12 @@ public class FragmentCalc extends Fragment {
         texxtView.setText("");
         Result = OperateA.divide(OperateB, 50, BigDecimal.ROUND_CEILING);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        if (Result.equals(Equal)){
+
+        }
+        else {
+            removeZerosFromFraction(Result);
+        }
         if (Result.equals(Equal)) {
             //целое
             textView.setText(Result.toString());
@@ -693,19 +752,6 @@ public class FragmentCalc extends Fragment {
         } else {
             textView.setText(Result.toString());
             texxtView.setText(Result.toString());
-            String text = String.valueOf(texxtView.getText());
-            if (text.charAt(text.length() - 1) == '0') {
-                do {
-                    texxtView.setText(text.substring(0, text.length() - 1));
-                    text = String.valueOf(texxtView.getText());
-                }
-                while (text.charAt(text.length() - 1) == '0');
-                if (text.charAt(text.length() - 1) == '.') {
-                    texxtView.setText(text.substring(0, text.length() - 1));
-                    text = String.valueOf(texxtView.getText());
-                }
-                textView.setText(text);
-            }
             TumblerTochka = 1;
         }
         String forDivisionHistory = textView.getText().toString();

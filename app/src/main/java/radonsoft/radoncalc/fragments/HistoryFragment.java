@@ -1,14 +1,14 @@
 package radonsoft.radoncalc.fragments;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TabHost;
+        import android.os.Bundle;
+        import android.support.v4.app.Fragment;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.TabHost;
 
-import radonsoft.radoncalc.R;
+        import radonsoft.radoncalc.R;
 
 public class HistoryFragment extends Fragment {
     private View mRootView;

@@ -22,6 +22,7 @@ public class ClearAnimation {
             int cx = 0;
             int cy = 0;
 
+
             // get the final radius for the clipping circle
             int finalRadius = clrAnimBackground.getHeight() + clrAnimSize;
             clrAnimName = ViewAnimationUtils.createCircularReveal(clrAnimBackground, cx, cy, 0, finalRadius);

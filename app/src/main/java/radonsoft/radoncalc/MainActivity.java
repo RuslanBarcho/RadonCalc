@@ -17,6 +17,7 @@ import radonsoft.radoncalc.fragments.FragmentCalc;
 import radonsoft.radoncalc.fragments.FragmentCalcHistory;
 import radonsoft.radoncalc.fragments.FragmentQuadraticEquations;
 import radonsoft.radoncalc.fragments.HistoryFragment;
+import radonsoft.radoncalc.fragments.converter;
 
 public class MainActivity extends AppCompatActivity
 
@@ -82,12 +83,16 @@ public class MainActivity extends AppCompatActivity
     public static int show;
     //Fragments
     FragmentCalc fragmentcalc;
-    public static HistoryFragment fragmenthistory;
+    HistoryFragment fragmenthistory;
     FragmentCalcHistory fragmentCalcHistory;
     FragmentQuadraticEquations fragmentQuadraticEquations;
+    converter fragmentConverter;
 
     public static Animation fadein;
     public static Animation fadeout;
+
+    public static String saveTextViewValue;
+    public static String saveAddictionTextViewValue;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +118,8 @@ public class MainActivity extends AppCompatActivity
         fragmenthistory = new HistoryFragment();
         fragmentQuadraticEquations = new FragmentQuadraticEquations();
         fragmentCalcHistory = new FragmentCalcHistory();
+        fragmentConverter = new converter();
+
         FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
         ftrans.replace(R.id.container, fragmentcalc);
 
@@ -140,6 +147,8 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
+
 
     /*
     @Override
@@ -177,6 +186,8 @@ public class MainActivity extends AppCompatActivity
             ftrans.replace(R.id.container, fragmentcalc);
         } else if (id == R.id.nav_slideshow) {
             ftrans.replace(R.id.container, fragmentQuadraticEquations);
+        } else if (id == R.id.nav_converter) {
+            ftrans.replace(R.id.container, fragmentConverter);
         } else if (id == R.id.nav_manage) {
 
         }
