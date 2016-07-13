@@ -2,7 +2,6 @@ package radonsoft.radoncalc.fragments;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -24,7 +23,7 @@ import radonsoft.radoncalc.R;
 public class FragmentCalc extends Fragment {
     MainActivity ma = new MainActivity();
     private View mRootView;
-    private Button mButton, dButton, fButton, eButton, gButton, jButton, hButton;
+    private Button oneButton, dButton, fButton, eButton, gButton, jButton, hButton;
     private Button vButton;
     private Button bButton;
     private Button cButton;
@@ -44,7 +43,6 @@ public class FragmentCalc extends Fragment {
     BigDecimal OperateA;
     BigDecimal OperateB;
     BigDecimal Result, signchange, Equal;
-    BigDecimal toRemove;
     String Proverka;
     String historyBody;
     String historyname;
@@ -53,7 +51,6 @@ public class FragmentCalc extends Fragment {
     String Equalone;
     String EqualTwo;
     String historyResult;
-    String texxx;
     String fractionString;
     int charTest;
 
@@ -67,7 +64,7 @@ public class FragmentCalc extends Fragment {
         ((MainActivity) getActivity()).setActionBarTitle("Calculator");
         mRootView = inflater.inflate(R.layout.fragment_fragment_calc, container, false);
 
-        mButton = (Button) mRootView.findViewById(R.id.button);
+        oneButton = (Button) mRootView.findViewById(R.id.button);
         vButton = (Button) mRootView.findViewById(R.id.button2);
         bButton = (Button) mRootView.findViewById(R.id.button3);
         cButton = (Button) mRootView.findViewById(R.id.button4);
@@ -97,7 +94,7 @@ public class FragmentCalc extends Fragment {
         radDeg = (TextView) mRootView.findViewById(R.id.textView4);
         rootButton = (Button) mRootView.findViewById(R.id.button18);
 
-        setFont(mButton, "robotolight.ttf");
+        setFont(oneButton, "robotolight.ttf");
         setFont(vButton, "robotolight.ttf");
         setFont(bButton, "robotolight.ttf");
         setFont(cButton, "robotolight.ttf");
@@ -131,7 +128,7 @@ public class FragmentCalc extends Fragment {
                 }
             }
         });
-        mButton.setOnClickListener(new View.OnClickListener() {
+        oneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String texxt = String.valueOf(textView.getText());
@@ -298,7 +295,6 @@ public class FragmentCalc extends Fragment {
         PlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -453,11 +449,7 @@ public class FragmentCalc extends Fragment {
                 OperateA =  new BigDecimal(String.valueOf(textView.getText()));
                 Result = sqrt(OperateA, 25);
                 removeZerosFromFraction(Result);
-                // For History
-                historyBody = textView.getText().toString();
-                historyname = "Evolution";
-                ma.pageOneCounter = ma.pageOneCounter + 1;
-                //For History End
+                loadHistoryContent("Evolution");
                 textView.setText(String.valueOf(Result));
                 texxtView.setText(String.valueOf(Result));
                 historyResult = String.valueOf(Result);
@@ -641,14 +633,19 @@ public class FragmentCalc extends Fragment {
         }
     }
 
-    public void addiction(){
-        String texxx = String.valueOf(texxtView.getText());
-        OperateB = new BigDecimal(String.valueOf(texxx));
-        // For History
+    public void loadOperateB(){
+        OperateB = new BigDecimal(String.valueOf(texxtView.getText()));
+    }
+
+    public void loadHistoryContent(String title) {
         historyBody = textView.getText().toString();
-        historyname = "Addition";
+        historyname = title;
         ma.pageOneCounter = ma.pageOneCounter + 1;
-        //For History End
+    }
+
+    public void addiction(){
+        loadOperateB();
+        loadHistoryContent("Addiction");
         texxtView.setText("");
         Result = OperateA.add(OperateB);
         Equal = Result;
@@ -667,13 +664,8 @@ public class FragmentCalc extends Fragment {
     }
 
     public void subtraction(){
-        texxx = String.valueOf(texxtView.getText());
-        OperateB = new BigDecimal(String.valueOf(texxx));
-        // For History
-        historyBody = textView.getText().toString();
-        historyname = "Subtraction";
-        ma.pageOneCounter = ma.pageOneCounter + 1;
-        //For History End
+        loadOperateB();
+        loadHistoryContent("Subtraction");
         texxtView.setText("");
         Result = OperateA.subtract(OperateB);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
@@ -693,13 +685,8 @@ public class FragmentCalc extends Fragment {
     }
 
     public void multiplication(){
-        texxx = String.valueOf(texxtView.getText());
-        OperateB = new BigDecimal(String.valueOf(texxx));
-        // For History
-        historyBody = textView.getText().toString();
-        historyname = "Multiplication";
-        ma.pageOneCounter = ma.pageOneCounter + 1;
-        //For History End
+        loadOperateB();
+        loadHistoryContent("Multiplication");
         texxtView.setText("");
         Result = OperateA.multiply(OperateB);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
@@ -711,13 +698,9 @@ public class FragmentCalc extends Fragment {
         }
         if (Result.equals(Equal)) {
             //целое
-            textView.setText(String.valueOf(Result));
-            texxtView.setText(String.valueOf(Result));
             TumblerTochka = 0;
         } else {
             endlessFractionsProcess(Result);
-            textView.setText(fractionString);
-            texxtView.setText(String.valueOf(Result));
             TumblerTochka = 1;
         }
         historyResult = Result.toString();
@@ -728,13 +711,8 @@ public class FragmentCalc extends Fragment {
     }
 
     public void division(){
-        texxx = String.valueOf(texxtView.getText());
-        OperateB = new BigDecimal(String.valueOf(texxx));
-        // For History
-        historyBody = textView.getText().toString();
-        historyname = "Division";
-        ma.pageOneCounter = ma.pageOneCounter + 1;
-        //For History End
+        loadOperateB();
+        loadHistoryContent("Division");
         texxtView.setText("");
         Result = OperateA.divide(OperateB, 50, BigDecimal.ROUND_CEILING);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
@@ -762,15 +740,9 @@ public class FragmentCalc extends Fragment {
     }
 
     public void exponentiate(){
-        texxx = String.valueOf(texxtView.getText());
-
-        OperateB = new BigDecimal(String.valueOf(texxx));
+        loadOperateB();
         Equal = OperateB.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-        // For History
-        historyBody = textView.getText().toString();
-        historyname = "Exponentiation";
-        ma.pageOneCounter = ma.pageOneCounter + 1;
-        //For History End
+        loadHistoryContent("Exponentiation");
         // Test operate B on parity
         BigDecimal OperateBParityTwo = new BigDecimal(2);
         BigDecimal OperateBParityOne = OperateB.divide(OperateBParityTwo);

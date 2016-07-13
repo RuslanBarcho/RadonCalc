@@ -222,7 +222,9 @@
         android:background="@drawable/ripple"
         android:layout_below="@+id/relativeLayout3"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/button22"
+        android:layout_toEndOf="@+id/button22" />
 
     <ImageButton
         android:layout_width="90dp"
@@ -243,7 +245,9 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/button38"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_settings_white_24dp" />
+        android:src="@drawable/ic_settings_white_24dp"
+        android:layout_toRightOf="@+id/button29"
+        android:layout_toEndOf="@+id/button29" />
 
     <Button
         android:layout_width="90dp"
@@ -263,7 +267,9 @@
         android:background="@drawable/ripple"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/button39"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/button34"
+        android:layout_toEndOf="@+id/button34" />
 
     <RelativeLayout
         android:layout_width="match_parent"
