@@ -10,14 +10,28 @@ import android.view.View;
 import java.util.List;
 
 /**
- * Created by Ruska on 19.06.2016.
+ * Created by Ruslan Barcho on 19.06.2016.
  */
 public class TabPagerAdapter extends PagerAdapter {
     @Override
     public int getItemPosition(Object object) {
         return super.getItemPosition(object);
     }
-
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
+            case 0:
+                return "Calculator";
+            case 1:
+                return "Equations";
+            case 2:
+                return "Converter";
+            case 3:
+                return "Trigonometry";
+            default:
+                return "Kokos";
+        }
+    }
     List<View> pages = null;
 
     public TabPagerAdapter(List<View> pages) {

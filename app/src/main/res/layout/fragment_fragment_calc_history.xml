@@ -4,6 +4,7 @@
     android:orientation="vertical">
 
     <android.support.design.widget.TabLayout
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +13,8 @@
         android:layout_marginLeft="0dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:background="#019587" />
+        android:background="#019587"
+        custom:tabMode="scrollable"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"

@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity
     public static String saveTextviewA;
     public static String saveTextviewB;
     public static String saveTextviewC;
+    public static String exportDouble;
     public static int show;
     //Fragments
     FragmentCalc fragmentcalc;

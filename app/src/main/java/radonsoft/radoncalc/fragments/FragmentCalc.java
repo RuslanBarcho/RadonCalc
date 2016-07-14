@@ -5,6 +5,9 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -62,6 +65,7 @@ public class FragmentCalc extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ((MainActivity) getActivity()).setActionBarTitle("Calculator");
+        setHasOptionsMenu(true);
         mRootView = inflater.inflate(R.layout.fragment_fragment_calc, container, false);
 
         oneButton = (Button) mRootView.findViewById(R.id.button);
@@ -787,5 +791,22 @@ public class FragmentCalc extends Fragment {
         TumblerTochka = 0;
         signchangeallow = 0;
         signpower = 0;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(
+            Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case (R.id.action_converterSender): {
+
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

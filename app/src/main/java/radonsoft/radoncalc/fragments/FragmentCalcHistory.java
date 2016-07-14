@@ -86,10 +86,7 @@ public class FragmentCalcHistory extends Fragment {
         pages.add(pagefour);
         viewPager.setAdapter(new TabPagerAdapter(pages));
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(ICONS[0]);
-        tabLayout.getTabAt(1).setIcon(ICONS[1]);
-        tabLayout.getTabAt(2).setIcon(ICONS[2]);
-        tabLayout.getTabAt(3).setIcon(ICONS[2]);
+
 
         clearBackground = (FrameLayout) mRootView.findViewById(R.id.circularAnimationBackground);
 

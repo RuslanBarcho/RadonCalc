@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class converter extends Fragment {
     private View mRootView;
 
     private TextView inputWindow;
-    private Button outputWindow;
+    private TextView outputWindow;
 
     private Button oneButton;
     private Button twoButton;
@@ -52,15 +53,23 @@ public class converter extends Fragment {
     private Spinner spinner1;
     private Spinner spinner2;
 
+    private String chooseValue;
+    private String firstMeasure;
+    private String secondMeasure;
+
+
     String[] length = {"Centimeter", "Meter", "Kilometer"};
+    String[] weight = {"Gram", "Kilogram", "Ton"};
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        MainActivity ma = new MainActivity();
         mRootView = inflater.inflate(R.layout.fragment_converter, container, false);
         ((MainActivity) getActivity()).setActionBarTitle("Unit Converter");
 
         inputWindow = (TextView) mRootView.findViewById(R.id.textView6);
+        outputWindow = (TextView) mRootView.findViewById(R.id.textView8);
 
         oneButton = (Button) mRootView.findViewById(R.id.button20);
         twoButton = (Button) mRootView.findViewById(R.id.button21);
@@ -93,16 +102,45 @@ public class converter extends Fragment {
         setFont(delButton, "robotolight.ttf");
         setFont(equalButton, "robotolight.ttf");
 
-        spinner1 = (Spinner) mRootView.findViewById(R.id.spinner);
-        spinner2 = (Spinner) mRootView.findViewById(R.id.spinner2);
+        spinner1 = (Spinner) mRootView.findViewById(R.id.spinner2);
+        spinner2 = (Spinner) mRootView.findViewById(R.id.spinner);
 
-        addItemsOnSpinner(length, spinner1);
-        addItemsOnSpinner(length, spinner2);
+        addItemsOnSpinner(length, spinner1, 1);
+        addItemsOnSpinner(length, spinner2, 2);
+        chooseValue = "Length";
 
         setButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showValueChooseDialog();
+            }
+        });
+
+        oneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "1");
+            }
+        });
+
+        twoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "2");
+            }
+        });
+
+
+        equalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConverterSolver solver = new ConverterSolver();
+                solver.valueID = chooseValue;
+                solver.measureOneID = firstMeasure;
+                solver.measureTwoID = secondMeasure;
+                solver.inputValue = new BigDecimal(inputWindow.getText().toString());
+                solver.convert();
+                outputWindow.setText(solver.exportDataToConverter);
             }
         });
 
@@ -113,21 +151,46 @@ public class converter extends Fragment {
         toChange.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,style));
     }
 
-    public void addItemsOnSpinner(String[] toAdd, Spinner toAddIn){
+    public void addItemsOnSpinner(final String[] toAdd, Spinner toAddIn, final int spinnerID){
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),
                 R.layout.spinner_item, toAdd);
         dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         toAddIn.setAdapter(dataAdapter);
+        toAddIn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent,
+                                       View itemSelected, int selectedItemPosition, long selectedId) {
+                switch (spinnerID){
+                    case 1:
+                        firstMeasure = toAdd[selectedItemPosition];
+                        break;
+                    case 2:
+                        secondMeasure = toAdd[selectedItemPosition];
+                        break;
+                }
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
     }
 
     public void showValueChooseDialog(){
-        final String[] valuesNames = {"Length", "Weight"};
+        final String[] valuesNames = {"Length", "Weight", "Speed"};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Choose value");
         builder.setItems(valuesNames, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                inputWindow.setText(valuesNames[which]);
+                chooseValue = valuesNames[which];
+                switch (chooseValue){
+                    case "Length":
+                        addItemsOnSpinner(length, spinner1, 1);
+                        addItemsOnSpinner(length, spinner2, 2);
+                        break;
+                    case "Weight":
+                        addItemsOnSpinner(weight, spinner1, 1);
+                        addItemsOnSpinner(weight, spinner2, 2);
+                        break;
+                }
             }
         });
         AlertDialog alert = builder.create();

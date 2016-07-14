@@ -2,8 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_converterSender"
         android:orderInCategory="100"
-        android:title="About"
+        android:title="Send to converter"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_equationsSender"
+        android:orderInCategory="100"
+        android:title="Send to Quadratic equations"
         app:showAsAction="never" />
 </menu>
