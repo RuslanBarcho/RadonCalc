@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity
     public static int pages = 0;
     // Operation History
     // Page One
-    public static LinearLayout firstCell;
     public static int pageOneCounter = 0;
     // First Cell
     public static String pageOnefirstCellhistoryName = "A";
@@ -80,7 +79,6 @@ public class MainActivity extends AppCompatActivity
     public static String saveTextviewA;
     public static String saveTextviewB;
     public static String saveTextviewC;
-    public static String exportDouble;
     public static int show;
     //Fragments
     FragmentCalc fragmentcalc;
@@ -95,6 +93,8 @@ public class MainActivity extends AppCompatActivity
     public static String saveTextViewValue;
     public static String saveAddictionTextViewValue;
 
+    //save and send convertervalue
+    public static String saveConverterValue;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

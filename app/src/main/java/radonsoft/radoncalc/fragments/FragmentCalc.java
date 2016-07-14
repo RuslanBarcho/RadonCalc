@@ -39,13 +39,16 @@ public class FragmentCalc extends Fragment {
     private Button percentButton;
     private Button piButton;
     private Button rootButton;
+
     Integer Tumbler = 0;
     Integer TumblerTochka = 0;
     Integer signchangeallow = 0;
     Integer signpower = 0;
+
     BigDecimal OperateA;
     BigDecimal OperateB;
     BigDecimal Result, signchange, Equal;
+
     String Proverka;
     String historyBody;
     String historyname;
@@ -55,6 +58,7 @@ public class FragmentCalc extends Fragment {
     String EqualTwo;
     String historyResult;
     String fractionString;
+
     int charTest;
 
     TextView textView;
@@ -803,7 +807,7 @@ public class FragmentCalc extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.action_converterSender): {
-
+                ma.saveConverterValue = String.valueOf(Result);
                 return true;
             }
         }

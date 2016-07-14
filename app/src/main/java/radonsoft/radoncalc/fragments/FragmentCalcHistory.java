@@ -303,7 +303,6 @@ public class FragmentCalcHistory extends Fragment {
             historyFragmentClrAnim.clrAnimBackground = clearBackground;
             historyFragmentClrAnim.clrAnimName = hFragClearAnim;
             historyFragmentClrAnim.createClrAnim(2000, 500);
-
         }
         else {
             clearBackground.startAnimation(ma.fadein);

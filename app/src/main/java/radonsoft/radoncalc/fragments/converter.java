@@ -48,6 +48,7 @@ public class converter extends Fragment {
     private Button equalButton;
     private Button delButton;
     private ImageButton setButton;
+    private ImageButton exchangeSpinnerButton;
     private Button signButton;
 
     private Spinner spinner1;
@@ -56,7 +57,6 @@ public class converter extends Fragment {
     private String chooseValue;
     private String firstMeasure;
     private String secondMeasure;
-
 
     String[] length = {"Centimeter", "Meter", "Kilometer"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
@@ -86,6 +86,7 @@ public class converter extends Fragment {
         delButton = (Button) mRootView.findViewById(R.id.button38);
         setButton = (ImageButton) mRootView.findViewById(R.id.button39);
         equalButton = (Button) mRootView.findViewById(R.id.button41);
+        exchangeSpinnerButton = (ImageButton) mRootView.findViewById(R.id.button40);
 
         setFont(oneButton, "robotolight.ttf");
         setFont(twoButton, "robotolight.ttf");
@@ -104,6 +105,7 @@ public class converter extends Fragment {
 
         spinner1 = (Spinner) mRootView.findViewById(R.id.spinner2);
         spinner2 = (Spinner) mRootView.findViewById(R.id.spinner);
+        inputWindow.setText(ma.saveConverterValue);
 
         addItemsOnSpinner(length, spinner1, 1);
         addItemsOnSpinner(length, spinner2, 2);
@@ -116,20 +118,7 @@ public class converter extends Fragment {
             }
         });
 
-        oneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputWindow.setText(inputWindow.getText() + "1");
-            }
-        });
-
-        twoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputWindow.setText(inputWindow.getText() + "2");
-            }
-        });
-
+        activateBuiltInKeyboard();
 
         equalButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +130,42 @@ public class converter extends Fragment {
                 solver.inputValue = new BigDecimal(inputWindow.getText().toString());
                 solver.convert();
                 outputWindow.setText(solver.exportDataToConverter);
+            }
+        });
+
+        delButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String del = inputWindow.getText().toString();
+                if (del.equals("")){
+
+                }
+                else{
+                    del = del.substring(0, del.length() -1 );
+                    inputWindow.setText(del);
+                    outputWindow.setText("");
+                }
+                saveConverterValues();
+            }
+        });
+        delButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
+                inputWindow.setText("");
+                outputWindow.setText("");
+                saveConverterValues();
+                return true;
+            }
+        });
+
+        exchangeSpinnerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int exchangeinput = spinner1.getSelectedItemPosition();
+                int exchangeoutput = spinner2.getSelectedItemPosition();
+                spinner1.setSelection(exchangeoutput);
+                spinner2.setSelection(exchangeinput);
             }
         });
 
@@ -195,5 +220,83 @@ public class converter extends Fragment {
         });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    public void saveConverterValues(){
+        MainActivity ma = new MainActivity();
+        ma.saveConverterValue = inputWindow.getText().toString();
+    }
+
+    public void activateBuiltInKeyboard() {
+        oneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "1");
+                saveConverterValues();
+            }
+        });
+
+        twoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "2");
+            }
+        });
+
+        threeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "3");
+            }
+        });
+
+        fourButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "4");
+            }
+        });
+
+        fiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "5");
+            }
+        });
+
+        sixButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "6");
+            }
+        });
+
+        sevenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "7");
+            }
+        });
+
+        eightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "8");
+            }
+        });
+
+        nineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "9");
+            }
+        });
+
+        zeroButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                inputWindow.setText(inputWindow.getText() + "0");
+            }
+        });
     }
 }
