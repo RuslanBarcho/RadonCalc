@@ -37,8 +37,32 @@ public class ConverterSolver {
                         outputValue = forConvert.divide(new BigDecimal(100000), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
                 }
-
                 break;
+            case "Meter":
+                switch (measureTwoID){
+                    case "Centimeter":
+                        outputValue = forConvert.multiply(new BigDecimal(100));
+                        break;
+                    case "Meter":
+                        outputValue = forConvert;
+                        break;
+                    case "Kilometer":
+                        outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                }
+                break;
+            case "Kilometer":
+                switch (measureTwoID){
+                    case "Centimeter":
+                        outputValue = forConvert.multiply(new BigDecimal(100000));
+                        break;
+                    case "Meter":
+                        outputValue = forConvert.multiply(new BigDecimal(1000));
+                        break;
+                    case "Kilometer":
+                        outputValue = forConvert;
+                        break;
+                }
         }
     }
     public void removeZerosFromFraction(BigDecimal ToRemove){

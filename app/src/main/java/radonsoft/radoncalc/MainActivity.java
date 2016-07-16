@@ -86,15 +86,23 @@ public class MainActivity extends AppCompatActivity
     FragmentCalcHistory fragmentCalcHistory;
     FragmentQuadraticEquations fragmentQuadraticEquations;
     converter fragmentConverter;
-
+    //Animations
     public static Animation fadein;
     public static Animation fadeout;
-
+    //save and send calculator values
     public static String saveTextViewValue;
     public static String saveAddictionTextViewValue;
 
     //save and send convertervalue
     public static String saveConverterValue;
+    public static String saveOutputConverterValue;
+    public static int spinnerInputPos = 0;
+    public static int spinnerOutputPos = 0;
+    public static String spinnerOutputPosString = "Centimeter";
+    public static String spinnerInputPosString= "Centimeter";
+    public static String chooseValue = "Length";
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -124,13 +132,14 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
         ftrans.replace(R.id.container, fragmentcalc);
 
-        if (pages == 1)
-        {
+        if (pages == 1) {
             ftrans.replace(R.id.container, fragmentQuadraticEquations);
         }
-        if (pages == 2)
-        {
+        if (pages == 2) {
             ftrans.replace(R.id.container, fragmentCalcHistory);
+        }
+        if (pages == 4){
+            ftrans.replace(R.id.container, fragmentConverter);
         }
         ftrans.commit();
     }
@@ -148,8 +157,6 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-
 
     /*
     @Override

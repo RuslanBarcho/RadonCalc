@@ -43,6 +43,9 @@ public class ClearAnimation {
                             FragmentCalcHistory.clearSecondPage();
                             clearHistoryVariables();
                             break;
+                        case 4:
+                            converter.clearInOutWindows();
+                            break;
                         default:
 
                             break;

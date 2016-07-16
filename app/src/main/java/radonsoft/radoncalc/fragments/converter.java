@@ -1,17 +1,23 @@
 package radonsoft.radoncalc.fragments;
 
+import android.animation.Animator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
@@ -31,8 +37,8 @@ import radonsoft.radoncalc.R;
 public class converter extends Fragment {
     private View mRootView;
 
-    private TextView inputWindow;
-    private TextView outputWindow;
+    public static TextView inputWindow;
+    public static TextView outputWindow;
 
     private Button oneButton;
     private Button twoButton;
@@ -45,18 +51,23 @@ public class converter extends Fragment {
     private Button nineButton;
     private Button zeroButton;
     private Button dotButton;
-    private Button equalButton;
+    private ImageButton equalButton;
     private Button delButton;
     private ImageButton setButton;
     private ImageButton exchangeSpinnerButton;
     private Button signButton;
 
-    private Spinner spinner1;
-    private Spinner spinner2;
+    public static  Spinner spinner1;
+    public static  Spinner spinner2;
 
-    private String chooseValue;
-    private String firstMeasure;
-    private String secondMeasure;
+    public static String chooseValue;
+    public static String firstMeasure;
+    public static String secondMeasure;
+
+    MainActivity ma;
+
+    private FrameLayout animBackground;
+    Animator convertFragClearAnim;
 
     String[] length = {"Centimeter", "Meter", "Kilometer"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
@@ -64,9 +75,12 @@ public class converter extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        MainActivity ma = new MainActivity();
+        ma = new MainActivity();
+        ma.pages = 4;
         mRootView = inflater.inflate(R.layout.fragment_converter, container, false);
         ((MainActivity) getActivity()).setActionBarTitle("Unit Converter");
+
+        setHasOptionsMenu(true);
 
         inputWindow = (TextView) mRootView.findViewById(R.id.textView6);
         outputWindow = (TextView) mRootView.findViewById(R.id.textView8);
@@ -85,8 +99,10 @@ public class converter extends Fragment {
         signButton = (Button) mRootView.findViewById(R.id.button37);
         delButton = (Button) mRootView.findViewById(R.id.button38);
         setButton = (ImageButton) mRootView.findViewById(R.id.button39);
-        equalButton = (Button) mRootView.findViewById(R.id.button41);
+        equalButton = (ImageButton) mRootView.findViewById(R.id.button41);
         exchangeSpinnerButton = (ImageButton) mRootView.findViewById(R.id.button40);
+
+        animBackground = (FrameLayout) mRootView.findViewById(R.id.clearAnimbkg);
 
         setFont(oneButton, "robotolight.ttf");
         setFont(twoButton, "robotolight.ttf");
@@ -101,15 +117,31 @@ public class converter extends Fragment {
         setFont(zeroButton, "robotolight.ttf");
         setFont(signButton, "robotolight.ttf");
         setFont(delButton, "robotolight.ttf");
-        setFont(equalButton, "robotolight.ttf");
 
         spinner1 = (Spinner) mRootView.findViewById(R.id.spinner2);
         spinner2 = (Spinner) mRootView.findViewById(R.id.spinner);
-        inputWindow.setText(ma.saveConverterValue);
 
-        addItemsOnSpinner(length, spinner1, 1);
-        addItemsOnSpinner(length, spinner2, 2);
-        chooseValue = "Length";
+        inputWindow.setText(ma.saveConverterValue);
+        outputWindow.setText(ma.saveOutputConverterValue);
+        chooseValue = ma.chooseValue;
+
+        switch (chooseValue){
+            case "Length":
+                addItemsOnSpinner(length, spinner1, 1);
+                addItemsOnSpinner(length, spinner2, 2);
+                break;
+            case "Weight":
+                addItemsOnSpinner(weight, spinner1, 1);
+                addItemsOnSpinner(weight, spinner2, 2);
+                break;
+        }
+
+        spinner1.setSelection(ma.spinnerInputPos);
+        spinner2.setSelection(ma.spinnerOutputPos);
+        firstMeasure = ma.spinnerInputPosString;
+        secondMeasure = ma.spinnerOutputPosString;
+
+        makeConvertation();
 
         setButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,13 +155,7 @@ public class converter extends Fragment {
         equalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConverterSolver solver = new ConverterSolver();
-                solver.valueID = chooseValue;
-                solver.measureOneID = firstMeasure;
-                solver.measureTwoID = secondMeasure;
-                solver.inputValue = new BigDecimal(inputWindow.getText().toString());
-                solver.convert();
-                outputWindow.setText(solver.exportDataToConverter);
+
             }
         });
 
@@ -145,6 +171,7 @@ public class converter extends Fragment {
                     inputWindow.setText(del);
                     outputWindow.setText("");
                 }
+                makeConvertation();
                 saveConverterValues();
             }
         });
@@ -152,8 +179,7 @@ public class converter extends Fragment {
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
-                inputWindow.setText("");
-                outputWindow.setText("");
+                clearAnimation();
                 saveConverterValues();
                 return true;
             }
@@ -166,10 +192,48 @@ public class converter extends Fragment {
                 int exchangeoutput = spinner2.getSelectedItemPosition();
                 spinner1.setSelection(exchangeoutput);
                 spinner2.setSelection(exchangeinput);
+                if (inputWindow.getText().toString().equals("")){
+
+                }
+                else {
+                    makeConvertation();
+                }
+            }
+        });
+
+        dotButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (inputWindow.getText().toString().equals("")){
+                    inputWindow.setText("0.");
+                }
+                if (inputWindow.getText().toString().contains(".")){
+                    //nothing to do
+                }
+                else {
+                    inputWindow.setText(inputWindow.getText()+".");
+                }
+                makeConvertation();
             }
         });
 
         return mRootView;
+    }
+
+    public void makeConvertation(){
+        if (inputWindow.getText().toString().equals("")){
+
+        }
+        else {
+            ConverterSolver solver = new ConverterSolver();
+            solver.valueID = chooseValue;
+            solver.measureOneID = firstMeasure;
+            solver.measureTwoID = secondMeasure;
+            solver.inputValue = new BigDecimal(inputWindow.getText().toString());
+            solver.convert();
+            outputWindow.setText(solver.exportDataToConverter);
+            saveConverterValues();
+        }
     }
 
     public void setFont(Button toChange, String style){
@@ -187,9 +251,11 @@ public class converter extends Fragment {
                 switch (spinnerID){
                     case 1:
                         firstMeasure = toAdd[selectedItemPosition];
+                        makeConvertation();
                         break;
                     case 2:
                         secondMeasure = toAdd[selectedItemPosition];
+                        makeConvertation();
                         break;
                 }
             }
@@ -210,21 +276,53 @@ public class converter extends Fragment {
                     case "Length":
                         addItemsOnSpinner(length, spinner1, 1);
                         addItemsOnSpinner(length, spinner2, 2);
+                        makeConvertation();
                         break;
                     case "Weight":
                         addItemsOnSpinner(weight, spinner1, 1);
                         addItemsOnSpinner(weight, spinner2, 2);
+                        makeConvertation();
                         break;
                 }
+                saveConverterValues();
             }
         });
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    public void saveConverterValues(){
+    public void clearAnimation() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            ClearAnimation historyFragmentClrAnim = new ClearAnimation();
+            historyFragmentClrAnim.clrAnimBackground = animBackground;
+            historyFragmentClrAnim.clrAnimName = convertFragClearAnim;
+            historyFragmentClrAnim.createClrAnim(1500, 300);
+        }
+        else {
+            animBackground.startAnimation(ma.fadein);
+            animBackground.startAnimation(ma.fadeout);
+            inputWindow.setText("");
+            outputWindow.setText("");
+            saveConverterValues();
+        }
+    }
+
+    public static void clearInOutWindows(){
+        inputWindow.setText("");
+        outputWindow.setText("");
+        saveConverterValues();
+    }
+
+    public static void saveConverterValues(){
         MainActivity ma = new MainActivity();
         ma.saveConverterValue = inputWindow.getText().toString();
+        ma.saveOutputConverterValue = outputWindow.getText().toString();
+        ma.spinnerInputPos = spinner1.getSelectedItemPosition();
+        ma.spinnerOutputPos = spinner2.getSelectedItemPosition();
+        ma.spinnerInputPosString = firstMeasure;
+        ma.spinnerOutputPosString = secondMeasure;
+        ma.chooseValue = chooseValue;
+
     }
 
     public void activateBuiltInKeyboard() {
@@ -232,6 +330,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "1");
+                makeConvertation();
                 saveConverterValues();
             }
         });
@@ -240,6 +339,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "2");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -247,6 +348,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "3");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -254,6 +357,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "4");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -261,6 +366,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "5");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -268,6 +375,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "6");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -275,6 +384,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "7");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -282,6 +393,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "8");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -289,6 +402,8 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "9");
+                makeConvertation();
+                saveConverterValues();
             }
         });
 
@@ -296,7 +411,32 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 inputWindow.setText(inputWindow.getText() + "0");
+                makeConvertation();
+                saveConverterValues();
             }
         });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(
+            Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.converter_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case (R.id.action_calculatorSend): {
+                if (outputWindow.equals("")){
+
+                }
+                else {
+                    ma.saveTextViewValue = outputWindow.getText().toString();
+                    ma.saveAddictionTextViewValue = outputWindow.getText().toString();
+                }
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
