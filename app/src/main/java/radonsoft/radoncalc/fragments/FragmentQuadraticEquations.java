@@ -72,7 +72,7 @@ public class FragmentQuadraticEquations extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).setActionBarTitle("Quadratic Equations");
+        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.q_equations_title));
         mRootView = inflater.inflate(R.layout.fragment_quadratic_equations, container, false);
         btnCalculate = (Button) mRootView.findViewById(R.id.btnCalculate);
         btnClear = (Button) mRootView.findViewById(R.id.btnClear);

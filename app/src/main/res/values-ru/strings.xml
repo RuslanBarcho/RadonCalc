@@ -8,6 +8,8 @@
     <string name="converter_title">Конвертер величин</string>
     <string name="converter_centimeter">Сантиметр</string>
 
+    <string name="converter_speed">Скорость</string>
+    <string name="converter_send_calc">Отправить в калькулятор</string>
     <string-array name="converter_length_values">
         <item>Сантиметр</item>
         <item>Метр</item>
@@ -23,4 +25,10 @@
         <item>Км/ч</item>
         <item>Миля/ч</item>
     </string-array>
+    <string name="calculator_title">Калькулятор</string>
+    <string name="q_equations_title">Квадратные уравнения</string>
+    <string name="q_equations_calculate">Вычислить</string>
+    <string name="q_equations_clear">Очистить</string>
+    <string name="calculator_send_q_equations">Отправить в квадратные уравнения</string>
+    <string name="calculator_send_converter">Отправить в конвертер</string>
 </resources>

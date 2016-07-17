@@ -304,7 +304,7 @@ public class converter extends Fragment {
 
     public void showValueChooseDialog(){
         final String[] valuesNames = {getString(R.string.converter_length),
-                getString(R.string.converter_weight), "Speed"};
+                getString(R.string.converter_weight), getString(R.string.converter_speed)};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(getString(R.string.converter_dialog_title));
         builder.setItems(valuesNames, new DialogInterface.OnClickListener() {
@@ -313,6 +313,7 @@ public class converter extends Fragment {
                 chooseValue = valuesNames[which];
                 returnDefaultTranslation(chooseValue, "Length", "Длина");
                 returnDefaultTranslation(chooseValue, "Weight", "Вес");
+                returnDefaultTranslation(chooseValue, "Speed", "Скорость");
                 saveLocal = inputWindow.getText().toString();
                 inputWindow.setText("");
                 switch (chooseValue){

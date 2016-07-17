@@ -68,7 +68,7 @@ public class FragmentCalc extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).setActionBarTitle("Calculator");
+        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.calculator_title));
         setHasOptionsMenu(true);
         mRootView = inflater.inflate(R.layout.fragment_fragment_calc, container, false);
 

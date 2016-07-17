@@ -117,7 +117,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calculate"
+                    android:text="@string/q_equations_calculate"
                     android:id="@+id/btnCalculate"
                     android:onClick="onClick"
                     android:layout_x="138dp"
@@ -136,7 +136,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clear"
+                    android:text="@string/q_equations_clear"
                     android:id="@+id/btnClear"
                     android:onClick="onClick"
                     android:layout_x="262dp"

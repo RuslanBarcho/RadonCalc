@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
         <item
             android:id="@+id/action_calculatorSend"
-            android:title="Send to Calculator" />
+            android:title="@string/converter_send_calc" />
 
 </menu>

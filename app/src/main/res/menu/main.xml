@@ -4,11 +4,11 @@
     <item
         android:id="@+id/action_converterSender"
         android:orderInCategory="100"
-        android:title="Send to Converter"
+        android:title="@string/calculator_send_converter"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_equationsSender"
         android:orderInCategory="100"
-        android:title="Send to Quadratic equations"
+        android:title="@string/calculator_send_q_equations"
         app:showAsAction="never" />
 </menu>

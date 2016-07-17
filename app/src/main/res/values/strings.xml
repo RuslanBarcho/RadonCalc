@@ -3,17 +3,24 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
     <string name="action_clear_history">Clear</string>
-
     <string name="snackbar_text_deleted">Deleted</string>
+    //Strings for equations
 
+    <string name="q_equations_title">Quadratic equations</string>
+    <string name="q_equations_calculate">Calculate</string>
+    <string name="q_equations_clear">Clear</string>
+    //Strings for calculator
+    <string name="calculator_title">Calculator</string>
+    <string name="calculator_send_converter">Send to converter</string>
+    <string name="calculator_send_q_equations">Send to quadratic equations</string>
     //Strings for converter
-    <string name="converter_title">Unit Converter</string>
+    <string name="converter_title">Unit converter</string>
     <string name="converter_length">Length</string>
     <string name="converter_weight">Weight</string>
-
+    <string name="converter_speed">Speed</string>
+    <string name="converter_send_calc">Send to calculator</string>
     <string name="converter_centimeter">Centimeter</string>
 
     <string-array name="converter_length_values">
