@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RadonCalc</string>
+    <string name="converter_length">Длина</string>
+    <string name="converter_dialog_title">Выберите Меру</string>
+    <string name="converter_weight">Вес</string>
+    <string name="snackbar_text_deleted">Очищено</string>
+    <string name="converter_title">Конвертер Величин</string>
+</resources>

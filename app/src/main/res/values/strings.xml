@@ -9,7 +9,14 @@
 
     <string name="snackbar_text_deleted">Deleted</string>
 
+    //Strings for converter
+    <string name="converter_title">Unit Converter</string>
+    <string name="converter_length">Length</string>
+    <string name="converter_weight">Weight</string>
+    <string name="converter_dialog_title">Choose Value</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Calculator fragment</string>
+
 
 </resources>

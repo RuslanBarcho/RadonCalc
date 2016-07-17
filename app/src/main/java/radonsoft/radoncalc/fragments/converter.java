@@ -74,13 +74,15 @@ public class converter extends Fragment {
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph"};
 
+
+
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ma = new MainActivity();
         ma.pages = 4;
         mRootView = inflater.inflate(R.layout.fragment_converter, container, false);
-        ((MainActivity) getActivity()).setActionBarTitle("Unit Converter");
+        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.converter_title));
 
         setHasOptionsMenu(true);
 
@@ -304,13 +306,16 @@ public class converter extends Fragment {
     }
 
     public void showValueChooseDialog(){
-        final String[] valuesNames = {"Length", "Weight", "Speed"};
+        final String[] valuesNames = {getString(R.string.converter_length),
+                getString(R.string.converter_weight), "Speed"};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Choose value");
+        builder.setTitle(getString(R.string.converter_dialog_title));
         builder.setItems(valuesNames, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 chooseValue = valuesNames[which];
+                returnDefaultTranslation(chooseValue, "Length", "Длина");
+                returnDefaultTranslation(chooseValue, "Weight", "Вес");
                 saveLocal = inputWindow.getText().toString();
                 inputWindow.setText("");
                 switch (chooseValue){
@@ -340,6 +345,12 @@ public class converter extends Fragment {
         });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    public void returnDefaultTranslation(String toReturn, String trans1, String trans2){
+        if (toReturn.equals(trans1)| toReturn.equals(trans2)){
+            chooseValue = trans1;
+        }
     }
 
     public void clearAnimation() {
