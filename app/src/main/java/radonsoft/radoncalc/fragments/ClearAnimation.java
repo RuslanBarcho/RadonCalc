@@ -64,8 +64,6 @@ public class ClearAnimation {
             });
             clrAnimName.setDuration(clrAnimSpeed);
             clrAnimName.start();
-
-
         }
     }
     public void clearHistoryVariables() {

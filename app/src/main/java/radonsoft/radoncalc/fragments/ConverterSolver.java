@@ -20,9 +20,14 @@ public class ConverterSolver {
                 convertLength(inputValue);
                 removeZerosFromFraction(outputValue);
                 break;
+            case "Weight":
+                convertWeight(inputValue);
+                removeZerosFromFraction(outputValue);
+                break;
         }
         exportDataToConverter = String.valueOf(outputValue);
     }
+
     public void convertLength(BigDecimal forConvert){
         switch (measureOneID){
             case "Centimeter":
@@ -65,6 +70,50 @@ public class ConverterSolver {
                 }
         }
     }
+
+    public void convertWeight(BigDecimal forConvert){
+        switch (measureOneID){
+            case "Gram":
+                switch (measureTwoID){
+                    case "Gram":
+                        outputValue = forConvert;
+                        break;
+                    case "Kilogram":
+                        outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case "Ton":
+                        outputValue = forConvert.divide(new BigDecimal(1000000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                }
+                break;
+            case "Kilogram":
+                switch (measureTwoID){
+                    case "Gram":
+                        outputValue = forConvert.multiply(new BigDecimal(1000));
+                        break;
+                    case "Kilogram":
+                        outputValue = forConvert;
+                        break;
+                    case "Ton":
+                        outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                }
+                break;
+            case "Ton":
+                switch (measureTwoID){
+                    case "Gram":
+                        outputValue = forConvert.multiply(new BigDecimal(1000000));
+                        break;
+                    case "Kilogram":
+                        outputValue = forConvert.multiply(new BigDecimal(1000));
+                        break;
+                    case "Ton":
+                        outputValue = forConvert;
+                        break;
+                }
+        }
+    }
+
     public void removeZerosFromFraction(BigDecimal ToRemove){
         BigDecimal toRemoveChecker = ToRemove.setScale(0, BigDecimal.ROUND_DOWN);
         if (ToRemove.equals(toRemoveChecker)){

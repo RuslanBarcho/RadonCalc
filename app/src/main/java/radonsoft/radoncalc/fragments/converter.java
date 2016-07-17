@@ -63,6 +63,7 @@ public class converter extends Fragment {
     public static String chooseValue;
     public static String firstMeasure;
     public static String secondMeasure;
+    private String saveLocal;
 
     MainActivity ma;
 
@@ -251,15 +252,27 @@ public class converter extends Fragment {
                 switch (spinnerID){
                     case 1:
                         firstMeasure = toAdd[selectedItemPosition];
-                        makeConvertation();
+                        saveConverterValues();
                         break;
                     case 2:
                         secondMeasure = toAdd[selectedItemPosition];
-                        makeConvertation();
+                        saveConverterValues();
                         break;
                 }
+                makeConvertation();
             }
             public void onNothingSelected(AdapterView<?> parent) {
+                switch (spinnerID){
+                    case 1:
+                        firstMeasure = toAdd[1];
+                        saveConverterValues();
+                        break;
+                    case 2:
+                        secondMeasure = toAdd[1];
+                        saveConverterValues();
+                        break;
+                }
+                makeConvertation();
             }
         });
     }
@@ -272,19 +285,23 @@ public class converter extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 chooseValue = valuesNames[which];
+                saveLocal = inputWindow.getText().toString();
                 switch (chooseValue){
                     case "Length":
+                        inputWindow.setText("");
                         addItemsOnSpinner(length, spinner1, 1);
                         addItemsOnSpinner(length, spinner2, 2);
                         makeConvertation();
                         break;
                     case "Weight":
+                        inputWindow.setText("");
                         addItemsOnSpinner(weight, spinner1, 1);
                         addItemsOnSpinner(weight, spinner2, 2);
                         makeConvertation();
                         break;
                 }
                 saveConverterValues();
+                inputWindow.setText(saveLocal);
             }
         });
         AlertDialog alert = builder.create();
