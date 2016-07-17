@@ -33,42 +33,43 @@ public class ConverterSolver {
     }
 
     public void convertLength(BigDecimal forConvert){
-        switch (measureOneID){
-            case "Centimeter":
-                switch (measureTwoID){
-                    case "Centimeter":
+        switch (converter.firstMeasureInt){
+            //centimeter
+            case 0:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert;
                         break;
-                    case "Meter":
+                    case 1:
                         outputValue = forConvert.divide(new BigDecimal(100), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
-                    case "Kilometer":
+                    case 2:
                         outputValue = forConvert.divide(new BigDecimal(100000), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
                 }
                 break;
-            case "Meter":
-                switch (measureTwoID){
-                    case "Centimeter":
+            case 1:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert.multiply(new BigDecimal(100));
                         break;
-                    case "Meter":
+                    case 1:
                         outputValue = forConvert;
                         break;
-                    case "Kilometer":
+                    case 2:
                         outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
                 }
                 break;
-            case "Kilometer":
-                switch (measureTwoID){
-                    case "Centimeter":
+            case 2:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert.multiply(new BigDecimal(100000));
                         break;
-                    case "Meter":
+                    case 1:
                         outputValue = forConvert.multiply(new BigDecimal(1000));
                         break;
-                    case "Kilometer":
+                    case 2:
                         outputValue = forConvert;
                         break;
                 }
@@ -76,42 +77,42 @@ public class ConverterSolver {
     }
 
     public void convertWeight(BigDecimal forConvert){
-        switch (measureOneID){
-            case "Gram":
-                switch (measureTwoID){
-                    case "Gram":
+        switch (converter.firstMeasureInt){
+            case 0:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert;
                         break;
-                    case "Kilogram":
+                    case 1:
                         outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
-                    case "Ton":
+                    case 2:
                         outputValue = forConvert.divide(new BigDecimal(1000000), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
                 }
                 break;
-            case "Kilogram":
-                switch (measureTwoID){
-                    case "Gram":
+            case 1:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert.multiply(new BigDecimal(1000));
                         break;
-                    case "Kilogram":
+                    case 1:
                         outputValue = forConvert;
                         break;
-                    case "Ton":
+                    case 2:
                         outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
                 }
                 break;
-            case "Ton":
-                switch (measureTwoID){
-                    case "Gram":
+            case 2:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert.multiply(new BigDecimal(1000000));
                         break;
-                    case "Kilogram":
+                    case 1:
                         outputValue = forConvert.multiply(new BigDecimal(1000));
                         break;
-                    case "Ton":
+                    case 2:
                         outputValue = forConvert;
                         break;
                 }
@@ -119,42 +120,42 @@ public class ConverterSolver {
     }
 
     public void convertSpeed(BigDecimal forConvert){
-        switch (measureOneID){
-            case "Ms":
-                switch (measureTwoID){
-                    case "Ms":
+        switch (converter.firstMeasureInt){
+            case 0:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert;
                         break;
-                    case "Kph":
+                    case 1:
                         outputValue = forConvert.multiply(new BigDecimal(3.6));
                         break;
-                    case "Mph":
+                    case 2:
                         outputValue = forConvert.multiply(new BigDecimal(2.23694));
                         break;
                 }
                 break;
-            case "Kph":
-                switch (measureTwoID){
-                    case "Ms":
+            case 1:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert.divide(new BigDecimal(3.6), 8, BigDecimal.ROUND_HALF_EVEN);
                         break;
-                    case "Kph":
+                    case 1:
                         outputValue = forConvert;
                         break;
-                    case "Mph":
+                    case 2:
                         outputValue = forConvert.divide(new BigDecimal(1.60934), 8, BigDecimal.ROUND_HALF_EVEN);
                         break;
                 }
                 break;
-            case "Mph":
-                switch (measureTwoID){
-                    case "Ms":
+            case 2:
+                switch (converter.secondMeasureInt){
+                    case 0:
                         outputValue = forConvert.divide(new BigDecimal(2.23694), 8, BigDecimal.ROUND_HALF_EVEN);
                         break;
-                    case "Kph":
+                    case 1:
                         outputValue = forConvert.multiply(new BigDecimal(1.60934));
                         break;
-                    case "Mph":
+                    case 2:
                         outputValue = forConvert;
                         break;
                 }

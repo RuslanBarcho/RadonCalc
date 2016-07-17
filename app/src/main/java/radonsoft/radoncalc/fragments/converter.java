@@ -65,6 +65,9 @@ public class converter extends Fragment {
     public static String secondMeasure;
     private String saveLocal;
 
+    public static int firstMeasureInt;
+    public static int secondMeasureInt;
+
     MainActivity ma;
 
     private FrameLayout animBackground;
@@ -74,7 +77,9 @@ public class converter extends Fragment {
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph"};
 
-
+    public ArrayList lengthArray;
+    public ArrayList weigthArray;
+    public ArrayList speedArray;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -85,6 +90,10 @@ public class converter extends Fragment {
         ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.converter_title));
 
         setHasOptionsMenu(true);
+
+        length = getResources().getStringArray(R.array.converter_length_values);
+        weight = getResources().getStringArray(R.array.converter_weight_values);
+        speed = getResources().getStringArray(R.array.converter_speed_values);
 
         inputWindow = (TextView) mRootView.findViewById(R.id.textView6);
         outputWindow = (TextView) mRootView.findViewById(R.id.textView8);
@@ -235,8 +244,6 @@ public class converter extends Fragment {
         else {
             ConverterSolver solver = new ConverterSolver();
             solver.valueID = chooseValue;
-            solver.measureOneID = firstMeasure;
-            solver.measureTwoID = secondMeasure;
             solver.inputValue = new BigDecimal(inputWindow.getText().toString());
             solver.convert();
             outputWindow.setText(solver.exportDataToConverter);
@@ -279,28 +286,18 @@ public class converter extends Fragment {
                                        View itemSelected, int selectedItemPosition, long selectedId) {
                 switch (spinnerID){
                     case 1:
-                        firstMeasure = toAdd[selectedItemPosition];
+                        firstMeasureInt = selectedItemPosition;
                         saveConverterValues();
                         break;
                     case 2:
-                        secondMeasure = toAdd[selectedItemPosition];
+                        secondMeasureInt = selectedItemPosition;
                         saveConverterValues();
                         break;
                 }
                 makeConvertation();
             }
             public void onNothingSelected(AdapterView<?> parent) {
-                switch (spinnerID){
-                    case 1:
-                        firstMeasure = toAdd[1];
-                        saveConverterValues();
-                        break;
-                    case 2:
-                        secondMeasure = toAdd[1];
-                        saveConverterValues();
-                        break;
-                }
-                makeConvertation();
+
             }
         });
     }
@@ -322,22 +319,22 @@ public class converter extends Fragment {
                     case "Length":
                         addItemsOnSpinner(length, spinner1, 1);
                         addItemsOnSpinner(length, spinner2, 2);
-                        firstMeasure = "Centimeter";
-                        secondMeasure = "Centimeter";
+                        firstMeasureInt = 0;
+                        secondMeasureInt = 0;
                         break;
                     case "Weight":
                         inputWindow.setText("");
                         addItemsOnSpinner(weight, spinner1, 1);
                         addItemsOnSpinner(weight, spinner2, 2);
-                        firstMeasure = "Gram";
-                        secondMeasure = "Gram";
+                        firstMeasureInt = 0;
+                        secondMeasureInt = 0;
                         break;
                     case "Speed":
                         inputWindow.setText("");
                         addItemsOnSpinner(speed, spinner1, 1);
                         addItemsOnSpinner(speed, spinner2, 2);
-                        firstMeasure = "Ms";
-                        secondMeasure = "Ms";
+                        firstMeasureInt = 0;
+                        secondMeasureInt = 0;
                 }
                 saveConverterValues();
                 inputWindow.setText(saveLocal);
@@ -381,8 +378,6 @@ public class converter extends Fragment {
         ma.saveOutputConverterValue = outputWindow.getText().toString();
         ma.spinnerInputPos = spinner1.getSelectedItemPosition();
         ma.spinnerOutputPos = spinner2.getSelectedItemPosition();
-        ma.spinnerInputPosString = firstMeasure;
-        ma.spinnerOutputPosString = secondMeasure;
         ma.chooseValue = chooseValue;
     }
 

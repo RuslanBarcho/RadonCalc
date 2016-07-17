@@ -13,7 +13,27 @@
     <string name="converter_title">Unit Converter</string>
     <string name="converter_length">Length</string>
     <string name="converter_weight">Weight</string>
+
+    <string name="converter_centimeter">Centimeter</string>
+
+    <string-array name="converter_length_values">
+        <item>Centimeter</item>
+        <item>Meter</item>
+        <item>Kilometer</item>
+    </string-array>
+    <string-array name="converter_weight_values">
+        <item>Gram</item>
+        <item>Kilogram</item>
+        <item>Ton</item>
+    </string-array>
+    <string-array name="converter_speed_values">
+        <item>Ms</item>
+        <item>Kph</item>
+        <item>Mph</item>
+    </string-array>
     <string name="converter_dialog_title">Choose Value</string>
+
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Calculator fragment</string>

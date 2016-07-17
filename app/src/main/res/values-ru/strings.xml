@@ -2,8 +2,25 @@
 <resources>
     <string name="app_name">RadonCalc</string>
     <string name="converter_length">Длина</string>
-    <string name="converter_dialog_title">Выберите Меру</string>
+    <string name="converter_dialog_title">Выберите меру</string>
     <string name="converter_weight">Вес</string>
     <string name="snackbar_text_deleted">Очищено</string>
-    <string name="converter_title">Конвертер Величин</string>
+    <string name="converter_title">Конвертер величин</string>
+    <string name="converter_centimeter">Сантиметр</string>
+
+    <string-array name="converter_length_values">
+        <item>Сантиметр</item>
+        <item>Метр</item>
+        <item>Километр</item>
+    </string-array>
+    <string-array name="converter_weight_values">
+        <item>Грамм</item>
+        <item>Килограмм</item>
+        <item>Тонна</item>
+    </string-array>
+    <string-array name="converter_speed_values">
+        <item>М/с</item>
+        <item>Км/ч</item>
+        <item>Миля/ч</item>
+    </string-array>
 </resources>
