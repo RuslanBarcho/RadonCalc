@@ -301,6 +301,7 @@ public class converter extends Fragment {
                         break;
                 }
                 saveConverterValues();
+                //TODO: Fix NullPointerException
                 inputWindow.setText(saveLocal);
             }
         });
@@ -341,6 +342,7 @@ public class converter extends Fragment {
         ma.chooseValue = chooseValue;
 
     }
+
 
     public void activateBuiltInKeyboard() {
         oneButton.setOnClickListener(new View.OnClickListener() {
