@@ -286,18 +286,20 @@ public class converter extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 chooseValue = valuesNames[which];
                 saveLocal = inputWindow.getText().toString();
+                inputWindow.setText("");
                 switch (chooseValue){
                     case "Length":
-                        inputWindow.setText("");
                         addItemsOnSpinner(length, spinner1, 1);
                         addItemsOnSpinner(length, spinner2, 2);
-                        makeConvertation();
+                        firstMeasure = "Centimeter";
+                        secondMeasure = "Centimeter";
                         break;
                     case "Weight":
                         inputWindow.setText("");
                         addItemsOnSpinner(weight, spinner1, 1);
                         addItemsOnSpinner(weight, spinner2, 2);
-                        makeConvertation();
+                        firstMeasure = "Gram";
+                        secondMeasure = "Gram";
                         break;
                 }
                 saveConverterValues();
