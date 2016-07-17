@@ -24,6 +24,10 @@ public class ConverterSolver {
                 convertWeight(inputValue);
                 removeZerosFromFraction(outputValue);
                 break;
+            case "Speed":
+                convertSpeed(inputValue);
+                removeZerosFromFraction(outputValue);
+                break;
         }
         exportDataToConverter = String.valueOf(outputValue);
     }
@@ -108,6 +112,49 @@ public class ConverterSolver {
                         outputValue = forConvert.multiply(new BigDecimal(1000));
                         break;
                     case "Ton":
+                        outputValue = forConvert;
+                        break;
+                }
+        }
+    }
+
+    public void convertSpeed(BigDecimal forConvert){
+        switch (measureOneID){
+            case "Ms":
+                switch (measureTwoID){
+                    case "Ms":
+                        outputValue = forConvert;
+                        break;
+                    case "Kph":
+                        outputValue = forConvert.multiply(new BigDecimal(3.6));
+                        break;
+                    case "Mph":
+                        outputValue = forConvert.multiply(new BigDecimal(2.23694));
+                        break;
+                }
+                break;
+            case "Kph":
+                switch (measureTwoID){
+                    case "Ms":
+                        outputValue = forConvert.divide(new BigDecimal(3.6), 8, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case "Kph":
+                        outputValue = forConvert;
+                        break;
+                    case "Mph":
+                        outputValue = forConvert.divide(new BigDecimal(1.60934), 8, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                }
+                break;
+            case "Mph":
+                switch (measureTwoID){
+                    case "Ms":
+                        outputValue = forConvert.divide(new BigDecimal(2.23694), 8, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case "Kph":
+                        outputValue = forConvert.multiply(new BigDecimal(1.60934));
+                        break;
+                    case "Mph":
                         outputValue = forConvert;
                         break;
                 }

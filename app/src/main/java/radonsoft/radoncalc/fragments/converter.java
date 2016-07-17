@@ -72,6 +72,7 @@ public class converter extends Fragment {
 
     String[] length = {"Centimeter", "Meter", "Kilometer"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
+    String[] speed = {"Ms","Kph","Mph"};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -134,6 +135,10 @@ public class converter extends Fragment {
             case "Weight":
                 addItemsOnSpinner(weight, spinner1, 1);
                 addItemsOnSpinner(weight, spinner2, 2);
+                break;
+            case "Speed":
+                addItemsOnSpinner(speed, spinner1, 1);
+                addItemsOnSpinner(speed, spinner2, 2);
                 break;
         }
 
@@ -233,7 +238,28 @@ public class converter extends Fragment {
             solver.inputValue = new BigDecimal(inputWindow.getText().toString());
             solver.convert();
             outputWindow.setText(solver.exportDataToConverter);
+            removeZerosFromFraction(new BigDecimal(String.valueOf(outputWindow.getText())));
             saveConverterValues();
+        }
+    }
+
+    public void removeZerosFromFraction(BigDecimal ToRemove){
+        BigDecimal toRemoveChecker = ToRemove.setScale(0, BigDecimal.ROUND_DOWN);
+        if (ToRemove.equals(toRemoveChecker)){
+
+        }
+        else {
+            String ZeroRemoval = String.valueOf(ToRemove);
+            if (ZeroRemoval.charAt(ZeroRemoval.length() - 1) == '0') {
+                do {
+                    ZeroRemoval = (ZeroRemoval.substring(0, ZeroRemoval.length() - 1));
+                }
+                while (ZeroRemoval.charAt(ZeroRemoval.length() - 1) == '0');
+                if (ZeroRemoval.charAt(ZeroRemoval.length() - 1) == '.') {
+                    ZeroRemoval = (ZeroRemoval.substring(0, ZeroRemoval.length() - 1));
+                }
+                outputWindow.setText(ZeroRemoval);
+            }
         }
     }
 
@@ -301,9 +327,14 @@ public class converter extends Fragment {
                         firstMeasure = "Gram";
                         secondMeasure = "Gram";
                         break;
+                    case "Speed":
+                        inputWindow.setText("");
+                        addItemsOnSpinner(speed, spinner1, 1);
+                        addItemsOnSpinner(speed, spinner2, 2);
+                        firstMeasure = "Ms";
+                        secondMeasure = "Ms";
                 }
                 saveConverterValues();
-                //TODO: Fix NullPointerException
                 inputWindow.setText(saveLocal);
             }
         });
@@ -342,7 +373,6 @@ public class converter extends Fragment {
         ma.spinnerInputPosString = firstMeasure;
         ma.spinnerOutputPosString = secondMeasure;
         ma.chooseValue = chooseValue;
-
     }
 
 
