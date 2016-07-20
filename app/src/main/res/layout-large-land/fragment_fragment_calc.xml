@@ -32,7 +32,7 @@
                 android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/textView"
-                android:textSize="48sp"
+                android:textSize="78sp"
                 android:gravity="top|left|center"
                 android:textColor="#ffffff"
                 android:paddingStart="9dp"

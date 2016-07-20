@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
     public static int pages = 0;
+
+    public static String titleCalc;
+    public static String titleEquations;
+    public static String titleConverter;
+
     // Operation History
     // Page One
     public static int pageOneCounter = 0;
@@ -93,7 +98,7 @@ public class MainActivity extends AppCompatActivity
     public static String saveTextViewValue;
     public static String saveAddictionTextViewValue;
 
-    //save and send convertervalue
+    //save and send converter value
     public static String saveConverterValue;
     public static String saveOutputConverterValue;
     public static int spinnerInputPos = 0;
@@ -106,6 +111,10 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        titleCalc = getString(R.string.calculator_title);
+        titleEquations = getString(R.string.equations_title);
+        titleConverter = getString(R.string.converter_title);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -196,13 +205,10 @@ public class MainActivity extends AppCompatActivity
             ftrans.replace(R.id.container, fragmentQuadraticEquations);
         } else if (id == R.id.nav_converter) {
             ftrans.replace(R.id.container, fragmentConverter);
-        } else if (id == R.id.nav_manage) {
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         ftrans.commit();
         return true;
     }
-
 }

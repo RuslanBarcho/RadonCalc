@@ -11,10 +11,7 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/letterx"
             android:title="@string/q_equations_title" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/trigonom3"
-            android:title="Trigonometry" />
+
         <item
             android:id="@+id/nav_converter"
             android:icon="@drawable/converterone"
@@ -22,9 +19,7 @@
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/history"
-            android:title="History" />
+            android:title="@string/history_title" />
     </group>
-
-
 
 </menu>

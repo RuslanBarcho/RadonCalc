@@ -16,11 +16,10 @@ public class ClearAnimation {
     public Animator clrAnimName;
     public FrameLayout clrAnimBackground;
     MainActivity ma = new MainActivity();
-    public void createClrAnim(int clrAnimSize, int clrAnimSpeed) {
+
+    public void createClrAnim(int clrAnimSize, int clrAnimSpeed, int cx, int cy) {
         if (Build.VERSION.SDK_INT >= 21) {
             // get the center for the clipping circle
-            int cx = 0;
-            int cy = 0;
 
 
             // get the final radius for the clipping circle

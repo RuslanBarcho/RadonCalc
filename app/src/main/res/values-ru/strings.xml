@@ -31,4 +31,7 @@
     <string name="q_equations_clear">Очистить</string>
     <string name="calculator_send_q_equations">Отправить в квадратные уравнения</string>
     <string name="calculator_send_converter">Отправить в конвертер</string>
+    <string name="history_title">Недавние операции</string>
+    <string name="history_no_recently">Нет недавних операций</string>
+    <string name="equations_title">Уравнения</string>
 </resources>

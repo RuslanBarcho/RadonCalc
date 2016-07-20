@@ -33,7 +33,7 @@ public class FragmentCalc extends Fragment {
     private Button sbrosButton, signButton;
     private Button PlusButton, MinusButton, TochkaButton, MultiplyButton, DivButton, powButton;
     private Button RavnoButton;
-    private Button sinusButton;
+    private Button sinButton;
     private Button cosButton;
     private Button tanButton;
     private Button percentButton;
@@ -41,22 +41,20 @@ public class FragmentCalc extends Fragment {
     private Button rootButton;
 
     Integer Tumbler = 0;
-    Integer signchangeallow = 0;
     Integer signpower = 0;
 
     BigDecimal OperateA;
     BigDecimal OperateB;
-    BigDecimal Result, signchange, Equal;
+    BigDecimal Result, Equal;
 
     String Proverka;
     String historyBody;
     String historyname;
     String saveTextViewValue = "";
     String saveAddictionTextViewValue = "";
-    String Equalone;
-    String EqualTwo;
     String historyResult;
     String fractionString;
+    String emptyStringTest;
 
     int charTest;
     int testOnsSignsFinal;
@@ -92,7 +90,7 @@ public class FragmentCalc extends Fragment {
         DivButton = (Button) mRootView.findViewById(R.id.button17);
         signButton = (Button) mRootView.findViewById(R.id.button23);
         sbrosButton = (Button) mRootView.findViewById(R.id.button11);
-        sinusButton = (Button) mRootView.findViewById(R.id.button24);
+        sinButton = (Button) mRootView.findViewById(R.id.button24);
         cosButton = (Button) mRootView.findViewById(R.id.button25);
         tanButton = (Button) mRootView.findViewById(R.id.button26);
         percentButton = (Button) mRootView.findViewById(R.id.button27);
@@ -116,7 +114,7 @@ public class FragmentCalc extends Fragment {
         setFont(RavnoButton, "robotolight.ttf");
         setFont(signButton, "robotolight.ttf");
         setFont(sbrosButton, "robotolight.ttf");
-        setFont(sinusButton, "robotolight.ttf");
+        setFont(sinButton, "robotolight.ttf");
         setFont(cosButton, "robotolight.ttf");
         setFont(tanButton, "robotolight.ttf");
         setFont(percentButton, "robotolight.ttf");
@@ -266,29 +264,64 @@ public class FragmentCalc extends Fragment {
                 textView.setText("");
                 texxtView.setText("");
                 Tumbler = 0;
-                signchangeallow = 0;
                 ma.saveTextViewValue = "";
                 ma.saveAddictionTextViewValue = "";
                 textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
             }
         });
+
+        sinButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emptyStringTest = String.valueOf(texxtView.getText());
+                String forInputTest = String.valueOf(textView.getText());
+                BigDecimal checkHugeValue = new BigDecimal(Double.MAX_VALUE);
+                if (emptyStringTest == "")
+                {
+                    // here will be error message
+                }
+                else {
+                    testInputOnSigns(forInputTest);
+                    if (testOnsSignsFinal == 1){
+                        if (textView.getText().toString().contains("-")& Tumbler == 0) {
+                        sinReturn();
+                        }
+                    }
+                    else {
+                        BigDecimal checkHugeValueInput = new BigDecimal(forInputTest);
+                        if (checkHugeValueInput.compareTo(checkHugeValue) == -1) {
+                            sinReturn();
+                        }
+                        else{
+                            // here will be error message
+                        }
+                    }
+                }
+                saveFragmentValues();
+            }
+        });
+
         signButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Proverka = String.valueOf(texxtView.getText());
+                String forInputTest = String.valueOf(textView.getText());
                 if (Proverka == "")
                 {
 
                 }
                 else {
-                    switch (signchangeallow) {
-                        case 0:
-                            String texxx = String.valueOf(texxtView.getText());
-                            signchange = new BigDecimal(String.valueOf(texxx));
-                            BigDecimal minusone = new BigDecimal(-1);
-                            signchange = signchange.multiply(minusone);
-                            texxtView.setText(String.valueOf(signchange));
-                            textView.setText(String.valueOf(signchange));
+                    testInputOnSigns(forInputTest);
+                    if (testOnsSignsFinal == 1){
+                        if (textView.getText().toString().contains("-")& Tumbler == 0) {
+                            String changeToPlus = textView.getText().toString();
+                            textView.setText(changeToPlus.substring(1, changeToPlus.length()));
+                            texxtView.setText(changeToPlus.substring(1, changeToPlus.length()));
+                        }
+                    }
+                    else {
+                        textView.setText("-" + textView.getText());
+                        texxtView.setText("-" + texxtView.getText());
                     }
                 }
                 saveFragmentValues();
@@ -311,7 +344,6 @@ public class FragmentCalc extends Fragment {
                         textView.setText(texxt + "+");
                         texxtView.setText("");
                         Tumbler = 1;
-                        signchangeallow = 1;
                             break;
                         case 1:
                             addiction();
@@ -340,7 +372,6 @@ public class FragmentCalc extends Fragment {
                         textView.setText(texxt + "-");
                         texxtView.setText("");
                         Tumbler = 2;
-                            signchangeallow = 1;
                             break;
                         case 2:
                             subtraction();
@@ -365,11 +396,10 @@ public class FragmentCalc extends Fragment {
                 else {
                     switch(Tumbler) {
                         case 0:
-                        OperateA =  new BigDecimal(String.valueOf(texxx));
-                        textView.setText(texxt + "×");
-                        texxtView.setText("");
-                        Tumbler = 3;
-                            signchangeallow = 1;
+                            OperateA =  new BigDecimal(String.valueOf(texxx));
+                            textView.setText(texxt + "×");
+                            texxtView.setText("");
+                            Tumbler = 3;
                             break;
                         case 3:
                             multiplication();
@@ -398,7 +428,6 @@ public class FragmentCalc extends Fragment {
                         textView.setText(texxt + "÷");
                         texxtView.setText("");
                         Tumbler = 4;
-                            signchangeallow = 1;
                             break;
                         case 4:
                             division();
@@ -428,7 +457,6 @@ public class FragmentCalc extends Fragment {
                             textView.setText(texxt + "^");
                             texxtView.setText("");
                             Tumbler = 5;
-                            signchangeallow = 1;
                             break;
                         case 5:
                             exponentiate();
@@ -457,6 +485,7 @@ public class FragmentCalc extends Fragment {
                     historyResult = String.valueOf(Result);
                     writeOperationToHistory();
                 }
+                saveFragmentValues();
             }
         });
 
@@ -593,6 +622,13 @@ public class FragmentCalc extends Fragment {
         toChange.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,style));
     }
 
+    public void sinReturn(){
+        OperateA = new BigDecimal(String.valueOf(texxtView.getText()));
+        Result = BigDecimalMathOperations.sin(OperateA, radDeg.getText().toString());
+        textView.setText(Result.toString());
+        texxtView.setText(Result.toString());
+    }
+
     public void saveFragmentValues(){
         ma.saveTextViewValue = textView.getText().toString();
         ma.saveAddictionTextViewValue = texxtView.getText().toString();
@@ -654,7 +690,6 @@ public class FragmentCalc extends Fragment {
         textView.setText(Result.toString());
         texxtView.setText(Result.toString());
         Tumbler = 0;
-        signchangeallow = 0;
     }
 
     public void subtraction(){
@@ -666,7 +701,6 @@ public class FragmentCalc extends Fragment {
         textView.setText(Result.toString());
         texxtView.setText(Result.toString());
         Tumbler = 0;
-        signchangeallow = 0;
     }
 
     public void multiplication(){
@@ -690,7 +724,6 @@ public class FragmentCalc extends Fragment {
         textView.setText(Result.toString());
         texxtView.setText(Result.toString());
         Tumbler = 0;
-        signchangeallow = 0;
     }
 
     public void division(){
@@ -717,7 +750,6 @@ public class FragmentCalc extends Fragment {
         Result = new BigDecimal(String.valueOf(forDivisionHistory));
         historyResult = Result.toString();
         Tumbler = 0;
-        signchangeallow = 0;
     }
 
     public void exponentiate(){
@@ -765,7 +797,6 @@ public class FragmentCalc extends Fragment {
         texxtView.setText(String.valueOf(Result));
         historyResult = Result.toString();
         Tumbler = 0;
-        signchangeallow = 0;
         signpower = 0;
     }
 
@@ -793,6 +824,9 @@ public class FragmentCalc extends Fragment {
                 testInputOnSigns(textView.getText().toString());
                 if (testOnsSignsFinal == 1){
                     //nothing to do
+                    if (textView.getText().toString().contains("-")& Tumbler == 0){
+                        ma.saveConverterValue = texxtView.getText().toString();
+                    }
                 }
                 else {
                     ma.saveConverterValue = texxtView.getText().toString();

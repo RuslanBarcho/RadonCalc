@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Here will be some history"
+        android:text="@string/history_no_recently"
         android:id="@+id/textView57"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="9dp"

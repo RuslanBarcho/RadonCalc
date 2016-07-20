@@ -447,7 +447,7 @@ public class FragmentQuadraticEquations extends Fragment {
         ClearAnimation equationsClearAnimation = new ClearAnimation();
         equationsClearAnimation.clrAnimName = equationsClearAnimName;
         equationsClearAnimation.clrAnimBackground = backgroundAnim;
-        equationsClearAnimation.createClrAnim(2000,500);
+        equationsClearAnimation.createClrAnim(2000,500, 0, 0);
     }
 }
 

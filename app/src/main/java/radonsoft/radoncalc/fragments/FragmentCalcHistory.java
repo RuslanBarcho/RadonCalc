@@ -65,7 +65,7 @@ public class FragmentCalcHistory extends Fragment {
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         ma.pages = 2;
-        ((MainActivity) getActivity()).setActionBarTitle("History");
+        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.history_title));
         mRootView = inflater.inflate(R.layout.fragment_fragment_calc_history, container, false);
         ViewPager viewPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
@@ -87,9 +87,7 @@ public class FragmentCalcHistory extends Fragment {
         viewPager.setAdapter(new TabPagerAdapter(pages));
         tabLayout.setupWithViewPager(viewPager);
 
-
         clearBackground = (FrameLayout) mRootView.findViewById(R.id.circularAnimationBackground);
-
         defaultTextview = (TextView) pageone.findViewById(R.id.textView28);
         // First Page
         firstCell = (LinearLayout) pageone.findViewById(R.id.cellone);
@@ -124,8 +122,8 @@ public class FragmentCalcHistory extends Fragment {
         pagetwothirdCell = (LinearLayout) pagetwo.findViewById(R.id.cellthree);
         pagetwofourthCell = (LinearLayout) pagetwo.findViewById(R.id.cellfour);
         pagetwofifthCell = (LinearLayout) pagetwo.findViewById(R.id.cellfive);
-
         defaultTextViewOne = (TextView) pagetwo.findViewById(R.id.textView28);
+
         final TextView pageTwoFirstCellName = (TextView) pagetwo.findViewById(R.id.textView29);
         final TextView pageTwoFirstCellBodyOne = (TextView) pagetwo.findViewById(R.id.textView30);
         final TextView pageTwoFirstCellBodyTwo = (TextView) pagetwo.findViewById(R.id.textView31);
@@ -144,41 +142,7 @@ public class FragmentCalcHistory extends Fragment {
         final TextView pageTwoThirdCellBodyThree = (TextView) pagetwo.findViewById(R.id.textView41);
         final TextView pageTwoThirdCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView42);
 
-        switch (ma.pageOneCounter) {
-            case 0:
-
-                break;
-            case 1:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                break;
-            case 2:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
-                break;
-            case 3:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
-                thirdCell.setVisibility(View.VISIBLE);
-                break;
-            case 4:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
-                thirdCell.setVisibility(View.VISIBLE);
-                fourthCell.setVisibility(View.VISIBLE);
-                break;
-            default:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
-                thirdCell.setVisibility(View.VISIBLE);
-                fourthCell.setVisibility(View.VISIBLE);
-                fifthCell.setVisibility(View.VISIBLE);
-                break;
-        }
+        setFirstPageVisibility();
         //First Cell making full
         pageOneFirstCellName.setText("Operation: " + ma.pageOnefirstCellhistoryName);
         pageOneFirstCellBody.setText(ma.pageOnefirstCellhistoryBody);
@@ -302,7 +266,7 @@ public class FragmentCalcHistory extends Fragment {
             ClearAnimation historyFragmentClrAnim = new ClearAnimation();
             historyFragmentClrAnim.clrAnimBackground = clearBackground;
             historyFragmentClrAnim.clrAnimName = hFragClearAnim;
-            historyFragmentClrAnim.createClrAnim(2000, 500);
+            historyFragmentClrAnim.createClrAnim(2000, 500, 0, 0);
         }
         else {
             clearBackground.startAnimation(ma.fadein);
@@ -327,6 +291,44 @@ public class FragmentCalcHistory extends Fragment {
         pagetwothirdCell.setVisibility(View.GONE);
         pagetwofourthCell.setVisibility(View.GONE);
         pagetwofifthCell.setVisibility(View.GONE);
+    }
+
+    public void setFirstPageVisibility(){
+        switch (ma.pageOneCounter) {
+            case 0:
+
+                break;
+            case 1:
+                defaultTextview.setVisibility(View.GONE);
+                firstCell.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                defaultTextview.setVisibility(View.GONE);
+                firstCell.setVisibility(View.VISIBLE);
+                secondCell.setVisibility(View.VISIBLE);
+                break;
+            case 3:
+                defaultTextview.setVisibility(View.GONE);
+                firstCell.setVisibility(View.VISIBLE);
+                secondCell.setVisibility(View.VISIBLE);
+                thirdCell.setVisibility(View.VISIBLE);
+                break;
+            case 4:
+                defaultTextview.setVisibility(View.GONE);
+                firstCell.setVisibility(View.VISIBLE);
+                secondCell.setVisibility(View.VISIBLE);
+                thirdCell.setVisibility(View.VISIBLE);
+                fourthCell.setVisibility(View.VISIBLE);
+                break;
+            default:
+                defaultTextview.setVisibility(View.GONE);
+                firstCell.setVisibility(View.VISIBLE);
+                secondCell.setVisibility(View.VISIBLE);
+                thirdCell.setVisibility(View.VISIBLE);
+                fourthCell.setVisibility(View.VISIBLE);
+                fifthCell.setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
 }

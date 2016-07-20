@@ -3,6 +3,8 @@ package radonsoft.radoncalc.fragments;
 import java.math.BigDecimal;
 
 import radonsoft.radoncalc.MainActivity;
+import radonsoft.radoncalc.R;
+
 
 /**
  * Created by Ruska on 14.07.2016.
@@ -15,6 +17,7 @@ public class ConverterSolver {
     public static String exportDataToConverter;
     public BigDecimal outputValue;
     public void convert(){
+
         switch (valueID){
             case "Length":
                 convertLength(inputValue);

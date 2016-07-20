@@ -9,6 +9,9 @@ import android.view.View;
 
 import java.util.List;
 
+import radonsoft.radoncalc.MainActivity;
+import radonsoft.radoncalc.R;
+
 /**
  * Created by Ruslan Barcho on 19.06.2016.
  */
@@ -21,11 +24,11 @@ public class TabPagerAdapter extends PagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Calculator";
+                return MainActivity.titleCalc;
             case 1:
-                return "Equations";
+                return MainActivity.titleEquations;
             case 2:
-                return "Converter";
+                return MainActivity.titleConverter;
             case 3:
                 return "Trigonometry";
             default:

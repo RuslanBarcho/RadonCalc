@@ -77,10 +77,6 @@ public class converter extends Fragment {
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph"};
 
-    public ArrayList lengthArray;
-    public ArrayList weigthArray;
-    public ArrayList speedArray;
-
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -117,19 +113,7 @@ public class converter extends Fragment {
 
         animBackground = (FrameLayout) mRootView.findViewById(R.id.clearAnimbkg);
 
-        setFont(oneButton, "robotolight.ttf");
-        setFont(twoButton, "robotolight.ttf");
-        setFont(threeButton, "robotolight.ttf");
-        setFont(fourButton, "robotolight.ttf");
-        setFont(fiveButton, "robotolight.ttf");
-        setFont(sixButton, "robotolight.ttf");
-        setFont(sevenButton, "robotolight.ttf");
-        setFont(eightButton, "robotolight.ttf");
-        setFont(nineButton, "robotolight.ttf");
-        setFont(dotButton, "robotolight.ttf");
-        setFont(zeroButton, "robotolight.ttf");
-        setFont(signButton, "robotolight.ttf");
-        setFont(delButton, "robotolight.ttf");
+        setFontForViewElements();
 
         spinner1 = (Spinner) mRootView.findViewById(R.id.spinner2);
         spinner2 = (Spinner) mRootView.findViewById(R.id.spinner);
@@ -356,7 +340,7 @@ public class converter extends Fragment {
             ClearAnimation historyFragmentClrAnim = new ClearAnimation();
             historyFragmentClrAnim.clrAnimBackground = animBackground;
             historyFragmentClrAnim.clrAnimName = convertFragClearAnim;
-            historyFragmentClrAnim.createClrAnim(1500, 300);
+            historyFragmentClrAnim.createClrAnim(1500, 300, 0, 0);
         }
         else {
             animBackground.startAnimation(ma.fadein);
@@ -381,7 +365,6 @@ public class converter extends Fragment {
         ma.spinnerOutputPos = spinner2.getSelectedItemPosition();
         ma.chooseValue = chooseValue;
     }
-
 
     public void activateBuiltInKeyboard() {
         oneButton.setOnClickListener(new View.OnClickListener() {
@@ -473,6 +456,22 @@ public class converter extends Fragment {
                 saveConverterValues();
             }
         });
+    }
+
+    public void setFontForViewElements(){
+        setFont(oneButton, "robotolight.ttf");
+        setFont(twoButton, "robotolight.ttf");
+        setFont(threeButton, "robotolight.ttf");
+        setFont(fourButton, "robotolight.ttf");
+        setFont(fiveButton, "robotolight.ttf");
+        setFont(sixButton, "robotolight.ttf");
+        setFont(sevenButton, "robotolight.ttf");
+        setFont(eightButton, "robotolight.ttf");
+        setFont(nineButton, "robotolight.ttf");
+        setFont(dotButton, "robotolight.ttf");
+        setFont(zeroButton, "robotolight.ttf");
+        setFont(signButton, "robotolight.ttf");
+        setFont(delButton, "robotolight.ttf");
     }
 
     @Override
