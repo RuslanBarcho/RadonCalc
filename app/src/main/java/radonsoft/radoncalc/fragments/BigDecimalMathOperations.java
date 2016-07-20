@@ -67,4 +67,28 @@ public class BigDecimalMathOperations {
         return xdx;
     }
 
+    public static BigDecimal cos(final BigDecimal x, String radians){
+        double xd = x.doubleValue();
+        if (radians.equals("DEG")){
+            xd = Math.cos(Math.toRadians(xd));
+        }
+        else {
+            xd = Math.cos(xd);
+        }
+        BigDecimal xdx = new BigDecimal(xd);
+        return xdx;
+    }
+
+    public static BigDecimal tan(final BigDecimal x, String radians){
+        double xd = x.doubleValue();
+        if (radians.equals("DEG")){
+            xd = Math.tan(Math.toRadians(xd));
+        }
+        else {
+            xd = Math.tan(xd);
+        }
+        BigDecimal xdx = new BigDecimal(xd);
+        return xdx;
+    }
+
 }

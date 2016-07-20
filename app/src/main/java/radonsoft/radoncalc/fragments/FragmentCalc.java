@@ -17,7 +17,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.math.RoundingMode;
 
 import radonsoft.radoncalc.MainActivity;
@@ -58,6 +57,7 @@ public class FragmentCalc extends Fragment {
 
     int charTest;
     int testOnsSignsFinal;
+    int trigonometryFunctions;
 
     TextView textView;
     TextView texxtView;
@@ -119,10 +119,14 @@ public class FragmentCalc extends Fragment {
         setFont(tanButton, "robotolight.ttf");
         setFont(percentButton, "robotolight.ttf");
         setFont(piButton, "robotolight.ttf");
+        textView.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
 
         textView.setText(ma.saveTextViewValue);
         texxtView.setText(ma.saveAddictionTextViewValue);
         ma.pages = 0;
+
+        activateBuiltInKeyboard();
+
         radDeg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,106 +138,7 @@ public class FragmentCalc extends Fragment {
                 }
             }
         });
-        oneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "1");
-                texxtView.setText(texxx + "1");
-                saveFragmentValues();
-            }
-        });
-        vButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "2");
-                texxtView.setText(texxx + "2");
-                saveFragmentValues();
-            }
-        });
-        bButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "3");
-                texxtView.setText(texxx + "3");
-                saveFragmentValues();
-            }
-        });
-        cButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "4");
-                texxtView.setText(texxx + "4");
-                saveFragmentValues();
-            }
-        });
-        dButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "5");
-                texxtView.setText(texxx + "5");
-                saveFragmentValues();
-            }
-        });
-        fButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "6");
-                texxtView.setText(texxx + "6");
-                saveFragmentValues();
-            }
-        });
-        eButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "7");
-                texxtView.setText(texxx + "7");
-                saveFragmentValues();
-            }
-        });
-        gButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "8");
-                texxtView.setText(texxx + "8");
-                saveFragmentValues();
-            }
-        });
-        jButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "9");
-                texxtView.setText(texxx + "9");
-                saveFragmentValues();
-            }
-        });
-        hButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String texxt = String.valueOf(textView.getText());
-                String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "0");
-                texxtView.setText(texxx + "0");
-                saveFragmentValues();
-            }
-        });
+
         TochkaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -274,28 +179,45 @@ public class FragmentCalc extends Fragment {
             @Override
             public void onClick(View v) {
                 emptyStringTest = String.valueOf(texxtView.getText());
-                String forInputTest = String.valueOf(textView.getText());
-                BigDecimal checkHugeValue = new BigDecimal(Double.MAX_VALUE);
+                trigonometryFunctions = 1;
                 if (emptyStringTest == "")
                 {
                     // here will be error message
                 }
                 else {
-                    testInputOnSigns(forInputTest);
-                    if (testOnsSignsFinal == 1){
-                        if (textView.getText().toString().contains("-")& Tumbler == 0) {
-                        sinReturn();
-                        }
-                    }
-                    else {
-                        BigDecimal checkHugeValueInput = new BigDecimal(forInputTest);
-                        if (checkHugeValueInput.compareTo(checkHugeValue) == -1) {
-                            sinReturn();
-                        }
-                        else{
-                            // here will be error message
-                        }
-                    }
+                    solveTrigonometryFunctions();
+                }
+                saveFragmentValues();
+            }
+        });
+
+        cosButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emptyStringTest = String.valueOf(texxtView.getText());
+                trigonometryFunctions = 2;
+                if (emptyStringTest == "")
+                {
+                    // here will be error message
+                }
+                else {
+                    solveTrigonometryFunctions();
+                }
+                saveFragmentValues();
+            }
+        });
+
+        tanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emptyStringTest = String.valueOf(texxtView.getText());
+                trigonometryFunctions = 3;
+                if (emptyStringTest == "")
+                {
+                    // here will be error message
+                }
+                else {
+                    solveTrigonometryFunctions();
                 }
                 saveFragmentValues();
             }
@@ -622,11 +544,48 @@ public class FragmentCalc extends Fragment {
         toChange.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,style));
     }
 
-    public void sinReturn(){
+    public void trigFunctionReturn(){
         OperateA = new BigDecimal(String.valueOf(texxtView.getText()));
-        Result = BigDecimalMathOperations.sin(OperateA, radDeg.getText().toString());
+        switch (trigonometryFunctions){
+            case 1:
+                Result = BigDecimalMathOperations.sin(OperateA, radDeg.getText().toString());
+                break;
+            case 2:
+                Result = BigDecimalMathOperations.cos(OperateA, radDeg.getText().toString());
+                break;
+            case 3:
+                Result = BigDecimalMathOperations.tan(OperateA, radDeg.getText().toString());
+                break;
+        }
         textView.setText(Result.toString());
         texxtView.setText(Result.toString());
+    }
+
+    public void solveTrigonometryFunctions(){
+        String forInputTest = String.valueOf(textView.getText());
+        BigDecimal checkHugeMaxValue = new BigDecimal(Double.MAX_VALUE);
+        BigDecimal checkHugeMinValue = new BigDecimal(-999999999);
+        testInputOnSigns(forInputTest);
+        if (testOnsSignsFinal == 1){
+            if (textView.getText().toString().contains("-")& Tumbler == 0) {
+                BigDecimal checkHugeValueInput = new BigDecimal(forInputTest);
+                if (checkHugeValueInput.compareTo(checkHugeMinValue) == 1) {
+                    trigFunctionReturn();
+                }
+                else{
+                    // error message
+                }
+            }
+        }
+        else {
+            BigDecimal checkHugeValueInput = new BigDecimal(forInputTest);
+            if (checkHugeValueInput.compareTo(checkHugeMaxValue) == -1) {
+                trigFunctionReturn();
+            }
+            else{
+                // here will be error message
+            }
+        }
     }
 
     public void saveFragmentValues(){
@@ -810,7 +769,108 @@ public class FragmentCalc extends Fragment {
             testOnsSignsFinal = 0;
         }
     }
-
+    public void activateBuiltInKeyboard(){
+        oneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "1");
+                texxtView.setText(texxx + "1");
+                saveFragmentValues();
+            }
+        });
+        vButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "2");
+                texxtView.setText(texxx + "2");
+                saveFragmentValues();
+            }
+        });
+        bButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "3");
+                texxtView.setText(texxx + "3");
+                saveFragmentValues();
+            }
+        });
+        cButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "4");
+                texxtView.setText(texxx + "4");
+                saveFragmentValues();
+            }
+        });
+        dButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "5");
+                texxtView.setText(texxx + "5");
+                saveFragmentValues();
+            }
+        });
+        fButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "6");
+                texxtView.setText(texxx + "6");
+                saveFragmentValues();
+            }
+        });
+        eButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "7");
+                texxtView.setText(texxx + "7");
+                saveFragmentValues();
+            }
+        });
+        gButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "8");
+                texxtView.setText(texxx + "8");
+                saveFragmentValues();
+            }
+        });
+        jButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "9");
+                texxtView.setText(texxx + "9");
+                saveFragmentValues();
+            }
+        });
+        hButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String texxt = String.valueOf(textView.getText());
+                String texxx = String.valueOf(texxtView.getText());
+                textView.setText(texxt + "0");
+                texxtView.setText(texxx + "0");
+                saveFragmentValues();
+            }
+        });
+    }
     @Override
     public void onCreateOptionsMenu(
             Menu menu, MenuInflater inflater) {
