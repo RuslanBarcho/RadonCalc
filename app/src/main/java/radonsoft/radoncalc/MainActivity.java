@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity
     public static String saveOutputConverterValue;
     public static int spinnerInputPos = 0;
     public static int spinnerOutputPos = 0;
+    public static int valueIDPos = 0;
     public static String spinnerOutputPosString = "Centimeter";
     public static String spinnerInputPosString= "Centimeter";
     public static String chooseValue = "Length";

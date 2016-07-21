@@ -58,7 +58,7 @@ public class FragmentCalc extends Fragment {
     int charTest;
     int testOnsSignsFinal;
     int trigonometryFunctions;
-
+    int toDeleteLength;
     TextView textView;
     TextView texxtView;
     TextView radDeg;
@@ -166,12 +166,47 @@ public class FragmentCalc extends Fragment {
         sbrosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Proverka = String.valueOf(textView.getText());
+                if (Proverka.equals(""))
+                {
+
+                }
+                else {
+                    String texxt = String.valueOf(textView.getText());
+                    String texxx = String.valueOf(texxtView.getText());
+                    if (texxtView.getText().toString().equals("")){
+                        textView.setText(Proverka.substring(0, Proverka.length() -1));
+                        texxtView.setText(Proverka.substring(0, Proverka.length() -1));
+                        Tumbler = 0;
+                    }
+                    else {
+                        testInputOnSigns(texxt);
+                        if (testOnsSignsFinal == 0){
+                            Tumbler = 0;
+                            textView.setText(texxt.substring(0, texxt.length() -1));
+                            texxtView.setText(texxx.substring(0, texxx.length() -1));
+                        }
+                        else{
+                            textView.setText(texxt.substring(0, texxt.length() -1));
+                            texxtView.setText(texxx.substring(0, texxx.length() -1));
+                        }
+                    }
+                }
+                saveFragmentValues();
+            }
+        });
+
+        sbrosButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
                 textView.setText("");
                 texxtView.setText("");
                 Tumbler = 0;
                 ma.saveTextViewValue = "";
                 ma.saveAddictionTextViewValue = "";
                 textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
+                return true;
             }
         });
 
@@ -364,7 +399,6 @@ public class FragmentCalc extends Fragment {
         powButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());

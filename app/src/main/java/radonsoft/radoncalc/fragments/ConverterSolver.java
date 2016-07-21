@@ -11,23 +11,20 @@ import radonsoft.radoncalc.R;
  */
 public class ConverterSolver {
     public BigDecimal inputValue;
-    public String valueID;
-    public String measureOneID;
-    public String measureTwoID;
     public static String exportDataToConverter;
     public BigDecimal outputValue;
     public void convert(){
 
-        switch (valueID){
-            case "Length":
+        switch (converter.valueIDInt){
+            case 0:
                 convertLength(inputValue);
                 removeZerosFromFraction(outputValue);
                 break;
-            case "Weight":
+            case 1:
                 convertWeight(inputValue);
                 removeZerosFromFraction(outputValue);
                 break;
-            case "Speed":
+            case 2:
                 convertSpeed(inputValue);
                 removeZerosFromFraction(outputValue);
                 break;

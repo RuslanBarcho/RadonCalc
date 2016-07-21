@@ -67,6 +67,7 @@ public class converter extends Fragment {
 
     public static int firstMeasureInt;
     public static int secondMeasureInt;
+    public static int valueIDInt;
 
     MainActivity ma;
 
@@ -114,24 +115,27 @@ public class converter extends Fragment {
         animBackground = (FrameLayout) mRootView.findViewById(R.id.clearAnimbkg);
 
         setFontForViewElements();
+        inputWindow.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
+        outputWindow.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,"robotolight.ttf"));
 
         spinner1 = (Spinner) mRootView.findViewById(R.id.spinner2);
         spinner2 = (Spinner) mRootView.findViewById(R.id.spinner);
 
+        valueIDInt = ma.valueIDPos;
+
         inputWindow.setText(ma.saveConverterValue);
         outputWindow.setText(ma.saveOutputConverterValue);
-        chooseValue = ma.chooseValue;
 
-        switch (chooseValue){
-            case "Length":
+        switch (valueIDInt){
+            case 0:
                 addItemsOnSpinner(length, spinner1, 1);
                 addItemsOnSpinner(length, spinner2, 2);
                 break;
-            case "Weight":
+            case 1:
                 addItemsOnSpinner(weight, spinner1, 1);
                 addItemsOnSpinner(weight, spinner2, 2);
                 break;
-            case "Speed":
+            case 2:
                 addItemsOnSpinner(speed, spinner1, 1);
                 addItemsOnSpinner(speed, spinner2, 2);
                 break;
@@ -227,7 +231,6 @@ public class converter extends Fragment {
         }
         else {
             ConverterSolver solver = new ConverterSolver();
-            solver.valueID = chooseValue;
             solver.inputValue = new BigDecimal(inputWindow.getText().toString());
             solver.convert();
             outputWindow.setText(solver.exportDataToConverter);
@@ -294,27 +297,24 @@ public class converter extends Fragment {
         builder.setItems(valuesNames, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                chooseValue = valuesNames[which];
-                returnDefaultTranslation(chooseValue, "Length", "Длина");
-                returnDefaultTranslation(chooseValue, "Weight", "Вес");
-                returnDefaultTranslation(chooseValue, "Speed", "Скорость");
+                valueIDInt = which;
                 saveLocal = inputWindow.getText().toString();
                 inputWindow.setText("");
-                switch (chooseValue){
-                    case "Length":
+                switch (valueIDInt){
+                    case 0:
                         addItemsOnSpinner(length, spinner1, 1);
                         addItemsOnSpinner(length, spinner2, 2);
                         firstMeasureInt = 0;
                         secondMeasureInt = 0;
                         break;
-                    case "Weight":
+                    case 1:
                         inputWindow.setText("");
                         addItemsOnSpinner(weight, spinner1, 1);
                         addItemsOnSpinner(weight, spinner2, 2);
                         firstMeasureInt = 0;
                         secondMeasureInt = 0;
                         break;
-                    case "Speed":
+                    case 2:
                         inputWindow.setText("");
                         addItemsOnSpinner(speed, spinner1, 1);
                         addItemsOnSpinner(speed, spinner2, 2);
@@ -327,12 +327,6 @@ public class converter extends Fragment {
         });
         AlertDialog alert = builder.create();
         alert.show();
-    }
-
-    public void returnDefaultTranslation(String toReturn, String trans1, String trans2){
-        if (toReturn.equals(trans1)| toReturn.equals(trans2)){
-            chooseValue = trans1;
-        }
     }
 
     public void clearAnimation() {
@@ -364,6 +358,7 @@ public class converter extends Fragment {
         ma.spinnerInputPos = spinner1.getSelectedItemPosition();
         ma.spinnerOutputPos = spinner2.getSelectedItemPosition();
         ma.chooseValue = chooseValue;
+        ma.valueIDPos = valueIDInt;
     }
 
     public void activateBuiltInKeyboard() {
