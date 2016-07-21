@@ -58,7 +58,7 @@ public class FragmentCalc extends Fragment {
     int charTest;
     int testOnsSignsFinal;
     int trigonometryFunctions;
-    int toDeleteLength;
+
     TextView textView;
     TextView texxtView;
     TextView radDeg;
@@ -215,7 +215,7 @@ public class FragmentCalc extends Fragment {
             public void onClick(View v) {
                 emptyStringTest = String.valueOf(texxtView.getText());
                 trigonometryFunctions = 1;
-                if (emptyStringTest == "")
+                if (emptyStringTest.equals("")|emptyStringTest.equals("-"))
                 {
                     // here will be error message
                 }
@@ -231,7 +231,7 @@ public class FragmentCalc extends Fragment {
             public void onClick(View v) {
                 emptyStringTest = String.valueOf(texxtView.getText());
                 trigonometryFunctions = 2;
-                if (emptyStringTest == "")
+                if (emptyStringTest.equals("")|emptyStringTest.equals("-"))
                 {
                     // here will be error message
                 }
@@ -247,7 +247,7 @@ public class FragmentCalc extends Fragment {
             public void onClick(View v) {
                 emptyStringTest = String.valueOf(texxtView.getText());
                 trigonometryFunctions = 3;
-                if (emptyStringTest == "")
+                if (emptyStringTest.equals("")|emptyStringTest.equals("-"))
                 {
                     // here will be error message
                 }
@@ -263,7 +263,7 @@ public class FragmentCalc extends Fragment {
             public void onClick(View v) {
                 Proverka = String.valueOf(texxtView.getText());
                 String forInputTest = String.valueOf(textView.getText());
-                if (Proverka == "")
+                if (Proverka.equals("")|Proverka.equals("-"))
                 {
 
                 }
@@ -290,7 +290,7 @@ public class FragmentCalc extends Fragment {
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
-                if (Proverka == "")
+                if (Proverka.equals("")|Proverka.equals("-"))
                 {
 
                 }
@@ -314,27 +314,31 @@ public class FragmentCalc extends Fragment {
         MinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
-                if (Proverka == "")
-                {
-
-                }
-                else {
-                    switch (Tumbler) {
-                        case 0:
-                        OperateA =  new BigDecimal(String.valueOf(texxx));
+                switch (Proverka){
+                    case "":
                         textView.setText(texxt + "-");
-                        texxtView.setText("");
-                        Tumbler = 2;
-                            break;
-                        case 2:
-                            subtraction();
-                            writeOperationToHistory();
-                            break;
-                    }
+                        texxtView.setText(texxx + "-");
+                        break;
+                    case "-":
+
+                        break;
+                    default:
+                        switch (Tumbler) {
+                            case 0:
+                                OperateA =  new BigDecimal(String.valueOf(texxx));
+                                textView.setText(texxt + "-");
+                                texxtView.setText("");
+                                Tumbler = 2;
+                                break;
+                            case 2:
+                                subtraction();
+                                writeOperationToHistory();
+                                break;
+                        }
+                        break;
                 }
                 saveFragmentValues();
             }
@@ -342,11 +346,10 @@ public class FragmentCalc extends Fragment {
         MultiplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
-                if (Proverka == "")
+                if (Proverka.equals("")|Proverka.equals("-"))
                 {
 
                 }
@@ -370,11 +373,10 @@ public class FragmentCalc extends Fragment {
         DivButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
-                if (Proverka == "")
+                if (Proverka.equals("")|Proverka.equals("-"))
                 {
 
                 }
@@ -402,7 +404,7 @@ public class FragmentCalc extends Fragment {
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
-                if (Proverka == "")
+                if (Proverka.equals("")|Proverka.equals("-"))
                 {
 
                 }
@@ -449,7 +451,7 @@ public class FragmentCalc extends Fragment {
             @Override
             public void onClick(View v) {
                 Proverka = String.valueOf(texxtView.getText());
-                if (Proverka == "") {
+                if (Proverka.equals("")) {
                     textView.setText("");
                     texxtView.setText("");
                     saveTextViewValue = "";
