@@ -25,6 +25,8 @@
     //Strings for recently operations
     <string name="history_title">Recently operations</string>
     <string name="history_no_recently">No recently operations</string>
+    <string name="history_operation">Operation: </string>
+
 
     <string-array name="converter_length_values">
         <item>Centimeter</item>

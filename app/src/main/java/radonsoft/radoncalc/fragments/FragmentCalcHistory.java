@@ -142,25 +142,26 @@ public class FragmentCalcHistory extends Fragment {
         final TextView pageTwoThirdCellBodyThree = (TextView) pagetwo.findViewById(R.id.textView41);
         final TextView pageTwoThirdCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView42);
 
+        String operation = getString(R.string.history_operation);
         setFirstPageVisibility();
         //First Cell making full
-        pageOneFirstCellName.setText("Operation: " + ma.pageOnefirstCellhistoryName);
+        pageOneFirstCellName.setText(operation + " " +  ma.pageOnefirstCellhistoryName);
         pageOneFirstCellBody.setText(ma.pageOnefirstCellhistoryBody);
         pageOneFirstCellResult.setText("Result: " + ma.pageOnefirstCellhistoryResult);
         //Second Cell making full
-        pageOneSecondCellName.setText("Operation: " + ma.pageOneSecondCellhistoryName);
+        pageOneSecondCellName.setText(operation +" " + ma.pageOneSecondCellhistoryName);
         pageOneSecondCellBody.setText(ma.pageOneSecondCellhistoryBody);
         pageOneSecondCellResult.setText("Result: " + ma.pageOneSecondCellhistoryResult);
         //Third cell making full
-        pageOneThirdCellName.setText("Operation: " + ma.pageOneThirdCellhistoryName);
+        pageOneThirdCellName.setText(operation +" " + ma.pageOneThirdCellhistoryName);
         pageOneThirdCellBody.setText(ma.pageOneThirdCellhistoryBody);
         pageOneThirdCellResult.setText("Result: " + ma.pageOneThirdCellhistoryResult);
         //Fourth cell making full
-        pageOneFourthCellName.setText("Operation: " + ma.pageOneFourthCellhistoryName);
+        pageOneFourthCellName.setText(operation +" " + ma.pageOneFourthCellhistoryName);
         pageOneFourthCellBody.setText(ma.pageOneFourthCellhistoryBody);
         pageOneFourthCellResult.setText("Result: " + ma.pageOneFourthCellhistoryResult);
         //Fifth cell making full
-        pageOneFifthCellName.setText("Operation: " + ma.pageOneFifthCellhistoryName);
+        pageOneFifthCellName.setText(operation +" " + ma.pageOneFifthCellhistoryName);
         pageOneFifthCellBody.setText(ma.pageOneFifthCellhistoryBody);
         pageOneFifthCellResult.setText("Result: " + ma.pageOneFifthCellhistoryResult);
 

@@ -7,7 +7,6 @@
     <string name="snackbar_text_deleted">Очищено</string>
     <string name="converter_title">Конвертер величин</string>
     <string name="converter_centimeter">Сантиметр</string>
-
     <string name="converter_speed">Скорость</string>
     <string name="converter_send_calc">Отправить в калькулятор</string>
     <string-array name="converter_length_values">
@@ -34,4 +33,5 @@
     <string name="history_title">Недавние операции</string>
     <string name="history_no_recently">Нет недавних операций</string>
     <string name="equations_title">Уравнения</string>
+    <string name="history_operation">Операция: </string>
 </resources>

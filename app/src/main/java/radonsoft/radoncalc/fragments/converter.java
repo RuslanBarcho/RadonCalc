@@ -485,6 +485,7 @@ public class converter extends Fragment {
                 else {
                     ma.saveTextViewValue = outputWindow.getText().toString();
                     ma.saveAddictionTextViewValue = outputWindow.getText().toString();
+                    ma.saveTumbler = 0;
                 }
                 return true;
             }

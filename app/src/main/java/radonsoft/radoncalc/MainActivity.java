@@ -13,6 +13,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
+import java.math.BigDecimal;
+
 import radonsoft.radoncalc.fragments.FragmentCalc;
 import radonsoft.radoncalc.fragments.FragmentCalcHistory;
 import radonsoft.radoncalc.fragments.FragmentQuadraticEquations;
@@ -97,6 +99,8 @@ public class MainActivity extends AppCompatActivity
     //save and send calculator values
     public static String saveTextViewValue;
     public static String saveAddictionTextViewValue;
+    public static BigDecimal saveOperateA;
+    public static int saveTumbler;
 
     //save and send converter value
     public static String saveConverterValue;

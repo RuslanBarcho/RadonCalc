@@ -253,7 +253,7 @@ public class FragmentQuadraticEquations extends Fragment {
                         historySqrtDiscr = tvDiscrRoot.getText().toString();
                         historyXone = tvX1.getText().toString();
                         historyXtwo = txX2.getText().toString();
-                        historyTitle = historyA + "X^2" + historyB + "X" + historyC;
+                        historyTitle = historyA + "X^2" + historyB + "X" + historyC + "=0";
                         if (ma.historyWriteToogle == 1) {
                             historyXtwo = "No Solution";
                         }

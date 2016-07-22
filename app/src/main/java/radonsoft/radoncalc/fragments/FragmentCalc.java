@@ -12,8 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
@@ -63,6 +65,8 @@ public class FragmentCalc extends Fragment {
     TextView texxtView;
     TextView radDeg;
 
+    HorizontalScrollView inputScroll;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -100,6 +104,8 @@ public class FragmentCalc extends Fragment {
         radDeg = (TextView) mRootView.findViewById(R.id.textView4);
         rootButton = (Button) mRootView.findViewById(R.id.button18);
 
+        inputScroll = (HorizontalScrollView) mRootView.findViewById(R.id.horizontalScrollView);
+
         setFont(oneButton, "robotolight.ttf");
         setFont(vButton, "robotolight.ttf");
         setFont(bButton, "robotolight.ttf");
@@ -123,6 +129,8 @@ public class FragmentCalc extends Fragment {
 
         textView.setText(ma.saveTextViewValue);
         texxtView.setText(ma.saveAddictionTextViewValue);
+        Tumbler = ma.saveTumbler;
+        OperateA = ma.saveOperateA;
         ma.pages = 0;
 
         activateBuiltInKeyboard();
@@ -146,7 +154,7 @@ public class FragmentCalc extends Fragment {
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
 
-                if (Proverka == "") {
+                if (Proverka.equals("")|Proverka.equals("-")) {
                     textView.setText(texxt + "0.");
                     texxtView.setText(texxx + "0.");
                 }
@@ -223,6 +231,20 @@ public class FragmentCalc extends Fragment {
                     solveTrigonometryFunctions();
                 }
                 saveFragmentValues();
+            }
+        });
+
+        percentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        piButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
@@ -319,8 +341,13 @@ public class FragmentCalc extends Fragment {
                 Proverka = String.valueOf(texxtView.getText());
                 switch (Proverka){
                     case "":
-                        textView.setText(texxt + "-");
-                        texxtView.setText(texxx + "-");
+                        if (Tumbler == 0) {
+                            textView.setText(texxt + "-");
+                            texxtView.setText(texxx + "-");
+                        }
+                        else{
+
+                        }
                         break;
                     case "-":
 
@@ -627,6 +654,8 @@ public class FragmentCalc extends Fragment {
     public void saveFragmentValues(){
         ma.saveTextViewValue = textView.getText().toString();
         ma.saveAddictionTextViewValue = texxtView.getText().toString();
+        ma.saveOperateA = OperateA;
+        ma.saveTumbler = Tumbler;
     }
 
     public void removeZerosFromFraction(BigDecimal ToRemove){
@@ -805,6 +834,11 @@ public class FragmentCalc extends Fragment {
             testOnsSignsFinal = 0;
         }
     }
+
+    public void scrollInputToEnd(){
+        inputScroll.scrollTo(9000000, 0);
+    }
+
     public void activateBuiltInKeyboard(){
         oneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -918,14 +952,18 @@ public class FragmentCalc extends Fragment {
         switch (item.getItemId()) {
             case (R.id.action_converterSender): {
                 testInputOnSigns(textView.getText().toString());
-                if (testOnsSignsFinal == 1){
-                    //nothing to do
-                    if (textView.getText().toString().contains("-")& Tumbler == 0){
-                        ma.saveConverterValue = texxtView.getText().toString();
-                    }
+                if (textView.getText().toString().equals("-")){
+
                 }
                 else {
-                    ma.saveConverterValue = texxtView.getText().toString();
+                    if (testOnsSignsFinal == 1) {
+                        //nothing to do
+                        if (textView.getText().toString().contains("-") & Tumbler == 0) {
+                            ma.saveConverterValue = texxtView.getText().toString();
+                        }
+                    } else {
+                        ma.saveConverterValue = texxtView.getText().toString();
+                    }
                 }
                 return true;
             }
