@@ -334,7 +334,7 @@ public class converter extends Fragment {
             ClearAnimation historyFragmentClrAnim = new ClearAnimation();
             historyFragmentClrAnim.clrAnimBackground = animBackground;
             historyFragmentClrAnim.clrAnimName = convertFragClearAnim;
-            historyFragmentClrAnim.createClrAnim(1500, 300, 0, 0);
+            historyFragmentClrAnim.createClrAnim(2300, 400, 0, 0);
         }
         else {
             animBackground.startAnimation(ma.fadein);

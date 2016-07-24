@@ -174,6 +174,7 @@ public class FragmentQuadraticEquations extends Fragment {
                 tvDiscrRoot.setText("√Discr");
                 tvX1.setText("X1");
                 txX2.setText("X2");
+                resultLayout.setVisibility(View.GONE);
                 String strA = editTextA.getText().toString();
                 String strB = editTextB.getText().toString();
                 String strC = editTextC.getText().toString();

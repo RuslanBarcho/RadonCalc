@@ -131,6 +131,7 @@ public class FragmentCalc extends Fragment {
         texxtView.setText(ma.saveAddictionTextViewValue);
         Tumbler = ma.saveTumbler;
         OperateA = ma.saveOperateA;
+        radDeg.setText(ma.saveDegreeStatus);
         ma.pages = 0;
 
         activateBuiltInKeyboard();
@@ -144,6 +145,7 @@ public class FragmentCalc extends Fragment {
                 } else {
                     radDeg.setText("RAD");
                 }
+                saveFragmentValues();
             }
         });
 
@@ -457,18 +459,22 @@ public class FragmentCalc extends Fragment {
             @Override
             public void onClick(View v) {
                 testInputOnSigns(textView.getText().toString());
+                BigDecimal checkHugeMaxValue = new BigDecimal(Double.MAX_VALUE);
                 if (testOnsSignsFinal == 1 | textView.getText().toString().equals("")){
 
                 }
                 else {
                     OperateA = new BigDecimal(String.valueOf(textView.getText()));
-                    Result = sqrt(OperateA, 25);
-                    removeZerosFromFraction(Result);
-                    loadHistoryContent("Evolution");
-                    textView.setText(String.valueOf(Result));
-                    texxtView.setText(String.valueOf(Result));
-                    historyResult = String.valueOf(Result);
-                    writeOperationToHistory();
+                    BigDecimal checkHugeValueInput = OperateA;
+                    if (checkHugeValueInput.compareTo(checkHugeMaxValue) == -1) {
+                        Result = sqrt(OperateA, 20);
+                        removeZerosFromFraction(Result);
+                        loadHistoryContent("Evolution");
+                        textView.setText(String.valueOf(Result));
+                        texxtView.setText(String.valueOf(Result));
+                        historyResult = String.valueOf(Result);
+                        writeOperationToHistory();
+                    }
                 }
                 saveFragmentValues();
             }
@@ -656,6 +662,7 @@ public class FragmentCalc extends Fragment {
         ma.saveAddictionTextViewValue = texxtView.getText().toString();
         ma.saveOperateA = OperateA;
         ma.saveTumbler = Tumbler;
+        ma.saveDegreeStatus = radDeg.getText().toString();
     }
 
     public void removeZerosFromFraction(BigDecimal ToRemove){

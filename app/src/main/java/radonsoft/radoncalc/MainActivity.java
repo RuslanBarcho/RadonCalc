@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity
     public static String saveAddictionTextViewValue;
     public static BigDecimal saveOperateA;
     public static int saveTumbler;
+    public static String saveDegreeStatus = "RAD";
 
     //save and send converter value
     public static String saveConverterValue;
