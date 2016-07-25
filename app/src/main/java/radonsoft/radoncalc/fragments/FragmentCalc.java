@@ -1,6 +1,8 @@
 package radonsoft.radoncalc.fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -210,12 +212,7 @@ public class FragmentCalc extends Fragment {
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
-                textView.setText("");
-                texxtView.setText("");
-                Tumbler = 0;
-                ma.saveTextViewValue = "";
-                ma.saveAddictionTextViewValue = "";
-                textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
+                eraseAllData();
                 return true;
             }
         });
@@ -507,6 +504,7 @@ public class FragmentCalc extends Fragment {
                         case 4:
                             if (texxtView.getText().toString().equals("0")){
                                 //TODO: error message
+                                eraseAllData();
                             }
                             else {
                                 division();
@@ -704,6 +702,15 @@ public class FragmentCalc extends Fragment {
                 Result = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
             }
         }
+    }
+
+    public void eraseAllData(){
+        textView.setText("");
+        texxtView.setText("");
+        Tumbler = 0;
+        ma.saveTextViewValue = "";
+        ma.saveAddictionTextViewValue = "";
+        textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
     }
 
     public void loadOperateB(){
@@ -952,6 +959,32 @@ public class FragmentCalc extends Fragment {
             }
         });
     }
+
+    public void squareEquationExport(){
+        final String[] chooseEquationID = {"Set A", "Set B", "Set C"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Choose parameter");
+        builder.setItems(chooseEquationID, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    //TODO: change editText in Equations fragment
+                    case 0:
+
+                        break;
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+                }
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
     @Override
     public void onCreateOptionsMenu(
             Menu menu, MenuInflater inflater) {
@@ -978,6 +1011,8 @@ public class FragmentCalc extends Fragment {
                 }
                 return true;
             }
+            case (R.id.action_equationsSender):
+                squareEquationExport();
         }
         return super.onOptionsItemSelected(item);
     }

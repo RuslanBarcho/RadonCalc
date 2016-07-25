@@ -63,7 +63,7 @@ public class FragmentQuadraticEquations extends Fragment {
     private TextView tvX1;
     private TextView txX2;
 
-    private EditText editTextA;
+    public  EditText editTextA;
     private EditText editTextB;
     private EditText editTextC;
 
@@ -375,6 +375,7 @@ public class FragmentQuadraticEquations extends Fragment {
         });
         return mRootView;
     }
+
 
     private void calculate(BigDecimal a, BigDecimal b, BigDecimal c) {
 
