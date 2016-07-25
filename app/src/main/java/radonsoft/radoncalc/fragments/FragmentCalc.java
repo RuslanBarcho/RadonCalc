@@ -536,7 +536,6 @@ public class FragmentCalc extends Fragment {
         }
         return x1;
     }
-
     public void writeOperationToHistory(){
         switch (ma.pageOneCounter) {
             case 0:
