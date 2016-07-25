@@ -505,7 +505,12 @@ public class FragmentCalc extends Fragment {
                             multiplication();
                             break;
                         case 4:
-                            division();
+                            if (texxtView.getText().toString().equals("0")){
+                                //TODO: error message
+                            }
+                            else {
+                                division();
+                            }
                             break;
                         case 5:
                             exponentiate();
