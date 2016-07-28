@@ -182,7 +182,8 @@
             android:layout_marginLeft="9dp"
             android:layout_centerHorizontal="true"
             android:paddingLeft="35dp"
-            android:background="#00ffffff" />
+            android:background="#00ffffff"
+            android:maxLength="20" />
 
         <EditText
             android:layout_width="match_parent"
@@ -198,7 +199,8 @@
             android:layout_marginRight="9dp"
             android:layout_alignStart="@+id/editTextA"
             android:paddingLeft="35dp"
-            android:background="#00ffffff" />
+            android:background="#00ffffff"
+            android:maxLength="20" />
 
         <EditText
             android:layout_width="match_parent"
@@ -213,7 +215,8 @@
             android:layout_alignStart="@+id/editTextB"
             android:layout_marginRight="9dp"
             android:paddingLeft="35dp"
-            android:background="#00ffffff" />
+            android:background="#00ffffff"
+            android:maxLength="20" />
 
         <TextView
             android:layout_width="wrap_content"

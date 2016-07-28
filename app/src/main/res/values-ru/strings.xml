@@ -13,6 +13,7 @@
     <string name="calculator_set_a">Значение А</string>
     <string name="calculator_set_b">Значение B</string>
     <string name="calculator_set_c">Значение C</string>
+    <string name="calculator_Illegal_operation">Недопустимая операция</string>
     <string-array name="converter_length_values">
         <item>Сантиметр</item>
         <item>Метр</item>

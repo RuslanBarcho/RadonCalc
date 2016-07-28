@@ -41,7 +41,8 @@
                 android:maxLines="1"
                 android:layout_above="@+id/button16"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:text="2" />
         </HorizontalScrollView>
 
         <TextView
@@ -63,8 +64,8 @@
     </RelativeLayout>
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="1"
         android:id="@+id/button"
         android:onClick="onClick"
@@ -80,8 +81,8 @@
         android:textStyle="normal" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="2"
         android:id="@+id/button2"
         android:onClick="onClick"
@@ -95,8 +96,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="3"
         android:id="@+id/button3"
         android:onClick="onClick"
@@ -112,8 +113,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="4"
         android:id="@+id/button4"
         android:onClick="onClick"
@@ -127,8 +128,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="5"
         android:id="@+id/button5"
         android:onClick="onClick"
@@ -144,8 +145,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="6"
         android:id="@+id/button6"
         android:onClick="onClick"
@@ -160,8 +161,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="7"
         android:id="@+id/button7"
         android:onClick="onClick"
@@ -177,8 +178,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="8"
         android:id="@+id/button8"
         android:onClick="onClick"
@@ -196,8 +197,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="9"
         android:id="@+id/button9"
         android:onClick="onClick"
@@ -216,8 +217,8 @@
         android:layout_alignEnd="@+id/button6" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text=","
         android:id="@+id/button10"
         android:onClick="onClick"
@@ -233,8 +234,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="0"
         android:id="@+id/button12"
         android:onClick="onClick"
@@ -251,8 +252,8 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:layout_width="110dp"
-        android:layout_height="78dp"
+        android:layout_width="112dp"
+        android:layout_height="85dp"
         android:text="="
         android:id="@+id/button13"
         android:onClick="onClick"
@@ -284,7 +285,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:text="+"
         android:id="@+id/button14"
         android:onClick="onClick"
@@ -300,7 +301,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:text="-"
         android:id="@+id/button15"
         android:onClick="onClick"
@@ -318,7 +319,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:text="×"
         android:id="@+id/button16"
         android:onClick="onClick"
@@ -337,7 +338,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:text="÷"
         android:id="@+id/button17"
         android:onClick="onClick"
@@ -355,7 +356,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:text="√"
         android:id="@+id/button18"
         android:onClick="onClick"
@@ -375,7 +376,7 @@
     <Button
         android:textAllCaps="false"
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:id="@+id/button19"
         android:onClick="onClick"
         android:textSize="35dp"
@@ -391,7 +392,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:textAllCaps="false"
         android:text="Sin"
         android:id="@+id/button24"
@@ -412,7 +413,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:textAllCaps="false"
         android:text="Cos"
         android:id="@+id/button25"
@@ -433,7 +434,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:textAllCaps="false"
         android:text="Tan"
         android:id="@+id/button26"
@@ -455,7 +456,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:text="+/-"
         android:id="@+id/button23"
         android:onClick="onClick"
@@ -498,7 +499,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:text="%"
         android:id="@+id/button27"
         android:onClick="onClick"
@@ -518,7 +519,7 @@
 
     <Button
         android:layout_width="120dp"
-        android:layout_height="104dp"
+        android:layout_height="114dp"
         android:id="@+id/button28"
         android:onClick="onClick"
         android:layout_x="262dp"

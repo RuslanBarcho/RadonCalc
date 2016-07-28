@@ -20,6 +20,7 @@
     <string name="calculator_set_b">Set B</string>
     <string name="calculator_set_c">Set C</string>
     <string name="calculator_button_ok">Ok</string>
+    <string name="calculator_Illegal_operation">Illegal operation</string>
     //Strings for converter
     <string name="converter_title">Unit converter</string>
     <string name="converter_length">Length</string>

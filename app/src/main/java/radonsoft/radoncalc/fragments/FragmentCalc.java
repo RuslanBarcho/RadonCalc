@@ -958,8 +958,8 @@ public class FragmentCalc extends Fragment {
     }
 
     public void showErrorMessage(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Illegal operation");
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.ErrorDialogTheme);
+        builder.setTitle(R.string.calculator_Illegal_operation);
         builder.setPositiveButton(R.string.calculator_button_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
