@@ -2,14 +2,11 @@ package radonsoft.radoncalc.fragments;
 
 import android.animation.Animator;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,18 +16,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
+import radonsoft.radoncalc.Helpers.ClearAnimation;
+import radonsoft.radoncalc.Helpers.ConverterSolver;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 

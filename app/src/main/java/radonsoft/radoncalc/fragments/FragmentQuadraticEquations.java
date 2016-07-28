@@ -20,6 +20,8 @@ import android.widget.TextView;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import radonsoft.radoncalc.Helpers.ClearAnimation;
+import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 
@@ -30,7 +32,6 @@ public class FragmentQuadraticEquations extends Fragment {
     BigDecimal b;
     BigDecimal c;
     BigDecimal d;
-    BigDecimal four;
     BigDecimal sqrtd;
     BigDecimal sqrtdfloat;
     BigDecimal xOne;
@@ -376,10 +377,27 @@ public class FragmentQuadraticEquations extends Fragment {
         return mRootView;
     }
 
+    @Override
+    public void onResume() {
+        if (Global.sqrEquationsExport == 1){
+            if (Global.sqrEquationsExportCheckA == 1) {
+                editTextA.setText(Global.sqrEquationsExportToA);
+                Global.sqrEquationsExportCheckA = 0;
+            }
+            if (Global.sqrEquationsExportCheckB == 1) {
+                editTextB.setText(Global.sqrEquationsExportToB);
+                Global.sqrEquationsExportCheckB = 0;
+            }
+            if (Global.sqrEquationsExportCheckC == 1) {
+                editTextC.setText(Global.sqrEquationsExportToC);
+                Global.sqrEquationsExportCheckC = 0;
+            }
+                Global.sqrEquationsExport = 0;
+        }
+        super.onResume();
+    }
 
     private void calculate(BigDecimal a, BigDecimal b, BigDecimal c) {
-
-
         historyWriteLocal = 1;
         d = (b.multiply(b)).subtract((a.multiply(c)).multiply(new BigDecimal(4)));
         tvDiscr.setText("Discr = " + String.valueOf(d));

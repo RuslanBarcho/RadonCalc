@@ -15,6 +15,11 @@
     <string name="calculator_title">Calculator</string>
     <string name="calculator_send_converter">Send to converter</string>
     <string name="calculator_send_q_equations">Send to quadratic equations</string>
+    <string name="calculator_choose_parameter">Choose parameter:</string>
+    <string name="calculator_set_a">Set A</string>
+    <string name="calculator_set_b">Set B</string>
+    <string name="calculator_set_c">Set C</string>
+    <string name="calculator_button_ok">Ok</string>
     //Strings for converter
     <string name="converter_title">Unit converter</string>
     <string name="converter_length">Length</string>

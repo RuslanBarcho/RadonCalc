@@ -1,7 +1,6 @@
 package radonsoft.radoncalc.fragments;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,14 +14,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
+import radonsoft.radoncalc.Helpers.BigDecimalMathOperations;
+import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 
@@ -960,23 +957,45 @@ public class FragmentCalc extends Fragment {
         });
     }
 
-    public void squareEquationExport(){
-        final String[] chooseEquationID = {"Set A", "Set B", "Set C"};
+    public void showErrorMessage(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Choose parameter");
+        builder.setMessage("Illegal operation");
+        builder.setPositiveButton(R.string.calculator_button_ok,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    public void squareEquationExport(){
+        final String[] chooseEquationID = {getString(R.string.calculator_set_a), getString(R.string.calculator_set_b), getString(R.string.calculator_set_c)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(getString(R.string.calculator_choose_parameter));
         builder.setItems(chooseEquationID, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
-                    //TODO: change editText in Equations fragment
+                    //TODO: change edittext in equations fragment
                     case 0:
-
+                        ma.show = 0;
+                        Global.sqrEquationsExport = 1;
+                        Global.sqrEquationsExportCheckA = 1;
+                        Global.sqrEquationsExportToA = textView.getText().toString();
                         break;
                     case 1:
-
+                        ma.show = 0;
+                        Global.sqrEquationsExport = 1;
+                        Global.sqrEquationsExportCheckB = 1;
+                        Global.sqrEquationsExportToB = textView.getText().toString();
                         break;
                     case 2:
-
+                        ma.show = 0;
+                        Global.sqrEquationsExport = 1;
+                        Global.sqrEquationsExportCheckC = 1;
+                        Global.sqrEquationsExportToC = textView.getText().toString();
                         break;
                 }
             }
@@ -996,14 +1015,16 @@ public class FragmentCalc extends Fragment {
         switch (item.getItemId()) {
             case (R.id.action_converterSender): {
                 testInputOnSigns(textView.getText().toString());
-                if (textView.getText().toString().equals("-")){
-
+                if (textView.getText().toString().equals("-")||textView.getText().toString().equals("")){
+                showErrorMessage();
                 }
                 else {
                     if (testOnsSignsFinal == 1) {
-                        //nothing to do
                         if (textView.getText().toString().contains("-") & Tumbler == 0) {
                             ma.saveConverterValue = texxtView.getText().toString();
+                        }
+                        else {
+                            showErrorMessage();
                         }
                     } else {
                         ma.saveConverterValue = texxtView.getText().toString();
@@ -1012,7 +1033,22 @@ public class FragmentCalc extends Fragment {
                 return true;
             }
             case (R.id.action_equationsSender):
-                squareEquationExport();
+                testInputOnSigns(textView.getText().toString());
+                if (textView.getText().toString().equals("-")||textView.getText().toString().equals("")){
+                    showErrorMessage();
+                }
+                else {
+                    if (testOnsSignsFinal == 1) {
+                        if (textView.getText().toString().contains("-") & Tumbler == 0) {
+                            squareEquationExport();
+                        }
+                        else{
+                            showErrorMessage();
+                        }
+                    } else {
+                        squareEquationExport();
+                    }
+                }
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,4 +1,4 @@
-package radonsoft.radoncalc.fragments;
+package radonsoft.radoncalc.Helpers;
 
 import android.animation.Animator;
 import android.app.Fragment;
@@ -8,6 +8,8 @@ import android.view.ViewAnimationUtils;
 import android.widget.FrameLayout;
 
 import radonsoft.radoncalc.MainActivity;
+import radonsoft.radoncalc.fragments.FragmentCalcHistory;
+import radonsoft.radoncalc.fragments.converter;
 
 /**
  * Created by Ruslan Barcho on 11.07.2016.

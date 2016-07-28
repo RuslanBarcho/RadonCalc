@@ -1,9 +1,10 @@
-package radonsoft.radoncalc.fragments;
+package radonsoft.radoncalc.Helpers;
 
 import java.math.BigDecimal;
 
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
+import radonsoft.radoncalc.fragments.converter;
 
 
 /**

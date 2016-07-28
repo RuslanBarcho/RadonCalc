@@ -9,6 +9,10 @@
     <string name="converter_centimeter">Сантиметр</string>
     <string name="converter_speed">Скорость</string>
     <string name="converter_send_calc">Отправить в калькулятор</string>
+    <string name="calculator_choose_parameter">Выберите параметр:</string>
+    <string name="calculator_set_a">Значение А</string>
+    <string name="calculator_set_b">Значение B</string>
+    <string name="calculator_set_c">Значение C</string>
     <string-array name="converter_length_values">
         <item>Сантиметр</item>
         <item>Метр</item>
