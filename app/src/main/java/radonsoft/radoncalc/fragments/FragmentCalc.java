@@ -2,6 +2,8 @@ package radonsoft.radoncalc.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 
+import radonsoft.radoncalc.DatabaseHelper;
 import radonsoft.radoncalc.Helpers.BigDecimalMathOperations;
 import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
@@ -641,7 +644,7 @@ public class FragmentCalc extends Fragment {
                     trigFunctionReturn();
                 }
                 else{
-                    // error message
+                    showErrorMessage();
                 }
             }
         }
@@ -651,7 +654,7 @@ public class FragmentCalc extends Fragment {
                 trigFunctionReturn();
             }
             else{
-                // here will be error message
+                showErrorMessage();
             }
         }
     }

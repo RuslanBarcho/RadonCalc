@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,6 +26,7 @@ import java.math.BigDecimal;
 
 import radonsoft.radoncalc.Helpers.ClearAnimation;
 import radonsoft.radoncalc.Helpers.ConverterSolver;
+import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 
@@ -463,6 +465,52 @@ public class converter extends Fragment {
         setFont(delButton, "robotolight.ttf");
     }
 
+    public void squareEquationExport(){
+        final String[] chooseEquationID = {getString(R.string.calculator_set_a), getString(R.string.calculator_set_b), getString(R.string.calculator_set_c)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(getString(R.string.calculator_choose_parameter));
+        builder.setItems(chooseEquationID, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    //TODO: change edittext in equations fragment
+                    case 0:
+                        ma.show = 0;
+                        Global.sqrEquationsExport = 1;
+                        Global.sqrEquationsExportCheckA = 1;
+                        Global.sqrEquationsExportToA = outputWindow.getText().toString();
+                        break;
+                    case 1:
+                        ma.show = 0;
+                        Global.sqrEquationsExport = 1;
+                        Global.sqrEquationsExportCheckB = 1;
+                        Global.sqrEquationsExportToB = outputWindow.getText().toString();
+                        break;
+                    case 2:
+                        ma.show = 0;
+                        Global.sqrEquationsExport = 1;
+                        Global.sqrEquationsExportCheckC = 1;
+                        Global.sqrEquationsExportToC = outputWindow.getText().toString();
+                        break;
+                }
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    public void showErrorMessage(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.ErrorDialogTheme);
+        builder.setTitle(R.string.calculator_Illegal_operation);
+        builder.setPositiveButton(R.string.calculator_button_ok,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
     @Override
     public void onCreateOptionsMenu(
             Menu menu, MenuInflater inflater) {
@@ -473,8 +521,8 @@ public class converter extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.action_calculatorSend): {
-                if (outputWindow.equals("")){
-
+                if (outputWindow.getText().toString().equals("")){
+                    showErrorMessage();
                 }
                 else {
                     ma.saveTextViewValue = outputWindow.getText().toString();
@@ -483,6 +531,13 @@ public class converter extends Fragment {
                 }
                 return true;
             }
+            case (R.id.action_equationsSend):
+                if (outputWindow.getText().toString().equals("")){
+                    showErrorMessage();
+                }
+                else {
+                    squareEquationExport();
+                }
         }
         return super.onOptionsItemSelected(item);
     }

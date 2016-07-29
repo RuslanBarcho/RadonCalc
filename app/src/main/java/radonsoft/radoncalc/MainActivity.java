@@ -1,6 +1,11 @@
 package radonsoft.radoncalc;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +17,7 @@ import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.math.BigDecimal;
 
@@ -26,6 +32,8 @@ public class MainActivity extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
     public static int pages = 0;
+
+    public static DatabaseHelper mDatabaseHelper;
 
     public static String titleCalc;
     public static String titleEquations;
@@ -113,10 +121,13 @@ public class MainActivity extends AppCompatActivity
     public static String spinnerInputPosString= "Centimeter";
     public static String chooseValue = "Length";
 
+    SharedPreferences sp;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         titleCalc = getString(R.string.calculator_title);
         titleEquations = getString(R.string.equations_title);
@@ -173,30 +184,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-                getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    */
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -217,4 +204,18 @@ public class MainActivity extends AppCompatActivity
         ftrans.commit();
         return true;
     }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("counter_one", pageOneCounter).commit();
+        editor.putInt("counter_two", pageTwoCounter).commit();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        pageOneCounter = sp.getInt("counter_one", 0);
+        pageTwoCounter = sp.getInt("counter_two", 0);
+    }
+
 }
