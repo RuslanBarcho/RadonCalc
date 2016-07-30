@@ -39,4 +39,11 @@
     <string name="history_no_recently">Нет недавних операций</string>
     <string name="equations_title">Уравнения</string>
     <string name="history_operation">Операция: </string>
+    <string name="history_result">Результат:</string>
+    <string name="history_addiction">сложение</string>
+    <string name="history_subtraction">вычитание</string>
+    <string name="history_multiplication">умножение</string>
+    <string name="history_division">деление</string>
+    <string name="history_exponentiation">возведение в степень</string>
+    <string name="history_evolution">извлечение корня</string>
 </resources>

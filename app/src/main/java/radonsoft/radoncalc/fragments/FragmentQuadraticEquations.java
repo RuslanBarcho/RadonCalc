@@ -264,43 +264,43 @@ public class FragmentQuadraticEquations extends Fragment {
 
                                 break;
                             case 1:
-                                ma.pageTwoFirstCellHistoryName = historyTitle;
-                                ma.pageTwoFirstCellHistoryBodyone = historyDiscr;
-                                ma.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
-                                ma.pageTwoFirstCellHistoryBodythree = historyXone;
-                                ma.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                                Global.pageTwoFirstCellHistoryName = historyTitle;
+                                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
                                 break;
                             case 2:
-                                ma.pageTwoSecondCellHistoryName = ma.pageTwoFirstCellHistoryName;
-                                ma.pageTwoSecondCellHistoryBodyone = ma.pageTwoFirstCellHistoryBodyone;
-                                ma.pageTwoSecondCellHistoryBodytwo = ma.pageTwoFirstCellHistoryBodytwo;
-                                ma.pageTwoSecondCellHistoryBodythree = ma.pageTwoFirstCellHistoryBodythree;
-                                ma.pageTwoSecondCellHistoryBodyend = ma.pageTwoFirstCellHistoryBodyend;
+                                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
+                                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
+                                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
+                                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
+                                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
 
-                                ma.pageTwoFirstCellHistoryName = historyTitle;
-                                ma.pageTwoFirstCellHistoryBodyone = historyDiscr;
-                                ma.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
-                                ma.pageTwoFirstCellHistoryBodythree = historyXone;
-                                ma.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                                Global.pageTwoFirstCellHistoryName = historyTitle;
+                                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
                                 break;
                             default:
-                                ma.pageTwoThirdCellHistoryName = ma.pageTwoSecondCellHistoryName;
-                                ma.pageTwoThirdCellHistoryBodyone = ma.pageTwoSecondCellHistoryBodyone;
-                                ma.pageTwoThirdCellHistoryBodytwo = ma.pageTwoSecondCellHistoryBodytwo;
-                                ma.pageTwoThirdCellHistoryBodythree = ma.pageTwoSecondCellHistoryBodythree;
-                                ma.pageTwoThirdCellHistoryBodyend = ma.pageTwoSecondCellHistoryBodyend;
+                                Global.pageTwoThirdCellHistoryName = Global.pageTwoSecondCellHistoryName;
+                                Global.pageTwoThirdCellHistoryBodyone = Global.pageTwoSecondCellHistoryBodyone;
+                                Global.pageTwoThirdCellHistoryBodytwo = Global.pageTwoSecondCellHistoryBodytwo;
+                                Global.pageTwoThirdCellHistoryBodythree = Global.pageTwoSecondCellHistoryBodythree;
+                                Global.pageTwoThirdCellHistoryBodyend = Global.pageTwoSecondCellHistoryBodyend;
 
-                                ma.pageTwoSecondCellHistoryName = ma.pageTwoFirstCellHistoryName;
-                                ma.pageTwoSecondCellHistoryBodyone = ma.pageTwoFirstCellHistoryBodyone;
-                                ma.pageTwoSecondCellHistoryBodytwo = ma.pageTwoFirstCellHistoryBodytwo;
-                                ma.pageTwoSecondCellHistoryBodythree = ma.pageTwoFirstCellHistoryBodythree;
-                                ma.pageTwoSecondCellHistoryBodyend = ma.pageTwoFirstCellHistoryBodyend;
+                                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
+                                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
+                                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
+                                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
+                                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
 
-                                ma.pageTwoFirstCellHistoryName = historyTitle;
-                                ma.pageTwoFirstCellHistoryBodyone = historyDiscr;
-                                ma.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
-                                ma.pageTwoFirstCellHistoryBodythree = historyXone;
-                                ma.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                                Global.pageTwoFirstCellHistoryName = historyTitle;
+                                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
                                 break;
                         }
                         break;

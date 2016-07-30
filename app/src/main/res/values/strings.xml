@@ -32,7 +32,13 @@
     <string name="history_title">Recently operations</string>
     <string name="history_no_recently">No recently operations</string>
     <string name="history_operation">Operation: </string>
-
+    <string name="history_result">Result:</string>
+    <string name="history_addiction">addiction</string>
+    <string name="history_subtraction">subtraction</string>
+    <string name="history_multiplication">multiplication</string>
+    <string name="history_division">division</string>
+    <string name="history_exponentiation">exponentiation</string>
+    <string name="history_evolution">evolution</string>
 
     <string-array name="converter_length_values">
         <item>Centimeter</item>

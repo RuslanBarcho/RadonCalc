@@ -217,7 +217,6 @@ public class converter extends Fragment {
                 makeConvertation();
             }
         });
-
         return mRootView;
     }
 

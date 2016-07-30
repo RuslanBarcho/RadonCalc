@@ -21,6 +21,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import radonsoft.radoncalc.Helpers.ClearAnimation;
+import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 
@@ -139,28 +140,28 @@ public class FragmentCalcHistory extends Fragment {
         final TextView pageTwoThirdCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView42);
 
         String operation = getString(R.string.history_operation);
+        String result = getString(R.string.history_result);
         setFirstPageVisibility();
         //First Cell making full
-        pageOneFirstCellName.setText(operation + " " +  ma.pageOnefirstCellhistoryName);
-        pageOneFirstCellBody.setText(ma.pageOnefirstCellhistoryBody);
-        pageOneFirstCellResult.setText("Result: " + ma.pageOnefirstCellhistoryResult);
+        pageOneFirstCellName.setText(operation + " " +  Global.pageOnefirstCellhistoryName);
+        pageOneFirstCellBody.setText(Global.pageOnefirstCellhistoryBody);
+        pageOneFirstCellResult.setText(result + " " + Global.pageOnefirstCellhistoryResult);
         //Second Cell making full
-        pageOneSecondCellName.setText(operation +" " + ma.pageOneSecondCellhistoryName);
-        pageOneSecondCellBody.setText(ma.pageOneSecondCellhistoryBody);
-        pageOneSecondCellResult.setText("Result: " + ma.pageOneSecondCellhistoryResult);
+        pageOneSecondCellName.setText(operation +" " + Global.pageOneSecondCellhistoryName);
+        pageOneSecondCellBody.setText(Global.pageOneSecondCellhistoryBody);
+        pageOneSecondCellResult.setText(result + " " + Global.pageOneSecondCellhistoryResult);
         //Third cell making full
-        pageOneThirdCellName.setText(operation +" " + ma.pageOneThirdCellhistoryName);
-        pageOneThirdCellBody.setText(ma.pageOneThirdCellhistoryBody);
-        pageOneThirdCellResult.setText("Result: " + ma.pageOneThirdCellhistoryResult);
+        pageOneThirdCellName.setText(operation +" " + Global.pageOneThirdCellhistoryName);
+        pageOneThirdCellBody.setText(Global.pageOneThirdCellhistoryBody);
+        pageOneThirdCellResult.setText(result + " " + Global.pageOneThirdCellhistoryResult);
         //Fourth cell making full
-        pageOneFourthCellName.setText(operation +" " + ma.pageOneFourthCellhistoryName);
-        pageOneFourthCellBody.setText(ma.pageOneFourthCellhistoryBody);
-        pageOneFourthCellResult.setText("Result: " + ma.pageOneFourthCellhistoryResult);
+        pageOneFourthCellName.setText(operation +" " + Global.pageOneFourthCellhistoryName);
+        pageOneFourthCellBody.setText(Global.pageOneFourthCellhistoryBody);
+        pageOneFourthCellResult.setText(result + " " + Global.pageOneFourthCellhistoryResult);
         //Fifth cell making full
-        pageOneFifthCellName.setText(operation +" " + ma.pageOneFifthCellhistoryName);
-        pageOneFifthCellBody.setText(ma.pageOneFifthCellhistoryBody);
-        pageOneFifthCellResult.setText("Result: " + ma.pageOneFifthCellhistoryResult);
-
+        pageOneFifthCellName.setText(operation +" " + Global.pageOneFifthCellhistoryName);
+        pageOneFifthCellBody.setText(Global.pageOneFifthCellhistoryBody);
+        pageOneFifthCellResult.setText(result + " " + Global.pageOneFifthCellhistoryResult);
 
         // Second page
         switch (ma.pageTwoCounter) {
@@ -183,51 +184,53 @@ public class FragmentCalcHistory extends Fragment {
                 break;
         }
         // First Cell making full
-        pageTwoFirstCellName.setText(ma.pageTwoFirstCellHistoryName);
-        pageTwoFirstCellBodyOne.setText(ma.pageTwoFirstCellHistoryBodyone);
-        pageTwoFirstCellBodyTwo.setText(ma.pageTwoFirstCellHistoryBodytwo);
-        pageTwoFirstCellBodyThree.setText(ma.pageTwoFirstCellHistoryBodythree);
-        pageTwoFirstCellBodyEnd.setText(ma.pageTwoFirstCellHistoryBodyend);
+        pageTwoFirstCellName.setText(Global.pageTwoFirstCellHistoryName);
+        pageTwoFirstCellBodyOne.setText(Global.pageTwoFirstCellHistoryBodyone);
+        pageTwoFirstCellBodyTwo.setText(Global.pageTwoFirstCellHistoryBodytwo);
+        pageTwoFirstCellBodyThree.setText(Global.pageTwoFirstCellHistoryBodythree);
+        pageTwoFirstCellBodyEnd.setText(Global.pageTwoFirstCellHistoryBodyend);
         // Second Cell making full
-        pageTwoSecondCellName.setText(ma.pageTwoSecondCellHistoryName);
-        pageTwoSecondCellBodyOne.setText(ma.pageTwoSecondCellHistoryBodyone);
-        pageTwoSecondCellBodyTwo.setText(ma.pageTwoSecondCellHistoryBodytwo);
-        pageTwoSecondCellBodyThree.setText(ma.pageTwoSecondCellHistoryBodythree);
-        pageTwoSecondCellBodyEnd.setText(ma.pageTwoSecondCellHistoryBodyend);
+        pageTwoSecondCellName.setText(Global.pageTwoSecondCellHistoryName);
+        pageTwoSecondCellBodyOne.setText(Global.pageTwoSecondCellHistoryBodyone);
+        pageTwoSecondCellBodyTwo.setText(Global.pageTwoSecondCellHistoryBodytwo);
+        pageTwoSecondCellBodyThree.setText(Global.pageTwoSecondCellHistoryBodythree);
+        pageTwoSecondCellBodyEnd.setText(Global.pageTwoSecondCellHistoryBodyend);
         // Third Cell making full
-        pageTwoThirdCellName.setText(ma.pageTwoThirdCellHistoryName);
-        pageTwoThirdCellBodyOne.setText(ma.pageTwoThirdCellHistoryBodyone);
-        pageTwoThirdCellBodyTwo.setText(ma.pageTwoThirdCellHistoryBodytwo);
-        pageTwoThirdCellBodyThree.setText(ma.pageTwoThirdCellHistoryBodythree);
-        pageTwoThirdCellBodyEnd.setText(ma.pageTwoThirdCellHistoryBodyend);
+        pageTwoThirdCellName.setText(Global.pageTwoThirdCellHistoryName);
+        pageTwoThirdCellBodyOne.setText(Global.pageTwoThirdCellHistoryBodyone);
+        pageTwoThirdCellBodyTwo.setText(Global.pageTwoThirdCellHistoryBodytwo);
+        pageTwoThirdCellBodyThree.setText(Global.pageTwoThirdCellHistoryBodythree);
+        pageTwoThirdCellBodyEnd.setText(Global.pageTwoThirdCellHistoryBodyend);
         //Checking Result
         //First Cell
-        if (ma.pageTwoFirstCellHistoryBodyend.equals(ma.historyWriterChecker)) {
+        if (Global.pageTwoFirstCellHistoryBodyend.equals(ma.historyWriterChecker)) {
             pageTwoFirstCellBodyTwo.setVisibility(View.GONE);
             pageTwoFirstCellBodyThree.setVisibility(View.GONE);
         }
         //Second Cell
-        if (ma.pageTwoSecondCellHistoryBodyend.equals(ma.historyWriterChecker)) {
+        if (Global.pageTwoSecondCellHistoryBodyend.equals(ma.historyWriterChecker)) {
             pageTwoSecondCellBodyTwo.setVisibility(View.GONE);
             pageTwoSecondCellBodyThree.setVisibility(View.GONE);
         }
         // Third Cell
-        if (ma.pageTwoThirdCellHistoryBodyend.equals(ma.historyWriterChecker)) {
+        if (Global.pageTwoThirdCellHistoryBodyend.equals(ma.historyWriterChecker)) {
             pageTwoThirdCellBodyTwo.setVisibility(View.GONE);
             pageTwoThirdCellBodyThree.setVisibility(View.GONE);
         }
         //Checking Result #2
-        if (ma.pageTwoFirstCellHistoryBodyend.equals("No second solution")) {
+        if (Global.pageTwoFirstCellHistoryBodyend.equals("No second solution")) {
             pageTwoFirstCellBodyEnd.setVisibility(View.GONE);
         }
         //Second Cell
-        if (ma.pageTwoSecondCellHistoryBodyend.equals("No second solution")) {
+        if (Global.pageTwoSecondCellHistoryBodyend.equals("No second solution")) {
             pageTwoSecondCellBodyEnd.setVisibility(View.GONE);
         }
         // Third Cell
-        if (ma.pageTwoThirdCellHistoryBodyend.equals("No second solution")) {
+        if (Global.pageTwoThirdCellHistoryBodyend.equals("No second solution")) {
             pageTwoThirdCellBodyEnd.setVisibility(View.GONE);
         }
+
+
         // Fourth page
         final TextView textviewtestone = (TextView) pagefour.findViewById(R.id.textView12);
         textviewtestone.setText("Тест2");

@@ -17,9 +17,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
-
 import java.math.BigDecimal;
-
 import radonsoft.radoncalc.DatabaseHelper;
 import radonsoft.radoncalc.Helpers.BigDecimalMathOperations;
 import radonsoft.radoncalc.Helpers.Global;
@@ -466,7 +464,7 @@ public class FragmentCalc extends Fragment {
                     if (checkHugeValueInput.compareTo(checkHugeMaxValue) == -1) {
                         Result = sqrt(OperateA, 20);
                         removeZerosFromFraction(Result);
-                        loadHistoryContent("Evolution");
+                        loadHistoryContent(getString(R.string.history_evolution));
                         textView.setText(String.valueOf(Result));
                         texxtView.setText(String.valueOf(Result));
                         historyResult = String.valueOf(Result);
@@ -540,73 +538,73 @@ public class FragmentCalc extends Fragment {
 
                 break;
             case 1:
-                ma.pageOnefirstCellhistoryBody = historyBody;
-                ma.pageOnefirstCellhistoryName = historyname;
-                ma.pageOnefirstCellhistoryResult = historyResult;
+                Global.pageOnefirstCellhistoryBody = historyBody;
+                Global.pageOnefirstCellhistoryName = historyname;
+                Global.pageOnefirstCellhistoryResult = historyResult;
                 break;
             case 2:
                 //Transfer to next cell
-                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                Global.pageOneSecondCellhistoryBody = Global.pageOnefirstCellhistoryBody;
+                Global.pageOneSecondCellhistoryName = Global.pageOnefirstCellhistoryName;
+                Global.pageOneSecondCellhistoryResult = Global.pageOnefirstCellhistoryResult;
                 //Make the first cell full
-                ma.pageOnefirstCellhistoryBody = historyBody;
-                ma.pageOnefirstCellhistoryName = historyname;
-                ma.pageOnefirstCellhistoryResult = historyResult;
+                Global.pageOnefirstCellhistoryBody = historyBody;
+                Global.pageOnefirstCellhistoryName = historyname;
+                Global.pageOnefirstCellhistoryResult = historyResult;
                 break;
             case 3:
                 //Transfer to next cell
-                ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
-                ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
-                ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
+                Global.pageOneThirdCellhistoryBody = Global.pageOneSecondCellhistoryBody;
+                Global.pageOneThirdCellhistoryName = Global.pageOneSecondCellhistoryName;
+                Global.pageOneThirdCellhistoryResult = Global.pageOneSecondCellhistoryResult;
 
-                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                Global.pageOneSecondCellhistoryBody = Global.pageOnefirstCellhistoryBody;
+                Global.pageOneSecondCellhistoryName = Global.pageOnefirstCellhistoryName;
+                Global.pageOneSecondCellhistoryResult = Global.pageOnefirstCellhistoryResult;
                 //Make the first cell full
-                ma.pageOnefirstCellhistoryBody = historyBody;
-                ma.pageOnefirstCellhistoryName = historyname;
-                ma.pageOnefirstCellhistoryResult = historyResult;
+                Global.pageOnefirstCellhistoryBody = historyBody;
+                Global.pageOnefirstCellhistoryName = historyname;
+                Global.pageOnefirstCellhistoryResult = historyResult;
                 break;
             case 4:
                 //Transfer to next cell
-                ma.pageOneFourthCellhistoryBody = ma.pageOneThirdCellhistoryBody;
-                ma.pageOneFourthCellhistoryName = ma.pageOneThirdCellhistoryName;
-                ma.pageOneFourthCellhistoryResult = ma.pageOneThirdCellhistoryResult;
+                Global.pageOneFourthCellhistoryBody = Global.pageOneThirdCellhistoryBody;
+                Global.pageOneFourthCellhistoryName = Global.pageOneThirdCellhistoryName;
+                Global.pageOneFourthCellhistoryResult = Global.pageOneThirdCellhistoryResult;
 
-                ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
-                ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
-                ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
+                Global.pageOneThirdCellhistoryBody = Global.pageOneSecondCellhistoryBody;
+                Global.pageOneThirdCellhistoryName = Global.pageOneSecondCellhistoryName;
+                Global.pageOneThirdCellhistoryResult = Global.pageOneSecondCellhistoryResult;
 
-                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                Global.pageOneSecondCellhistoryBody = Global.pageOnefirstCellhistoryBody;
+                Global.pageOneSecondCellhistoryName = Global.pageOnefirstCellhistoryName;
+                Global.pageOneSecondCellhistoryResult = Global.pageOnefirstCellhistoryResult;
                 //Make the first cell full
-                ma.pageOnefirstCellhistoryBody = historyBody;
-                ma.pageOnefirstCellhistoryName = historyname;
-                ma.pageOnefirstCellhistoryResult = historyResult;
+                Global.pageOnefirstCellhistoryBody = historyBody;
+                Global.pageOnefirstCellhistoryName = historyname;
+                Global.pageOnefirstCellhistoryResult = historyResult;
                 break;
             default:
                 //Transfer to next cell
-                ma.pageOneFifthCellhistoryBody = ma.pageOneFourthCellhistoryBody;
-                ma.pageOneFifthCellhistoryName = ma.pageOneFourthCellhistoryName;
-                ma.pageOneFifthCellhistoryResult = ma.pageOneFourthCellhistoryResult;
+                Global.pageOneFifthCellhistoryBody = Global.pageOneFourthCellhistoryBody;
+                Global.pageOneFifthCellhistoryName = Global.pageOneFourthCellhistoryName;
+                Global.pageOneFifthCellhistoryResult = Global.pageOneFourthCellhistoryResult;
 
-                ma.pageOneFourthCellhistoryBody = ma.pageOneThirdCellhistoryBody;
-                ma.pageOneFourthCellhistoryName = ma.pageOneThirdCellhistoryName;
-                ma.pageOneFourthCellhistoryResult = ma.pageOneThirdCellhistoryResult;
+                Global.pageOneFourthCellhistoryBody = Global.pageOneThirdCellhistoryBody;
+                Global.pageOneFourthCellhistoryName = Global.pageOneThirdCellhistoryName;
+                Global.pageOneFourthCellhistoryResult = Global.pageOneThirdCellhistoryResult;
 
-                ma.pageOneThirdCellhistoryBody = ma.pageOneSecondCellhistoryBody;
-                ma.pageOneThirdCellhistoryName = ma.pageOneSecondCellhistoryName;
-                ma.pageOneThirdCellhistoryResult = ma.pageOneSecondCellhistoryResult;
+                Global.pageOneThirdCellhistoryBody = Global.pageOneSecondCellhistoryBody;
+                Global.pageOneThirdCellhistoryName = Global.pageOneSecondCellhistoryName;
+                Global.pageOneThirdCellhistoryResult = Global.pageOneSecondCellhistoryResult;
 
-                ma.pageOneSecondCellhistoryBody = ma.pageOnefirstCellhistoryBody;
-                ma.pageOneSecondCellhistoryName = ma.pageOnefirstCellhistoryName;
-                ma.pageOneSecondCellhistoryResult = ma.pageOnefirstCellhistoryResult;
+                Global.pageOneSecondCellhistoryBody = Global.pageOnefirstCellhistoryBody;
+                Global.pageOneSecondCellhistoryName = Global.pageOnefirstCellhistoryName;
+                Global.pageOneSecondCellhistoryResult = Global.pageOnefirstCellhistoryResult;
                 //Make the first cell full
-                ma.pageOnefirstCellhistoryBody = historyBody;
-                ma.pageOnefirstCellhistoryName = historyname;
-                ma.pageOnefirstCellhistoryResult = historyResult;
+                Global.pageOnefirstCellhistoryBody = historyBody;
+                Global.pageOnefirstCellhistoryName = historyname;
+                Global.pageOnefirstCellhistoryResult = historyResult;
                 break;
         }
     }
@@ -725,7 +723,7 @@ public class FragmentCalc extends Fragment {
 
     public void addiction(){
         loadOperateB();
-        loadHistoryContent("Addiction");
+        loadHistoryContent(getString(R.string.history_addiction));
         texxtView.setText("");
         Result = OperateA.add(OperateB);
         historyResult = Result.toString();
@@ -736,7 +734,7 @@ public class FragmentCalc extends Fragment {
 
     public void subtraction(){
         loadOperateB();
-        loadHistoryContent("Subtraction");
+        loadHistoryContent(getString(R.string.history_subtraction));
         texxtView.setText("");
         Result = OperateA.subtract(OperateB);
         historyResult = Result.toString();
@@ -747,7 +745,7 @@ public class FragmentCalc extends Fragment {
 
     public void multiplication(){
         loadOperateB();
-        loadHistoryContent("Multiplication");
+        loadHistoryContent(getString(R.string.history_multiplication));
         texxtView.setText("");
         Result = OperateA.multiply(OperateB);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
@@ -770,7 +768,7 @@ public class FragmentCalc extends Fragment {
 
     public void division(){
         loadOperateB();
-        loadHistoryContent("Division");
+        loadHistoryContent(getString(R.string.history_division));
         texxtView.setText("");
         Result = OperateA.divide(OperateB, 50, BigDecimal.ROUND_CEILING);
         Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
@@ -797,7 +795,7 @@ public class FragmentCalc extends Fragment {
     public void exponentiate(){
         loadOperateB();
         Equal = OperateB.setScale(0, BigDecimal.ROUND_HALF_EVEN);
-        loadHistoryContent("Exponentiation");
+        loadHistoryContent(getString(R.string.history_exponentiation));
         // Test operate B on parity
         BigDecimal OperateBParityTwo = new BigDecimal(2);
         BigDecimal OperateBParityOne = OperateB.divide(OperateBParityTwo);

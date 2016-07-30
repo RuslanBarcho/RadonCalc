@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 
+import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.fragments.FragmentCalc;
 import radonsoft.radoncalc.fragments.FragmentCalcHistory;
 import radonsoft.radoncalc.fragments.FragmentQuadraticEquations;
@@ -29,62 +30,20 @@ import radonsoft.radoncalc.fragments.converter;
 
 public class MainActivity extends AppCompatActivity
 
-
         implements NavigationView.OnNavigationItemSelectedListener {
     public static int pages = 0;
-
-    public static DatabaseHelper mDatabaseHelper;
 
     public static String titleCalc;
     public static String titleEquations;
     public static String titleConverter;
 
     // Operation History
-    // Page One
     public static int pageOneCounter = 0;
-    // First Cell
-    public static String pageOnefirstCellhistoryName = "A";
-    public static String pageOnefirstCellhistoryBody = "B";
-    public static String pageOnefirstCellhistoryResult = "C";
-    // Second Cell
-    public static String pageOneSecondCellhistoryName = "A";
-    public static String pageOneSecondCellhistoryBody = "B";
-    public static String pageOneSecondCellhistoryResult = "C";
-    // Third Cell
-    public static String pageOneThirdCellhistoryName = "A";
-    public static String pageOneThirdCellhistoryBody = "B";
-    public static String pageOneThirdCellhistoryResult = "C";
-    // Fourth Cell
-    public static String pageOneFourthCellhistoryName = "A";
-    public static String pageOneFourthCellhistoryBody = "B";
-    public static String pageOneFourthCellhistoryResult = "C";
-    // Fifth Cell
-    public static String pageOneFifthCellhistoryName = "A";
-    public static String pageOneFifthCellhistoryBody = "B";
-    public static String pageOneFifthCellhistoryResult = "C";
 
     //Page Two
     public static int pageTwoCounter = 0;
     public static int historyWriteToogle = 0;
     public static String historyWriterChecker= "No Solution";
-    // First cell
-    public static String pageTwoFirstCellHistoryName = "A";
-    public static String pageTwoFirstCellHistoryBodyone = "A";
-    public static String pageTwoFirstCellHistoryBodytwo = "A";
-    public static String pageTwoFirstCellHistoryBodythree = "A";
-    public static String pageTwoFirstCellHistoryBodyend = "A";
-    // Second Cell
-    public static String pageTwoSecondCellHistoryName = "A";
-    public static String pageTwoSecondCellHistoryBodyone = "A";
-    public static String pageTwoSecondCellHistoryBodytwo = "A";
-    public static String pageTwoSecondCellHistoryBodythree = "A";
-    public static String pageTwoSecondCellHistoryBodyend = "A";
-    // Third Cell
-    public static String pageTwoThirdCellHistoryName = "A";
-    public static String pageTwoThirdCellHistoryBodyone = "A";
-    public static String pageTwoThirdCellHistoryBodytwo = "A";
-    public static String pageTwoThirdCellHistoryBodythree = "A";
-    public static String pageTwoThirdCellHistoryBodyend = "A";
 
     //save data in quadratic equations
     public static String saveDValue;
@@ -174,6 +133,11 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setTitle(title);
     }
 
+    public void saveString(String title, String toSave){
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(title, toSave).commit();
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -188,7 +152,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
         if (id == R.id.nav_camera) {
             ftrans.replace(R.id.container, fragmentCalcHistory);
@@ -204,18 +167,92 @@ public class MainActivity extends AppCompatActivity
         ftrans.commit();
         return true;
     }
+
     @Override
     protected void onStop() {
         super.onStop();
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt("counter_one", pageOneCounter).commit();
         editor.putInt("counter_two", pageTwoCounter).commit();
+        saveString("pageOnefirstCellhistoryName", Global.pageOnefirstCellhistoryName);
+        saveString("pageOnefirstCellhistoryBody", Global.pageOnefirstCellhistoryBody);
+        saveString("pageOnefirstCellhistoryResult", Global.pageOnefirstCellhistoryResult);
+
+        saveString("pageOneSecondCellhistoryName", Global.pageOneSecondCellhistoryName);
+        saveString("pageOneSecondCellhistoryBody", Global.pageOneSecondCellhistoryBody);
+        saveString("pageOneSecondCellhistoryResult", Global.pageOneSecondCellhistoryResult);
+
+        saveString("pageOneThirdCellhistoryName", Global.pageOneThirdCellhistoryName);
+        saveString("pageOneThirdCellhistoryBody", Global.pageOneThirdCellhistoryBody);
+        saveString("pageOneThirdCellhistoryResult", Global.pageOneThirdCellhistoryResult);
+
+        saveString("pageOneFourthCellhistoryName", Global.pageOneFourthCellhistoryName);
+        saveString("pageOneFourthCellhistoryBody", Global.pageOneFourthCellhistoryBody);
+        saveString("pageOneFourthCellhistoryResult", Global.pageOneFourthCellhistoryResult);
+
+        saveString("pageOneFifthCellhistoryName", Global.pageOneFifthCellhistoryName);
+        saveString("pageOneFifthCellhistoryBody", Global.pageOneFifthCellhistoryBody);
+        saveString("pageOneFifthCellhistoryResult", Global.pageOneFifthCellhistoryResult);
+
+        saveString("pageTwoFirstCellHistoryName", Global.pageTwoFirstCellHistoryName);
+        saveString("pageTwoFirstCellHistoryBodyone", Global.pageTwoFirstCellHistoryBodyone);
+        saveString("pageTwoFirstCellHistoryBodytwo", Global.pageTwoFirstCellHistoryBodytwo);
+        saveString("pageTwoFirstCellHistoryBodythree", Global.pageTwoFirstCellHistoryBodythree);
+        saveString("pageTwoFirstCellHistoryBodyend", Global.pageTwoFirstCellHistoryBodyend);
+
+        saveString("pageTwoSecondCellHistoryName", Global.pageTwoSecondCellHistoryName);
+        saveString("pageTwoSecondCellHistoryBodyone", Global.pageTwoSecondCellHistoryBodyone);
+        saveString("pageTwoSecondCellHistoryBodytwo", Global.pageTwoSecondCellHistoryBodytwo);
+        saveString("pageTwoSecondCellHistoryBodythree", Global.pageTwoSecondCellHistoryBodythree);
+        saveString("pageTwoSecondCellHistoryBodyend", Global.pageTwoSecondCellHistoryBodyend);
+
+        saveString("pageTwoThirdCellHistoryName", Global.pageTwoThirdCellHistoryName);
+        saveString("pageTwoThirdCellHistoryBodyone", Global.pageTwoThirdCellHistoryBodyone);
+        saveString("pageTwoThirdCellHistoryBodytwo", Global.pageTwoThirdCellHistoryBodytwo);
+        saveString("pageTwoThirdCellHistoryBodythree", Global.pageTwoThirdCellHistoryBodythree);
+        saveString("pageTwoThirdCellHistoryBodyend", Global.pageTwoThirdCellHistoryBodyend);
     }
     @Override
     protected void onStart() {
         super.onStart();
         pageOneCounter = sp.getInt("counter_one", 0);
         pageTwoCounter = sp.getInt("counter_two", 0);
-    }
+        Global.pageOnefirstCellhistoryName = sp.getString("pageOnefirstCellhistoryName", "");
+        Global.pageOnefirstCellhistoryBody = sp.getString("pageOnefirstCellhistoryBody", "");
+        Global.pageOnefirstCellhistoryResult = sp.getString("pageOnefirstCellhistoryResult", "");
 
+        Global.pageOneSecondCellhistoryName = sp.getString("pageOneSecondCellhistoryName", "");
+        Global.pageOneSecondCellhistoryBody = sp.getString("pageOneSecondCellhistoryBody", "");
+        Global.pageOneSecondCellhistoryResult = sp.getString("pageOneSecondCellhistoryResult", "");
+
+        Global.pageOneThirdCellhistoryName = sp.getString("pageOneThirdCellhistoryName", "");
+        Global.pageOneThirdCellhistoryBody = sp.getString("pageOneThirdCellhistoryBody", "");
+        Global.pageOneThirdCellhistoryResult = sp.getString("pageOneThirdCellhistoryResult", "");
+
+        Global.pageOneFourthCellhistoryName = sp.getString("pageOneFourthCellhistoryName", "");
+        Global.pageOneFourthCellhistoryBody = sp.getString("pageOneFourthCellhistoryBody", "");
+        Global.pageOneFourthCellhistoryResult = sp.getString("pageOneFourthCellhistoryResult", "");
+
+        Global.pageOneFifthCellhistoryName = sp.getString("pageOneFifthCellhistoryName", "");
+        Global.pageOneFifthCellhistoryBody = sp.getString("pageOneFifthCellhistoryBody", "");
+        Global.pageOneFifthCellhistoryResult = sp.getString("pageOneFifthCellhistoryResult", "");
+
+        Global.pageTwoFirstCellHistoryName = sp.getString("pageTwoFirstCellHistoryName", "");
+        Global.pageTwoFirstCellHistoryBodyone = sp.getString("pageTwoFirstCellHistoryBodyone", "");
+        Global.pageTwoFirstCellHistoryBodytwo = sp.getString("pageTwoFirstCellHistoryBodytwo", "");
+        Global.pageTwoFirstCellHistoryBodythree = sp.getString("pageTwoFirstCellHistoryBodythree", "");
+        Global.pageTwoFirstCellHistoryBodyend = sp.getString("pageTwoFirstCellHistoryBodyend", "");
+
+        Global.pageTwoSecondCellHistoryName = sp.getString("pageTwoSecondCellHistoryName", "");
+        Global.pageTwoSecondCellHistoryBodyone = sp.getString("pageTwoSecondCellHistoryBodyone", "");
+        Global.pageTwoSecondCellHistoryBodytwo = sp.getString("pageTwoSecondCellHistoryBodytwo", "");
+        Global.pageTwoSecondCellHistoryBodythree = sp.getString("pageTwoSecondCellHistoryBodythree", "");
+        Global.pageTwoSecondCellHistoryBodyend = sp.getString("pageTwoSecondCellHistoryBodyend", "");
+
+        Global.pageTwoThirdCellHistoryName = sp.getString("pageTwoThirdCellHistoryName", "");
+        Global.pageTwoThirdCellHistoryBodyone = sp.getString("pageTwoThirdCellHistoryBodyone", "");
+        Global.pageTwoThirdCellHistoryBodytwo = sp.getString("pageTwoThirdCellHistoryBodytwo", "");
+        Global.pageTwoThirdCellHistoryBodythree = sp.getString("pageTwoThirdCellHistoryBodythree", "");
+        Global.pageTwoThirdCellHistoryBodyend = sp.getString("pageTwoThirdCellHistoryBodyend", "");
+    }
 }

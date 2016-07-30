@@ -70,46 +70,46 @@ public class ClearAnimation {
     public void clearHistoryVariables() {
         //First Page
         // Variables Clear
-        ma.pageOneFifthCellhistoryBody = "";
-        ma.pageOneFifthCellhistoryName = "";
-        ma.pageOneFifthCellhistoryResult = "";
+        Global.pageOneFifthCellhistoryBody = "";
+        Global.pageOneFifthCellhistoryName = "";
+        Global.pageOneFifthCellhistoryResult = "";
 
-        ma.pageOneFourthCellhistoryBody = "";
-        ma.pageOneFourthCellhistoryName = "";
-        ma.pageOneFourthCellhistoryResult = "";
+        Global.pageOneFourthCellhistoryBody = "";
+        Global.pageOneFourthCellhistoryName = "";
+        Global.pageOneFourthCellhistoryResult = "";
 
-        ma.pageOneThirdCellhistoryBody = "";
-        ma.pageOneThirdCellhistoryName = "";
-        ma.pageOneThirdCellhistoryResult = "";
+        Global.pageOneThirdCellhistoryBody = "";
+        Global.pageOneThirdCellhistoryName = "";
+        Global.pageOneThirdCellhistoryResult = "";
 
-        ma.pageOneSecondCellhistoryBody = "";
-        ma.pageOneSecondCellhistoryName = "";
-        ma.pageOneSecondCellhistoryResult = "";
+        Global.pageOneSecondCellhistoryBody = "";
+        Global.pageOneSecondCellhistoryName = "";
+        Global.pageOneSecondCellhistoryResult = "";
 
-        ma.pageOnefirstCellhistoryBody = "";
-        ma.pageOnefirstCellhistoryName = "";
-        ma.pageOnefirstCellhistoryResult = "";
+        Global.pageOnefirstCellhistoryBody = "";
+        Global.pageOnefirstCellhistoryName = "";
+        Global.pageOnefirstCellhistoryResult = "";
         //Counter Reset
         ma.pageOneCounter = 0;
         //Second Page
         //Variables Clear
-        ma.pageTwoFirstCellHistoryName = "";
-        ma.pageTwoFirstCellHistoryBodyone = "";
-        ma.pageTwoFirstCellHistoryBodytwo = "";
-        ma.pageTwoFirstCellHistoryBodythree = "";
-        ma.pageTwoFirstCellHistoryBodyend = "";
+        Global.pageTwoFirstCellHistoryName = "";
+        Global.pageTwoFirstCellHistoryBodyone = "";
+        Global.pageTwoFirstCellHistoryBodytwo = "";
+        Global.pageTwoFirstCellHistoryBodythree = "";
+        Global.pageTwoFirstCellHistoryBodyend = "";
 
-        ma.pageTwoSecondCellHistoryName = "";
-        ma.pageTwoSecondCellHistoryBodyone = "";
-        ma.pageTwoSecondCellHistoryBodytwo = "";
-        ma.pageTwoSecondCellHistoryBodythree = "";
-        ma.pageTwoSecondCellHistoryBodyend = "";
+        Global.pageTwoSecondCellHistoryName = "";
+        Global.pageTwoSecondCellHistoryBodyone = "";
+        Global.pageTwoSecondCellHistoryBodytwo = "";
+        Global.pageTwoSecondCellHistoryBodythree = "";
+        Global.pageTwoSecondCellHistoryBodyend = "";
 
-        ma.pageTwoThirdCellHistoryName = "";
-        ma.pageTwoThirdCellHistoryBodyone = "";
-        ma.pageTwoThirdCellHistoryBodytwo = "";
-        ma.pageTwoThirdCellHistoryBodythree = "";
-        ma.pageTwoThirdCellHistoryBodyend = "";
+        Global.pageTwoThirdCellHistoryName = "";
+        Global.pageTwoThirdCellHistoryBodyone = "";
+        Global.pageTwoThirdCellHistoryBodytwo = "";
+        Global.pageTwoThirdCellHistoryBodythree = "";
+        Global.pageTwoThirdCellHistoryBodyend = "";
         // Counters Reset
         ma.pageTwoCounter = 0;
         ma.historyWriteToogle = 0;
