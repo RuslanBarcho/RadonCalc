@@ -9,11 +9,14 @@
     <string name="converter_centimeter">Сантиметр</string>
     <string name="converter_speed">Скорость</string>
     <string name="converter_send_calc">Отправить в калькулятор</string>
+    <string name="converter_sent_to_calculator">Отправлено в калькулятор</string>
     <string name="calculator_choose_parameter">Выберите параметр:</string>
     <string name="calculator_set_a">Значение А</string>
     <string name="calculator_set_b">Значение B</string>
     <string name="calculator_set_c">Значение C</string>
     <string name="calculator_Illegal_operation">Недопустимая операция</string>
+    <string name="calculator_sent_to_converter">Отправлено в конвертер</string>
+    <string name="calculator_sent_to_q_equations">Отправлено в квадратные уравнения</string>
     <string-array name="converter_length_values">
         <item>Сантиметр</item>
         <item>Метр</item>
@@ -46,4 +49,5 @@
     <string name="history_division">деление</string>
     <string name="history_exponentiation">возведение в степень</string>
     <string name="history_evolution">извлечение корня</string>
+    <string name="settings_title">Настройки</string>
 </resources>

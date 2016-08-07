@@ -21,6 +21,8 @@
     <string name="calculator_set_c">Set C</string>
     <string name="calculator_button_ok">Ok</string>
     <string name="calculator_Illegal_operation">Illegal operation</string>
+    <string name="calculator_sent_to_converter">Sent to converter</string>
+    <string name="calculator_sent_to_q_equations">Sent to quadratic equations</string>
     //Strings for converter
     <string name="converter_title">Unit converter</string>
     <string name="converter_length">Length</string>
@@ -28,6 +30,7 @@
     <string name="converter_speed">Speed</string>
     <string name="converter_send_calc">Send to calculator</string>
     <string name="converter_centimeter">Centimeter</string>
+    <string name="converter_sent_to_calculator">Sent to calculator</string>
     //Strings for recently operations
     <string name="history_title">Recently operations</string>
     <string name="history_no_recently">No recently operations</string>
@@ -39,6 +42,8 @@
     <string name="history_division">division</string>
     <string name="history_exponentiation">exponentiation</string>
     <string name="history_evolution">evolution</string>
+    //strings for settings
+    <string name="settings_title">Settings</string>
 
     <string-array name="converter_length_values">
         <item>Centimeter</item>
@@ -56,7 +61,6 @@
         <item>Mph</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
-
 
 
     <!-- TODO: Remove or change this placeholder text -->

@@ -1,5 +1,13 @@
 package radonsoft.radoncalc.Helpers;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+
+import radonsoft.radoncalc.MainActivity;
+import radonsoft.radoncalc.R;
+
+import static android.app.PendingIntent.getActivity;
+
 /**
  * Created by Ruska on 25.07.2016.
  */
@@ -54,4 +62,6 @@ public class Global {
     public static String pageTwoThirdCellHistoryBodytwo = "A";
     public static String pageTwoThirdCellHistoryBodythree = "A";
     public static String pageTwoThirdCellHistoryBodyend = "A";
+
+    //Global voids
 }

@@ -31,6 +31,10 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="SwitcherTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
     <style name="MooTextAppearanceSpinnerItem" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">16sp</item>

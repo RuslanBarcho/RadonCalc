@@ -642,7 +642,7 @@ public class FragmentCalc extends Fragment {
                     trigFunctionReturn();
                 }
                 else{
-                    showErrorMessage();
+                    showDialogMessage(getString(R.string.calculator_Illegal_operation));
                 }
             }
         }
@@ -652,7 +652,7 @@ public class FragmentCalc extends Fragment {
                 trigFunctionReturn();
             }
             else{
-                showErrorMessage();
+                showDialogMessage(getString(R.string.calculator_Illegal_operation));
             }
         }
     }
@@ -958,15 +958,15 @@ public class FragmentCalc extends Fragment {
         });
     }
 
-    public void showErrorMessage(){
+    public void showDialogMessage(String toShow){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.ErrorDialogTheme);
-        builder.setTitle(R.string.calculator_Illegal_operation);
+        builder.setTitle(toShow);
         builder.setPositiveButton(R.string.calculator_button_ok,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.cancel();
-                            }
-                        });
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
         AlertDialog alert = builder.create();
         alert.show();
     }
@@ -985,18 +985,21 @@ public class FragmentCalc extends Fragment {
                         Global.sqrEquationsExport = 1;
                         Global.sqrEquationsExportCheckA = 1;
                         Global.sqrEquationsExportToA = textView.getText().toString();
+                        showDialogMessage(getString(R.string.calculator_sent_to_q_equations));
                         break;
                     case 1:
                         ma.show = 0;
                         Global.sqrEquationsExport = 1;
                         Global.sqrEquationsExportCheckB = 1;
                         Global.sqrEquationsExportToB = textView.getText().toString();
+                        showDialogMessage(getString(R.string.calculator_sent_to_q_equations));
                         break;
                     case 2:
                         ma.show = 0;
                         Global.sqrEquationsExport = 1;
                         Global.sqrEquationsExportCheckC = 1;
                         Global.sqrEquationsExportToC = textView.getText().toString();
+                        showDialogMessage(getString(R.string.calculator_sent_to_q_equations));
                         break;
                 }
             }
@@ -1017,18 +1020,20 @@ public class FragmentCalc extends Fragment {
             case (R.id.action_converterSender): {
                 testInputOnSigns(textView.getText().toString());
                 if (textView.getText().toString().equals("-")||textView.getText().toString().equals("")){
-                showErrorMessage();
+                    showDialogMessage(getString(R.string.calculator_Illegal_operation));
                 }
                 else {
                     if (testOnsSignsFinal == 1) {
                         if (textView.getText().toString().contains("-") & Tumbler == 0) {
                             ma.saveConverterValue = texxtView.getText().toString();
+                            showDialogMessage(getString(R.string.calculator_sent_to_converter));
                         }
                         else {
-                            showErrorMessage();
+                            showDialogMessage(getString(R.string.calculator_Illegal_operation));
                         }
                     } else {
                         ma.saveConverterValue = texxtView.getText().toString();
+                        showDialogMessage(getString(R.string.calculator_sent_to_converter));
                     }
                 }
                 return true;
@@ -1036,7 +1041,7 @@ public class FragmentCalc extends Fragment {
             case (R.id.action_equationsSender):
                 testInputOnSigns(textView.getText().toString());
                 if (textView.getText().toString().equals("-")||textView.getText().toString().equals("")){
-                    showErrorMessage();
+                    showDialogMessage(getString(R.string.calculator_Illegal_operation));
                 }
                 else {
                     if (testOnsSignsFinal == 1) {
@@ -1044,7 +1049,7 @@ public class FragmentCalc extends Fragment {
                             squareEquationExport();
                         }
                         else{
-                            showErrorMessage();
+                            showDialogMessage(getString(R.string.calculator_Illegal_operation));
                         }
                     } else {
                         squareEquationExport();

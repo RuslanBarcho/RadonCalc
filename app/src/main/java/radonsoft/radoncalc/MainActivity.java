@@ -1,6 +1,8 @@
 package radonsoft.radoncalc;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -27,6 +29,7 @@ import radonsoft.radoncalc.fragments.FragmentCalcHistory;
 import radonsoft.radoncalc.fragments.FragmentQuadraticEquations;
 import radonsoft.radoncalc.fragments.HistoryFragment;
 import radonsoft.radoncalc.fragments.converter;
+import radonsoft.radoncalc.fragments.settings;
 
 public class MainActivity extends AppCompatActivity
 
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity
     FragmentCalcHistory fragmentCalcHistory;
     FragmentQuadraticEquations fragmentQuadraticEquations;
     converter fragmentConverter;
+    settings settings;
+
     //Animations
     public static Animation fadein;
     public static Animation fadeout;
@@ -113,6 +118,7 @@ public class MainActivity extends AppCompatActivity
         fragmentQuadraticEquations = new FragmentQuadraticEquations();
         fragmentCalcHistory = new FragmentCalcHistory();
         fragmentConverter = new converter();
+        settings = new settings();
 
         FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
         ftrans.replace(R.id.container, fragmentcalc);
@@ -125,6 +131,9 @@ public class MainActivity extends AppCompatActivity
         }
         if (pages == 4){
             ftrans.replace(R.id.container, fragmentConverter);
+        }
+        if (pages == 3){
+            ftrans.replace(R.id.container, settings);
         }
         ftrans.commit();
     }
@@ -161,6 +170,8 @@ public class MainActivity extends AppCompatActivity
             ftrans.replace(R.id.container, fragmentQuadraticEquations);
         } else if (id == R.id.nav_converter) {
             ftrans.replace(R.id.container, fragmentConverter);
+        } else if (id == R.id.nav_settings) {
+            ftrans.replace(R.id.container, settings);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

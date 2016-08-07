@@ -220,6 +220,19 @@ public class converter extends Fragment {
         return mRootView;
     }
 
+    public void showDialogMessage(String toShow){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.ErrorDialogTheme);
+        builder.setTitle(toShow);
+        builder.setPositiveButton(R.string.calculator_button_ok,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
     public void makeConvertation(){
         if (inputWindow.getText().toString().equals("")){
 
@@ -478,18 +491,21 @@ public class converter extends Fragment {
                         Global.sqrEquationsExport = 1;
                         Global.sqrEquationsExportCheckA = 1;
                         Global.sqrEquationsExportToA = outputWindow.getText().toString();
+                        showDialogMessage(getString(R.string.calculator_sent_to_q_equations));
                         break;
                     case 1:
                         ma.show = 0;
                         Global.sqrEquationsExport = 1;
                         Global.sqrEquationsExportCheckB = 1;
                         Global.sqrEquationsExportToB = outputWindow.getText().toString();
+                        showDialogMessage(getString(R.string.calculator_sent_to_q_equations));
                         break;
                     case 2:
                         ma.show = 0;
                         Global.sqrEquationsExport = 1;
                         Global.sqrEquationsExportCheckC = 1;
                         Global.sqrEquationsExportToC = outputWindow.getText().toString();
+                        showDialogMessage(getString(R.string.calculator_sent_to_q_equations));
                         break;
                 }
             }
@@ -527,6 +543,7 @@ public class converter extends Fragment {
                     ma.saveTextViewValue = outputWindow.getText().toString();
                     ma.saveAddictionTextViewValue = outputWindow.getText().toString();
                     ma.saveTumbler = 0;
+                    showDialogMessage(getString(R.string.converter_sent_to_calculator));
                 }
                 return true;
             }
