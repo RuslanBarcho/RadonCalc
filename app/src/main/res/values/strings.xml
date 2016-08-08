@@ -44,6 +44,10 @@
     <string name="history_evolution">evolution</string>
     //strings for settings
     <string name="settings_title">Settings</string>
+    <string name="settings_about">About</string>
+    <string name="settings_about_description">View information about app</string>
+    <string name="settings_haptic">Haptic feedback</string>
+    <string name="settings_haptic_description">Turn on haptic feedback</string>
 
     <string-array name="converter_length_values">
         <item>Centimeter</item>

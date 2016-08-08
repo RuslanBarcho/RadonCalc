@@ -47,11 +47,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Haptic feedback"
+                android:text="@string/settings_haptic"
                 android:id="@+id/textView11"
                 android:paddingTop="5dp"
                 android:textColor="#484848"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/imageView3"
                 android:layout_toEndOf="@+id/imageView3"
@@ -61,16 +61,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Turn on haptic feedback"
+                android:text="@string/settings_haptic_description"
                 android:id="@+id/textView53"
                 android:layout_below="@+id/textView11"
                 android:layout_alignLeft="@+id/textView11"
                 android:layout_alignStart="@+id/textView11"
-                android:maxLength="26"
                 android:maxLines="2"
                 android:paddingLeft="20dp"
                 android:paddingBottom="8dp"
-                android:textSize="15dp" />
+                android:textSize="14dp"
+                android:textIsSelectable="false" />
 
             <TextView
                 android:layout_width="50dp"
@@ -105,11 +105,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="About"
+                android:text="@string/settings_about"
                 android:id="@+id/textView9"
                 android:paddingTop="5dp"
                 android:textColor="#484848"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/imageView2"
                 android:layout_toEndOf="@+id/imageView2"
@@ -119,16 +119,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="View information about app"
+                android:text="@string/settings_about_description"
                 android:id="@+id/textView10"
                 android:layout_below="@+id/textView9"
                 android:layout_alignLeft="@+id/textView9"
                 android:layout_alignStart="@+id/textView9"
-                android:maxLength="26"
                 android:maxLines="2"
                 android:paddingLeft="20dp"
                 android:paddingBottom="8dp"
-                android:textSize="15dp" />
+                android:textSize="14dp"
+                android:textIsSelectable="false" />
 
             <TextView
                 android:layout_width="50dp"
@@ -142,6 +142,14 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginBottom="10dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/textView55"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/settingsAbout"></FrameLayout>
 
         </RelativeLayout>
     </LinearLayout>

@@ -50,4 +50,8 @@
     <string name="history_exponentiation">возведение в степень</string>
     <string name="history_evolution">извлечение корня</string>
     <string name="settings_title">Настройки</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_about_description">Показать информацию о приложении</string>
+    <string name="settings_haptic">Виброотклик</string>
+    <string name="settings_haptic_description">Включить вибрацию на кнопках</string>
 </resources>
