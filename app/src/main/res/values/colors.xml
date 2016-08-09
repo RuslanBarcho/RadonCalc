@@ -11,4 +11,5 @@
     <color name="colorSelectorPressedLightGray">#525252</color>
     <color name="colorSelectorPressedWhite">#cfcfcf</color>
     <color name="colorSelectorPressedLightGreen">#383737</color>
+    <color name="colorTransparent">#00ffffff</color>
 </resources>

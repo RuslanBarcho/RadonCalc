@@ -17,8 +17,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="5dp" >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -29,19 +28,6 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
-
-            <Switch
-                style="@style/SwitcherTheme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/switch2"
-                android:textSize="20dp"
-                android:paddingRight="10dp"
-                android:layout_alignTop="@+id/imageView3"
-                android:layout_alignParentRight="true"
-                android:paddingTop="15dp"
-                android:layout_alignParentEnd="true"
-                android:theme="@style/SwitcherTheme" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,12 +70,37 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/frameLayout"
+                android:background="@drawable/ripple_settings"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="false"
+                android:layout_alignBottom="@+id/textView54"
+                android:layout_alignParentBottom="true"
+                android:clickable="true"
+                android:layout_alignParentTop="true" />
+
+            <Switch
+                style="@style/SwitcherTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switch2"
+                android:textSize="20dp"
+                android:paddingRight="10dp"
+                android:layout_alignTop="@+id/imageView3"
+                android:layout_alignParentRight="true"
+                android:paddingTop="15dp"
+                android:layout_alignParentEnd="true"
+                android:theme="@style/SwitcherTheme" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="5dp" >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -97,6 +108,7 @@
                 android:id="@+id/imageView2"
                 android:src="@drawable/ic_info_outline_black_24dp"
                 android:paddingLeft="20dp"
+                android:paddingBottom="9dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
@@ -146,10 +158,13 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/textView55"
                 android:layout_centerHorizontal="true"
+                android:id="@+id/settingsAbout"
+                android:background="@drawable/ripple_settings"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="false"
                 android:layout_alignParentTop="true"
-                android:id="@+id/settingsAbout"></FrameLayout>
+                android:layout_alignBottom="@+id/textView55"></FrameLayout>
 
         </RelativeLayout>
     </LinearLayout>
