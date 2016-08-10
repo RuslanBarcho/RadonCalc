@@ -378,7 +378,7 @@ public class FragmentQuadraticEquations extends Fragment {
     }
 
     @Override
-    public void onResume() {
+        public void onResume() {
         if (Global.sqrEquationsExport == 1){
             if (Global.sqrEquationsExportCheckA == 1) {
                 editTextA.setText(Global.sqrEquationsExportToA);

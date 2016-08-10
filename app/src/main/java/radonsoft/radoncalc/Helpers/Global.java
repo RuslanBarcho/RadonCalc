@@ -64,4 +64,5 @@ public class Global {
     public static String pageTwoThirdCellHistoryBodyend = "A";
 
     //Global voids
+    public static String saveDegreeStatus = "RAD";
 }

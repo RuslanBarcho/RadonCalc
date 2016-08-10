@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 
@@ -17,15 +19,22 @@ public class settings extends Fragment {
 
     private View mRootView;
     private FrameLayout settingsAbout;
+    private FrameLayout settingsAngle;
+    private TextView settingsAngleStat;
+    MainActivity ma;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_settings, container, false);
-        MainActivity ma = new MainActivity();
+        ma = new MainActivity();
         ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.settings_title));
         ma.pages = 3;
         settingsAbout = (FrameLayout) mRootView.findViewById(R.id.settingsAbout);
+        settingsAngle = (FrameLayout) mRootView.findViewById(R.id.settingsAngle);
+        settingsAngleStat = (TextView) mRootView.findViewById(R.id.settingsAngleStat);
+
+        settingsAngleStat.setText(Global.saveDegreeStatus);
 
         settingsAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,13 +43,26 @@ public class settings extends Fragment {
             }
         });
 
+        settingsAngle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String degreeChecker = settingsAngleStat.getText().toString();
+                if (degreeChecker.equals("RAD")) {
+                    settingsAngleStat.setText("DEG");
+                } else {
+                    settingsAngleStat.setText("RAD");
+                }
+                Global.saveDegreeStatus = settingsAngleStat.getText().toString();
+            }
+        });
+
         return mRootView;
     }
 
     private void showAboutWindow(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.ErrorDialogTheme);
-        builder.setTitle("About");
-        builder.setMessage("Some text about the best calc in the world");
+        builder.setTitle(R.string.settings_about);
+        builder.setMessage(R.string.settings_about_window);
         builder.setPositiveButton(R.string.calculator_button_ok,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -50,5 +72,4 @@ public class settings extends Fragment {
         AlertDialog alert = builder.create();
         alert.show();
     }
-
 }

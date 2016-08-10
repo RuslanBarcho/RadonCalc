@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity
     public static String saveAddictionTextViewValue;
     public static BigDecimal saveOperateA;
     public static int saveTumbler;
-    public static String saveDegreeStatus = "RAD";
+    //public static String saveDegreeStatus = "RAD";
 
     //save and send converter value
     public static String saveConverterValue;
@@ -185,6 +185,9 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt("counter_one", pageOneCounter).commit();
         editor.putInt("counter_two", pageTwoCounter).commit();
+
+        saveString("saveDegreeStatus", Global.saveDegreeStatus);
+
         saveString("pageOnefirstCellhistoryName", Global.pageOnefirstCellhistoryName);
         saveString("pageOnefirstCellhistoryBody", Global.pageOnefirstCellhistoryBody);
         saveString("pageOnefirstCellhistoryResult", Global.pageOnefirstCellhistoryResult);
@@ -228,6 +231,9 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
         pageOneCounter = sp.getInt("counter_one", 0);
         pageTwoCounter = sp.getInt("counter_two", 0);
+
+        Global.saveDegreeStatus = sp.getString("saveDegreeStatus", "RAD");
+
         Global.pageOnefirstCellhistoryName = sp.getString("pageOnefirstCellhistoryName", "");
         Global.pageOnefirstCellhistoryBody = sp.getString("pageOnefirstCellhistoryBody", "");
         Global.pageOnefirstCellhistoryResult = sp.getString("pageOnefirstCellhistoryResult", "");

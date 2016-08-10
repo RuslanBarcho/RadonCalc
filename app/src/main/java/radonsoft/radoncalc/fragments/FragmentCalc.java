@@ -131,8 +131,8 @@ public class FragmentCalc extends Fragment {
         texxtView.setText(ma.saveAddictionTextViewValue);
         Tumbler = ma.saveTumbler;
         OperateA = ma.saveOperateA;
-        radDeg.setText(ma.saveDegreeStatus);
         ma.pages = 0;
+        radDeg.setText(Global.saveDegreeStatus);
 
         activateBuiltInKeyboard();
 
@@ -662,7 +662,7 @@ public class FragmentCalc extends Fragment {
         ma.saveAddictionTextViewValue = texxtView.getText().toString();
         ma.saveOperateA = OperateA;
         ma.saveTumbler = Tumbler;
-        ma.saveDegreeStatus = radDeg.getText().toString();
+        Global.saveDegreeStatus = radDeg.getText().toString();
     }
 
     public void removeZerosFromFraction(BigDecimal ToRemove){
@@ -1057,5 +1057,10 @@ public class FragmentCalc extends Fragment {
                 }
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        radDeg.setText(Global.saveDegreeStatus);
     }
 }
