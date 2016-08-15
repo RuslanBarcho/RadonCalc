@@ -23,6 +23,7 @@ import radonsoft.radoncalc.Helpers.BigDecimalMathOperations;
 import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
+import android.view.HapticFeedbackConstants;
 
 public class FragmentCalc extends Fragment {
     MainActivity ma = new MainActivity();
@@ -152,6 +153,7 @@ public class FragmentCalc extends Fragment {
         TochkaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(TochkaButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -176,6 +178,7 @@ public class FragmentCalc extends Fragment {
         sbrosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(sbrosButton);
                 Proverka = String.valueOf(textView.getText());
                 if (Proverka.equals(""))
                 {
@@ -218,6 +221,7 @@ public class FragmentCalc extends Fragment {
         sinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(sinButton);
                 emptyStringTest = String.valueOf(texxtView.getText());
                 trigonometryFunctions = 1;
                 if (emptyStringTest.equals("")|emptyStringTest.equals("-"))
@@ -234,6 +238,7 @@ public class FragmentCalc extends Fragment {
         percentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(percentButton);
 
             }
         });
@@ -241,13 +246,14 @@ public class FragmentCalc extends Fragment {
         piButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Global.turnVibrationOn(piButton);
             }
         });
 
         cosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(cosButton);
                 emptyStringTest = String.valueOf(texxtView.getText());
                 trigonometryFunctions = 2;
                 if (emptyStringTest.equals("")|emptyStringTest.equals("-"))
@@ -264,6 +270,7 @@ public class FragmentCalc extends Fragment {
         tanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(tanButton);
                 emptyStringTest = String.valueOf(texxtView.getText());
                 trigonometryFunctions = 3;
                 if (emptyStringTest.equals("")|emptyStringTest.equals("-"))
@@ -280,6 +287,7 @@ public class FragmentCalc extends Fragment {
         signButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(signButton);
                 Proverka = String.valueOf(texxtView.getText());
                 String forInputTest = String.valueOf(textView.getText());
                 if (Proverka.equals("")|Proverka.equals("-"))
@@ -306,6 +314,7 @@ public class FragmentCalc extends Fragment {
         PlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(PlusButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -333,6 +342,7 @@ public class FragmentCalc extends Fragment {
         MinusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(MinusButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -370,6 +380,7 @@ public class FragmentCalc extends Fragment {
         MultiplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(MultiplyButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -397,6 +408,7 @@ public class FragmentCalc extends Fragment {
         DivButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(DivButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -425,6 +437,7 @@ public class FragmentCalc extends Fragment {
         powButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(powButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -453,6 +466,7 @@ public class FragmentCalc extends Fragment {
         rootButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(rootButton);
                 testInputOnSigns(textView.getText().toString());
                 BigDecimal checkHugeMaxValue = new BigDecimal(Double.MAX_VALUE);
                 if (testOnsSignsFinal == 1 | textView.getText().toString().equals("")){
@@ -478,6 +492,7 @@ public class FragmentCalc extends Fragment {
         RavnoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(RavnoButton);
                 Proverka = String.valueOf(texxtView.getText());
                 if (Proverka.equals("")) {
                     textView.setText("");
@@ -859,6 +874,7 @@ public class FragmentCalc extends Fragment {
         oneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(oneButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "1");
@@ -869,6 +885,7 @@ public class FragmentCalc extends Fragment {
         vButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(vButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "2");
@@ -879,6 +896,7 @@ public class FragmentCalc extends Fragment {
         bButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(bButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "3");
@@ -889,6 +907,7 @@ public class FragmentCalc extends Fragment {
         cButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(cButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "4");
@@ -899,6 +918,7 @@ public class FragmentCalc extends Fragment {
         dButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(dButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "5");
@@ -909,6 +929,7 @@ public class FragmentCalc extends Fragment {
         fButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(fButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "6");
@@ -919,6 +940,7 @@ public class FragmentCalc extends Fragment {
         eButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(eButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "7");
@@ -929,6 +951,7 @@ public class FragmentCalc extends Fragment {
         gButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(gButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "8");
@@ -939,6 +962,7 @@ public class FragmentCalc extends Fragment {
         jButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(jButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 textView.setText(texxt + "9");
@@ -949,10 +973,16 @@ public class FragmentCalc extends Fragment {
         hButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Global.turnVibrationOn(hButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
-                textView.setText(texxt + "0");
-                texxtView.setText(texxx + "0");
+                switch (texxx){
+                    case "0":
+                        break;
+                    default:
+                        textView.setText(texxt + "0");
+                        texxtView.setText(texxx + "0");
+                }
                 saveFragmentValues();
             }
         });

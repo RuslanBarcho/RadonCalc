@@ -255,11 +255,12 @@
         android:textStyle="normal"
         android:elevation="0dp"
         android:stateListAnimator="@null"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/button8"
-        android:layout_alignStart="@+id/button8"
         android:background="@drawable/ripple_bkg_dark"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button13"
+        android:layout_toRightOf="@+id/button10"
+        android:layout_toEndOf="@+id/button10" />
 
     <Button
         android:layout_width="90dp"

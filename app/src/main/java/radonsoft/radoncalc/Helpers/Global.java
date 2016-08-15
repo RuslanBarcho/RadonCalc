@@ -2,6 +2,9 @@ package radonsoft.radoncalc.Helpers;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.view.HapticFeedbackConstants;
+import android.view.View;
+import android.widget.Button;
 
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
@@ -63,6 +66,13 @@ public class Global {
     public static String pageTwoThirdCellHistoryBodythree = "A";
     public static String pageTwoThirdCellHistoryBodyend = "A";
 
-    //Global voids
     public static String saveDegreeStatus = "RAD";
+    public static boolean vibrationSwitcher;
+    //Global voids
+    public static void turnVibrationOn(View button){
+        if (vibrationSwitcher){
+            button.setHapticFeedbackEnabled(true);
+            button.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        }
+    }
 }

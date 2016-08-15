@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt("counter_one", pageOneCounter).commit();
         editor.putInt("counter_two", pageTwoCounter).commit();
+        editor.putBoolean("vibrationSwitcher", Global.vibrationSwitcher).commit();
 
         saveString("saveDegreeStatus", Global.saveDegreeStatus);
 
@@ -233,6 +234,7 @@ public class MainActivity extends AppCompatActivity
         pageTwoCounter = sp.getInt("counter_two", 0);
 
         Global.saveDegreeStatus = sp.getString("saveDegreeStatus", "RAD");
+        Global.vibrationSwitcher = sp.getBoolean("vibrationSwitcher", false);
 
         Global.pageOnefirstCellhistoryName = sp.getString("pageOnefirstCellhistoryName", "");
         Global.pageOnefirstCellhistoryBody = sp.getString("pageOnefirstCellhistoryBody", "");

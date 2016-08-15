@@ -30,11 +30,12 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/linearlayoutbkg"
+            android:background="@drawable/ripple_recently_operations"
             android:layout_gravity="center_horizontal"
             android:elevation="5dp"
             android:id="@+id/cellone"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -119,11 +120,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/linearlayoutbkg"
+            android:background="@drawable/ripple_recently_operations"
             android:layout_gravity="center_horizontal"
             android:elevation="5dp"
             android:id="@+id/celltwo"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -203,11 +205,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/linearlayoutbkg"
+            android:background="@drawable/ripple_recently_operations"
             android:layout_gravity="center_horizontal"
             android:elevation="5dp"
             android:id="@+id/cellthree"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -287,11 +290,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/linearlayoutbkg"
+            android:background="@drawable/ripple_recently_operations"
             android:layout_gravity="center_horizontal"
             android:elevation="5dp"
             android:id="@+id/cellfour"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="match_parent"
@@ -371,11 +375,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/linearlayoutbkg"
+            android:background="@drawable/ripple_recently_operations"
             android:layout_gravity="center_horizontal"
             android:elevation="5dp"
             android:id="@+id/cellfive"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="match_parent"

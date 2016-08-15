@@ -8,8 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import radonsoft.radoncalc.Helpers.Global;
 import radonsoft.radoncalc.MainActivity;
@@ -20,7 +23,9 @@ public class settings extends Fragment {
     private View mRootView;
     private FrameLayout settingsAbout;
     private FrameLayout settingsAngle;
+    private FrameLayout settingsHaptic;
     private TextView settingsAngleStat;
+    private Switch vibrationSwitch;
     MainActivity ma;
 
     @Override
@@ -32,10 +37,13 @@ public class settings extends Fragment {
         ma.pages = 3;
         settingsAbout = (FrameLayout) mRootView.findViewById(R.id.settingsAbout);
         settingsAngle = (FrameLayout) mRootView.findViewById(R.id.settingsAngle);
+        settingsHaptic = (FrameLayout) mRootView.findViewById(R.id.settingsHaptic);
         settingsAngleStat = (TextView) mRootView.findViewById(R.id.settingsAngleStat);
-
+        vibrationSwitch = (Switch) mRootView.findViewById(R.id.switchVibration);
+        if (Global.vibrationSwitcher){
+            vibrationSwitch.setChecked(true);
+        }
         settingsAngleStat.setText(Global.saveDegreeStatus);
-
         settingsAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +64,32 @@ public class settings extends Fragment {
             }
         });
 
+        settingsHaptic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Global.vibrationSwitcher){
+                    vibrationSwitch.setChecked(false);
+                    Global.vibrationSwitcher = false;
+                }
+                else {
+                    vibrationSwitch.setChecked(true);
+                    Global.vibrationSwitcher = true;
+                }
+            }
+        });
+
+        vibrationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Global.vibrationSwitcher = true;
+                } else {
+                    Global.vibrationSwitcher = false;
+                }
+            }
+        });
+
         return mRootView;
     }
 
@@ -73,4 +107,3 @@ public class settings extends Fragment {
         alert.show();
     }
 }
-//test commit

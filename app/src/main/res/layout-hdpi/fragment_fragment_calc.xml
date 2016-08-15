@@ -41,7 +41,6 @@
                 android:layout_above="@+id/button16"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:text="2"
                 android:paddingTop="16dp" />
         </HorizontalScrollView>
 
