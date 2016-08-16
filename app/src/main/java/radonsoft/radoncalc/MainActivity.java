@@ -147,41 +147,7 @@ public class MainActivity extends AppCompatActivity
         editor.putString(title, toSave).commit();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
-        if (id == R.id.nav_camera) {
-            ftrans.replace(R.id.container, fragmentCalcHistory);
-        } else if (id == R.id.nav_gallery) {
-            ftrans.replace(R.id.container, fragmentcalc);
-        } else if (id == R.id.nav_slideshow) {
-            ftrans.replace(R.id.container, fragmentQuadraticEquations);
-        } else if (id == R.id.nav_converter) {
-            ftrans.replace(R.id.container, fragmentConverter);
-        } else if (id == R.id.nav_settings) {
-            ftrans.replace(R.id.container, settings);
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        ftrans.commit();
-        return true;
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
+    public void saveSharedPreferences(){
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt("counter_one", pageOneCounter).commit();
         editor.putInt("counter_two", pageTwoCounter).commit();
@@ -227,9 +193,8 @@ public class MainActivity extends AppCompatActivity
         saveString("pageTwoThirdCellHistoryBodythree", Global.pageTwoThirdCellHistoryBodythree);
         saveString("pageTwoThirdCellHistoryBodyend", Global.pageTwoThirdCellHistoryBodyend);
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
+
+    public void returnSharedPreferences(){
         pageOneCounter = sp.getInt("counter_one", 0);
         pageTwoCounter = sp.getInt("counter_two", 0);
 
@@ -273,5 +238,52 @@ public class MainActivity extends AppCompatActivity
         Global.pageTwoThirdCellHistoryBodytwo = sp.getString("pageTwoThirdCellHistoryBodytwo", "");
         Global.pageTwoThirdCellHistoryBodythree = sp.getString("pageTwoThirdCellHistoryBodythree", "");
         Global.pageTwoThirdCellHistoryBodyend = sp.getString("pageTwoThirdCellHistoryBodyend", "");
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
+        if (id == R.id.nav_camera) {
+            ftrans.replace(R.id.container, fragmentCalcHistory);
+        } else if (id == R.id.nav_gallery) {
+            ftrans.replace(R.id.container, fragmentcalc);
+        } else if (id == R.id.nav_slideshow) {
+            ftrans.replace(R.id.container, fragmentQuadraticEquations);
+        } else if (id == R.id.nav_converter) {
+            ftrans.replace(R.id.container, fragmentConverter);
+        } else if (id == R.id.nav_settings) {
+            ftrans.replace(R.id.container, settings);
+        }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        ftrans.commit();
+        return true;
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        saveSharedPreferences();
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        saveSharedPreferences();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        returnSharedPreferences();
     }
 }

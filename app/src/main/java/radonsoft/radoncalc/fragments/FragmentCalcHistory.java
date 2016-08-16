@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import radonsoft.radoncalc.Helpers.ClearAnimation;
 import radonsoft.radoncalc.Helpers.Global;
+import radonsoft.radoncalc.Helpers.TabPagerAdapter;
 import radonsoft.radoncalc.MainActivity;
 import radonsoft.radoncalc.R;
 
@@ -80,7 +81,7 @@ public class FragmentCalcHistory extends Fragment {
         pages.add(pageone);
         pages.add(pagetwo);
         pages.add(pagethree);
-        pages.add(pagefour);
+        //pages.add(pagefour);
         viewPager.setAdapter(new TabPagerAdapter(pages));
         tabLayout.setupWithViewPager(viewPager);
 
