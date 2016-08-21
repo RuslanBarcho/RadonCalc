@@ -330,9 +330,12 @@ public class FragmentCalc extends Fragment {
                         texxtView.setText("");
                         Tumbler = 1;
                             break;
-                        case 1:
-                            addiction();
-                            writeOperationToHistory();
+                        default:
+                            equalation();
+                            OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
+                            textView.setText(textView.getText() + "+");
+                            texxtView.setText("");
+                            Tumbler = 1;
                             break;
                     }
                 }
@@ -367,9 +370,12 @@ public class FragmentCalc extends Fragment {
                                 texxtView.setText("");
                                 Tumbler = 2;
                                 break;
-                            case 2:
-                                subtraction();
-                                writeOperationToHistory();
+                            default:
+                                equalation();
+                                OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
+                                textView.setText(textView.getText() + "-");
+                                texxtView.setText("");
+                                Tumbler = 2;
                                 break;
                         }
                         break;
@@ -396,9 +402,12 @@ public class FragmentCalc extends Fragment {
                             texxtView.setText("");
                             Tumbler = 3;
                             break;
-                        case 3:
-                            multiplication();
-                            writeOperationToHistory();
+                        default:
+                            equalation();
+                            OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
+                            textView.setText(textView.getText() + "×");
+                            texxtView.setText("");
+                            Tumbler = 3;
                             break;
                     }
                 }
@@ -424,9 +433,12 @@ public class FragmentCalc extends Fragment {
                         texxtView.setText("");
                         Tumbler = 4;
                             break;
-                        case 4:
-                            division();
-                            writeOperationToHistory();
+                        default:
+                            equalation();
+                            OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
+                            textView.setText(textView.getText() + "÷");
+                            texxtView.setText("");
+                            Tumbler = 4;
                             break;
                     }
                 }
@@ -453,9 +465,12 @@ public class FragmentCalc extends Fragment {
                             texxtView.setText("");
                             Tumbler = 5;
                             break;
-                        case 5:
-                            exponentiate();
-                            writeOperationToHistory();
+                        default:
+                            equalation();
+                            OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
+                            textView.setText(textView.getText() + "^");
+                            texxtView.setText("");
+                            Tumbler = 5;
                             break;
                     }
                 }
@@ -501,34 +516,7 @@ public class FragmentCalc extends Fragment {
                     saveAddictionTextViewValue = "";
                     Tumbler = 0;
                 } else {
-                    switch (Tumbler) {
-                        case 0:
-
-                            break;
-                        case 1:
-                            addiction();
-                            break;
-                        case 2:
-                            subtraction();
-                            break;
-                        case 3:
-                            multiplication();
-                            break;
-                        case 4:
-                            if (texxtView.getText().toString().equals("0")){
-                                //TODO: error message
-                                eraseAllData();
-                            }
-                            else {
-                                division();
-                            }
-                            break;
-                        case 5:
-                            exponentiate();
-                            break;
-                    }
-                    textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
-                    writeOperationToHistory();
+                    equalation();
                 }
                 saveFragmentValues();
             }
@@ -546,6 +534,36 @@ public class FragmentCalc extends Fragment {
             x1 = x1.divide(TWO, SCALE, BigDecimal.ROUND_HALF_UP);
         }
         return x1;
+    }
+    public void equalation(){
+        switch (Tumbler) {
+            case 0:
+
+                break;
+            case 1:
+                addiction();
+                break;
+            case 2:
+                subtraction();
+                break;
+            case 3:
+                multiplication();
+                break;
+            case 4:
+                if (texxtView.getText().toString().equals("0")){
+                    showDialogMessage(getString(R.string.calculator_Illegal_operation));
+                    eraseAllData();
+                }
+                else {
+                    division();
+                }
+                break;
+            case 5:
+                exponentiate();
+                break;
+        }
+        textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
+        writeOperationToHistory();
     }
     public void writeOperationToHistory(){
         switch (ma.pageOneCounter) {
