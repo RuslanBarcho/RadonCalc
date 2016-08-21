@@ -33,8 +33,8 @@ public class FragmentCalc extends Fragment {
     private Button bButton;
     private Button cButton;
     private Button sbrosButton, signButton;
-    private Button PlusButton, MinusButton, TochkaButton, MultiplyButton, DivButton, powButton;
-    private Button RavnoButton;
+    private Button PlusButton, MinusButton, dotButton, MultiplyButton, DivButton, powButton;
+    private Button equalButton;
     private Button sinButton;
     private Button cosButton;
     private Button tanButton;
@@ -87,10 +87,10 @@ public class FragmentCalc extends Fragment {
         hButton = (Button) mRootView.findViewById(R.id.button12);
 
         powButton = (Button) mRootView.findViewById(R.id.button19);
-        TochkaButton = (Button) mRootView.findViewById(R.id.button10);
+        dotButton = (Button) mRootView.findViewById(R.id.button10);
         MinusButton = (Button) mRootView.findViewById(R.id.button15);
         PlusButton = (Button) mRootView.findViewById(R.id.button14);
-        RavnoButton = (Button) mRootView.findViewById(R.id.button13);
+        equalButton = (Button) mRootView.findViewById(R.id.button13);
         MultiplyButton = (Button) mRootView.findViewById(R.id.button16);
         DivButton = (Button) mRootView.findViewById(R.id.button17);
         signButton = (Button) mRootView.findViewById(R.id.button23);
@@ -117,8 +117,8 @@ public class FragmentCalc extends Fragment {
         setFont(gButton, "robotolight.ttf");
         setFont(jButton, "robotolight.ttf");
         setFont(hButton, "robotolight.ttf");
-        setFont(TochkaButton, "robotolight.ttf");
-        setFont(RavnoButton, "robotolight.ttf");
+        setFont(dotButton, "robotolight.ttf");
+        setFont(equalButton, "robotolight.ttf");
         setFont(signButton, "robotolight.ttf");
         setFont(sbrosButton, "robotolight.ttf");
         setFont(sinButton, "robotolight.ttf");
@@ -150,10 +150,10 @@ public class FragmentCalc extends Fragment {
             }
         });
 
-        TochkaButton.setOnClickListener(new View.OnClickListener() {
+        dotButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(TochkaButton);
+                Global.turnVibrationOn(dotButton);
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
                 Proverka = String.valueOf(texxtView.getText());
@@ -504,10 +504,10 @@ public class FragmentCalc extends Fragment {
             }
         });
 
-        RavnoButton.setOnClickListener(new View.OnClickListener() {
+        equalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(RavnoButton);
+                Global.turnVibrationOn(equalButton);
                 Proverka = String.valueOf(texxtView.getText());
                 if (Proverka.equals("")) {
                     textView.setText("");
@@ -536,6 +536,7 @@ public class FragmentCalc extends Fragment {
         return x1;
     }
     public void equalation(){
+        boolean divnull = false;
         switch (Tumbler) {
             case 0:
 
@@ -551,6 +552,7 @@ public class FragmentCalc extends Fragment {
                 break;
             case 4:
                 if (texxtView.getText().toString().equals("0")){
+                    divnull = true;
                     showDialogMessage(getString(R.string.calculator_Illegal_operation));
                     eraseAllData();
                 }
@@ -563,7 +565,12 @@ public class FragmentCalc extends Fragment {
                 break;
         }
         textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
-        writeOperationToHistory();
+        if (divnull) {
+
+        }
+        else {
+            writeOperationToHistory();
+        }
     }
     public void writeOperationToHistory(){
         switch (ma.pageOneCounter) {
@@ -885,7 +892,7 @@ public class FragmentCalc extends Fragment {
     }
 
     public void scrollInputToEnd(){
-        inputScroll.scrollTo(9000000, 0);
+        inputScroll.scrollTo(900000000, 0);
     }
 
     public void activateBuiltInKeyboard(){
