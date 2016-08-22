@@ -57,6 +57,6 @@
     <string name="settings_angle">Угол</string>
     <string name="settings_angle_description">Переключение меры (радианы/градусы)</string>
     <string name="settings_about_window">
-        RadonCalc BETA v2 \n© Radonsoft 2016 \nДата компиляции: 10.08.16
+        RadonCalc BETA v2 \n© Radonsoft 2016 \nДата компиляции: 22.08.16
     </string>
 </resources>

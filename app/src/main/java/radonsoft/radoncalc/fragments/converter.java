@@ -2,10 +2,12 @@ package radonsoft.radoncalc.fragments;
 
 import android.animation.Animator;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -148,7 +150,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(setButton);
-
+                turnOnVibration();
                 showValueChooseDialog();
             }
         });
@@ -159,6 +161,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(equalButton);
+                turnOnVibration();
             }
         });
 
@@ -166,6 +169,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(delButton);
+                turnOnVibration();
                 String del = inputWindow.getText().toString();
                 if (del.equals("")){
 
@@ -209,6 +213,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(dotButton);
+                turnOnVibration();
                 if (inputWindow.getText().toString().equals("")){
                     inputWindow.setText("0.");
                 }
@@ -378,6 +383,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(oneButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "1");
                 makeConvertation();
                 saveConverterValues();
@@ -388,6 +394,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(twoButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "2");
                 makeConvertation();
                 saveConverterValues();
@@ -398,6 +405,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(threeButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "3");
                 makeConvertation();
                 saveConverterValues();
@@ -408,6 +416,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(fourButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "4");
                 makeConvertation();
                 saveConverterValues();
@@ -418,6 +427,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(fiveButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "5");
                 makeConvertation();
                 saveConverterValues();
@@ -428,6 +438,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(sixButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "6");
                 makeConvertation();
                 saveConverterValues();
@@ -438,6 +449,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(sevenButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "7");
                 makeConvertation();
                 saveConverterValues();
@@ -448,6 +460,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(eightButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "8");
                 makeConvertation();
                 saveConverterValues();
@@ -458,6 +471,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(nineButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "9");
                 makeConvertation();
                 saveConverterValues();
@@ -468,6 +482,7 @@ public class converter extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.turnVibrationOn(zeroButton);
+                turnOnVibration();
                 inputWindow.setText(inputWindow.getText() + "0");
                 makeConvertation();
                 saveConverterValues();
@@ -538,6 +553,12 @@ public class converter extends Fragment {
                 });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+    public void turnOnVibration() {
+        if (Global.vibrationSwitcher) {
+            Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(50);
+        }
     }
 
     @Override

@@ -1,7 +1,9 @@
 package radonsoft.radoncalc.Helpers;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Vibrator;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.Button;
@@ -69,10 +71,15 @@ public class Global {
     public static String saveDegreeStatus = "RAD";
     public static boolean vibrationSwitcher;
     //Global voids
+
+    public void vibrationForMeizu(){
+
+    }
+
     public static void turnVibrationOn(View button){
         if (vibrationSwitcher){
-            button.setHapticFeedbackEnabled(true);
-            button.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+            //button.setHapticFeedbackEnabled(true);
+            //button.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         }
     }
 }
