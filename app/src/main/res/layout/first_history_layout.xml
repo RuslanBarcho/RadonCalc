@@ -25,7 +25,8 @@
             android:elevation="5dp"
             android:id="@+id/cellone"
             android:visibility="gone"
-            android:clickable="true">
+            android:clickable="true"
+            android:onClick="onClick">
 
             <TextView
                 android:layout_width="match_parent"

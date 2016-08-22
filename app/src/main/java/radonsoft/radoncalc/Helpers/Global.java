@@ -67,14 +67,16 @@ public class Global {
     public static String pageTwoThirdCellHistoryBodytwo = "A";
     public static String pageTwoThirdCellHistoryBodythree = "A";
     public static String pageTwoThirdCellHistoryBodyend = "A";
+    // Fourth cell
+    public static String pageTwoFourthCellHistoryName = "A";
+    public static String pageTwoFourthCellHistoryBodyone = "A";
+    public static String pageTwoFourthCellHistoryBodytwo = "A";
+    public static String pageTwoFourthCellHistoryBodythree = "A";
+    public static String pageTwoFourthCellHistoryBodyend = "A";
 
     public static String saveDegreeStatus = "RAD";
     public static boolean vibrationSwitcher;
     //Global voids
-
-    public void vibrationForMeizu(){
-
-    }
 
     public static void turnVibrationOn(View button){
         if (vibrationSwitcher){

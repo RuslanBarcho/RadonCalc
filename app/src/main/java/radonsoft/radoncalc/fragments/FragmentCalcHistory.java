@@ -1,6 +1,8 @@
 package radonsoft.radoncalc.fragments;
 
 import android.animation.Animator;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -67,12 +69,6 @@ public class FragmentCalcHistory extends Fragment {
         mRootView = inflater.inflate(R.layout.fragment_fragment_calc_history, container, false);
         ViewPager viewPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
         TabLayout tabLayout = (TabLayout) mRootView.findViewById(R.id.tabLayout);
-        final int[] ICONS = new int[]{
-                R.drawable.selectorone,
-                R.drawable.selectortwo,
-                R.drawable.selectorthree,
-                R.drawable.selectorone,
-        };
         ArrayList<View> pages = new ArrayList<>();
         View pageone = inflater.inflate(R.layout.first_history_layout, null);
         View pagetwo = inflater.inflate(R.layout.second_history_layout, null);
@@ -140,6 +136,12 @@ public class FragmentCalcHistory extends Fragment {
         final TextView pageTwoThirdCellBodyThree = (TextView) pagetwo.findViewById(R.id.textView41);
         final TextView pageTwoThirdCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView42);
 
+        final TextView pageTwoFourthCellName = (TextView) pagetwo.findViewById(R.id.textView43);
+        final TextView pageTwoFourthCellBodyOne = (TextView) pagetwo.findViewById(R.id.textView44);
+        final TextView pageTwoFourthCellBodyTwo = (TextView) pagetwo.findViewById(R.id.textView45);
+        final TextView pageTwoFourthCellBodyThree = (TextView) pagetwo.findViewById(R.id.textView46);
+        final TextView pageTwoFourthCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView47);
+
         String operation = getString(R.string.history_operation);
         String result = getString(R.string.history_result);
         setFirstPageVisibility();
@@ -177,11 +179,18 @@ public class FragmentCalcHistory extends Fragment {
                 pagetwofirstCell.setVisibility(View.VISIBLE);
                 pagetwosecondCell.setVisibility(View.VISIBLE);
                 break;
+            case 3:
+                defaultTextViewOne.setVisibility(View.GONE);
+                pagetwofirstCell.setVisibility(View.VISIBLE);
+                pagetwosecondCell.setVisibility(View.VISIBLE);
+                pagetwothirdCell.setVisibility(View.VISIBLE);
+                break;
             default:
                 defaultTextViewOne.setVisibility(View.GONE);
                 pagetwofirstCell.setVisibility(View.VISIBLE);
                 pagetwosecondCell.setVisibility(View.VISIBLE);
                 pagetwothirdCell.setVisibility(View.VISIBLE);
+                pagetwofourthCell.setVisibility(View.VISIBLE);
                 break;
         }
         // First Cell making full
@@ -202,39 +211,58 @@ public class FragmentCalcHistory extends Fragment {
         pageTwoThirdCellBodyTwo.setText(Global.pageTwoThirdCellHistoryBodytwo);
         pageTwoThirdCellBodyThree.setText(Global.pageTwoThirdCellHistoryBodythree);
         pageTwoThirdCellBodyEnd.setText(Global.pageTwoThirdCellHistoryBodyend);
+        //Fourth cell making full
+        pageTwoFourthCellName.setText(Global.pageTwoFourthCellHistoryName);
+        pageTwoFourthCellBodyOne.setText(Global.pageTwoFourthCellHistoryBodyone);
+        pageTwoFourthCellBodyTwo.setText(Global.pageTwoFourthCellHistoryBodytwo);
+        pageTwoFourthCellBodyThree.setText(Global.pageTwoFourthCellHistoryBodythree);
+        pageTwoFourthCellBodyEnd.setText(Global.pageTwoFourthCellHistoryBodyend);
         //Checking Result
         //First Cell
-        if (Global.pageTwoFirstCellHistoryBodyend.equals(ma.historyWriterChecker)) {
+        if (Global.pageTwoFirstCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {
             pageTwoFirstCellBodyTwo.setVisibility(View.GONE);
             pageTwoFirstCellBodyThree.setVisibility(View.GONE);
         }
         //Second Cell
-        if (Global.pageTwoSecondCellHistoryBodyend.equals(ma.historyWriterChecker)) {
+        if (Global.pageTwoSecondCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {
             pageTwoSecondCellBodyTwo.setVisibility(View.GONE);
             pageTwoSecondCellBodyThree.setVisibility(View.GONE);
         }
         // Third Cell
-        if (Global.pageTwoThirdCellHistoryBodyend.equals(ma.historyWriterChecker)) {
+        if (Global.pageTwoThirdCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {
             pageTwoThirdCellBodyTwo.setVisibility(View.GONE);
             pageTwoThirdCellBodyThree.setVisibility(View.GONE);
         }
+        if (Global.pageTwoFourthCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {
+            pageTwoFourthCellBodyTwo.setVisibility(View.GONE);
+            pageTwoFourthCellBodyThree.setVisibility(View.GONE);
+        }
         //Checking Result #2
-        if (Global.pageTwoFirstCellHistoryBodyend.equals("No second solution")) {
+        if (Global.pageTwoFirstCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
             pageTwoFirstCellBodyEnd.setVisibility(View.GONE);
         }
         //Second Cell
-        if (Global.pageTwoSecondCellHistoryBodyend.equals("No second solution")) {
+        if (Global.pageTwoSecondCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
             pageTwoSecondCellBodyEnd.setVisibility(View.GONE);
         }
         // Third Cell
-        if (Global.pageTwoThirdCellHistoryBodyend.equals("No second solution")) {
+        if (Global.pageTwoThirdCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
             pageTwoThirdCellBodyEnd.setVisibility(View.GONE);
         }
-
+        if (Global.pageTwoFourthCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
+            pageTwoFourthCellBodyEnd.setVisibility(View.GONE);
+        }
 
         // Fourth page
         final TextView textviewtestone = (TextView) pagefour.findViewById(R.id.textView12);
         textviewtestone.setText("Тест2");
+
+        // code for return values
+        returnCalcResult(firstCell, 1);
+        returnCalcResult(secondCell, 2);
+        returnCalcResult(thirdCell, 3);
+        returnCalcResult(fourthCell, 4);
+        returnCalcResult(fifthCell, 5);
 
         return mRootView;
     }
@@ -275,6 +303,53 @@ public class FragmentCalcHistory extends Fragment {
             clearFirstPage();
             clearSecondPage();
         }
+    }
+    public void showDialogMessage(String toShow){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.ErrorDialogTheme);
+        builder.setTitle(toShow);
+        builder.setPositiveButton(R.string.calculator_button_ok,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+    public void returnCalcResult(View cell, final int cellNum){
+        cell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (cellNum){
+                    case 1:
+                        ma.saveTextViewValue = Global.pageOnefirstCellhistoryResult;
+                        ma.saveAddictionTextViewValue = Global.pageOnefirstCellhistoryResult;
+                        ma.saveTumbler = 0;
+                        break;
+                    case 2:
+                        ma.saveTextViewValue = Global.pageOneSecondCellhistoryResult;
+                        ma.saveAddictionTextViewValue = Global.pageOneSecondCellhistoryResult;
+                        ma.saveTumbler = 0;
+                        break;
+                    case 3:
+                        ma.saveTextViewValue = Global.pageOneThirdCellhistoryResult;
+                        ma.saveAddictionTextViewValue = Global.pageOneThirdCellhistoryResult;
+                        ma.saveTumbler = 0;
+                        break;
+                    case 4:
+                        ma.saveTextViewValue = Global.pageOneFourthCellhistoryResult;
+                        ma.saveAddictionTextViewValue = Global.pageOneFourthCellhistoryResult;
+                        ma.saveTumbler = 0;
+                        break;
+                    case 5:
+                        ma.saveTextViewValue = Global.pageOneFifthCellhistoryResult;
+                        ma.saveAddictionTextViewValue = Global.pageOneFifthCellhistoryResult;
+                        ma.saveTumbler = 0;
+                        break;
+                }
+                showDialogMessage(getString(R.string.history_return_value));
+            }
+        });
     }
 
     public static void clearFirstPage() {

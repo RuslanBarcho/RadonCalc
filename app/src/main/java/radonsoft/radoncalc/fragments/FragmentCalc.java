@@ -31,10 +31,11 @@ public class FragmentCalc extends Fragment {
     MainActivity ma = new MainActivity();
     private View mRootView;
     private Button oneButton, dButton, fButton, eButton, gButton, jButton, hButton;
-    private Button vButton;
+    private Button twoButton;
     private Button bButton;
     private Button cButton;
-    private Button sbrosButton, signButton;
+    private Button sbrosButton;
+    private Button signButton;
     private Button PlusButton, MinusButton, dotButton, MultiplyButton, DivButton, powButton;
     private Button equalButton;
     private Button sinButton;
@@ -78,7 +79,7 @@ public class FragmentCalc extends Fragment {
         mRootView = inflater.inflate(R.layout.fragment_fragment_calc, container, false);
 
         oneButton = (Button) mRootView.findViewById(R.id.button);
-        vButton = (Button) mRootView.findViewById(R.id.button2);
+        twoButton = (Button) mRootView.findViewById(R.id.button2);
         bButton = (Button) mRootView.findViewById(R.id.button3);
         cButton = (Button) mRootView.findViewById(R.id.button4);
         dButton = (Button) mRootView.findViewById(R.id.button5);
@@ -110,7 +111,7 @@ public class FragmentCalc extends Fragment {
         inputScroll = (HorizontalScrollView) mRootView.findViewById(R.id.horizontalScrollView);
 
         setFont(oneButton, "robotolight.ttf");
-        setFont(vButton, "robotolight.ttf");
+        setFont(twoButton, "robotolight.ttf");
         setFont(bButton, "robotolight.ttf");
         setFont(cButton, "robotolight.ttf");
         setFont(dButton, "robotolight.ttf");
@@ -669,7 +670,6 @@ public class FragmentCalc extends Fragment {
     public void setFont(Button toChange, String style){
         toChange.setTypeface(Typeface.createFromAsset(getContext().getResources().getAssets() ,style));
     }
-
     public void trigFunctionReturn(){
         OperateA = new BigDecimal(String.valueOf(texxtView.getText()));
         switch (trigonometryFunctions){
@@ -686,7 +686,6 @@ public class FragmentCalc extends Fragment {
         textView.setText(Result.toString());
         texxtView.setText(Result.toString());
     }
-
     public void solveTrigonometryFunctions(){
         String forInputTest = String.valueOf(textView.getText());
         BigDecimal checkHugeMaxValue = new BigDecimal(Double.MAX_VALUE);
@@ -713,7 +712,6 @@ public class FragmentCalc extends Fragment {
             }
         }
     }
-
     public void saveFragmentValues(){
         ma.saveTextViewValue = textView.getText().toString();
         ma.saveAddictionTextViewValue = texxtView.getText().toString();
@@ -721,7 +719,6 @@ public class FragmentCalc extends Fragment {
         ma.saveTumbler = Tumbler;
         Global.saveDegreeStatus = radDeg.getText().toString();
     }
-
     public void removeZerosFromFraction(BigDecimal ToRemove){
         String ZeroRemoval = String.valueOf(ToRemove);
         if (ZeroRemoval.charAt(ZeroRemoval.length() - 1) == '0') {
@@ -735,7 +732,6 @@ public class FragmentCalc extends Fragment {
             Result = new BigDecimal(String.valueOf(ZeroRemoval));
         }
     }
-
     public void endlessFractionsProcess(BigDecimal fraction){
         fractionString = String.valueOf(fraction);
         int fractionStringCounter = 1;
@@ -758,7 +754,6 @@ public class FragmentCalc extends Fragment {
             }
         }
     }
-
     public void eraseAllData(){
         textView.setText("");
         texxtView.setText("");
@@ -777,7 +772,6 @@ public class FragmentCalc extends Fragment {
         historyname = title;
         ma.pageOneCounter = ma.pageOneCounter + 1;
     }
-
     public void addiction(){
         loadOperateB();
         loadHistoryContent(getString(R.string.history_addiction));
@@ -788,7 +782,6 @@ public class FragmentCalc extends Fragment {
         texxtView.setText(Result.toString());
         Tumbler = 0;
     }
-
     public void subtraction(){
         loadOperateB();
         loadHistoryContent(getString(R.string.history_subtraction));
@@ -799,7 +792,6 @@ public class FragmentCalc extends Fragment {
         texxtView.setText(Result.toString());
         Tumbler = 0;
     }
-
     public void multiplication(){
         loadOperateB();
         loadHistoryContent(getString(R.string.history_multiplication));
@@ -822,7 +814,6 @@ public class FragmentCalc extends Fragment {
         texxtView.setText(Result.toString());
         Tumbler = 0;
     }
-
     public void division(){
         loadOperateB();
         loadHistoryContent(getString(R.string.history_division));
@@ -848,7 +839,6 @@ public class FragmentCalc extends Fragment {
         historyResult = Result.toString();
         Tumbler = 0;
     }
-
     public void exponentiate(){
         loadOperateB();
         Equal = OperateB.setScale(0, BigDecimal.ROUND_HALF_EVEN);
@@ -896,7 +886,6 @@ public class FragmentCalc extends Fragment {
         Tumbler = 0;
         signpower = 0;
     }
-
     public void testInputOnSigns(String toTest){
         if (toTest.contains("+") | toTest.contains("÷") |
                 toTest.contains("-") | toTest.contains("×") |
@@ -907,7 +896,6 @@ public class FragmentCalc extends Fragment {
             testOnsSignsFinal = 0;
         }
     }
-
     public void scrollInputToEnd(){
         inputScroll.scrollTo(900000000, 0);
     }
@@ -925,10 +913,10 @@ public class FragmentCalc extends Fragment {
                 saveFragmentValues();
             }
         });
-        vButton.setOnClickListener(new View.OnClickListener() {
+        twoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(vButton);
+                Global.turnVibrationOn(twoButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());

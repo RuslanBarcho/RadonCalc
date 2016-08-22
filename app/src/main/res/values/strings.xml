@@ -11,6 +11,9 @@
     <string name="q_equations_title">Quadratic equations</string>
     <string name="q_equations_calculate">Calculate</string>
     <string name="q_equations_clear">Clear</string>
+    <string name="q_equations_no_solution">No solution</string>
+    <string name="q_equations_no_second_solution">No second solution</string>
+
     //Strings for calculator
     <string name="calculator_title">Calculator</string>
     <string name="calculator_send_converter">Send to converter</string>
@@ -42,6 +45,7 @@
     <string name="history_division">division</string>
     <string name="history_exponentiation">exponentiation</string>
     <string name="history_evolution">evolution</string>
+    <string name="history_return_value">The value has been returned</string>
     //strings for settings
     <string name="settings_title">Settings</string>
     <string name="settings_about">About</string>

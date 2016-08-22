@@ -257,52 +257,9 @@ public class FragmentQuadraticEquations extends Fragment {
                         historyXtwo = txX2.getText().toString();
                         historyTitle = historyA + "X^2" + historyB + "X" + historyC + "=0";
                         if (ma.historyWriteToogle == 1) {
-                            historyXtwo = "No Solution";
+                            historyXtwo = getString(R.string.q_equations_no_solution);
                         }
-                        switch (ma.pageTwoCounter) {
-                            case 0:
-
-                                break;
-                            case 1:
-                                Global.pageTwoFirstCellHistoryName = historyTitle;
-                                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
-                                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
-                                Global.pageTwoFirstCellHistoryBodythree = historyXone;
-                                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
-                                break;
-                            case 2:
-                                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
-                                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
-                                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
-                                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
-                                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
-
-                                Global.pageTwoFirstCellHistoryName = historyTitle;
-                                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
-                                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
-                                Global.pageTwoFirstCellHistoryBodythree = historyXone;
-                                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
-                                break;
-                            default:
-                                Global.pageTwoThirdCellHistoryName = Global.pageTwoSecondCellHistoryName;
-                                Global.pageTwoThirdCellHistoryBodyone = Global.pageTwoSecondCellHistoryBodyone;
-                                Global.pageTwoThirdCellHistoryBodytwo = Global.pageTwoSecondCellHistoryBodytwo;
-                                Global.pageTwoThirdCellHistoryBodythree = Global.pageTwoSecondCellHistoryBodythree;
-                                Global.pageTwoThirdCellHistoryBodyend = Global.pageTwoSecondCellHistoryBodyend;
-
-                                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
-                                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
-                                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
-                                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
-                                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
-
-                                Global.pageTwoFirstCellHistoryName = historyTitle;
-                                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
-                                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
-                                Global.pageTwoFirstCellHistoryBodythree = historyXone;
-                                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
-                                break;
-                        }
+                        writeToHistory();
                         break;
                     case 0:
                         break;
@@ -396,6 +353,77 @@ public class FragmentQuadraticEquations extends Fragment {
         }
         super.onResume();
     }
+    public void writeToHistory(){
+        switch (ma.pageTwoCounter) {
+            case 0:
+
+                break;
+            case 1:
+                Global.pageTwoFirstCellHistoryName = historyTitle;
+                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                break;
+            case 2:
+                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
+                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
+                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
+                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
+                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
+
+                Global.pageTwoFirstCellHistoryName = historyTitle;
+                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                break;
+            case 3:
+                Global.pageTwoThirdCellHistoryName = Global.pageTwoSecondCellHistoryName;
+                Global.pageTwoThirdCellHistoryBodyone = Global.pageTwoSecondCellHistoryBodyone;
+                Global.pageTwoThirdCellHistoryBodytwo = Global.pageTwoSecondCellHistoryBodytwo;
+                Global.pageTwoThirdCellHistoryBodythree = Global.pageTwoSecondCellHistoryBodythree;
+                Global.pageTwoThirdCellHistoryBodyend = Global.pageTwoSecondCellHistoryBodyend;
+
+                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
+                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
+                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
+                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
+                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
+
+                Global.pageTwoFirstCellHistoryName = historyTitle;
+                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                break;
+            default:
+                Global.pageTwoFourthCellHistoryName = Global.pageTwoThirdCellHistoryName;
+                Global.pageTwoFourthCellHistoryBodyone = Global.pageTwoThirdCellHistoryBodyone;
+                Global.pageTwoFourthCellHistoryBodytwo = Global.pageTwoThirdCellHistoryBodytwo;
+                Global.pageTwoFourthCellHistoryBodythree = Global.pageTwoThirdCellHistoryBodythree;
+                Global.pageTwoFourthCellHistoryBodyend = Global.pageTwoThirdCellHistoryBodyend;
+
+                Global.pageTwoThirdCellHistoryName = Global.pageTwoSecondCellHistoryName;
+                Global.pageTwoThirdCellHistoryBodyone = Global.pageTwoSecondCellHistoryBodyone;
+                Global.pageTwoThirdCellHistoryBodytwo = Global.pageTwoSecondCellHistoryBodytwo;
+                Global.pageTwoThirdCellHistoryBodythree = Global.pageTwoSecondCellHistoryBodythree;
+                Global.pageTwoThirdCellHistoryBodyend = Global.pageTwoSecondCellHistoryBodyend;
+
+                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
+                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
+                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
+                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
+                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
+
+                Global.pageTwoFirstCellHistoryName = historyTitle;
+                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                break;
+        }
+    }
 
     private void calculate(BigDecimal a, BigDecimal b, BigDecimal c) {
         historyWriteLocal = 1;
@@ -433,7 +461,7 @@ public class FragmentQuadraticEquations extends Fragment {
                 break;
             case 1:
                 ma.historyWriteToogle = 1;
-                tvDiscrRoot.setText("No solution");
+                tvDiscrRoot.setText(getString(R.string.q_equations_no_solution));
                 tvDiscr.setVisibility(View.VISIBLE);
                 tvDiscrRoot.setVisibility(View.VISIBLE);
                 tvX1.setVisibility(View.GONE);
@@ -453,7 +481,7 @@ public class FragmentQuadraticEquations extends Fragment {
                 }
                 xOne = (((b.subtract(b)).subtract(b)).add(sqrtd)).divide(divTwo.multiply(a), 6, RoundingMode.HALF_UP);
                 tvX1.setText("X = " + String.valueOf(xOne));
-                txX2.setText("No second solution");
+                txX2.setText(getString(R.string.q_equations_no_second_solution));
                 tvDiscr.setVisibility(View.VISIBLE);
                 tvDiscrRoot.setVisibility(View.VISIBLE);
                 tvX1.setVisibility(View.VISIBLE);

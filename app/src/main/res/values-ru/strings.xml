@@ -36,6 +36,8 @@
     <string name="q_equations_title">Квадратные уравнения</string>
     <string name="q_equations_calculate">Вычислить</string>
     <string name="q_equations_clear">Очистить</string>
+    <string name="q_equations_no_solution">Нет решений</string>
+    <string name="q_equations_no_second_solution">Нет второго решения</string>
     <string name="calculator_send_q_equations">Отправить в квадратные уравнения</string>
     <string name="calculator_send_converter">Отправить в конвертер</string>
     <string name="history_title">Недавние операции</string>
@@ -49,6 +51,7 @@
     <string name="history_division">деление</string>
     <string name="history_exponentiation">возведение в степень</string>
     <string name="history_evolution">извлечение корня</string>
+    <string name="history_return_value">Значение возвращено</string>
     <string name="settings_title">Настройки</string>
     <string name="settings_about">О приложении</string>
     <string name="settings_about_description">Показать информацию о приложении</string>
