@@ -72,7 +72,7 @@ public class FragmentCalcHistory extends Fragment {
         ArrayList<View> pages = new ArrayList<>();
         View pageone = inflater.inflate(R.layout.first_history_layout, null);
         View pagetwo = inflater.inflate(R.layout.second_history_layout, null);
-        View pagethree = inflater.inflate(R.layout.third_history_layout, null);
+        View pagethree = inflater.inflate(R.layout.fourth_history_layout, null);
         View pagefour = inflater.inflate(R.layout.fourth_history_layout, null);
         pages.add(pageone);
         pages.add(pagetwo);
@@ -284,8 +284,7 @@ public class FragmentCalcHistory extends Fragment {
         }
 
         // Fourth page
-        final TextView textviewtestone = (TextView) pagefour.findViewById(R.id.textView12);
-        textviewtestone.setText("Тест2");
+
 
         // code for return values
         returnCalcResult(firstCell, 1);

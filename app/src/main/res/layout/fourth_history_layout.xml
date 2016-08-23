@@ -1,13 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView12"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp" >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/ripple_recently_operations"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
+            android:elevation="5dp"
+            android:id="@+id/linearLayout2"
+            android:visibility="visible"
+            android:clickable="true"
+            android:onClick="onClick" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView57"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="5dp"
+                android:paddingTop="2dp"
+                android:textColor="#ce2b2b2b"
+                android:paddingRight="5dp"
+                android:paddingBottom="2dp"
+                android:textSize="22dp"
+                android:visibility="visible"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/textView61"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="2dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="2dp"
+                android:paddingRight="5dp"
+                android:textColor="#ce2b2b2b"
+                android:textSize="22dp"
+                android:visibility="visible"
+                android:layout_below="@+id/imageView4"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView4"
+                android:src="@drawable/ic_swap_vertical_circle_black_24dp"
+                android:paddingLeft="20dp"
+                android:layout_below="@+id/textView57"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/textView60"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/imageView4"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:autoText="false"
+                android:background="#B2B2B2" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/history_no_recently"
+            android:id="@+id/textView74"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="9dp"
+            android:textAlignment="center"
+            android:textColor="#484848"
+            android:textSize="25dp"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>
