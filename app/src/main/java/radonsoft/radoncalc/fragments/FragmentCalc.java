@@ -177,6 +177,7 @@ public class FragmentCalc extends Fragment {
                     }
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         sbrosButton.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +212,7 @@ public class FragmentCalc extends Fragment {
                     }
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
 
@@ -352,6 +354,7 @@ public class FragmentCalc extends Fragment {
                     }
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         MinusButton.setOnClickListener(new View.OnClickListener() {
@@ -394,6 +397,7 @@ public class FragmentCalc extends Fragment {
                         break;
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         MultiplyButton.setOnClickListener(new View.OnClickListener() {
@@ -426,6 +430,7 @@ public class FragmentCalc extends Fragment {
                     }
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         DivButton.setOnClickListener(new View.OnClickListener() {
@@ -458,6 +463,7 @@ public class FragmentCalc extends Fragment {
                     }
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
 
@@ -491,6 +497,7 @@ public class FragmentCalc extends Fragment {
                     }
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
 
@@ -569,13 +576,11 @@ public class FragmentCalc extends Fragment {
                 multiplication();
                 break;
             case 4:
-                if (texxtView.getText().toString().equals("0")){
-                    divnull = true;
+                try{
+                    division();
+                } catch (ArithmeticException e) {
                     showDialogMessage(getString(R.string.calculator_Illegal_operation));
                     eraseAllData();
-                }
-                else {
-                    division();
                 }
                 break;
             case 5:
@@ -816,6 +821,7 @@ public class FragmentCalc extends Fragment {
     }
     public void division(){
         loadOperateB();
+        BigDecimal testZero = OperateA.divide(OperateB, 50, BigDecimal.ROUND_CEILING);
         loadHistoryContent(getString(R.string.history_division));
         texxtView.setText("");
         Result = OperateA.divide(OperateB, 50, BigDecimal.ROUND_CEILING);
@@ -897,7 +903,7 @@ public class FragmentCalc extends Fragment {
         }
     }
     public void scrollInputToEnd(){
-        inputScroll.scrollTo(900000000, 0);
+        inputScroll.scrollTo(999999999, 0);
     }
 
     public void activateBuiltInKeyboard(){
@@ -911,6 +917,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "1");
                 texxtView.setText(texxx + "1");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         twoButton.setOnClickListener(new View.OnClickListener() {
@@ -923,6 +930,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "2");
                 texxtView.setText(texxx + "2");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         bButton.setOnClickListener(new View.OnClickListener() {
@@ -935,6 +943,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "3");
                 texxtView.setText(texxx + "3");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         cButton.setOnClickListener(new View.OnClickListener() {
@@ -947,6 +956,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "4");
                 texxtView.setText(texxx + "4");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         dButton.setOnClickListener(new View.OnClickListener() {
@@ -959,6 +969,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "5");
                 texxtView.setText(texxx + "5");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         fButton.setOnClickListener(new View.OnClickListener() {
@@ -971,6 +982,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "6");
                 texxtView.setText(texxx + "6");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         eButton.setOnClickListener(new View.OnClickListener() {
@@ -983,6 +995,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "7");
                 texxtView.setText(texxx + "7");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         gButton.setOnClickListener(new View.OnClickListener() {
@@ -995,6 +1008,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "8");
                 texxtView.setText(texxx + "8");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         jButton.setOnClickListener(new View.OnClickListener() {
@@ -1007,6 +1021,7 @@ public class FragmentCalc extends Fragment {
                 textView.setText(texxt + "9");
                 texxtView.setText(texxx + "9");
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
         hButton.setOnClickListener(new View.OnClickListener() {
@@ -1024,6 +1039,7 @@ public class FragmentCalc extends Fragment {
                         texxtView.setText(texxx + "0");
                 }
                 saveFragmentValues();
+                scrollInputToEnd();
             }
         });
     }

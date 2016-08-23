@@ -43,11 +43,9 @@ public class MainActivity extends AppCompatActivity
 
     // Operation History
     public static int pageOneCounter = 0;
-
-    //Page Two
     public static int pageTwoCounter = 0;
+    public static int pageThreeCounter = 0;
     public static int historyWriteToogle = 0;
-    public static String historyWriterChecker= "No Solution";
 
     //save data in quadratic equations
     public static String saveDValue;
@@ -60,7 +58,6 @@ public class MainActivity extends AppCompatActivity
     public static int show;
     //Fragments
     FragmentCalc fragmentcalc;
-    HistoryFragment fragmenthistory;
     FragmentCalcHistory fragmentCalcHistory;
     FragmentQuadraticEquations fragmentQuadraticEquations;
     converter fragmentConverter;
@@ -115,7 +112,6 @@ public class MainActivity extends AppCompatActivity
         fadeout = AnimationUtils.loadAnimation(this, R.anim.fadeout);
 
         fragmentcalc = new FragmentCalc();
-        fragmenthistory = new HistoryFragment();
         fragmentQuadraticEquations = new FragmentQuadraticEquations();
         fragmentCalcHistory = new FragmentCalcHistory();
         fragmentConverter = new converter();

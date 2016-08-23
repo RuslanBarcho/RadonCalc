@@ -42,6 +42,7 @@ public class ClearAnimation {
                         case 2:
                             FragmentCalcHistory.clearFirstPage();
                             FragmentCalcHistory.clearSecondPage();
+                            FragmentCalcHistory.clearThirdPage();
                             clearHistoryVariables();
                             break;
                         case 4:
@@ -114,5 +115,7 @@ public class ClearAnimation {
         ma.pageTwoCounter = 0;
         ma.historyWriteToogle = 0;
         //Return default text
+
+        ma.pageThreeCounter = 0;
     }
 }

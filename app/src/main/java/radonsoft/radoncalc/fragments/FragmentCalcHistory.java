@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,9 +31,6 @@ import radonsoft.radoncalc.R;
 
 public class FragmentCalcHistory extends Fragment {
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private PagerAdapter viewPagerAdapter;
     private View mRootView;
     MainActivity ma = new MainActivity();
     TextView pageOneFirstCellName;
@@ -55,6 +53,13 @@ public class FragmentCalcHistory extends Fragment {
     public static LinearLayout pagetwofourthCell;
     public static LinearLayout pagetwofifthCell;
 
+    public static TextView defaultTextViewTwo;
+    public static RelativeLayout pageThreefirstCell;
+    public static RelativeLayout pageThreesecondCell;
+    public static RelativeLayout pageThreethirdCell;
+    public static RelativeLayout pageThreefourthCell;
+    public static RelativeLayout pageThreefifthCell;
+
     FrameLayout clearBackground;
 
     public FragmentCalcHistory() {
@@ -73,11 +78,9 @@ public class FragmentCalcHistory extends Fragment {
         View pageone = inflater.inflate(R.layout.first_history_layout, null);
         View pagetwo = inflater.inflate(R.layout.second_history_layout, null);
         View pagethree = inflater.inflate(R.layout.fourth_history_layout, null);
-        View pagefour = inflater.inflate(R.layout.fourth_history_layout, null);
         pages.add(pageone);
         pages.add(pagetwo);
         pages.add(pagethree);
-        //pages.add(pagefour);
         viewPager.setAdapter(new TabPagerAdapter(pages));
         tabLayout.setupWithViewPager(viewPager);
 
@@ -148,9 +151,21 @@ public class FragmentCalcHistory extends Fragment {
         final TextView pageTwoFifthCellBodyThree = (TextView) pagetwo.findViewById(R.id.textView51);
         final TextView pageTwoFifthCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView52);
 
+        // Third page
+        pageThreefirstCell = (RelativeLayout) pagethree.findViewById(R.id.cellone);
+        pageThreesecondCell = (RelativeLayout) pagethree.findViewById(R.id.celltwo);
+        pageThreethirdCell = (RelativeLayout) pagethree.findViewById(R.id.cellthree);
+        pageThreefourthCell = (RelativeLayout) pagethree.findViewById(R.id.cellfour);
+        pageThreefifthCell = (RelativeLayout) pagethree.findViewById(R.id.cellfive);
+        defaultTextViewTwo = (TextView) pagethree.findViewById(R.id.defaultText);
+
         String operation = getString(R.string.history_operation);
         String result = getString(R.string.history_result);
-        setFirstPageVisibility();
+
+        setPageVisibility(defaultTextview, firstCell, secondCell, thirdCell, fourthCell, fifthCell, ma.pageOneCounter);
+        setPageVisibility(defaultTextViewOne, pagetwofirstCell, pagetwosecondCell, pagetwothirdCell, pagetwofourthCell, pagetwofifthCell, ma.pageTwoCounter);
+        setPageVisibility(defaultTextViewTwo, pageThreefirstCell, pageThreesecondCell, pageThreethirdCell, pageThreefourthCell, pageThreefifthCell, ma.pageThreeCounter);
+
         //First Cell making full
         pageOneFirstCellName.setText(operation + " " +  Global.pageOnefirstCellhistoryName);
         pageOneFirstCellBody.setText(Global.pageOnefirstCellhistoryBody);
@@ -172,41 +187,6 @@ public class FragmentCalcHistory extends Fragment {
         pageOneFifthCellBody.setText(Global.pageOneFifthCellhistoryBody);
         pageOneFifthCellResult.setText(result + " " + Global.pageOneFifthCellhistoryResult);
 
-        // Second page
-        switch (ma.pageTwoCounter) {
-            case 0:
-                break;
-            case 1:
-                defaultTextViewOne.setVisibility(View.GONE);
-                pagetwofirstCell.setVisibility(View.VISIBLE);
-                break;
-            case 2:
-                defaultTextViewOne.setVisibility(View.GONE);
-                pagetwofirstCell.setVisibility(View.VISIBLE);
-                pagetwosecondCell.setVisibility(View.VISIBLE);
-                break;
-            case 3:
-                defaultTextViewOne.setVisibility(View.GONE);
-                pagetwofirstCell.setVisibility(View.VISIBLE);
-                pagetwosecondCell.setVisibility(View.VISIBLE);
-                pagetwothirdCell.setVisibility(View.VISIBLE);
-                break;
-            case 4:
-                defaultTextViewOne.setVisibility(View.GONE);
-                pagetwofirstCell.setVisibility(View.VISIBLE);
-                pagetwosecondCell.setVisibility(View.VISIBLE);
-                pagetwothirdCell.setVisibility(View.VISIBLE);
-                pagetwofourthCell.setVisibility(View.VISIBLE);
-                break;
-            default:
-                defaultTextViewOne.setVisibility(View.GONE);
-                pagetwofirstCell.setVisibility(View.VISIBLE);
-                pagetwosecondCell.setVisibility(View.VISIBLE);
-                pagetwothirdCell.setVisibility(View.VISIBLE);
-                pagetwofourthCell.setVisibility(View.VISIBLE);
-                pagetwofifthCell.setVisibility(View.VISIBLE);
-                break;
-        }
         // First Cell making full
         pageTwoFirstCellName.setText(Global.pageTwoFirstCellHistoryName);
         pageTwoFirstCellBodyOne.setText(Global.pageTwoFirstCellHistoryBodyone);
@@ -282,9 +262,6 @@ public class FragmentCalcHistory extends Fragment {
         if (Global.pageTwoFifthCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
             pageTwoFifthCellBodyEnd.setVisibility(View.GONE);
         }
-
-        // Fourth page
-
 
         // code for return values
         returnCalcResult(firstCell, 1);
@@ -397,41 +374,48 @@ public class FragmentCalcHistory extends Fragment {
         pagetwofourthCell.setVisibility(View.GONE);
         pagetwofifthCell.setVisibility(View.GONE);
     }
+    public static void clearThirdPage() {
+        defaultTextViewTwo.setVisibility(View.VISIBLE);
+        pageThreefirstCell.setVisibility(View.GONE);
+        pageThreesecondCell.setVisibility(View.GONE);
+        pageThreethirdCell.setVisibility(View.GONE);
+        pageThreefourthCell.setVisibility(View.GONE);
+        pageThreefifthCell.setVisibility(View.GONE);
+    }
 
-    public void setFirstPageVisibility(){
-        switch (ma.pageOneCounter) {
+    public void setPageVisibility(View defaultView, View cellone, View celltwo, View cellthree, View cellfour, View cellfive, int counter){
+        switch (counter) {
             case 0:
-
                 break;
             case 1:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
+                defaultView.setVisibility(View.GONE);
+                cellone.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
+                defaultView.setVisibility(View.GONE);
+                cellone.setVisibility(View.VISIBLE);
+                celltwo.setVisibility(View.VISIBLE);
                 break;
             case 3:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
-                thirdCell.setVisibility(View.VISIBLE);
+                defaultView.setVisibility(View.GONE);
+                cellone.setVisibility(View.VISIBLE);
+                celltwo.setVisibility(View.VISIBLE);
+                cellthree.setVisibility(View.VISIBLE);
                 break;
             case 4:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
-                thirdCell.setVisibility(View.VISIBLE);
-                fourthCell.setVisibility(View.VISIBLE);
+                defaultView.setVisibility(View.GONE);
+                cellone.setVisibility(View.VISIBLE);
+                celltwo.setVisibility(View.VISIBLE);
+                cellthree.setVisibility(View.VISIBLE);
+                cellfour.setVisibility(View.VISIBLE);
                 break;
             default:
-                defaultTextview.setVisibility(View.GONE);
-                firstCell.setVisibility(View.VISIBLE);
-                secondCell.setVisibility(View.VISIBLE);
-                thirdCell.setVisibility(View.VISIBLE);
-                fourthCell.setVisibility(View.VISIBLE);
-                fifthCell.setVisibility(View.VISIBLE);
+                defaultView.setVisibility(View.GONE);
+                cellone.setVisibility(View.VISIBLE);
+                celltwo.setVisibility(View.VISIBLE);
+                cellthree.setVisibility(View.VISIBLE);
+                cellfour.setVisibility(View.VISIBLE);
+                cellfive.setVisibility(View.VISIBLE);
                 break;
         }
     }
