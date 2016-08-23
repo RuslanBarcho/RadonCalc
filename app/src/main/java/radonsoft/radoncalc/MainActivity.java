@@ -193,6 +193,18 @@ public class MainActivity extends AppCompatActivity
         saveString("pageTwoThirdCellHistoryBodytwo", Global.pageTwoThirdCellHistoryBodytwo);
         saveString("pageTwoThirdCellHistoryBodythree", Global.pageTwoThirdCellHistoryBodythree);
         saveString("pageTwoThirdCellHistoryBodyend", Global.pageTwoThirdCellHistoryBodyend);
+
+        saveString("pageTwoFourthCellHistoryName", Global.pageTwoFourthCellHistoryName);
+        saveString("pageTwoFourthCellHistoryBodyone", Global.pageTwoFourthCellHistoryBodyone);
+        saveString("pageTwoFourthCellHistoryBodytwo", Global.pageTwoFourthCellHistoryBodytwo);
+        saveString("pageTwoFourthCellHistoryBodythree", Global.pageTwoFourthCellHistoryBodythree);
+        saveString("pageTwoFourthCellHistoryBodyend", Global.pageTwoFourthCellHistoryBodyend);
+
+        saveString("pageTwoFifthCellHistoryName", Global.pageTwoFifthCellHistoryName);
+        saveString("pageTwoFifthCellHistoryBodyone", Global.pageTwoFifthCellHistoryBodyone);
+        saveString("pageTwoFifthCellHistoryBodytwo", Global.pageTwoFifthCellHistoryBodytwo);
+        saveString("pageTwoFifthCellHistoryBodythree", Global.pageTwoFifthCellHistoryBodythree);
+        saveString("pageTwoFifthCellHistoryBodyend", Global.pageTwoFifthCellHistoryBodyend);
     }
 
     public void returnSharedPreferences(){
@@ -239,6 +251,18 @@ public class MainActivity extends AppCompatActivity
         Global.pageTwoThirdCellHistoryBodytwo = sp.getString("pageTwoThirdCellHistoryBodytwo", "");
         Global.pageTwoThirdCellHistoryBodythree = sp.getString("pageTwoThirdCellHistoryBodythree", "");
         Global.pageTwoThirdCellHistoryBodyend = sp.getString("pageTwoThirdCellHistoryBodyend", "");
+
+        Global.pageTwoFourthCellHistoryName = sp.getString("pageTwoFourthCellHistoryName", "");
+        Global.pageTwoFourthCellHistoryBodyone = sp.getString("pageTwoFourthCellHistoryBodyone", "");
+        Global.pageTwoFourthCellHistoryBodytwo = sp.getString("pageTwoFourthCellHistoryBodytwo", "");
+        Global.pageTwoFourthCellHistoryBodythree = sp.getString("pageTwoFourthCellHistoryBodythree", "");
+        Global.pageTwoFourthCellHistoryBodyend = sp.getString("pageTwoFourthCellHistoryBodyend", "");
+
+        Global.pageTwoFifthCellHistoryName = sp.getString("pageTwoFifthCellHistoryName", "");
+        Global.pageTwoFifthCellHistoryBodyone = sp.getString("pageTwoFifthCellHistoryBodyone", "");
+        Global.pageTwoFifthCellHistoryBodytwo = sp.getString("pageTwoFifthCellHistoryBodytwo", "");
+        Global.pageTwoFifthCellHistoryBodythree = sp.getString("pageTwoFifthCellHistoryBodythree", "");
+        Global.pageTwoFifthCellHistoryBodyend = sp.getString("pageTwoFifthCellHistoryBodyend", "");
     }
 
     @Override

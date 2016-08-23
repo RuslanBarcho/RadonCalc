@@ -51,7 +51,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="RAD"
             android:id="@+id/textView4"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:onClick="OnClick"
             android:textStyle="bold"
             android:layout_marginLeft="18dp"

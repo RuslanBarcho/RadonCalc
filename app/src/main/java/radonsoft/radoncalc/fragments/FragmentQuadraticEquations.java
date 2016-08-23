@@ -397,7 +397,38 @@ public class FragmentQuadraticEquations extends Fragment {
                 Global.pageTwoFirstCellHistoryBodythree = historyXone;
                 Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
                 break;
+            case 4:
+                Global.pageTwoFourthCellHistoryName = Global.pageTwoThirdCellHistoryName;
+                Global.pageTwoFourthCellHistoryBodyone = Global.pageTwoThirdCellHistoryBodyone;
+                Global.pageTwoFourthCellHistoryBodytwo = Global.pageTwoThirdCellHistoryBodytwo;
+                Global.pageTwoFourthCellHistoryBodythree = Global.pageTwoThirdCellHistoryBodythree;
+                Global.pageTwoFourthCellHistoryBodyend = Global.pageTwoThirdCellHistoryBodyend;
+
+                Global.pageTwoThirdCellHistoryName = Global.pageTwoSecondCellHistoryName;
+                Global.pageTwoThirdCellHistoryBodyone = Global.pageTwoSecondCellHistoryBodyone;
+                Global.pageTwoThirdCellHistoryBodytwo = Global.pageTwoSecondCellHistoryBodytwo;
+                Global.pageTwoThirdCellHistoryBodythree = Global.pageTwoSecondCellHistoryBodythree;
+                Global.pageTwoThirdCellHistoryBodyend = Global.pageTwoSecondCellHistoryBodyend;
+
+                Global.pageTwoSecondCellHistoryName = Global.pageTwoFirstCellHistoryName;
+                Global.pageTwoSecondCellHistoryBodyone = Global.pageTwoFirstCellHistoryBodyone;
+                Global.pageTwoSecondCellHistoryBodytwo = Global.pageTwoFirstCellHistoryBodytwo;
+                Global.pageTwoSecondCellHistoryBodythree = Global.pageTwoFirstCellHistoryBodythree;
+                Global.pageTwoSecondCellHistoryBodyend = Global.pageTwoFirstCellHistoryBodyend;
+
+                Global.pageTwoFirstCellHistoryName = historyTitle;
+                Global.pageTwoFirstCellHistoryBodyone = historyDiscr;
+                Global.pageTwoFirstCellHistoryBodytwo = historySqrtDiscr;
+                Global.pageTwoFirstCellHistoryBodythree = historyXone;
+                Global.pageTwoFirstCellHistoryBodyend = historyXtwo;
+                break;
             default:
+                Global.pageTwoFifthCellHistoryName = Global.pageTwoFourthCellHistoryName;
+                Global.pageTwoFifthCellHistoryBodyone = Global.pageTwoFourthCellHistoryBodyone;
+                Global.pageTwoFifthCellHistoryBodytwo = Global.pageTwoFourthCellHistoryBodytwo;
+                Global.pageTwoFifthCellHistoryBodythree = Global.pageTwoFourthCellHistoryBodythree;
+                Global.pageTwoFifthCellHistoryBodyend = Global.pageTwoFourthCellHistoryBodyend;
+
                 Global.pageTwoFourthCellHistoryName = Global.pageTwoThirdCellHistoryName;
                 Global.pageTwoFourthCellHistoryBodyone = Global.pageTwoThirdCellHistoryBodyone;
                 Global.pageTwoFourthCellHistoryBodytwo = Global.pageTwoThirdCellHistoryBodytwo;

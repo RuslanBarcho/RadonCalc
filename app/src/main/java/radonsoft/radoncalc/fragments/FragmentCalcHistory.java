@@ -142,6 +142,12 @@ public class FragmentCalcHistory extends Fragment {
         final TextView pageTwoFourthCellBodyThree = (TextView) pagetwo.findViewById(R.id.textView46);
         final TextView pageTwoFourthCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView47);
 
+        final TextView pageTwoFifthCellName = (TextView) pagetwo.findViewById(R.id.textView48);
+        final TextView pageTwoFifthCellBodyOne = (TextView) pagetwo.findViewById(R.id.textView49);
+        final TextView pageTwoFifthCellBodyTwo = (TextView) pagetwo.findViewById(R.id.textView50);
+        final TextView pageTwoFifthCellBodyThree = (TextView) pagetwo.findViewById(R.id.textView51);
+        final TextView pageTwoFifthCellBodyEnd = (TextView) pagetwo.findViewById(R.id.textView52);
+
         String operation = getString(R.string.history_operation);
         String result = getString(R.string.history_result);
         setFirstPageVisibility();
@@ -185,12 +191,20 @@ public class FragmentCalcHistory extends Fragment {
                 pagetwosecondCell.setVisibility(View.VISIBLE);
                 pagetwothirdCell.setVisibility(View.VISIBLE);
                 break;
+            case 4:
+                defaultTextViewOne.setVisibility(View.GONE);
+                pagetwofirstCell.setVisibility(View.VISIBLE);
+                pagetwosecondCell.setVisibility(View.VISIBLE);
+                pagetwothirdCell.setVisibility(View.VISIBLE);
+                pagetwofourthCell.setVisibility(View.VISIBLE);
+                break;
             default:
                 defaultTextViewOne.setVisibility(View.GONE);
                 pagetwofirstCell.setVisibility(View.VISIBLE);
                 pagetwosecondCell.setVisibility(View.VISIBLE);
                 pagetwothirdCell.setVisibility(View.VISIBLE);
                 pagetwofourthCell.setVisibility(View.VISIBLE);
+                pagetwofifthCell.setVisibility(View.VISIBLE);
                 break;
         }
         // First Cell making full
@@ -217,6 +231,13 @@ public class FragmentCalcHistory extends Fragment {
         pageTwoFourthCellBodyTwo.setText(Global.pageTwoFourthCellHistoryBodytwo);
         pageTwoFourthCellBodyThree.setText(Global.pageTwoFourthCellHistoryBodythree);
         pageTwoFourthCellBodyEnd.setText(Global.pageTwoFourthCellHistoryBodyend);
+        // Fifth cell making full
+        pageTwoFifthCellName.setText(Global.pageTwoFifthCellHistoryName);
+        pageTwoFifthCellBodyOne.setText(Global.pageTwoFifthCellHistoryBodyone);
+        pageTwoFifthCellBodyTwo.setText(Global.pageTwoFifthCellHistoryBodytwo);
+        pageTwoFifthCellBodyThree.setText(Global.pageTwoFifthCellHistoryBodythree);
+        pageTwoFifthCellBodyEnd.setText(Global.pageTwoFifthCellHistoryBodyend);
+
         //Checking Result
         //First Cell
         if (Global.pageTwoFirstCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {
@@ -233,9 +254,15 @@ public class FragmentCalcHistory extends Fragment {
             pageTwoThirdCellBodyTwo.setVisibility(View.GONE);
             pageTwoThirdCellBodyThree.setVisibility(View.GONE);
         }
+        // Fourth cell
         if (Global.pageTwoFourthCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {
             pageTwoFourthCellBodyTwo.setVisibility(View.GONE);
             pageTwoFourthCellBodyThree.setVisibility(View.GONE);
+        }
+        // Fifth cell
+        if (Global.pageTwoFifthCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {
+            pageTwoFifthCellBodyTwo.setVisibility(View.GONE);
+            pageTwoFifthCellBodyThree.setVisibility(View.GONE);
         }
         //Checking Result #2
         if (Global.pageTwoFirstCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
@@ -251,6 +278,9 @@ public class FragmentCalcHistory extends Fragment {
         }
         if (Global.pageTwoFourthCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
             pageTwoFourthCellBodyEnd.setVisibility(View.GONE);
+        }
+        if (Global.pageTwoFifthCellHistoryBodyend.equals(getString(R.string.q_equations_no_second_solution))) {
+            pageTwoFifthCellBodyEnd.setVisibility(View.GONE);
         }
 
         // Fourth page

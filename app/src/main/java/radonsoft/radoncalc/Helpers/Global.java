@@ -73,6 +73,12 @@ public class Global {
     public static String pageTwoFourthCellHistoryBodytwo = "A";
     public static String pageTwoFourthCellHistoryBodythree = "A";
     public static String pageTwoFourthCellHistoryBodyend = "A";
+    // Fifth cell
+    public static String pageTwoFifthCellHistoryName = "A";
+    public static String pageTwoFifthCellHistoryBodyone = "A";
+    public static String pageTwoFifthCellHistoryBodytwo = "A";
+    public static String pageTwoFifthCellHistoryBodythree = "A";
+    public static String pageTwoFifthCellHistoryBodyend = "A";
 
     public static String saveDegreeStatus = "RAD";
     public static boolean vibrationSwitcher;

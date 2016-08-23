@@ -557,7 +557,7 @@ public class converter extends Fragment {
     public void turnOnVibration() {
         if (Global.vibrationSwitcher) {
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(50);
+            vibrator.vibrate(40);
         }
     }
 
