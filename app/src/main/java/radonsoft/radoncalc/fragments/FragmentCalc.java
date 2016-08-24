@@ -454,11 +454,16 @@ public class FragmentCalc extends Fragment {
                         Tumbler = 4;
                             break;
                         default:
-                            equalation();
-                            OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
-                            textView.setText(textView.getText() + "÷");
-                            texxtView.setText("");
-                            Tumbler = 4;
+                            try {
+                                equalation();
+                                OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
+                                textView.setText(textView.getText() + "÷");
+                                texxtView.setText("");
+                                Tumbler = 4;
+                            }
+                            catch (NumberFormatException e){
+
+                            }
                             break;
                     }
                 }
@@ -581,6 +586,7 @@ public class FragmentCalc extends Fragment {
                 } catch (ArithmeticException e) {
                     showDialogMessage(getString(R.string.calculator_Illegal_operation));
                     eraseAllData();
+                    divnull = true;
                 }
                 break;
             case 5:
