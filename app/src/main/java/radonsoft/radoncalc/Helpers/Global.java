@@ -80,6 +80,34 @@ public class Global {
     public static String pageTwoFifthCellHistoryBodythree = "A";
     public static String pageTwoFifthCellHistoryBodyend = "A";
 
+    // First Cell
+    public static String pageThreefirstCellhistoryInput = "A";
+    public static String pageThreefirstCellhistoryInputName = "A";
+    public static String pageThreefirstCellhistoryOutput = "C";
+    public static String pageThreefirstCellhistoryOutputName = "C";
+    // Second Cell
+    public static String pageThreeSecondCellhistoryInput = "A";
+    public static String pageThreeSecondCellhistoryInputName = "A";
+    public static String pageThreeSecondCellhistoryOutput = "C";
+    public static String pageThreeSecondCellhistoryOutputName = "C";
+    // Third Cell
+    public static String pageThreeThirdCellhistoryInput = "A";
+    public static String pageThreeThirdCellhistoryInputName = "A";
+    public static String pageThreeThirdCellhistoryOutput = "C";
+    public static String pageThreeThirdCellhistoryOutputName = "C";
+    // Fourth Cell
+    public static String pageThreeFourthCellhistoryInput = "A";
+    public static String pageThreeFourthCellhistoryInputName = "A";
+    public static String pageThreeFourthCellhistoryOutput = "C";
+    public static String pageThreeFourthCellhistoryOutputName = "C";
+    // Fifth Cell
+    public static String pageThreeFifthCellhistoryInput = "A";
+    public static String pageThreeFifthCellhistoryInputName = "A";
+    public static String pageThreeFifthCellhistoryOutput = "C";
+    public static String pageThreeFifthCellhistoryOutputName = "C";
+
+    public static int pageThreeCounter = 0;
+
     public static String saveDegreeStatus = "RAD";
     public static boolean vibrationSwitcher;
     //Global voids

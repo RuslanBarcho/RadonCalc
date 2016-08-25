@@ -162,6 +162,22 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(equalButton);
                 turnOnVibration();
+                Global.pageThreeCounter = Global.pageThreeCounter + 1;
+                writeToHistory();
+            }
+        });
+
+        signButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                turnOnVibration();
+                if (inputWindow.getText().toString().contains("-")){
+                    inputWindow.setText(inputWindow.getText().toString().substring(1));
+                }
+                else {
+                    inputWindow.setText("-" + inputWindow.getText().toString());
+                }
+                makeConvertation();
             }
         });
 
@@ -171,15 +187,22 @@ public class converter extends Fragment {
                 Global.turnVibrationOn(delButton);
                 turnOnVibration();
                 String del = inputWindow.getText().toString();
-                if (del.equals("")){
+                switch (del){
+                    case "":
 
+                        break;
+                    case "-":
+                        del = del.substring(0, del.length() -1 );
+                        inputWindow.setText(del);
+                        outputWindow.setText("");
+                        break;
+                    default:
+                        del = del.substring(0, del.length() -1 );
+                        inputWindow.setText(del);
+                        outputWindow.setText("");
+                        makeConvertation();
+                        break;
                 }
-                else{
-                    del = del.substring(0, del.length() -1 );
-                    inputWindow.setText(del);
-                    outputWindow.setText("");
-                }
-                makeConvertation();
                 saveConverterValues();
             }
         });
@@ -243,7 +266,7 @@ public class converter extends Fragment {
     }
 
     public void makeConvertation(){
-        if (inputWindow.getText().toString().equals("")){
+        if (inputWindow.getText().toString().equals("") |inputWindow.getText().toString().equals("-")){
 
         }
         else {
@@ -558,6 +581,56 @@ public class converter extends Fragment {
         if (Global.vibrationSwitcher) {
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(40);
+        }
+    }
+
+    public void writeToHistory(){
+        switch (Global.pageThreeCounter){
+            case 0:
+
+                break;
+            case 1:
+                Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryInputName = spinner1.getSelectedItem().toString();
+                Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutputName = spinner2.getSelectedItem().toString();
+                break;
+            case 2:
+                Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                break;
+            case 3:
+                Global.pageThreeThirdCellhistoryInput = Global.pageThreeSecondCellhistoryInput;
+                Global.pageThreeThirdCellhistoryOutput = Global.pageThreeSecondCellhistoryOutput;
+                Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                break;
+            case 4:
+                Global.pageThreeFourthCellhistoryInput = Global.pageThreeThirdCellhistoryInput;
+                Global.pageThreeFourthCellhistoryOutput = Global.pageThreeThirdCellhistoryOutput;
+                Global.pageThreeThirdCellhistoryInput = Global.pageThreeSecondCellhistoryInput;
+                Global.pageThreeThirdCellhistoryOutput = Global.pageThreeSecondCellhistoryOutput;
+                Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                break;
+            default:
+                Global.pageThreeFifthCellhistoryInput = Global.pageThreeFourthCellhistoryInput;
+                Global.pageThreeFifthCellhistoryOutput = Global.pageThreeFourthCellhistoryOutput;
+                Global.pageThreeFourthCellhistoryInput = Global.pageThreeThirdCellhistoryInput;
+                Global.pageThreeFourthCellhistoryOutput = Global.pageThreeThirdCellhistoryOutput;
+                Global.pageThreeThirdCellhistoryInput = Global.pageThreeSecondCellhistoryInput;
+                Global.pageThreeThirdCellhistoryOutput = Global.pageThreeSecondCellhistoryOutput;
+                Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                break;
         }
     }
 

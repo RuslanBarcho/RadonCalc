@@ -51,6 +51,7 @@
     <string name="history_division">деление</string>
     <string name="history_exponentiation">возведение в степень</string>
     <string name="history_evolution">извлечение корня</string>
+    <string name="history_percent">процент</string>
     <string name="history_return_value">Значение возвращено</string>
     <string name="settings_title">Настройки</string>
     <string name="settings_about">О приложении</string>
@@ -60,6 +61,6 @@
     <string name="settings_angle">Угол</string>
     <string name="settings_angle_description">Переключение меры (радианы/градусы)</string>
     <string name="settings_about_window">
-        RadonCalc BETA v2 \n© Radonsoft studio 2016 \nДата компиляции: 23.08.16
+        RadonCalc 1.0 \n© Radonsoft studio 2016 \nДата компиляции: 25.08.16
     </string>
 </resources>

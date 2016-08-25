@@ -248,15 +248,36 @@ public class FragmentCalc extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(percentButton);
                 turnOnVibration();
+                Proverka = String.valueOf(texxtView.getText());
+                if (Proverka.equals("")|Proverka.equals("-"))
+                {
 
+                }
+                else {
+                    switch (Tumbler) {
+                        case 0:
+                            OperateA =  new BigDecimal(String.valueOf(texxtView.getText().toString()));
+                            textView.setText(textView.getText().toString() + "%");
+                            texxtView.setText("");
+                            Tumbler = 6;
+                            break;
+                        default:
+                            returnPercent();
+                            OperateA =  new BigDecimal(String.valueOf(textView.getText().toString()));
+                            textView.setText(textView.getText() + "%");
+                            texxtView.setText("");
+                            Tumbler = 6;
+                            break;
+                    }
+                }
             }
         });
 
         piButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(piButton);
                 turnOnVibration();
+                showDialogMessage("Coming soon!");
             }
         });
 
@@ -592,6 +613,9 @@ public class FragmentCalc extends Fragment {
             case 5:
                 exponentiate();
                 break;
+            case 6:
+                returnPercent();
+                break;
         }
         textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
         if (divnull) {
@@ -898,10 +922,20 @@ public class FragmentCalc extends Fragment {
         Tumbler = 0;
         signpower = 0;
     }
+
+    public void returnPercent(){
+        loadOperateB();
+        loadHistoryContent(getString(R.string.history_percent));
+        Result = OperateB.divide(new BigDecimal(100)).multiply(OperateA);
+        textView.setText(String.valueOf(Result));
+        texxtView.setText(String.valueOf(Result));
+        historyResult = Result.toString();
+        Tumbler = 0;
+    }
     public void testInputOnSigns(String toTest){
         if (toTest.contains("+") | toTest.contains("÷") |
                 toTest.contains("-") | toTest.contains("×") |
-                toTest.contains("^")){
+                toTest.contains("^") | toTest.contains("%")){
             testOnsSignsFinal = 1;
         }
         else {

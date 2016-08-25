@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity
     // Operation History
     public static int pageOneCounter = 0;
     public static int pageTwoCounter = 0;
-    public static int pageThreeCounter = 0;
     public static int historyWriteToogle = 0;
 
     //save data in quadratic equations
@@ -148,6 +147,7 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.Editor editor = sp.edit();
         editor.putInt("counter_one", pageOneCounter).commit();
         editor.putInt("counter_two", pageTwoCounter).commit();
+        editor.putInt("counter_three", Global.pageThreeCounter).commit();
         editor.putBoolean("vibrationSwitcher", Global.vibrationSwitcher).commit();
 
         saveString("saveDegreeStatus", Global.saveDegreeStatus);
@@ -206,6 +206,7 @@ public class MainActivity extends AppCompatActivity
     public void returnSharedPreferences(){
         pageOneCounter = sp.getInt("counter_one", 0);
         pageTwoCounter = sp.getInt("counter_two", 0);
+        Global.pageThreeCounter = sp.getInt("counter_three", 0);
 
         Global.saveDegreeStatus = sp.getString("saveDegreeStatus", "RAD");
         Global.vibrationSwitcher = sp.getBoolean("vibrationSwitcher", false);

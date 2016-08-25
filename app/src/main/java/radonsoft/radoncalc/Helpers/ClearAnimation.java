@@ -116,6 +116,6 @@ public class ClearAnimation {
         ma.historyWriteToogle = 0;
         //Return default text
 
-        ma.pageThreeCounter = 0;
+        Global.pageThreeCounter = 0;
     }
 }
