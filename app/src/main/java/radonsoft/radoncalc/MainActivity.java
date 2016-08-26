@@ -201,6 +201,31 @@ public class MainActivity extends AppCompatActivity
         saveString("pageTwoFifthCellHistoryBodytwo", Global.pageTwoFifthCellHistoryBodytwo);
         saveString("pageTwoFifthCellHistoryBodythree", Global.pageTwoFifthCellHistoryBodythree);
         saveString("pageTwoFifthCellHistoryBodyend", Global.pageTwoFifthCellHistoryBodyend);
+
+        saveString("pageThreeFirstCellHistoryInput", Global.pageThreefirstCellhistoryInput);
+        saveString("pageThreeFirstCellHistoryInputName", Global.pageThreefirstCellhistoryInputName);
+        saveString("pageThreeFirstCellHistoryOutput", Global.pageThreefirstCellhistoryOutput);
+        saveString("pageThreeFirstCellHistoryOutputName", Global.pageThreefirstCellhistoryOutputName);
+
+        saveString("pageThreeSecondCellHistoryInput", Global.pageThreeSecondCellhistoryInput);
+        saveString("pageThreeSecondCellHistoryInputName", Global.pageThreeSecondCellhistoryInputName);
+        saveString("pageThreeSecondCellHistoryOutput", Global.pageThreeSecondCellhistoryOutput);
+        saveString("pageThreeSecondCellHistoryOutputName", Global.pageThreeSecondCellhistoryOutputName);
+
+        saveString("pageThreeThirdCellHistoryInput", Global.pageThreeThirdCellhistoryInput);
+        saveString("pageThreeThirdCellHistoryInputName", Global.pageThreeThirdCellhistoryInputName);
+        saveString("pageThreeThirdCellHistoryOutput", Global.pageThreeThirdCellhistoryOutput);
+        saveString("pageThreeThirdCellHistoryOutputName", Global.pageThreeThirdCellhistoryOutputName);
+
+        saveString("pageThreeFourthCellHistoryInput", Global.pageThreeFourthCellhistoryInput);
+        saveString("pageThreeFourthCellHistoryInputName", Global.pageThreeFourthCellhistoryInputName);
+        saveString("pageThreeFourthCellHistoryOutput", Global.pageThreeFourthCellhistoryOutput);
+        saveString("pageThreeFourthCellHistoryOutputName", Global.pageThreeFourthCellhistoryOutputName);
+
+        saveString("pageThreeFifthCellHistoryInput", Global.pageThreeFifthCellhistoryInput);
+        saveString("pageThreeFifthCellHistoryInputName", Global.pageThreeFifthCellhistoryInputName);
+        saveString("pageThreeFifthCellHistoryOutput", Global.pageThreeFifthCellhistoryOutput);
+        saveString("pageThreeFifthCellHistoryOutputName", Global.pageThreeFifthCellhistoryOutputName);
     }
 
     public void returnSharedPreferences(){
@@ -260,6 +285,31 @@ public class MainActivity extends AppCompatActivity
         Global.pageTwoFifthCellHistoryBodytwo = sp.getString("pageTwoFifthCellHistoryBodytwo", "");
         Global.pageTwoFifthCellHistoryBodythree = sp.getString("pageTwoFifthCellHistoryBodythree", "");
         Global.pageTwoFifthCellHistoryBodyend = sp.getString("pageTwoFifthCellHistoryBodyend", "");
+
+        Global.pageThreefirstCellhistoryInput = sp.getString("pageThreeFirstCellHistoryInput", "");
+        Global.pageThreefirstCellhistoryInputName = sp.getString("pageThreeFirstCellHistoryInputName", "");
+        Global.pageThreefirstCellhistoryOutput = sp.getString("pageThreeFirstCellHistoryOutput", "");
+        Global.pageThreefirstCellhistoryOutputName = sp.getString("pageThreeFirstCellHistoryOutputName", "");
+
+        Global.pageThreeSecondCellhistoryInput = sp.getString("pageThreeSecondCellHistoryInput", "");
+        Global.pageThreeSecondCellhistoryInputName = sp.getString("pageThreeSecondCellHistoryInputName", "");
+        Global.pageThreeSecondCellhistoryOutput = sp.getString("pageThreeSecondCellHistoryOutput", "");
+        Global.pageThreeSecondCellhistoryOutputName = sp.getString("pageThreeSecondCellHistoryOutputName", "");
+
+        Global.pageThreeThirdCellhistoryInput = sp.getString("pageThreeThirdCellHistoryInput", "");
+        Global.pageThreeThirdCellhistoryInputName = sp.getString("pageThreeThirdCellHistoryInputName", "");
+        Global.pageThreeThirdCellhistoryOutput = sp.getString("pageThreeThirdCellHistoryOutput", "");
+        Global.pageThreeThirdCellhistoryOutputName = sp.getString("pageThreeThirdCellHistoryOutputName", "");
+
+        Global.pageThreeFourthCellhistoryInput = sp.getString("pageThreeFourthCellHistoryInput", "");
+        Global.pageThreeFourthCellhistoryInputName = sp.getString("pageThreeFourthCellHistoryInputName", "");
+        Global.pageThreeFourthCellhistoryOutput = sp.getString("pageThreeFourthCellHistoryOutput", "");
+        Global.pageThreeFourthCellhistoryOutputName = sp.getString("pageThreeFourthCellHistoryOutputName", "");
+
+        Global.pageThreeFifthCellhistoryInput = sp.getString("pageThreeFifthCellHistoryInput", "");
+        Global.pageThreeFifthCellhistoryInputName = sp.getString("pageThreeFifthCellHistoryInputName", "");
+        Global.pageThreeFifthCellhistoryOutput = sp.getString("pageThreeFifthCellHistoryOutput", "");
+        Global.pageThreeFifthCellhistoryOutputName = sp.getString("pageThreeFifthCellHistoryOutputName", "");
     }
 
     @Override

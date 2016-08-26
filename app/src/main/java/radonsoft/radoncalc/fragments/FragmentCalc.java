@@ -624,6 +624,7 @@ public class FragmentCalc extends Fragment {
         else {
             writeOperationToHistory();
         }
+        scrollInputToBegin();
     }
     public void writeOperationToHistory(){
         switch (ma.pageOneCounter) {
@@ -944,6 +945,9 @@ public class FragmentCalc extends Fragment {
     }
     public void scrollInputToEnd(){
         inputScroll.scrollTo(999999999, 0);
+    }
+    public void scrollInputToBegin(){
+        inputScroll.scrollTo(-999999999, 0);
     }
 
     public void activateBuiltInKeyboard(){

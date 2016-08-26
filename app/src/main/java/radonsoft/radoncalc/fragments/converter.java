@@ -597,39 +597,76 @@ public class converter extends Fragment {
                 break;
             case 2:
                 Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryInputName = Global.pageThreefirstCellhistoryInputName;
                 Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreeSecondCellhistoryOutputName = Global.pageThreefirstCellhistoryOutputName;
                 Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryInputName = spinner1.getSelectedItem().toString();
                 Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutputName = spinner2.getSelectedItem().toString();
                 break;
             case 3:
                 Global.pageThreeThirdCellhistoryInput = Global.pageThreeSecondCellhistoryInput;
                 Global.pageThreeThirdCellhistoryOutput = Global.pageThreeSecondCellhistoryOutput;
+                Global.pageThreeThirdCellhistoryInputName = Global.pageThreeSecondCellhistoryInputName;
+                Global.pageThreeThirdCellhistoryOutputName = Global.pageThreeSecondCellhistoryOutputName;
+
                 Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryInputName = Global.pageThreefirstCellhistoryInputName;
                 Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreeSecondCellhistoryOutputName = Global.pageThreefirstCellhistoryOutputName;
+
                 Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryInputName = spinner1.getSelectedItem().toString();
                 Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutputName = spinner2.getSelectedItem().toString();
                 break;
             case 4:
                 Global.pageThreeFourthCellhistoryInput = Global.pageThreeThirdCellhistoryInput;
                 Global.pageThreeFourthCellhistoryOutput = Global.pageThreeThirdCellhistoryOutput;
+                Global.pageThreeFourthCellhistoryInputName = Global.pageThreeThirdCellhistoryInputName;
+                Global.pageThreeFourthCellhistoryOutputName = Global.pageThreeThirdCellhistoryOutputName;
+
                 Global.pageThreeThirdCellhistoryInput = Global.pageThreeSecondCellhistoryInput;
                 Global.pageThreeThirdCellhistoryOutput = Global.pageThreeSecondCellhistoryOutput;
+                Global.pageThreeThirdCellhistoryInputName = Global.pageThreeSecondCellhistoryInputName;
+                Global.pageThreeThirdCellhistoryOutputName = Global.pageThreeSecondCellhistoryOutputName;
+
                 Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryInputName = Global.pageThreefirstCellhistoryInputName;
                 Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreeSecondCellhistoryOutputName = Global.pageThreefirstCellhistoryOutputName;
+
                 Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryInputName = spinner1.getSelectedItem().toString();
                 Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutputName = spinner2.getSelectedItem().toString();
                 break;
             default:
                 Global.pageThreeFifthCellhistoryInput = Global.pageThreeFourthCellhistoryInput;
                 Global.pageThreeFifthCellhistoryOutput = Global.pageThreeFourthCellhistoryOutput;
+                Global.pageThreeFifthCellhistoryInputName = Global.pageThreeFourthCellhistoryInputName;
+                Global.pageThreeFifthCellhistoryOutputName = Global.pageThreeFourthCellhistoryOutputName;
+
                 Global.pageThreeFourthCellhistoryInput = Global.pageThreeThirdCellhistoryInput;
                 Global.pageThreeFourthCellhistoryOutput = Global.pageThreeThirdCellhistoryOutput;
+                Global.pageThreeFourthCellhistoryInputName = Global.pageThreeThirdCellhistoryInputName;
+                Global.pageThreeFourthCellhistoryOutputName = Global.pageThreeThirdCellhistoryOutputName;
+
                 Global.pageThreeThirdCellhistoryInput = Global.pageThreeSecondCellhistoryInput;
                 Global.pageThreeThirdCellhistoryOutput = Global.pageThreeSecondCellhistoryOutput;
+                Global.pageThreeThirdCellhistoryInputName = Global.pageThreeSecondCellhistoryInputName;
+                Global.pageThreeThirdCellhistoryOutputName = Global.pageThreeSecondCellhistoryOutputName;
+
                 Global.pageThreeSecondCellhistoryInput = Global.pageThreefirstCellhistoryInput;
+                Global.pageThreeSecondCellhistoryInputName = Global.pageThreefirstCellhistoryInputName;
                 Global.pageThreeSecondCellhistoryOutput = Global.pageThreefirstCellhistoryOutput;
+                Global.pageThreeSecondCellhistoryOutputName = Global.pageThreefirstCellhistoryOutputName;
+
                 Global.pageThreefirstCellhistoryInput = inputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryInputName = spinner1.getSelectedItem().toString();
                 Global.pageThreefirstCellhistoryOutput = outputWindow.getText().toString();
+                Global.pageThreefirstCellhistoryOutputName = spinner2.getSelectedItem().toString();
                 break;
         }
     }

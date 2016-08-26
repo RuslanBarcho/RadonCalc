@@ -161,6 +161,14 @@ public class FragmentCalcHistory extends Fragment {
 
         final TextView pageThreeFirstCellInput = (TextView) pagethree.findViewById(R.id.textView57);
         final TextView pageThreeFirstCellOutput = (TextView) pagethree.findViewById(R.id.textView61);
+        final TextView pageThreeSecondCellInput = (TextView) pagethree.findViewById(R.id.textView12);
+        final TextView pageThreeSecondCellOutput = (TextView) pagethree.findViewById(R.id.textView62);
+        final TextView pageThreeThirdCellInput = (TextView) pagethree.findViewById(R.id.textView64);
+        final TextView pageThreeThirdCellOutput = (TextView) pagethree.findViewById(R.id.textView65);
+        final TextView pageThreeFourthCellInput = (TextView) pagethree.findViewById(R.id.textView67);
+        final TextView pageThreeFourthCellOutput = (TextView) pagethree.findViewById(R.id.textView68);
+        final TextView pageThreeFifthCellInput = (TextView) pagethree.findViewById(R.id.textView70);
+        final TextView pageThreeFifthCellOutput = (TextView) pagethree.findViewById(R.id.textView71);
 
         String operation = getString(R.string.history_operation);
         String result = getString(R.string.history_result);
@@ -223,6 +231,15 @@ public class FragmentCalcHistory extends Fragment {
         // Third page
         pageThreeFirstCellInput.setText(Global.pageThreefirstCellhistoryInput + ", " + Global.pageThreefirstCellhistoryInputName);
         pageThreeFirstCellOutput.setText(Global.pageThreefirstCellhistoryOutput + ", " + Global.pageThreefirstCellhistoryOutputName);
+        pageThreeSecondCellInput.setText(Global.pageThreeSecondCellhistoryInput + ", " + Global.pageThreeSecondCellhistoryInputName);
+        pageThreeSecondCellOutput.setText(Global.pageThreeSecondCellhistoryOutput + ", " + Global.pageThreeSecondCellhistoryOutputName);
+        pageThreeThirdCellInput.setText(Global.pageThreeThirdCellhistoryInput + ", " + Global.pageThreeThirdCellhistoryInputName);
+        pageThreeThirdCellOutput.setText(Global.pageThreeThirdCellhistoryOutput + ", " + Global.pageThreeThirdCellhistoryOutputName);
+        pageThreeFourthCellInput.setText(Global.pageThreeFourthCellhistoryInput + ", " + Global.pageThreeFourthCellhistoryInputName);
+        pageThreeFourthCellOutput.setText(Global.pageThreeFourthCellhistoryOutput + ", " + Global.pageThreeFourthCellhistoryOutputName);
+        pageThreeFifthCellInput.setText(Global.pageThreeFifthCellhistoryInput + ", " + Global.pageThreeFifthCellhistoryInputName);
+        pageThreeFifthCellOutput.setText(Global.pageThreeFifthCellhistoryOutput + ", " + Global.pageThreeFifthCellhistoryOutputName);
+
         //Checking Result
         //First Cell
         if (Global.pageTwoFirstCellHistoryBodyend.equals(getString(R.string.q_equations_no_solution))) {

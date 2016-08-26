@@ -61,6 +61,6 @@
     <string name="settings_angle">Угол</string>
     <string name="settings_angle_description">Переключение меры (радианы/градусы)</string>
     <string name="settings_about_window">
-        RadonCalc 1.0 \n© Radonsoft studio 2016 \nДата компиляции: 25.08.16
+        RadonCalc 1.0 \n© Radonsoft studio 2016
     </string>
 </resources>
