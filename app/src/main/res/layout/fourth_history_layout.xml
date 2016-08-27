@@ -24,7 +24,7 @@
             android:id="@+id/cellone"
             android:visibility="gone"
             android:clickable="true"
-            android:onClick="onClick" >
+            android:nestedScrollingEnabled="false">
 
             <TextView
                 android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:id="@+id/celltwo"
             android:visibility="gone"
             android:clickable="true"
-            android:onClick="onClick" >
+            android:nestedScrollingEnabled="false">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
             android:id="@+id/cellthree"
             android:visibility="gone"
             android:clickable="true"
-            android:onClick="onClick" >
+            android:nestedScrollingEnabled="false">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -252,7 +252,7 @@
             android:id="@+id/cellfour"
             android:visibility="gone"
             android:clickable="true"
-            android:onClick="onClick" >
+            android:nestedScrollingEnabled="false">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -328,7 +328,7 @@
             android:id="@+id/cellfive"
             android:visibility="gone"
             android:clickable="true"
-            android:onClick="onClick" >
+            android:nestedScrollingEnabled="false">
 
             <ImageView
                 android:layout_width="wrap_content"

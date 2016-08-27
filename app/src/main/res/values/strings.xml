@@ -34,8 +34,8 @@
     <string name="converter_send_calc">Send to calculator</string>
     <string name="converter_centimeter">Centimeter</string>
     <string name="converter_sent_to_calculator">Sent to calculator</string>
-    //Strings for recently operations
-    <string name="history_title">Recently operations</string>
+    //Strings for recent operations
+    <string name="history_title">History</string>
     <string name="history_no_recently">No recently operations</string>
     <string name="history_operation">Operation: </string>
     <string name="history_result">Result:</string>
