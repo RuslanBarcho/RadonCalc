@@ -40,12 +40,10 @@ public class MainActivity extends AppCompatActivity
     public static String titleCalc;
     public static String titleEquations;
     public static String titleConverter;
-
     // Operation History
     public static int pageOneCounter = 0;
     public static int pageTwoCounter = 0;
     public static int historyWriteToogle = 0;
-
     //save data in quadratic equations
     public static String saveDValue;
     public static String saveSqrtDValue;
@@ -61,7 +59,6 @@ public class MainActivity extends AppCompatActivity
     FragmentQuadraticEquations fragmentQuadraticEquations;
     converter fragmentConverter;
     settings settings;
-
     //Animations
     public static Animation fadein;
     public static Animation fadeout;
@@ -70,8 +67,6 @@ public class MainActivity extends AppCompatActivity
     public static String saveAddictionTextViewValue;
     public static BigDecimal saveOperateA;
     public static int saveTumbler;
-    //public static String saveDegreeStatus = "RAD";
-
     //save and send converter value
     public static String saveConverterValue;
     public static String saveOutputConverterValue;

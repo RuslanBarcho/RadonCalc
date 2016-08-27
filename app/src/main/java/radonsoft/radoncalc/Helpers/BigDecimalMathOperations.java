@@ -58,7 +58,12 @@ public class BigDecimalMathOperations {
     public static BigDecimal sin(final BigDecimal x, String radians){
         double xd = x.doubleValue();
         if (radians.equals("DEG")){
-            xd = Math.sin(Math.toRadians(xd));
+            if ((xd/180)%1 == 0){
+                xd = 0;
+            }
+            else{
+                xd = Math.sin(Math.toRadians(xd));
+            }
         }
         else {
             xd = Math.sin(xd);
