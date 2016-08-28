@@ -133,6 +133,9 @@ public class ConverterSolver {
                     case 2:
                         outputValue = forConvert.multiply(new BigDecimal(2.23694));
                         break;
+                    case 3:
+                        outputValue = forConvert.multiply(new BigDecimal(1.94384));
+                        break;
                 }
                 break;
             case 1:
@@ -146,6 +149,9 @@ public class ConverterSolver {
                     case 2:
                         outputValue = forConvert.divide(new BigDecimal(1.60934), 8, BigDecimal.ROUND_HALF_EVEN);
                         break;
+                    case 3:
+                        outputValue = forConvert.multiply(new BigDecimal(0.539957));
+                        break;
                 }
                 break;
             case 2:
@@ -157,6 +163,25 @@ public class ConverterSolver {
                         outputValue = forConvert.multiply(new BigDecimal(1.60934));
                         break;
                     case 2:
+                        outputValue = forConvert;
+                        break;
+                    case 3:
+                        outputValue = forConvert.multiply(new BigDecimal(0.868976));
+                        break;
+                }
+                break;
+            case 3:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        outputValue = forConvert.multiply(new BigDecimal(0.514444));
+                        break;
+                    case 1:
+                        outputValue = forConvert.multiply(new BigDecimal(1.852));
+                        break;
+                    case 2:
+                        outputValue = forConvert.multiply(new BigDecimal(1.15078));
+                        break;
+                    case 3:
                         outputValue = forConvert;
                         break;
                 }

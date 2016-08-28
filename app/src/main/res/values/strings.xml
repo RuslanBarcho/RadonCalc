@@ -74,6 +74,7 @@
         <item>Ms</item>
         <item>Kph</item>
         <item>Mph</item>
+        <item>Knots</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
 

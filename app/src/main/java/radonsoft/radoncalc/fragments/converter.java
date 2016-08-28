@@ -74,7 +74,7 @@ public class converter extends Fragment {
 
     String[] length = {"Centimeter", "Meter", "Kilometer"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
-    String[] speed = {"Ms","Kph","Mph"};
+    String[] speed = {"Ms","Kph","Mph","Knots"};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,

@@ -31,6 +31,7 @@
         <item>М/с</item>
         <item>Км/ч</item>
         <item>Миля/ч</item>
+        <item>Узел</item>
     </string-array>
     <string name="calculator_title">Калькулятор</string>
     <string name="q_equations_title">Квадратные уравнения</string>
