@@ -61,9 +61,12 @@
     </string>
 
     <string-array name="converter_length_values">
+        <item>Millimeter</item>
         <item>Centimeter</item>
         <item>Meter</item>
         <item>Kilometer</item>
+        <item>Foot</item>
+        <item>Inch</item>
     </string-array>
     <string-array name="converter_weight_values">
         <item>Gram</item>

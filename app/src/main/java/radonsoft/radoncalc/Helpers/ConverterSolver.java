@@ -35,45 +35,138 @@ public class ConverterSolver {
 
     public void convertLength(BigDecimal forConvert){
         switch (converter.firstMeasureInt){
-            //centimeter
             case 0:
                 switch (converter.secondMeasureInt){
                     case 0:
                         outputValue = forConvert;
                         break;
                     case 1:
-                        outputValue = forConvert.divide(new BigDecimal(100), 12, BigDecimal.ROUND_HALF_EVEN);
+                        outputValue = forConvert.divide(new BigDecimal(10), 12, BigDecimal.ROUND_HALF_EVEN);
                         break;
                     case 2:
-                        outputValue = forConvert.divide(new BigDecimal(100000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case 3:
+                        outputValue = forConvert.divide(new BigDecimal(1000000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case 4:
+                        outputValue = forConvert.multiply(new BigDecimal(0.00328084));
+                        break;
+                    case 5:
+                        outputValue = forConvert.multiply(new BigDecimal(0.0393701));
                         break;
                 }
                 break;
             case 1:
                 switch (converter.secondMeasureInt){
                     case 0:
-                        outputValue = forConvert.multiply(new BigDecimal(100));
+                        outputValue = forConvert.multiply(new BigDecimal(10));
                         break;
                     case 1:
                         outputValue = forConvert;
                         break;
                     case 2:
-                        outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        outputValue = forConvert.divide(new BigDecimal(100), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case 3:
+                        outputValue = forConvert.divide(new BigDecimal(100000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case 4:
+                        outputValue = forConvert.multiply(new BigDecimal(0.0328084));
+                        break;
+                    case 5:
+                        outputValue = forConvert.multiply(new BigDecimal(0.393701));
                         break;
                 }
                 break;
             case 2:
                 switch (converter.secondMeasureInt){
                     case 0:
-                        outputValue = forConvert.multiply(new BigDecimal(100000));
+                        outputValue = forConvert.multiply(new BigDecimal(1000));
                         break;
                     case 1:
-                        outputValue = forConvert.multiply(new BigDecimal(1000));
+                        outputValue = forConvert.multiply(new BigDecimal(100));
                         break;
                     case 2:
                         outputValue = forConvert;
                         break;
+                    case 3:
+                        outputValue = forConvert.divide(new BigDecimal(1000), 12, BigDecimal.ROUND_HALF_EVEN);
+                        break;
+                    case 4:
+                        outputValue = forConvert.multiply(new BigDecimal(3.28084));
+                        break;
+                    case 5:
+                        outputValue = forConvert.multiply(new BigDecimal(39.3701));
+                        break;
                 }
+                break;
+            case 3:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        outputValue = forConvert.multiply(new BigDecimal(1000000));
+                        break;
+                    case 1:
+                        outputValue = forConvert.multiply(new BigDecimal(100000));
+                        break;
+                    case 2:
+                        outputValue = forConvert.multiply(new BigDecimal(10000));
+                        break;
+                    case 3:
+                        outputValue = forConvert;
+                        break;
+                    case 4:
+                        outputValue = forConvert.multiply(new BigDecimal(3280.84));
+                        break;
+                    case 5:
+                        outputValue = forConvert.multiply(new BigDecimal(39370.1));
+                        break;
+                }
+                break;
+            case 4:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        outputValue = forConvert.multiply(new BigDecimal(304.8));
+                        break;
+                    case 1:
+                        outputValue = forConvert.multiply(new BigDecimal(30.48));
+                        break;
+                    case 2:
+                        outputValue = forConvert.multiply(new BigDecimal(0.3048));
+                        break;
+                    case 3:
+                        outputValue = forConvert.multiply(new BigDecimal(0.0003048));
+                        break;
+                    case 4:
+                        outputValue = forConvert;
+                        break;
+                    case 5:
+                        outputValue = forConvert.multiply(new BigDecimal(12));
+                        break;
+                }
+                break;
+            case 5:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        outputValue = forConvert.multiply(new BigDecimal(25.4));
+                        break;
+                    case 1:
+                        outputValue = forConvert.multiply(new BigDecimal(2.54));
+                        break;
+                    case 2:
+                        outputValue = forConvert.multiply(new BigDecimal(0.0254));
+                        break;
+                    case 3:
+                        outputValue = forConvert.multiply(new BigDecimal(0.0000254));
+                        break;
+                    case 4:
+                        outputValue = forConvert.multiply(new BigDecimal(0.0833333));
+                        break;
+                    case 5:
+                        outputValue = forConvert;
+                        break;
+                }
+                break;
         }
     }
 

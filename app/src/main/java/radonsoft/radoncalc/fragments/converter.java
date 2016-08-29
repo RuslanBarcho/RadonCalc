@@ -72,7 +72,7 @@ public class converter extends Fragment {
     private FrameLayout animBackground;
     Animator convertFragClearAnim;
 
-    String[] length = {"Centimeter", "Meter", "Kilometer"};
+    String[] length = {"Millimeter","Centimeter", "Meter", "Kilometer", "Foot", "Inch"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph","Knots"};
 

@@ -18,9 +18,12 @@
     <string name="calculator_sent_to_converter">Отправлено в конвертер</string>
     <string name="calculator_sent_to_q_equations">Отправлено в квадратные уравнения</string>
     <string-array name="converter_length_values">
+        <item>Миллиметр</item>
         <item>Сантиметр</item>
         <item>Метр</item>
         <item>Километр</item>
+        <item>Фут</item>
+        <item>Дюйм</item>
     </string-array>
     <string-array name="converter_weight_values">
         <item>Грамм</item>
