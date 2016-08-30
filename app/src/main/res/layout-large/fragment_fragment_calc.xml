@@ -31,17 +31,17 @@
                 android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/textView"
-                android:textSize="78sp"
+                android:textSize="100sp"
                 android:gravity="top|left|center"
                 android:textColor="#ffffff"
-                android:paddingStart="16dp"
-                android:paddingEnd="9dp"
                 android:nestedScrollingEnabled="true"
                 android:maxLines="1"
                 android:layout_above="@+id/button16"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:text="2" />
+                android:paddingTop="10dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="32dp" />
         </HorizontalScrollView>
 
         <TextView

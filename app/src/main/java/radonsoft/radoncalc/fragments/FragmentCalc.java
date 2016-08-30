@@ -218,6 +218,7 @@ public class FragmentCalc extends Fragment {
                 }
                 saveFragmentValues();
                 scrollInputToEnd();
+                textView.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT));
             }
         });
 
@@ -950,6 +951,7 @@ public class FragmentCalc extends Fragment {
     }
     public void scrollInputToEnd(){
         inputScroll.scrollTo(999999999, 0);
+
     }
     public void scrollInputToBegin(){
         inputScroll.scrollTo(-999999999, 0);
