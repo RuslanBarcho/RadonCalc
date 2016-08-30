@@ -30,11 +30,17 @@ import android.view.HapticFeedbackConstants;
 public class FragmentCalc extends Fragment {
     MainActivity ma = new MainActivity();
     private View mRootView;
-    private Button oneButton, dButton, fButton, eButton, gButton, jButton, hButton;
+    private Button oneButton;
     private Button twoButton;
-    private Button bButton;
-    private Button cButton;
-    private Button sbrosButton;
+    private Button threeButton;
+    private Button fourButton;
+    private Button fiveButton;
+    private Button sixButton;
+    private Button sevenButton;
+    private Button eightButton;
+    private Button nineButton;
+    private Button zeroButton;
+    private Button delButton;
     private Button signButton;
     private Button PlusButton, MinusButton, dotButton, MultiplyButton, DivButton, powButton;
     private Button equalButton;
@@ -80,14 +86,14 @@ public class FragmentCalc extends Fragment {
 
         oneButton = (Button) mRootView.findViewById(R.id.button);
         twoButton = (Button) mRootView.findViewById(R.id.button2);
-        bButton = (Button) mRootView.findViewById(R.id.button3);
-        cButton = (Button) mRootView.findViewById(R.id.button4);
-        dButton = (Button) mRootView.findViewById(R.id.button5);
-        fButton = (Button) mRootView.findViewById(R.id.button6);
-        eButton = (Button) mRootView.findViewById(R.id.button7);
-        gButton = (Button) mRootView.findViewById(R.id.button8);
-        jButton = (Button) mRootView.findViewById(R.id.button9);
-        hButton = (Button) mRootView.findViewById(R.id.button12);
+        threeButton = (Button) mRootView.findViewById(R.id.button3);
+        fourButton = (Button) mRootView.findViewById(R.id.button4);
+        fiveButton = (Button) mRootView.findViewById(R.id.button5);
+        sixButton = (Button) mRootView.findViewById(R.id.button6);
+        sevenButton = (Button) mRootView.findViewById(R.id.button7);
+        eightButton = (Button) mRootView.findViewById(R.id.button8);
+        nineButton = (Button) mRootView.findViewById(R.id.button9);
+        zeroButton = (Button) mRootView.findViewById(R.id.button12);
 
         powButton = (Button) mRootView.findViewById(R.id.button19);
         dotButton = (Button) mRootView.findViewById(R.id.button10);
@@ -97,7 +103,7 @@ public class FragmentCalc extends Fragment {
         MultiplyButton = (Button) mRootView.findViewById(R.id.button16);
         DivButton = (Button) mRootView.findViewById(R.id.button17);
         signButton = (Button) mRootView.findViewById(R.id.button23);
-        sbrosButton = (Button) mRootView.findViewById(R.id.button11);
+        delButton = (Button) mRootView.findViewById(R.id.button11);
         sinButton = (Button) mRootView.findViewById(R.id.button24);
         cosButton = (Button) mRootView.findViewById(R.id.button25);
         tanButton = (Button) mRootView.findViewById(R.id.button26);
@@ -112,18 +118,18 @@ public class FragmentCalc extends Fragment {
 
         setFont(oneButton, "robotolight.ttf");
         setFont(twoButton, "robotolight.ttf");
-        setFont(bButton, "robotolight.ttf");
-        setFont(cButton, "robotolight.ttf");
-        setFont(dButton, "robotolight.ttf");
-        setFont(eButton, "robotolight.ttf");
-        setFont(fButton, "robotolight.ttf");
-        setFont(gButton, "robotolight.ttf");
-        setFont(jButton, "robotolight.ttf");
-        setFont(hButton, "robotolight.ttf");
+        setFont(threeButton, "robotolight.ttf");
+        setFont(fourButton, "robotolight.ttf");
+        setFont(fiveButton, "robotolight.ttf");
+        setFont(sixButton, "robotolight.ttf");
+        setFont(sevenButton, "robotolight.ttf");
+        setFont(eightButton, "robotolight.ttf");
+        setFont(nineButton, "robotolight.ttf");
+        setFont(zeroButton, "robotolight.ttf");
         setFont(dotButton, "robotolight.ttf");
         setFont(equalButton, "robotolight.ttf");
         setFont(signButton, "robotolight.ttf");
-        setFont(sbrosButton, "robotolight.ttf");
+        setFont(delButton, "robotolight.ttf");
         setFont(sinButton, "robotolight.ttf");
         setFont(cosButton, "robotolight.ttf");
         setFont(tanButton, "robotolight.ttf");
@@ -180,10 +186,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        sbrosButton.setOnClickListener(new View.OnClickListener() {
+        delButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(sbrosButton);
                 turnOnVibration();
                 Proverka = String.valueOf(textView.getText());
                 if (Proverka.equals(""))
@@ -216,7 +221,7 @@ public class FragmentCalc extends Fragment {
             }
         });
 
-        sbrosButton.setOnLongClickListener(new View.OnLongClickListener() {
+        delButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
@@ -954,7 +959,6 @@ public class FragmentCalc extends Fragment {
         oneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(oneButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -967,7 +971,6 @@ public class FragmentCalc extends Fragment {
         twoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(twoButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -977,10 +980,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        bButton.setOnClickListener(new View.OnClickListener() {
+        threeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(bButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -990,10 +992,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        cButton.setOnClickListener(new View.OnClickListener() {
+        fourButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(cButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -1003,10 +1004,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        dButton.setOnClickListener(new View.OnClickListener() {
+        fiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(dButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -1016,10 +1016,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        fButton.setOnClickListener(new View.OnClickListener() {
+        sixButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(fButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -1029,10 +1028,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        eButton.setOnClickListener(new View.OnClickListener() {
+        sevenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(eButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -1042,10 +1040,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        gButton.setOnClickListener(new View.OnClickListener() {
+        eightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(gButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -1055,10 +1052,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        jButton.setOnClickListener(new View.OnClickListener() {
+        nineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(jButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
@@ -1068,10 +1064,9 @@ public class FragmentCalc extends Fragment {
                 scrollInputToEnd();
             }
         });
-        hButton.setOnClickListener(new View.OnClickListener() {
+        zeroButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Global.turnVibrationOn(hButton);
                 turnOnVibration();
                 String texxt = String.valueOf(textView.getText());
                 String texxx = String.valueOf(texxtView.getText());
