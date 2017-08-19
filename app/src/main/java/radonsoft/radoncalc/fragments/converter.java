@@ -75,6 +75,7 @@ public class converter extends Fragment {
     String[] length = {"Millimeter","Centimeter", "Meter", "Kilometer", "Foot", "Inch"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph","Knots"};
+    String[] numsys = {"Decimal", "Binary"};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -89,6 +90,7 @@ public class converter extends Fragment {
         length = getResources().getStringArray(R.array.converter_length_values);
         weight = getResources().getStringArray(R.array.converter_weight_values);
         speed = getResources().getStringArray(R.array.converter_speed_values);
+        numsys = getResources().getStringArray(R.array.converter_numsys_values);
 
         inputWindow = (TextView) mRootView.findViewById(R.id.textView6);
         outputWindow = (TextView) mRootView.findViewById(R.id.textView8);
@@ -331,7 +333,7 @@ public class converter extends Fragment {
 
     public void showValueChooseDialog(){
         final String[] valuesNames = {getString(R.string.converter_length),
-                getString(R.string.converter_weight), getString(R.string.converter_speed)};
+                getString(R.string.converter_weight), getString(R.string.converter_speed), getString(R.string.converter_numsys)};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(getString(R.string.converter_dialog_title));
         builder.setItems(valuesNames, new DialogInterface.OnClickListener() {
@@ -358,6 +360,13 @@ public class converter extends Fragment {
                         inputWindow.setText("");
                         addItemsOnSpinner(speed, spinner1, 1);
                         addItemsOnSpinner(speed, spinner2, 2);
+                        firstMeasureInt = 0;
+                        secondMeasureInt = 0;
+                        break;
+                    case 3:
+                        inputWindow.setText("");
+                        addItemsOnSpinner(numsys, spinner1, 1);
+                        addItemsOnSpinner(numsys, spinner2, 2);
                         firstMeasureInt = 0;
                         secondMeasureInt = 0;
                 }

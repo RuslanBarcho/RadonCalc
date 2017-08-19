@@ -31,6 +31,7 @@
     <string name="converter_length">Length</string>
     <string name="converter_weight">Weight</string>
     <string name="converter_speed">Speed</string>
+    <string name="converter_numsys">Number system</string>
     <string name="converter_send_calc">Send to calculator</string>
     <string name="converter_centimeter">Centimeter</string>
     <string name="converter_sent_to_calculator">Sent to calculator</string>
@@ -78,6 +79,10 @@
         <item>Kph</item>
         <item>Mph</item>
         <item>Knots</item>
+    </string-array>
+    <string-array name="converter_numsys_values">
+        <item>Decimal</item>
+        <item>Binary</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
 

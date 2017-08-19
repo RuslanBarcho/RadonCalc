@@ -29,8 +29,35 @@ public class ConverterSolver {
                 convertSpeed(inputValue);
                 removeZerosFromFraction(outputValue);
                 break;
+            case 3:
+                convertNumSys(inputValue);
+                break;
         }
         exportDataToConverter = String.valueOf(outputValue);
+    }
+    public void convertNumSys(BigDecimal forConvert){
+        Numsys numsys = new Numsys();
+        numsys.inputValue = inputValue;
+        switch (converter.firstMeasureInt){
+            case 0:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        outputValue = forConvert;
+                        break;
+                    case 1:
+                        numsys.convertToBinary();
+                        outputValue = numsys.exportToSolver;
+                }
+                break;
+            case 1:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        outputValue = forConvert;
+                        break;
+                    case 1:
+                        outputValue = forConvert;
+                }
+        }
     }
 
     public void convertLength(BigDecimal forConvert){
