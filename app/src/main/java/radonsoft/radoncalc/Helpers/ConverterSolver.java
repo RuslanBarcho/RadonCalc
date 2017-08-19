@@ -52,7 +52,10 @@ public class ConverterSolver {
             case 1:
                 switch (converter.secondMeasureInt){
                     case 0:
-                        outputValue = forConvert;
+                        numsys.inputValue = inputValue;
+                        numsys.numsysvalue = 2;
+                        numsys.convertToDecimal();
+                        outputValue = numsys.exportToSolver;
                         break;
                     case 1:
                         outputValue = forConvert;
