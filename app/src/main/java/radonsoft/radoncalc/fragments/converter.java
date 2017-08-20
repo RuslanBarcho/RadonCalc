@@ -77,7 +77,7 @@ public class converter extends Fragment {
     String[] length = {"Millimeter","Centimeter", "Meter", "Kilometer", "Foot", "Inch"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph","Knots"};
-    String[] numsys = {"Decimal", "Binary"};
+    String[] numsys = {"Decimal", "Binary", "Ternary"};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,

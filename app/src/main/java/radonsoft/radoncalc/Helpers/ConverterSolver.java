@@ -45,21 +45,45 @@ public class ConverterSolver {
                         outputValue = forConvert;
                         break;
                     case 1:
-                        numsys.convertToBinary();
+                        numsys.convertToNumsys("2");
                         outputValue = numsys.exportToSolver;
+                        break;
+                    case 2:
+                        numsys.convertToNumsys("3");
+                        outputValue = numsys.exportToSolver;
+                        break;
                 }
                 break;
             case 1:
                 switch (converter.secondMeasureInt){
                     case 0:
                         numsys.inputValue = inputValue;
-                        numsys.numsysvalue = 2;
-                        numsys.convertToDecimal();
+                        numsys.convertToDecimal("2");
                         outputValue = numsys.exportToSolver;
                         break;
                     case 1:
                         outputValue = forConvert;
+                        break;
+                    case 2:
+                        outputValue = forConvert;
+                        break;
                 }
+                break;
+            case 2:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        numsys.inputValue = inputValue;
+                        numsys.convertToDecimal("3");
+                        outputValue = numsys.exportToSolver;
+                        break;
+                    case 1:
+                        outputValue = forConvert;
+                        break;
+                    case 2:
+                        outputValue = forConvert;
+                        break;
+                }
+                break;
         }
     }
 

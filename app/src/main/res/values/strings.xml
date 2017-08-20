@@ -83,6 +83,7 @@
     <string-array name="converter_numsys_values">
         <item>Decimal</item>
         <item>Binary</item>
+        <item>Ternary</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
 

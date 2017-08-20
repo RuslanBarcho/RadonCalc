@@ -8,13 +8,13 @@ import java.math.BigInteger;
  */
 public class Numsys {
     public BigDecimal inputValue;
+    public BigInteger inputValueInt;
+    public BigInteger bufferIntRem;
     public BigDecimal exportToSolver;
     public BigDecimal buffer;
     public BigDecimal equal;
     public String output;
     public String inputToStr;
-    private int counter;
-    public int numsysvalue;
 
     public void convertToBinary() {
         output = "";
@@ -32,11 +32,26 @@ public class Numsys {
         output = "1" + output;
         exportToSolver = new BigDecimal(String.valueOf(output));
     }
-    public void convertToDecimal() {
+
+    public void convertToNumsys(String getNumSys){
+        output = "";
+        inputValueInt = inputValue.toBigInteger();
+        int res = inputValueInt.compareTo(new BigInteger(getNumSys));
+        while(res == 1 || res == 0) {
+            bufferIntRem = inputValueInt.remainder(new BigInteger(getNumSys));
+            output = bufferIntRem.toString() + output;
+            inputValueInt = inputValueInt.divide(new BigInteger(getNumSys));
+            res = inputValueInt.compareTo(new BigInteger(getNumSys));
+        }
+        output = inputValueInt.toString() + output;
+        exportToSolver = new BigDecimal(String.valueOf(output));
+    }
+
+    public void convertToDecimal(String getNumSys) {
         inputToStr = inputValue.toString();
         BigInteger localbuff = new BigInteger("0");
         BigInteger localbuffone;
-        BigInteger localbuffthree = new BigInteger(Integer.toString(numsysvalue));
+        BigInteger localbuffthree = new BigInteger(getNumSys);
         if (inputToStr.length() == 1) {
             exportToSolver = inputValue;
         }
