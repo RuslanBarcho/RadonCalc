@@ -35,6 +35,17 @@ public class ConverterSolver {
         }
         exportDataToConverter = String.valueOf(outputValue);
     }
+
+    public void universalConvertNumSys(String inputSysVal, String outputSysVal){
+        Numsys numsys = new Numsys();
+        numsys.inputValue = inputValue;
+        numsys.convertToDecimal(inputSysVal);
+        outputValue = numsys.exportToSolver;
+        numsys.inputValue = outputValue;
+        numsys.convertToNumsys(outputSysVal);
+        outputValue = numsys.exportToSolver;
+    }
+
     public void convertNumSys(BigDecimal forConvert){
         Numsys numsys = new Numsys();
         numsys.inputValue = inputValue;
@@ -65,7 +76,7 @@ public class ConverterSolver {
                         outputValue = forConvert;
                         break;
                     case 2:
-                        outputValue = forConvert;
+                        universalConvertNumSys("2", "3");
                         break;
                 }
                 break;
@@ -77,7 +88,7 @@ public class ConverterSolver {
                         outputValue = numsys.exportToSolver;
                         break;
                     case 1:
-                        outputValue = forConvert;
+                        universalConvertNumSys("3", "2");
                         break;
                     case 2:
                         outputValue = forConvert;

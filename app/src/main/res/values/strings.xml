@@ -84,6 +84,7 @@
         <item>Decimal</item>
         <item>Binary</item>
         <item>Ternary</item>
+        <item>Quaternary</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
 

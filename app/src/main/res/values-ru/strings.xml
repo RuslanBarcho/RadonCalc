@@ -36,6 +36,11 @@
         <item>Миля/ч</item>
         <item>Узел</item>
     </string-array>
+    <string-array name="converter_numsys_values">
+        <item>Десятичная</item>
+        <item>Двоичная</item>
+        <item>Троичная</item>
+    </string-array>
     <string name="calculator_title">Калькулятор</string>
     <string name="q_equations_title">Квадратные уравнения</string>
     <string name="q_equations_calculate">Вычислить</string>
