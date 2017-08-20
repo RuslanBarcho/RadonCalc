@@ -67,6 +67,8 @@ public class converter extends Fragment {
     public static int secondMeasureInt;
     public static int valueIDInt;
 
+    public int buttonsActivator;
+
     MainActivity ma;
 
     private FrameLayout animBackground;
@@ -139,6 +141,10 @@ public class converter extends Fragment {
                 addItemsOnSpinner(speed, spinner1, 1);
                 addItemsOnSpinner(speed, spinner2, 2);
                 break;
+            case 3:
+                addItemsOnSpinner(numsys, spinner1, 1);
+                addItemsOnSpinner(numsys, spinner2, 2);
+                break;
         }
 
         spinner1.setSelection(ma.spinnerInputPos);
@@ -146,6 +152,7 @@ public class converter extends Fragment {
         firstMeasure = ma.spinnerInputPosString;
         secondMeasure = ma.spinnerOutputPosString;
 
+        setActiveButtons();
         makeConvertation();
 
         setButton.setOnClickListener(new View.OnClickListener() {
@@ -410,6 +417,23 @@ public class converter extends Fragment {
         ma.valueIDPos = valueIDInt;
     }
 
+    public void fillTextInButtons(String text){
+        switch (buttonsActivator){
+            default:
+                inputWindow.setText(inputWindow.getText() + text);
+                break;
+            case 0:
+                inputWindow.setText(inputWindow.getText() + text);
+                break;
+            case 2:
+                //todo: error message about number system
+                break;
+            case 3:
+                //todo: other systems will be here
+                break;
+        }
+    }
+
     public void activateBuiltInKeyboard() {
         oneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -427,7 +451,8 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(twoButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "2");
+                setActiveButtons();
+                fillTextInButtons("2");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -438,7 +463,7 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(threeButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "3");
+                fillTextInButtons("3");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -449,7 +474,7 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(fourButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "4");
+                fillTextInButtons("4");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -460,7 +485,7 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(fiveButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "5");
+                fillTextInButtons("5");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -471,7 +496,7 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(sixButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "6");
+                fillTextInButtons("6");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -482,7 +507,7 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(sevenButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "7");
+                fillTextInButtons("7");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -493,7 +518,7 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(eightButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "8");
+                fillTextInButtons("8");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -504,7 +529,7 @@ public class converter extends Fragment {
             public void onClick(View v) {
                 Global.turnVibrationOn(nineButton);
                 turnOnVibration();
-                inputWindow.setText(inputWindow.getText() + "9");
+                fillTextInButtons("9");
                 makeConvertation();
                 saveConverterValues();
             }
@@ -590,6 +615,27 @@ public class converter extends Fragment {
         if (Global.vibrationSwitcher) {
             Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(40);
+        }
+    }
+
+    public void setActiveButtons(){
+        if (valueIDInt == 3){
+            switch (spinner1.getSelectedItemPosition()) {
+                case 0:
+                    buttonsActivator = 0;
+                    break;
+
+                case 1:
+                    buttonsActivator = 2;
+                break;
+
+                default:
+                    buttonsActivator = 0;
+                    break;
+            }
+        }
+        else {
+            buttonsActivator = 0;
         }
     }
 
