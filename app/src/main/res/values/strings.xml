@@ -58,7 +58,7 @@
     <string name="settings_angle_description">Switch between radians and degrees</string>
 
     <string name="settings_about_window">
-        RadonCalc 1.0 \n© Radonsoft studio 2016
+        RadonCalc BETA 2.0 \n© Radonsoft studio 2017
     </string>
 
     <string-array name="converter_length_values">

@@ -418,6 +418,7 @@ public class converter extends Fragment {
     }
 
     public void fillTextInButtons(String text){
+        setActiveButtons();
         switch (buttonsActivator){
             default:
                 inputWindow.setText(inputWindow.getText() + text);
@@ -427,9 +428,14 @@ public class converter extends Fragment {
                 break;
             case 2:
                 //todo: error message about number system
+                if(text.equals("1") || text.equals("0")){
+                    inputWindow.setText(inputWindow.getText() + text);
+                }
                 break;
             case 3:
-                //todo: other systems will be here
+                if(text.equals("1") || text.equals("0") || text.equals("2")){
+                    inputWindow.setText(inputWindow.getText() + text);
+                }
                 break;
         }
     }
@@ -624,11 +630,12 @@ public class converter extends Fragment {
                 case 0:
                     buttonsActivator = 0;
                     break;
-
                 case 1:
                     buttonsActivator = 2;
                 break;
-
+                case 2:
+                    buttonsActivator = 3;
+                    break;
                 default:
                     buttonsActivator = 0;
                     break;
