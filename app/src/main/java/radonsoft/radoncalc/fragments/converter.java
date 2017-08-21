@@ -455,6 +455,18 @@ public class converter extends Fragment {
             case 5:
                 checkSystemViaClick(five, text);
                 break;
+            case 6:
+                checkSystemViaClick(six, text);
+                break;
+            case 7:
+                checkSystemViaClick(seven, text);
+                break;
+            case 8:
+                checkSystemViaClick(eight, text);
+                break;
+            case 9:
+                checkSystemViaClick(nine, text);
+                break;
         }
     }
 
