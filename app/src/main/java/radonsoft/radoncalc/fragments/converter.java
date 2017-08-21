@@ -77,7 +77,7 @@ public class converter extends Fragment {
     String[] length = {"Millimeter","Centimeter", "Meter", "Kilometer", "Foot", "Inch"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph","Knots"};
-    String[] numsys = {"Decimal", "Binary", "Ternary"};
+    String[] numsys = {"Decimal", "Binary", "Ternary", "Quaternary"};
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -417,8 +417,24 @@ public class converter extends Fragment {
         ma.valueIDPos = valueIDInt;
     }
 
+    public void checkSystemViaClick(String[] sysnum, String text ) {
+        for (String s : sysnum) {
+            if (text.contains(s)) {
+                inputWindow.setText(inputWindow.getText() + text);
+            }
+        }
+    }
+
     public void fillTextInButtons(String text){
         setActiveButtons();
+        String two[] = {"0", "1"};
+        String three[] = {"0", "1", "2"};
+        String four[] = {"0", "1", "2", "3"};
+        String five[] = {"0", "1", "2", "3", "4"};
+        String six[] = {"0", "1", "2", "3", "4", "5"};
+        String seven[] = {"0", "1", "2", "3", "4", "5", "6"};
+        String eight[] = {"0", "1", "2", "3", "4", "5", "6", "7"};
+        String nine[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8"};
         switch (buttonsActivator){
             default:
                 inputWindow.setText(inputWindow.getText() + text);
@@ -428,14 +444,16 @@ public class converter extends Fragment {
                 break;
             case 2:
                 //todo: error message about number system
-                if(text.equals("1") || text.equals("0")){
-                    inputWindow.setText(inputWindow.getText() + text);
-                }
+                checkSystemViaClick(two, text);
                 break;
             case 3:
-                if(text.equals("1") || text.equals("0") || text.equals("2")){
-                    inputWindow.setText(inputWindow.getText() + text);
-                }
+                checkSystemViaClick(three, text);
+                break;
+            case 4:
+                checkSystemViaClick(four, text);
+                break;
+            case 5:
+                checkSystemViaClick(five, text);
                 break;
         }
     }
@@ -635,6 +653,9 @@ public class converter extends Fragment {
                 break;
                 case 2:
                     buttonsActivator = 3;
+                    break;
+                case 3:
+                    buttonsActivator = 4;
                     break;
                 default:
                     buttonsActivator = 0;

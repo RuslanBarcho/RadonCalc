@@ -63,6 +63,10 @@ public class ConverterSolver {
                         numsys.convertToNumsys("3");
                         outputValue = numsys.exportToSolver;
                         break;
+                    case 3:
+                        numsys.convertToNumsys("4");
+                        outputValue = numsys.exportToSolver;
+                        break;
                 }
                 break;
             case 1:
@@ -78,6 +82,9 @@ public class ConverterSolver {
                     case 2:
                         universalConvertNumSys("2", "3");
                         break;
+                    case 3:
+                        universalConvertNumSys("2", "4");
+                        break;
                 }
                 break;
             case 2:
@@ -91,6 +98,27 @@ public class ConverterSolver {
                         universalConvertNumSys("3", "2");
                         break;
                     case 2:
+                        outputValue = forConvert;
+                        break;
+                    case 3:
+                        universalConvertNumSys("3", "4");
+                        break;
+                }
+                break;
+            case 3:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        numsys.inputValue = inputValue;
+                        numsys.convertToDecimal("4");
+                        outputValue = numsys.exportToSolver;
+                        break;
+                    case 1:
+                        universalConvertNumSys("4", "2");
+                        break;
+                    case 2:
+                        universalConvertNumSys("4", "3");
+                        break;
+                    case 3:
                         outputValue = forConvert;
                         break;
                 }

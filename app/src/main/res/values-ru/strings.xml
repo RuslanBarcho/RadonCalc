@@ -40,6 +40,7 @@
         <item>Десятичная</item>
         <item>Двоичная</item>
         <item>Троичная</item>
+        <item>Четверичная</item>
     </string-array>
     <string name="calculator_title">Калькулятор</string>
     <string name="q_equations_title">Квадратные уравнения</string>
