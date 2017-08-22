@@ -85,6 +85,7 @@
         <item>Binary</item>
         <item>Ternary</item>
         <item>Quaternary</item>
+        <item>Quinary</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
 

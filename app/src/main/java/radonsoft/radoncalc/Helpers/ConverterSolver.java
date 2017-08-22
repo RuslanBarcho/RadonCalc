@@ -67,6 +67,10 @@ public class ConverterSolver {
                         numsys.convertToNumsys("4");
                         outputValue = numsys.exportToSolver;
                         break;
+                    case 4:
+                        numsys.convertToNumsys("5");
+                        outputValue = numsys.exportToSolver;
+                        break;
                 }
                 break;
             case 1:
@@ -84,6 +88,9 @@ public class ConverterSolver {
                         break;
                     case 3:
                         universalConvertNumSys("2", "4");
+                        break;
+                    case 4:
+                        universalConvertNumSys("2", "5");
                         break;
                 }
                 break;
@@ -103,6 +110,9 @@ public class ConverterSolver {
                     case 3:
                         universalConvertNumSys("3", "4");
                         break;
+                    case 4:
+                        universalConvertNumSys("3", "5");
+                        break;
                 }
                 break;
             case 3:
@@ -119,6 +129,30 @@ public class ConverterSolver {
                         universalConvertNumSys("4", "3");
                         break;
                     case 3:
+                        outputValue = forConvert;
+                        break;
+                    case 4:
+                        universalConvertNumSys("4", "5");
+                        break;
+                }
+                break;
+            case 4:
+                switch (converter.secondMeasureInt){
+                    case 0:
+                        numsys.inputValue = inputValue;
+                        numsys.convertToDecimal("5");
+                        outputValue = numsys.exportToSolver;
+                        break;
+                    case 1:
+                        universalConvertNumSys("5", "2");
+                        break;
+                    case 2:
+                        universalConvertNumSys("5", "3");
+                        break;
+                    case 3:
+                        universalConvertNumSys("5", "4");
+                        break;
+                    case 4:
                         outputValue = forConvert;
                         break;
                 }
