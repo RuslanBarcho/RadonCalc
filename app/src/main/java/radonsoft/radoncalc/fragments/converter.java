@@ -77,7 +77,7 @@ public class converter extends Fragment {
     String[] length = {"Millimeter","Centimeter", "Meter", "Kilometer", "Foot", "Inch"};
     String[] weight = {"Gram", "Kilogram", "Ton"};
     String[] speed = {"Ms","Kph","Mph","Knots"};
-    String[] numsys = {"Decimal", "Binary", "Ternary", "Quaternary", "Quinary"};
+    String[] numsys = {"Decimal", "Binary", "Ternary", "Quaternary", "Quinary", "Sixfold", "Sevenfold", "Octal", "Ninefold" };
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -656,26 +656,7 @@ public class converter extends Fragment {
 
     public void setActiveButtons(){
         if (valueIDInt == 3){
-            switch (spinner1.getSelectedItemPosition()) {
-                case 0:
-                    buttonsActivator = 0;
-                    break;
-                case 1:
-                    buttonsActivator = 2;
-                break;
-                case 2:
-                    buttonsActivator = 3;
-                    break;
-                case 3:
-                    buttonsActivator = 4;
-                    break;
-                case 4:
-                    buttonsActivator = 5;
-                    break;
-                default:
-                    buttonsActivator = 0;
-                    break;
-            }
+            buttonsActivator = spinner1.getSelectedItemPosition() + 1;
         }
         else {
             buttonsActivator = 0;

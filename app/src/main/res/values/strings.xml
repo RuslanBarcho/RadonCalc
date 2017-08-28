@@ -86,6 +86,10 @@
         <item>Ternary</item>
         <item>Quaternary</item>
         <item>Quinary</item>
+        <item>Sixfold</item>
+        <item>Sevenfold</item>
+        <item>Octal</item>
+        <item>Ninefold</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
 

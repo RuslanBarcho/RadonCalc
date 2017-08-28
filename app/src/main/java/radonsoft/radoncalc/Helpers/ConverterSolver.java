@@ -8,14 +8,13 @@ import radonsoft.radoncalc.fragments.converter;
 
 
 /**
- * Created by Ruska on 14.07.2016.
+ * Created by Ruslan on 14.07.2017.
  */
 public class ConverterSolver {
     public BigDecimal inputValue;
     public static String exportDataToConverter;
     public BigDecimal outputValue;
     public void convert(){
-
         switch (converter.valueIDInt){
             case 0:
                 convertLength(inputValue);
@@ -55,105 +54,21 @@ public class ConverterSolver {
                     case 0:
                         outputValue = forConvert;
                         break;
-                    case 1:
-                        numsys.convertToNumsys("2");
-                        outputValue = numsys.exportToSolver;
-                        break;
-                    case 2:
-                        numsys.convertToNumsys("3");
-                        outputValue = numsys.exportToSolver;
-                        break;
-                    case 3:
-                        numsys.convertToNumsys("4");
-                        outputValue = numsys.exportToSolver;
-                        break;
-                    case 4:
-                        numsys.convertToNumsys("5");
+                    default:
+                        numsys.convertToNumsys(String.valueOf(converter.secondMeasureInt + 1));
                         outputValue = numsys.exportToSolver;
                         break;
                 }
                 break;
-            case 1:
-                switch (converter.secondMeasureInt){
-                    case 0:
-                        numsys.inputValue = inputValue;
-                        numsys.convertToDecimal("2");
-                        outputValue = numsys.exportToSolver;
-                        break;
-                    case 1:
-                        outputValue = forConvert;
-                        break;
-                    case 2:
-                        universalConvertNumSys("2", "3");
-                        break;
-                    case 3:
-                        universalConvertNumSys("2", "4");
-                        break;
-                    case 4:
-                        universalConvertNumSys("2", "5");
-                        break;
-                }
-                break;
-            case 2:
-                switch (converter.secondMeasureInt){
-                    case 0:
-                        numsys.inputValue = inputValue;
-                        numsys.convertToDecimal("3");
-                        outputValue = numsys.exportToSolver;
-                        break;
-                    case 1:
-                        universalConvertNumSys("3", "2");
-                        break;
-                    case 2:
-                        outputValue = forConvert;
-                        break;
-                    case 3:
-                        universalConvertNumSys("3", "4");
-                        break;
-                    case 4:
-                        universalConvertNumSys("3", "5");
-                        break;
-                }
-                break;
-            case 3:
-                switch (converter.secondMeasureInt){
-                    case 0:
-                        numsys.inputValue = inputValue;
-                        numsys.convertToDecimal("4");
-                        outputValue = numsys.exportToSolver;
-                        break;
-                    case 1:
-                        universalConvertNumSys("4", "2");
-                        break;
-                    case 2:
-                        universalConvertNumSys("4", "3");
-                        break;
-                    case 3:
-                        outputValue = forConvert;
-                        break;
-                    case 4:
-                        universalConvertNumSys("4", "5");
-                        break;
-                }
-                break;
-            case 4:
+            default:
                 switch (converter.secondMeasureInt){
                     case 0:
                         numsys.inputValue = inputValue;
                         numsys.convertToDecimal("5");
                         outputValue = numsys.exportToSolver;
                         break;
-                    case 1:
-                        universalConvertNumSys("5", "2");
-                        break;
-                    case 2:
-                        universalConvertNumSys("5", "3");
-                        break;
-                    case 3:
-                        universalConvertNumSys("5", "4");
-                        break;
-                    case 4:
-                        outputValue = forConvert;
+                    default:
+                        universalConvertNumSys(String.valueOf(converter.firstMeasureInt + 1), String.valueOf(converter.secondMeasureInt + 1));
                         break;
                 }
                 break;
