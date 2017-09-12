@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="navigation_drawer_open">Открыть navigation drawer</string>
+    <string name="navigation_drawer_close">Закрыть navigation drawer</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_clear_history">Очистить</string>
+
     <string name="app_name">RadonCalc</string>
     <string name="converter_length">Длина</string>
     <string name="converter_dialog_title">Выберите меру</string>
@@ -8,12 +13,14 @@
     <string name="converter_title">Конвертер величин</string>
     <string name="converter_centimeter">Сантиметр</string>
     <string name="converter_speed">Скорость</string>
+    <string name="converter_numsys">Системы счисления</string>
     <string name="converter_send_calc">Отправить в калькулятор</string>
     <string name="converter_sent_to_calculator">Отправлено в калькулятор</string>
     <string name="calculator_choose_parameter">Выберите параметр:</string>
     <string name="calculator_set_a">Значение А</string>
     <string name="calculator_set_b">Значение B</string>
     <string name="calculator_set_c">Значение C</string>
+    <string name="calculator_button_ok">Ок</string>
     <string name="calculator_Illegal_operation">Недопустимая операция</string>
     <string name="calculator_sent_to_converter">Отправлено в конвертер</string>
     <string name="calculator_sent_to_q_equations">Отправлено в квадратные уравнения</string>

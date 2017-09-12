@@ -268,7 +268,8 @@
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/button34"
         android:layout_toEndOf="@+id/button34"
-        android:src="@drawable/ic_history_white_36dp" />
+        android:src="@drawable/ic_history_white_36dp"
+        android:layout_alignParentBottom="true" />
 
     <RelativeLayout
         android:layout_width="match_parent"

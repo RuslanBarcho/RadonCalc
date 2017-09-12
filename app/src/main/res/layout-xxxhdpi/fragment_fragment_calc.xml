@@ -15,7 +15,8 @@
         android:id="@+id/linearLayout"
         android:layout_above="@+id/button16"
         android:background="#019587"
-        android:elevation="5dp">
+        android:elevation="5dp"
+        android:gravity="center">
 
         <HorizontalScrollView
             android:layout_width="match_parent"
@@ -23,7 +24,7 @@
             android:id="@+id/horizontalScrollView"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="0dp"
-            android:layout_alignParentTop="true"
+            android:layout_alignParentTop="false"
             android:layout_marginTop="0dp">
 
             <TextView
@@ -32,7 +33,6 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/textView"
                 android:textSize="48sp"
-                android:gravity="top|left|center"
                 android:textColor="#ffffff"
                 android:paddingStart="9dp"
                 android:paddingEnd="9dp"
@@ -40,7 +40,8 @@
                 android:maxLines="1"
                 android:layout_above="@+id/button16"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:gravity="center" />
         </HorizontalScrollView>
 
         <TextView

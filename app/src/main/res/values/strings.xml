@@ -92,12 +92,4 @@
         <item>Ninefold</item>
     </string-array>
     <string name="converter_dialog_title">Choose Value</string>
-
-
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Calculator fragment</string>
-
-
 </resources>

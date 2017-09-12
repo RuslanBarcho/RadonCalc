@@ -819,6 +819,13 @@ public class FragmentCalc extends Fragment {
         loadHistoryContent(getString(R.string.history_addiction));
         texxtView.setText("");
         Result = OperateA.add(OperateB);
+        Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        if (Result.equals(Equal)){
+
+        }
+        else {
+            removeZerosFromFraction(Result);
+        }
         historyResult = Result.toString();
         textView.setText(Result.toString());
         texxtView.setText(Result.toString());
@@ -829,6 +836,13 @@ public class FragmentCalc extends Fragment {
         loadHistoryContent(getString(R.string.history_subtraction));
         texxtView.setText("");
         Result = OperateA.subtract(OperateB);
+        Equal = Result.setScale(0, BigDecimal.ROUND_HALF_EVEN);
+        if (Result.equals(Equal)){
+
+        }
+        else {
+            removeZerosFromFraction(Result);
+        }
         historyResult = Result.toString();
         textView.setText(Result.toString());
         texxtView.setText(Result.toString());

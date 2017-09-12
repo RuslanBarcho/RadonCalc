@@ -64,8 +64,9 @@ public class ConverterSolver {
                 switch (converter.secondMeasureInt){
                     case 0:
                         numsys.inputValue = inputValue;
-                        numsys.convertToDecimal("5");
+                        numsys.convertToDecimal(String.valueOf(converter.firstMeasureInt + 1));
                         outputValue = numsys.exportToSolver;
+                        //universalConvertNumSys(String.valueOf(converter.firstMeasureInt + 1), String.valueOf(converter.secondMeasureInt + 1));
                         break;
                     default:
                         universalConvertNumSys(String.valueOf(converter.firstMeasureInt + 1), String.valueOf(converter.secondMeasureInt + 1));
